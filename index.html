@@ -16,44 +16,64 @@ body {
 
 /* HEADER */
 header {
-  background:#0b1f3a;
-  color:white;
-  padding:15px 60px;
   display:flex;
   justify-content:space-between;
+  align-items:center;
+  padding:15px 60px;
+  background:white;
+  border-bottom:1px solid #eee;
+}
+
+.logo img {
+  height:60px;
+}
+
+nav {
+  display:flex;
+  gap:30px;
 }
 
 nav a {
-  color:white;
-  margin-left:20px;
   text-decoration:none;
+  color:#333;
+  font-weight:500;
 }
 
-/* HERO SECTION */
+/* HERO */
 .hero {
-  position: relative;
-  height: 90vh;
-  display: flex;
-  align-items: center;
-  color: white;
-  padding: 60px;
-  background:
-    linear-gradient(rgba(11,31,58,0.85), rgba(11,31,58,0.85)),
-    url('hero-image.png') center/cover no-repeat;
+  position:relative;
+  height:90vh;
+  background:url('hero-image.png') center/cover no-repeat;
 }
 
-/* LEFT TEXT */
+/* RIGHT DARK OVERLAY ONLY */
+.hero::after {
+  content:"";
+  position:absolute;
+  right:0;
+  top:0;
+  width:50%;
+  height:100%;
+  background:linear-gradient(to left, rgba(11,31,58,0.95), rgba(11,31,58,0));
+}
+
+/* CONTENT */
 .hero-content {
-  max-width: 600px;
+  position:absolute;
+  right:60px;
+  top:50%;
+  transform:translateY(-50%);
+  color:white;
+  max-width:500px;
 }
 
 .hero h1 {
-  font-size: 48px;
-  line-height: 1.2;
+  font-size:48px;
+  line-height:1.2;
 }
 
 .highlight {
-  color: #c9a227;
+  color:#c9a227;
 }
 
 .hero p {
@@ -62,80 +82,64 @@ nav a {
   color:#ddd;
 }
 
-/* STATS */
-.stats {
-  display:flex;
-  gap:40px;
-  margin-top:30px;
-}
-
-.stats div {
-  font-size:22px;
-}
-
-/* RIGHT PANEL */
-.service-box {
+/* LEFT SERVICE PANEL */
+.service-panel {
   position:absolute;
-  right:60px;
+  left:60px;
   top:50%;
   transform:translateY(-50%);
-  background:rgba(255,255,255,0.1);
+  background:rgba(11,31,58,0.85);
   padding:25px;
   border-radius:10px;
-  width:300px;
+  color:white;
+  width:280px;
 }
 
-.service-box h3 {
+.service-panel h3 {
   margin-bottom:15px;
 }
 
-.service-box a {
+.service-panel a {
   display:block;
-  color:white;
   margin:10px 0;
   text-decoration:none;
-}
-
-/* SERVICES BELOW */
-.section {
-  padding:60px;
-}
-
-.services {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:20px;
-}
-
-.card {
-  border:1px solid #eee;
-  padding:20px;
-}
-
-/* FOOTER */
-footer {
-  background:#0b1f3a;
   color:white;
+}
+
+/* BUTTON */
+.btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:10px;
+  background:#c9a227;
+  color:black;
+  text-decoration:none;
   text-align:center;
-  padding:20px;
 }
 
 /* MOBILE */
 @media(max-width:768px){
-  .hero {
+
+  header {
     flex-direction:column;
-    padding:20px;
+    gap:10px;
   }
 
-  .service-box {
+  nav {
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+
+  .hero-content,
+  .service-panel {
     position:static;
     transform:none;
-    margin-top:20px;
-    width:100%;
+    margin:20px;
   }
 
-  .hero h1 {
-    font-size:32px;
+  .hero {
+    height:auto;
+    padding:40px 0;
   }
 }
 </style>
@@ -143,37 +147,27 @@ footer {
 
 <body>
 
+<!-- HEADER -->
 <header>
-  <div>Sanjay B C & Co.</div>
+  <div class="logo">
+    <img src="logo.png" alt="Sanjay B C & Co.">
+  </div>
+
   <nav>
-    <a href="#">Home</a>
+    <a href="#">About Us</a>
     <a href="#">Services</a>
-    <a href="#">Contact</a>
+    <a href="#">Industries</a>
+    <a href="#">Insights</a>
+    <a href="#">Careers</a>
+    <a href="#">Contact Us</a>
   </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero">
 
-  <!-- LEFT SIDE -->
-  <div class="hero-content">
-    <h1>
-      Trusted Advisors.<br>
-      <span class="highlight">Strategic Impact.</span>
-    </h1>
-
-    <p>
-      Specialized in Tax Litigation, Appeals, Representation and UAE & UK Virtual CFO Services.
-    </p>
-
-    <div class="stats">
-      <div><strong>10+</strong><br>Years</div>
-      <div><strong>200+</strong><br>Clients</div>
-      <div><strong>3</strong><br>Countries</div>
-    </div>
-  </div>
-
-  <!-- RIGHT SIDE PANEL -->
-  <div class="service-box">
+  <!-- LEFT PANEL -->
+  <div class="service-panel">
     <h3>How can we help?</h3>
 
     <a href="#">Appeals & Litigation</a>
@@ -182,44 +176,22 @@ footer {
     <a href="#">UAE CFO Services</a>
     <a href="#">UK CFO Services</a>
 
-    <br>
-    <a href="book.html" style="background:#c9a227; color:black; padding:10px; text-align:center;">
-      Book Consultation
-    </a>
+    <a href="book.html" class="btn">Book Consultation</a>
+  </div>
+
+  <!-- RIGHT TEXT -->
+  <div class="hero-content">
+    <h1>
+      Trusted Advisors.<br>
+      <span class="highlight">Strategic Impact.</span>
+    </h1>
+
+    <p>
+      Specialized in Tax Litigation, Representation and UAE & UK Virtual CFO Services.
+    </p>
   </div>
 
 </section>
-
-<!-- SERVICES -->
-<section class="section">
-  <div class="services">
-
-    <div class="card">
-      <h3>Appeals & Litigation</h3>
-      <p>Tax disputes, ITAT, GST appeals</p>
-    </div>
-
-    <div class="card">
-      <h3>UAE CFO Services</h3>
-      <p>VAT, Corporate Tax, MIS</p>
-    </div>
-
-    <div class="card">
-      <h3>UK CFO Services</h3>
-      <p>Accounts, VAT, Compliance</p>
-    </div>
-
-    <div class="card">
-      <h3>Global Advisory</h3>
-      <p>Cross-border structuring</p>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  © 2026 Sanjay B C & Co. Chartered Accountants
-</footer>
 
 </body>
 </html>
