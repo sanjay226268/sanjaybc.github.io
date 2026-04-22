@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CFO & Tax Advisory Firm</title>
+<title>Sanjay B C & Co. Chartered Accountants</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -31,7 +31,7 @@ header {
 
 .logo {
   font-weight:700;
-  font-size:20px;
+  font-size:18px;
   color:#0b1f3a;
 }
 
@@ -42,26 +42,21 @@ nav a {
   font-weight:500;
 }
 
-nav a:hover { color:#0b1f3a; }
-
 /* HERO */
 .hero {
   padding:120px 60px;
   background:linear-gradient(to right, #0b1f3a, #132c52);
   color:white;
-  text-align:left;
 }
 
 .hero h1 {
-  font-size:48px;
+  font-size:44px;
   max-width:700px;
-  line-height:1.2;
 }
 
 .hero p {
   margin-top:20px;
   font-size:18px;
-  max-width:600px;
   color:#d0d6e0;
 }
 
@@ -69,10 +64,10 @@ nav a:hover { color:#0b1f3a; }
   display:inline-block;
   margin-top:30px;
   padding:14px 28px;
-  background:gold;
+  background:#c9a227;
   color:black;
-  font-weight:600;
   text-decoration:none;
+  font-weight:600;
   border-radius:6px;
 }
 
@@ -82,11 +77,11 @@ nav a:hover { color:#0b1f3a; }
 }
 
 .section h2 {
-  font-size:32px;
+  font-size:30px;
   margin-bottom:30px;
 }
 
-/* SERVICES GRID */
+/* SERVICES */
 .services {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -98,7 +93,6 @@ nav a:hover { color:#0b1f3a; }
   padding:25px;
   border-radius:10px;
   transition:0.3s;
-  background:white;
 }
 
 .card:hover {
@@ -111,7 +105,7 @@ nav a:hover { color:#0b1f3a; }
   color:#0b1f3a;
 }
 
-/* WHY US */
+/* WHY */
 .why {
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -119,38 +113,17 @@ nav a:hover { color:#0b1f3a; }
 }
 
 .why div {
-  padding:20px;
   background:#f8fafc;
+  padding:20px;
   border-radius:8px;
 }
 
-/* FORM */
-.form-section {
+/* CTA */
+.cta {
   background:#0b1f3a;
   color:white;
   text-align:center;
-}
-
-form {
-  max-width:600px;
-  margin:auto;
-}
-
-form input, form select, form textarea {
-  width:100%;
-  padding:12px;
-  margin:10px 0;
-  border:none;
-  border-radius:5px;
-}
-
-form button {
-  width:100%;
-  padding:14px;
-  background:gold;
-  border:none;
-  font-weight:600;
-  cursor:pointer;
+  padding:60px 20px;
 }
 
 /* FOOTER */
@@ -159,14 +132,26 @@ footer {
   color:#bbb;
   padding:30px;
   text-align:center;
-  font-size:14px;
+}
+
+/* WHATSAPP */
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  color: white;
+  padding: 15px;
+  border-radius: 50%;
+  text-decoration: none;
 }
 
 /* RESPONSIVE */
 @media(max-width:768px){
-  .hero h1 { font-size:32px; }
   header { padding:15px 20px; }
+  .hero { padding:80px 20px; }
   .section { padding:60px 20px; }
+  .hero h1 { font-size:32px; }
 }
 </style>
 </head>
@@ -176,93 +161,78 @@ footer {
 <header>
   <div class="logo">Sanjay B C & Co.</div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#">Services</a>
-    <a href="#">Expertise</a>
-    <a href="#">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="blog.html">Insights</a>
+    <a href="contact.html">Contact</a>
   </nav>
 </header>
 
 <section class="hero">
   <h1>Tax Litigation, Appeals & Virtual CFO Services</h1>
-  <p>Specialized in Appeals, Representation, and Global CFO advisory across India, UAE & UK.</p>
-  <a href="#contact" class="btn">Schedule Consultation</a>
+  <p>Specialized in Appeals, Representation and Cross-Border CFO Advisory (UAE & UK)</p>
+
+  <a href="book.html" class="btn">Book Consultation</a>
+  <a href="https://calendly.com/ca-sanjay-sanjaybc/30min" target="_blank" class="btn">Quick Booking</a>
 </section>
 
 <section class="section">
   <h2>Core Practice Areas</h2>
 
   <div class="services">
-    <div class="card">
+    <a href="appeals.html" class="card">
       <h3>Appeals & Litigation</h3>
-      <p>Handling CIT(A), ITAT and GST appeals with structured legal and financial strategy.</p>
-    </div>
+      <p>Income Tax & GST Appeals, ITAT representation</p>
+    </a>
 
-    <div class="card">
+    <a href="representation.html" class="card">
       <h3>Representation</h3>
-      <p>End-to-end handling of notices, scrutiny, reassessments and hearings.</p>
-    </div>
+      <p>Scrutiny, notices, reassessments & hearings</p>
+    </a>
 
-    <div class="card">
+    <a href="taxation.html" class="card">
       <h3>Direct & Indirect Tax</h3>
-      <p>Corporate tax, GST advisory, compliance and tax structuring.</p>
-    </div>
+      <p>Corporate tax, GST & advisory</p>
+    </a>
 
-    <div class="card">
-      <h3>UAE & UK CFO Services</h3>
-      <p>Financial reporting, VAT, corporate tax and strategic advisory.</p>
-    </div>
+    <a href="uae-cfo.html" class="card">
+      <h3>UAE Virtual CFO</h3>
+    </a>
+
+    <a href="uk-cfo.html" class="card">
+      <h3>UK Virtual CFO</h3>
+    </a>
   </div>
 </section>
 
 <section class="section">
-  <h2>Why Work With Us</h2>
+  <h2>Why Choose Us</h2>
 
   <div class="why">
-    <div>Specialized litigation & tax expertise</div>
-    <div>India + UAE + UK coverage</div>
+    <div>Specialized in Tax Litigation & Appeals</div>
+    <div>India, UAE & UK expertise</div>
     <div>Strategic CFO advisory approach</div>
-    <div>Professional & confidential service</div>
+    <div>Confidential & professional service</div>
   </div>
 </section>
 
 <section class="section">
   <h2>Tax Regulations & Advisory</h2>
-  <p>Expert interpretation of tax laws, cross-border structuring, and regulatory advisory for complex business transactions.</p>
+  <p>Expert interpretation of tax laws, cross-border structuring and regulatory advisory for complex transactions.</p>
 </section>
 
-<section id="contact" class="section form-section">
-  <h2>Schedule a Consultation</h2>
-
-  <form action="https://formspree.io/f/yourformid" method="POST">
-    <input type="text" name="name" placeholder="Full Name" required>
-    <input type="email" name="email" placeholder="Email Address" required>
-    <input type="text" name="phone" placeholder="Phone / WhatsApp">
-
-    <select name="service">
-      <option>Select Service</option>
-      <option>Appeals & Litigation</option>
-      <option>Representation</option>
-      <option>Taxation</option>
-      <option>Virtual CFO</option>
-    </select>
-
-    <select name="country">
-      <option>Select Country</option>
-      <option>India</option>
-      <option>UAE</option>
-      <option>UK</option>
-    </select>
-
-    <textarea name="message" placeholder="Brief about your requirement"></textarea>
-
-    <button type="submit">Get Consultation</button>
-  </form>
+<section class="cta">
+  <h2>Discuss Your Case or Business Requirement</h2>
+  <p>Schedule a consultation to get professional guidance</p>
+  <a href="book.html" class="btn">Book Now</a>
 </section>
 
 <footer>
-  © 2026 Sanjay B C & Co. | CFO & Tax Advisory | India | UAE | UK
+  © 2026 Sanjay B C & Co. Chartered Accountants | India | UAE | UK
 </footer>
+
+<a href="https://wa.me/919738081962" class="whatsapp" target="_blank">💬</a>
 
 </body>
 </html>
