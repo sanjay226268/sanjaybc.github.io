@@ -290,91 +290,259 @@
     <a href="book.html" class="nav-cta">Want to Consult Us ?</a>
   </div>
 </nav>
-
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Chartered Accountants</div>
+      <h1 class="hero-title">Insights That
+        <span>Empower Business</span>
+      </h1>
+      <p class="hero-desc">Expert guidance on tax, finance
+        & regulatory compliance — India, UAE & UK.</p>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-num">20+</div>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">500+</div>
+          <div class="stat-label">Clients Served</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">3</div>
+          <div class="stat-label">Countries</div>
+        </div>
+      </div>
+    </div>
+    <!-- hero panel goes here -->
+  </div>
+</section>
+ 
 /* HERO */
-  .hero {
-    min-height: 540px;
-    position: relative;
-    display: flex;
-    align-items: stretch;
-    overflow: hidden;
-  }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-  }
-  .hero-bg::after {
+.hero {
+  min-height: 540px;
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-bg::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(
     100deg,
-    rgba(255,255,255,0.55) 0%,
-    rgba(255,255,255,0.35) 35%,
-    rgba(255,255,255,0.15) 65%,
-    rgba(255,255,255,0.05) 100%
+    rgba(255, 255, 255, 0.55) 0%,
+    rgba(255, 255, 255, 0.35) 35%,
+    rgba(255, 255, 255, 0.15) 65%,
+    rgba(255, 255, 255, 0.05) 100%
   );
 }
-  .hero-content {
-    position: relative; z-index: 2;
-    display: flex;
-    width: 100%;
-    padding: 56px 48px;
-    gap: 40px;
-    align-items: center;
-   justify-content: space-between;
-  }
-  .hero-left { flex: 1; max-width: 520px; }
-  .hero-eyebrow {
-    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-    color: var(--gold); font-weight: 500; margin-bottom: 18px;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .hero-eyebrow::before { content: ''; display: block; width: 32px; height: 1px; background: var(--gold); }
-  .hero-title {
-    font-family: var(--serif);
-    font-size: clamp(42px, 5vw, 62px);
-    font-weight: 500;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 6px;
-  }
-  .hero-title span { color: var(--gold-light); font-style: italic; display: block; }
-  .hero-desc {
-    font-size: 14.5px; line-height: 1.75;
-    color: rgba(255,255,255,0.65);
-    margin: 22px 0 34px;
-    max-width: 420px;
-  }
-  .hero-stats { display: flex; gap: 0; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 28px; }
-  .stat { flex: 1; border-right: 1px solid rgba(255,255,255,0.1); padding: 0 28px 0 0; margin-right: 28px; }
-  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
-  .stat-num { font-family: var(--serif); font-size: 36px; font-weight: 500; color: var(--gold-light); line-height: 1; }
-  .stat-label { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.04em; margin-top: 4px; }
 
-  /* HERO PANEL */
-  .hero-panel {
-    width: 320px; flex-shrink: 0;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 4px;
-    padding: 28px;
-    align-self: center;
-  }
-  .panel-title { font-size: 13px; font-weight: 500; color: var(--white); letter-spacing: 0.03em; margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid rgba(255,255,255,0.1); }
-  .panel-item { display: flex; align-items: center; gap: 12px; padding: 11px 0; border-bottom: 1px solid rgba(255,255,255,0.07); cursor: pointer; transition: all 0.2s; text-decoration: none; }
-  .panel-item:last-of-type { border-bottom: none; }
-  .panel-item:hover .panel-item-title { color: var(--gold-light); }
-  .panel-icon { width: 36px; height: 36px; background: rgba(184,146,42,0.15); border-radius: 3px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .panel-icon svg { width: 16px; height: 16px; stroke: var(--gold-light); fill: none; stroke-width: 1.5; }
-  .panel-item-title { font-size: 13px; font-weight: 500; color: var(--white); line-height: 1.2; }
-  .panel-item-sub { font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 2px; }
-  .panel-arrow { margin-left: auto; color: var(--gold); font-size: 14px; }
-  .panel-cta { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--gold); color: var(--white); font-size: 13px; font-weight: 500; padding: 13px; border-radius: 2px; margin-top: 18px; text-decoration: none; transition: background 0.2s; letter-spacing: 0.03em; }
-  .panel-cta:hover { background: var(--gold-light); }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  width: 100%;
+  padding: 56px 48px;
+  gap: 40px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero-left {
+  flex: 1;
+  max-width: 520px;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 5vw, 62px);
+  font-weight: 500;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.hero-title span {
+  color: var(--gold-light);
+  font-style: italic;
+  display: block;
+}
+
+.hero-desc {
+  font-size: 14.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.65);
+  margin: 22px 0 34px;
+  max-width: 420px;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 28px;
+}
+
+.stat {
+  flex: 1;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 0 28px 0 0;
+  margin-right: 28px;
+}
+
+.stat:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.stat-num {
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 500;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.45);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+/* HERO PANEL */
+
+.hero-panel {
+  width: 320px;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 28px;
+  align-self: center;
+}
+
+.panel-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.panel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.panel-item:last-of-type {
+  border-bottom: none;
+}
+
+.panel-item:hover .panel-item-title {
+  color: var(--gold-light);
+}
+
+.panel-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(184, 146, 42, 0.15);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.panel-icon svg {
+  width: 16px;
+  height: 16px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.panel-item-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.panel-item-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 2px;
+}
+
+.panel-arrow {
+  margin-left: auto;
+  color: var(--gold);
+  font-size: 14px;
+}
+
+.panel-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--gold);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 13px;
+  border-radius: 2px;
+  margin-top: 18px;
+  text-decoration: none;
+  transition: background 0.2s;
+  letter-spacing: 0.03em;
+}
+
+.panel-cta:hover {
+  background: var(--gold-light);
+}
  
 <!-- SERVICES -->
 <section class="services-section">
