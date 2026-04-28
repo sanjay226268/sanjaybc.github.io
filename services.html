@@ -1,38 +1,310 @@
-<header>
-  <div class="logo">BC Advisory</div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="case-studies.html">Case Studies</a>
-    <a href="blog.html">Insights</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-</header>
-<section class="section">
-  <h1>Our Services</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanjay B C & Co | Chartered Accountants</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
-  <div class="services">
-    <a href="appeals.html" class="card">
-      <h3>Appeals & Litigation</h3>
-      <p>Tax disputes, ITAT, GST appeals</p>
-    </a>
+    <style>
+        /* 1. VARIABLES & RESET */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        :root {
+            /* The "Professional Suite" Palette */
+            --navy: #0A192F;        /* Deep, stable Navy */
+            --gold: #B8922A;        /* Muted Professional Gold */
+            --white: #ffffff;
+            --off-white: #F9F7F2;   /* Premium paper-like tint */
+            --text-main: #2D3A4A;   /* Sharp charcoal for text */
+            
+            /* Typography */
+            --serif: 'Playfair Display', serif;
+            --sans: 'Inter', sans-serif;
+        }
 
-    <a href="representation.html" class="card">
-      <h3>Representation</h3>
-      <p>Notices, scrutiny & hearings</p>
-    </a>
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: var(--sans); 
+            background: var(--white); 
+            color: var(--navy); 
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
 
-    <a href="taxation.html" class="card">
-      <h3>Direct & Indirect Tax</h3>
-      <p>Compliance & advisory</p>
-    </a>
+        /* 2. HEADER & NAVIGATION */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 0 5%;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
+        }
 
-    <a href="uae-cfo.html" class="card">
-      <h3>UAE CFO</h3>
-    </a>
+        .nav-container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    <a href="uk-cfo.html" class="card">
-      <h3>UK CFO</h3>
-    </a>
-  </div>
-</section>
+        .logo-wrap img {
+            height: 65px; /* Adjust based on your actual logo file */
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--navy);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 15px;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--gold);
+            color: white !important;
+            padding: 10px 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 12px;
+            margin-left: 10px;
+        }
+
+        .nav-cta:hover {
+            background: var(--navy);
+        }
+
+        /* 3. SERVICES SECTION */
+        .services-section {
+            background: var(--off-white);
+            padding: 100px 5%;
+            border-top: 4px solid var(--gold);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-header span {
+            color: var(--gold);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            font-size: 12px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .section-header h1 {
+            font-family: var(--serif);
+            font-size: 42px;
+            color: var(--navy);
+            font-weight: 700;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            max-width: 1400px;
+            margin: 0 auto;
+            background: rgba(0,0,0,0.03); /* This creates the thin divider lines */
+            gap: 1px;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .service-card {
+            background: var(--off-white); /* Match section bg */
+            padding: 60px 40px;
+            text-decoration: none;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            background: var(--white);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            transform: translateY(-5px);
+            z-index: 1;
+        }
+
+        /* Icons */
+        .svc-icon {
+            width: 55px;
+            height: 55px;
+            border: 1px solid var(--gold);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .svc-icon svg {
+            width: 26px;
+            height: 26px;
+            stroke-width: 1.5px;
+        }
+
+        /* Card Content */
+        .svc-title {
+            font-family: var(--serif);
+            font-size: 24px;
+            color: var(--navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .svc-items {
+            list-style: none;
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .svc-items li {
+            font-size: 14px;
+            color: var(--text-main);
+            padding: 6px 0 6px 20px;
+            position: relative;
+        }
+
+        .svc-items li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .explore-link {
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--navy);
+            border-bottom: 2px solid var(--gold);
+            width: fit-content;
+            padding-bottom: 4px;
+            transition: 0.3s;
+        }
+
+        .service-card:hover .explore-link {
+            letter-spacing: 0.18em;
+            color: var(--gold);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .services-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .services-grid { grid-template-columns: 1fr; }
+            .section-header h1 { font-size: 32px; }
+            header { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo-wrap">
+                <img src="logo.png" alt="Sanjay B C & Co">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="case-studies.html">Case Studies</a>
+                <a href="blog.html">Insights</a>
+                <a href="contact.html" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="services-section">
+        <div class="section-header">
+            <span>Our Expertise</span>
+            <h1>Comprehensive Financial Solutions</h1>
+        </div>
+
+        <div class="services-grid">
+            <a href="appeals.html" class="service-card">
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                </div>
+                <h3 class="svc-title">Appeals & Litigation</h3>
+                <ul class="svc-items">
+                    <li>Income Tax Disputes</li>
+                    <li>ITAT Representation</li>
+                    <li>GST Appeals & Orders</li>
+                </ul>
+                <div class="explore-link">View Details</div>
+            </a>
+
+            <a href="representation.html" class="service-card">
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="svc-title">Representation</h3>
+                <ul class="svc-items">
+                    <li>Notice & Scrutiny Response</li>
+                    <li>Hearing Assistance</li>
+                    <li>Department Liaising</li>
+                </ul>
+                <div class="explore-link">View Details</div>
+            </a>
+
+            <a href="taxation.html" class="service-card">
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <h3 class="svc-title">Tax Advisory</h3>
+                <ul class="svc-items">
+                    <li>Direct & Indirect Taxation</li>
+                    <li>Statutory Compliance</li>
+                    <li>Tax Planning Strategy</li>
+                </ul>
+                <div class="explore-link">View Details</div>
+            </a>
+
+            <a href="uae-cfo.html" class="service-card">
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
+                </div>
+                <h3 class="svc-title">Virtual CFO</h3>
+                <ul class="svc-items">
+                    <li>UAE Corporate Tax</li>
+                    <li>UK Financial Management</li>
+                    <li>Global Compliance</li>
+                </ul>
+                <div class="explore-link">View Details</div>
+            </a>
+        </div>
+    </section>
+
+</body>
+</html>
