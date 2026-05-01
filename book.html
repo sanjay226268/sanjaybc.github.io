@@ -3,65 +3,144 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sanjay B C & Co. | Book Consultation</title>
+<title>Contact & Consultation | Sanjay B C & Co</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* RESET */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  margin: 0;
   font-family: 'Inter', sans-serif;
   background: #f8fafc;
+  color: #1e2a38;
 }
 
 /* HEADER */
-.header {
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  padding: 15px 5%;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo-wrap img {
+  height: 60px;
+}
+
+.nav-menu a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: #1e2a38;
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  color: #b8922a;
+}
+
+.nav-cta {
+  background: #b8922a;
+  color: white !important;
+  padding: 8px 16px;
+  border-radius: 5px;
+}
+
+/* HERO */
+.hero {
   background: linear-gradient(to right, #0b1f3a, #132c52);
   color: white;
   text-align: center;
-  padding: 80px 20px 60px;
+  padding: 70px 20px;
 }
 
-.header h1 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-.header h2 {
-  font-size: 34px;
+.hero h1 {
+  font-size: 36px;
   margin-bottom: 10px;
 }
 
-.header p {
-  font-size: 16px;
+.hero p {
   color: #d0d6e0;
+  font-size: 16px;
 }
 
-/* SECTION */
+/* MAIN SECTION */
 .section {
-  max-width: 900px;
-  margin: -40px auto 60px;
+  max-width: 1100px;
+  margin: -50px auto 50px;
   background: white;
-  padding: 30px;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+/* LEFT SIDE */
+.info-box h3 {
+  margin-bottom: 10px;
+}
+
+.info-box p {
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #555;
+}
+
+.contact-detail {
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+/* BOOKING BOX */
+.booking-box {
+  background: #ffffff;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
-/* IFRAME */
-iframe {
-  width: 100%;
-  height: 650px;
-  border: none;
+.booking-header {
+  text-align: center;
+  margin-bottom: 15px;
 }
 
-/* NOTE */
-.note {
-  text-align: center;
+.booking-header h3 {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.booking-header p {
   font-size: 14px;
+  color: #666;
+}
+
+iframe {
+  width: 100%;
+  height: 520px;
+  border: none;
+  border-radius: 8px;
+}
+
+.booking-footer {
+  text-align: center;
+  font-size: 13px;
   color: #555;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 /* FOOTER */
@@ -69,35 +148,99 @@ iframe {
   text-align: center;
   font-size: 13px;
   color: #777;
-  margin-bottom: 30px;
+  margin: 30px 0;
 }
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 
 <body>
 
-<div class="header">
-  <h1>SANJAY B C & CO. | CHARTERED ACCOUNTANTS</h1>
-  <h2>Book a Free 30-Minute Consultation</h2>
-  <p>Appeals | Representation | Taxation | UAE & UK CFO Services</p>
-</div>
+<!-- HEADER -->
+<header class="main-header">
+  <div class="nav-container">
 
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co">
+    </a>
+
+    <nav class="nav-menu">
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </nav>
+
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Book a Consultation</h1>
+  <p>Professional advice on Tax, Litigation & Global Compliance</p>
+</section>
+
+<!-- MAIN -->
 <div class="section">
 
-  <p style="text-align:center; margin-bottom:15px;">
-    Select a convenient time slot below
-  </p>
+  <div class="grid">
 
-  <iframe src="https://calendly.com/ca-sanjay-sanjaybc/30min"></iframe>
+    <!-- LEFT SIDE -->
+    <div class="info-box">
+      <h3>Why Consult With Us?</h3>
+      <p>Get practical, legally compliant solutions tailored to your business and tax needs.</p>
 
-  <p class="note">
-    ✔ Confidential discussion | ✔ No obligation | ✔ Professional advisory
-  </p>
+      <div class="contact-detail">
+        📧 Email: ca.sanjay@sanjaybc.com
+      </div>
+
+      <div class="contact-detail">
+        📱 WhatsApp: 9738081962
+      </div>
+
+      <p>
+        ✔ Confidential discussion <br>
+        ✔ No obligation <br>
+        ✔ Experienced advisory
+      </p>
+
+      <p style="margin-top:20px;">
+        You may also share documents during the consultation or via email/WhatsApp.
+      </p>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="booking-box">
+
+      <div class="booking-header">
+        <h3>Schedule Your Consultation</h3>
+        <p>Select a convenient time slot below</p>
+      </div>
+
+      <iframe src="https://calendly.com/ca-sanjay-sanjaybc/30min"></iframe>
+
+      <div class="booking-footer">
+        <p>✔ Instant confirmation | ✔ Secure & confidential</p>
+      </div>
+
+    </div>
+
+  </div>
 
 </div>
 
+<!-- FOOTER -->
 <div class="footer">
-  © 2026 Sanjay B C & Co. Chartered Accountants
+  © 2026 Sanjay B C & Co. Chartered Accountants | ICAI Guidelines Compliant
 </div>
 
 </body>
