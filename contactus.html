@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us | Sanjay B C & Co</title>
+
+<!-- EMAILJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f7f9fc;
+}
+
+/* HEADER */
+.main-header {
+  background: #fff;
+  border-bottom: 1px solid #ddd;
+}
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo-wrap img { height: 60px; }
+.nav-menu { display: flex; gap: 20px; }
+.nav-menu a { text-decoration: none; color: #1e2a38; }
+.nav-cta {
+  background: #b8922a;
+  color: white !important;
+  padding: 8px 15px;
+}
+
+/* PAGE */
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e2a38;
+}
+
+/* FORM */
+form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background: #b8922a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+}
+
+/* CONTACT INFO */
+.contact-info {
+    margin-bottom: 30px;
+    text-align: center;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="main-header">
+  <div class="nav-container">
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png">
+    </a>
+    <nav class="nav-menu">
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contact.html" class="nav-cta">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<div class="container">
+
+<h1>Contact / Careers</h1>
+
+<div class="contact-info">
+<p>Email: ca.sanjay@sanjaybc.com</p>
+<p>WhatsApp: 9738081962</p>
+</div>
+
+<form id="contactForm">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="tel" name="phone" placeholder="Your Contact Number" required>
+
+<textarea name="message" placeholder="Your Message / Job Application Details" rows="5" required></textarea>
+
+<label>Upload File (PDF/Image only, max 2MB)</label>
+<input type="file" id="file" accept=".pdf,image/*">
+
+<button type="submit">Submit</button>
+
+</form>
+
+</div>
+
+<script>
+// INIT EMAILJS
+(function(){
+emailjs.init("YOUR_PUBLIC_KEY"); // replace
+})();
+
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+e.preventDefault();
+
+let file = document.getElementById("file").files[0];
+
+// FILE VALIDATION
+if(file){
+    if(file.size > 2 * 1024 * 1024){
+        alert("File too large (max 2MB)");
+        return;
+    }
+
+    let allowed = ["application/pdf","image/jpeg","image/png"];
+    if(!allowed.includes(file.type)){
+        alert("Only PDF or images allowed");
+        return;
+    }
+}
+
+// EMAIL SEND
+emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    message: this.message.value
+}).then(function(){
+    alert("Message sent successfully!");
+
+    // WHATSAPP REDIRECT
+    let msg = `New Enquiry:
+Name: ${document.getElementsByName('name')[0].value}
+Phone: ${document.getElementsByName('phone')[0].value}`;
+
+    window.open(`https://wa.me/919738081962?text=${encodeURIComponent(msg)}`, '_blank');
+
+}, function(error){
+    alert("Failed to send");
+});
+
+});
+</script>
+
+</body>
+</html>
