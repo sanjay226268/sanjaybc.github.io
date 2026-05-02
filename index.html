@@ -258,21 +258,24 @@
   transform: translateY(-1px); /* Subtle lift effect */
 }
 
-  /* SERVICES */
-  .services-section { background: var(--off-white); border-top: 3px solid var(--gold); }
-  .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
-  .service-card { padding: 40px 32px; border-right: 1px solid rgba(13,27,46,0.08); transition: background 0.2s; cursor: pointer; }
-  .service-card:last-child { border-right: none; }
-  .service-card:hover { background: var(--white); }
-  .service-card:hover .explore-link { color: var(--gold); }
-  .svc-icon { width: 52px; height: 52px; border: 1.5px solid var(--gold); border-radius: 3px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
-  .svc-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-  .svc-title { font-family: var(--serif); font-size: 20px; font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 16px; }
-  .svc-items { list-style: none; }
-  .svc-items li { font-size: 12.5px; color: #4a5a6e; padding: 4px 0 4px 14px; position: relative; }
-  .svc-items li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 14px; }
-  .explore-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--navy); margin-top: 20px; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
-  .explore-link::after { content: '→'; }
+/* SERVICES */
+.services-section { background: var(--off-white); border-top: 3px solid var(--gold); padding: 56px 48px; }
+.services-section .sec-head { text-align: center; margin-bottom: 40px; }
+.services-section .sec-head .sec-label { font-size: 11px; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; font-weight: 500; margin-bottom: 8px; }
+.services-section .sec-head h2 { font-family: var(--serif); font-size: 32px; font-weight: 500; color: var(--navy); margin: 0; }
+.services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; max-width: 1200px; margin: 0 auto; }
+.service-card { background: var(--white); border-radius: 12px; padding: 28px 24px; border: 1px solid rgba(13,27,46,0.1); border-top: 3px solid var(--gold); transition: box-shadow 0.2s, transform 0.2s; cursor: pointer; display: flex; flex-direction: column; }
+.service-card:hover { box-shadow: 0 8px 28px rgba(13,27,46,0.10); transform: translateY(-3px); }
+.svc-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; flex-shrink: 0; }
+.svc-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
+.svc-title { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+.svc-items { list-style: none; flex: 1; }
+.svc-items li { font-size: 12.5px; color: #4a5a6e; padding: 6px 0 6px 14px; position: relative; border-bottom: 0.5px solid #f0ece4; line-height: 1.45; }
+.svc-items li:last-child { border-bottom: none; }
+.svc-items li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 15px; line-height: 1.2; font-weight: 700; }
+.explore-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--gold); margin-top: 18px; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.explore-link::after { content: '→'; transition: transform 0.2s; }
+.service-card:hover .explore-link::after { transform: translateX(3px); }
 
   /* TRUST BAR */
   .trust-bar { background: var(--navy); padding: 36px 48px; display: flex; justify-content: space-between; align-items: center; gap: 32px; }
@@ -383,7 +386,12 @@
  
 
 <!-- SERVICES -->
+<!-- SERVICES -->
 <section class="services-section">
+  <div class="sec-head">
+    <p class="sec-label">What we do</p>
+    <h2>Our Practice Areas</h2>
+  </div>
   <div class="services-grid">
     <div class="service-card">
       <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h12"/></svg></div>
