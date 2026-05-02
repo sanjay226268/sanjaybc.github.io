@@ -1,262 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact Us | Sanjay B C & Co</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | Sanjay B C &amp; Co</title>
+  <link rel="icon" href="https://sanjaybc.com/favicon.ico" type="image/x-icon"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-<!-- EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    :root {
+      --navy:   #1a2340;
+      --gold:   #b8922a;
+      --gold-lt:#d4a83a;
+      --cream:  #f7f4ef;
+      --white:  #ffffff;
+      --text:   #2c2c2c;
+      --muted:  #6b6b6b;
+      --border: #ddd8ce;
+    }
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background: #f7f9fc;
-    color: #333;
-}
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      min-height: 100vh;
+    }
 
-/* HEADER */
-.main-header {
-  background: #fff;
-  border-bottom: 1px solid #ddd;
-}
-.nav-container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 12px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo-wrap img { height: 60px; }
-.nav-menu { display: flex; gap: 20px; }
-.nav-menu a { text-decoration: none; color: #1e2a38; font-weight: 500; }
-.nav-menu a:hover { color: #b8922a; }
-.nav-cta {
-  background: #b8922a;
-  color: white !important;
-  padding: 8px 15px;
-}
+    /* ── NAV ── */
+    nav {
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 70px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav a.logo img { height: 40px; display: block; }
+    nav ul { list-style: none; display: flex; gap: 32px; }
+    nav ul li a {
+      color: rgba(255,255,255,0.82);
+      text-decoration: none;
+      font-size: 13.5px;
+      letter-spacing: 0.04em;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    nav ul li a:hover,
+    nav ul li a.active { color: var(--gold-lt); }
 
-/* PAGE */
-.container {
-    max-width: 900px;
-    margin: auto;
-    padding: 40px 20px;
-}
+    /* ── HERO STRIP ── */
+    .hero-strip {
+      background: var(--navy);
+      color: white;
+      text-align: center;
+      padding: 56px 24px 48px;
+      border-bottom: 3px solid var(--gold);
+    }
+    .hero-strip h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      margin-bottom: 14px;
+    }
+    .hero-strip p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
 
-/* INTRO */
-.intro {
-    text-align: center;
-    margin-bottom: 30px;
-}
-.intro h1 {
-    color: #1e2a38;
-}
-.intro p {
-    font-size: 15px;
-}
+    /* ── MAIN LAYOUT ── */
+    .page-wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 56px 24px 80px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
 
-/* SERVICE BOX */
-.why-contact {
-    background: #fff;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 8px;
-}
-.why-contact h2 {
-    margin-top: 0;
-}
-.why-contact ul {
-    padding-left: 20px;
-}
+    /* ── SIDEBAR ── */
+    .sidebar { display: flex; flex-direction: column; gap: 28px; }
 
-/* CONTACT INFO */
-.contact-box {
-    background: #eef3f8;
-    padding: 15px;
-    margin-bottom: 25px;
-    border-radius: 6px;
-}
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    .info-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--gold);
+    }
+    .info-card ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .info-card ul li {
+      font-size: 13.5px;
+      color: var(--muted);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .info-card ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 11px;
+      top: 1px;
+    }
 
-/* TRUST */
-.trust-note {
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 20px;
-}
+    .contact-detail {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 24px;
+    }
+    .contact-detail h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 1.5px solid var(--gold);
+    }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .contact-row:last-child { margin-bottom: 0; }
+    .contact-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-icon svg { width: 16px; height: 16px; fill: var(--gold); }
+    .contact-text { font-size: 13.5px; line-height: 1.5; }
+    .contact-text span { display: block; color: var(--muted); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
+    .contact-text a { color: var(--navy); text-decoration: none; font-weight: 500; }
+    .contact-text a:hover { color: var(--gold); }
 
-/* FORM */
-form {
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
+    .note-card {
+      background: #f0ece4;
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 18px;
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
 
-label {
-    font-weight: 600;
-}
+    /* ── FORM SECTION ── */
+    .form-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .form-header {
+      background: var(--navy);
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .form-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: white;
+    }
+    .form-header .tag {
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 10px;
+      border-radius: 20px;
+      letter-spacing: 0.04em;
+    }
 
-input, textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 15px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-}
+    .form-body {
+      padding: 0;
+    }
+    .form-body iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      min-height: 720px;
+    }
 
-.file-note {
-    font-size: 12px;
-    color: gray;
-    margin-bottom: 10px;
-}
+    .form-footer {
+      padding: 16px 32px;
+      background: #f7f4ef;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .form-footer svg { width: 14px; height: 14px; fill: var(--gold); flex-shrink: 0; }
 
-button {
-    background: #b8922a;
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    cursor: pointer;
-    border-radius: 5px;
-}
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.55);
+      text-align: center;
+      padding: 22px 24px;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+    footer a { color: var(--gold-lt); text-decoration: none; }
 
-.cta-note {
-    font-size: 13px;
-    color: #777;
-    margin-top: 10px;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    font-size: 12px;
-    margin-top: 40px;
-    color: gray;
-}
-</style>
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-wrap { grid-template-columns: 1fr; gap: 32px; }
+      nav { padding: 0 20px; }
+      nav ul { gap: 16px; }
+      .form-header { padding: 18px 20px; }
+    }
+    @media (max-width: 560px) {
+      nav ul { display: none; }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- HEADER -->
-<header class="main-header">
-  <div class="nav-container">
-    <a href="index.html" class="logo-wrap">
-      <img src="logo1.png" alt="Sanjay B C & Co">
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="index.html">
+      <img src="logo1.png" alt="Sanjay B C & Co"/>
     </a>
-    <nav class="nav-menu">
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="resources.html">Resources</a>
-      <a href="insights.html">Insights</a>
-      <a href="careers.html">Careers</a>
-      <a href="contact.html" class="nav-cta">Contact Us</a>
-    </nav>
+    <ul>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="insights.html">Insights</a></li>
+      <li><a href="careers.html">Careers</a></li>
+      <li><a href="contactus.html" class="active">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-strip">
+    <h1>Connect with Us</h1>
+    <p>Whether you require assistance in tax litigation, compliance, or Virtual CFO services across India, UAE, and UK — we are here to support you with clarity and professionalism.</p>
   </div>
-</header>
 
-<div class="container">
+  <!-- MAIN -->
+  <div class="page-wrap">
 
-<!-- INTRO -->
-<div class="intro">
-  <h1>Connect with Us</h1>
-  <p>
-  Whether you require assistance in <strong>tax litigation, compliance, or Virtual CFO services</strong> 
-  across India, UAE, and UK — we are here to support you with clarity and professionalism.
-  </p>
-</div>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="info-card">
+        <h3>How We Can Assist</h3>
+        <ul>
+          <li>Tax Litigation &amp; Appeals (Income Tax &amp; GST)</li>
+          <li>Direct &amp; Indirect Tax Advisory</li>
+          <li>Virtual CFO &amp; Financial Strategy</li>
+          <li>India – UAE – UK Compliance Support</li>
+        </ul>
+      </div>
 
-<!-- SERVICES -->
-<div class="why-contact">
-  <h2>How We Can Assist You</h2>
-  <ul>
-    <li>Tax Litigation & Appeals (Income Tax & GST)</li>
-    <li>Direct & Indirect Tax Advisory</li>
-    <li>Virtual CFO & Financial Strategy</li>
-    <li>India – UAE – UK Compliance Support</li>
-  </ul>
-</div>
+      <div class="contact-detail">
+        <h3>Reach Us Directly</h3>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <div class="contact-text">
+            <span>Email</span>
+            <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.124.554 4.122 1.528 5.858L.057 23.5l5.805-1.524A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.891 0-3.659-.498-5.187-1.367l-.371-.22-3.444.904.919-3.352-.241-.386A9.94 9.94 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+          </div>
+          <div class="contact-text">
+            <span>WhatsApp</span>
+            <a href="https://wa.me/919738081962" target="_blank">+91 97380 81962</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="contact-text">
+            <span>Location</span>
+            <span style="color:var(--text);font-size:13.5px;">Bengaluru, India</span>
+          </div>
+        </div>
+      </div>
 
-<!-- CONTACT INFO -->
-<div class="contact-box">
-  <p><strong>Email:</strong> ca.sanjay@sanjaybc.com</p>
-  <p><strong>WhatsApp:</strong> +91 97380 81962</p>
-  <p><strong>Location:</strong> Bengaluru, India</p>
-</div>
+      <div class="note-card">
+        All communications are treated with strict confidentiality and handled in accordance with ICAI professional standards. We typically respond within 24–48 hours.
+      </div>
+    </aside>
 
-<!-- TRUST -->
-<div class="trust-note">
-  All communications are treated with strict confidentiality and handled in accordance with ICAI professional standards.
-</div>
+    <!-- FORM -->
+    <div class="form-section">
+      <div class="form-header">
+        <h2>Send Us a Message</h2>
+        <span class="tag">Powered by Google Forms</span>
+      </div>
+      <div class="form-body">
+        <iframe
+          src="https://docs.google.com/forms/d/e/1FAIpQLScTlInP3DVhN2k9O5iqEHXS-dYDsZra07eZrPfOifKyZaJa8w/viewform?embedded=true"
+          width="100%"
+          height="750"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0"
+          title="Contact Us Form">
+          Loading form…
+        </iframe>
+      </div>
+      <div class="form-footer">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+        Your information is secure and will never be shared with third parties.
+      </div>
+    </div>
 
-<div style="width:100%; max-width:700px; margin:0 auto;">
-  <iframe 
-    src="https://docs.google.com/forms/d/e/1FAIpQLScTlInP3DVhN2k9O5iqEHXS-dYDsZra07eZrPfOifKyZaJa8w/viewform?usp=publish-editor" 
-    width="100%" 
-    height="900" 
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0"
-    style="border-radius:8px;">
-    Loading…
-  </iframe>
-</div>
+  </div>
 
-
-<div class="footer">
-© 2026 Sanjay B C & Co | Chartered Accountants
-</div>
-
-<script>
-// INIT EMAILJS
-(function(){
-emailjs.init("YOUR_PUBLIC_KEY"); // replace
-})();
-
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-e.preventDefault();
-
-let file = document.getElementById("file").files[0];
-
-// FILE VALIDATION
-if(file){
-    if(file.size > 2 * 1024 * 1024){
-        alert("File too large (max 2MB)");
-        return;
-    }
-
-    let allowed = ["application/pdf","image/jpeg","image/png"];
-    if(!allowed.includes(file.type)){
-        alert("Only PDF or images allowed");
-        return;
-    }
-}
-
-// SEND EMAIL
-emailjs.send("YOUR_SERVICE_ID","YOUR_TEMPLATE_ID",{
-    name: this.name.value,
-    email: this.email.value,
-    phone: this.phone.value,
-    message: this.message.value
-}).then(function(){
-    alert("Message sent successfully!");
-
-    // WHATSAPP
-    let msg = `New Enquiry:
-Name: ${document.getElementsByName('name')[0].value}
-Phone: ${document.getElementsByName('phone')[0].value}`;
-
-    window.open(`https://wa.me/919738081962?text=${encodeURIComponent(msg)}`, '_blank');
-
-}, function(){
-    alert("Failed to send message");
-});
-
-});
-</script>
+  <!-- FOOTER -->
+  <footer>
+    © 2026 Sanjay B C &amp; Co | Chartered Accountants &nbsp;·&nbsp;
+    <a href="https://sanjaybc.com">sanjaybc.com</a>
+  </footer>
 
 </body>
 </html>
