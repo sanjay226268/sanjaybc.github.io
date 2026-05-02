@@ -28,29 +28,41 @@
     }
 
     /* ── NAV ── */
-    nav {
-      background: var(--navy);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 48px;
-      height: 70px;
+    .main-header {
+      background: var(--white);
+      border-bottom: 1px solid #ddd;
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
-    nav a.logo img { height: 40px; display: block; }
-    nav ul { list-style: none; display: flex; gap: 32px; }
-    nav ul li a {
-      color: rgba(255,255,255,0.82);
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-wrap img { height: 60px; width: auto; }
+    .nav-menu { display: flex; gap: 20px; align-items: center; }
+    .nav-menu a {
       text-decoration: none;
-      font-size: 13.5px;
-      letter-spacing: 0.04em;
-      font-weight: 400;
+      color: #1e2a38;
+      font-size: 14px;
+      font-weight: 500;
       transition: color 0.2s;
     }
-    nav ul li a:hover,
-    nav ul li a.active { color: var(--gold-lt); }
+    .nav-menu a:hover { color: var(--gold); }
+    .nav-cta {
+      background: var(--gold);
+      color: white !important;
+      padding: 8px 18px;
+      border-radius: 4px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--navy) !important; }
 
     /* ── HERO STRIP ── */
     .hero-strip {
@@ -235,33 +247,31 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       .page-wrap { grid-template-columns: 1fr; gap: 32px; }
-      nav { padding: 0 20px; }
-      nav ul { gap: 16px; }
+      .nav-container { padding: 10px 16px; }
+      .nav-menu { gap: 12px; }
       .form-header { padding: 18px 20px; }
     }
     @media (max-width: 560px) {
-      nav ul { display: none; }
+      .nav-menu a:not(.nav-cta) { display: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
-<header class="main-header">
-  <div class="nav-container">
-    <a href="index.html" class="logo-wrap">
-      <img src="logo1.png" alt="Sanjay B C & Co">
+  <!-- NAV -->
+  <nav>
+    <a class="logo" href="https://sanjaybc.com/index.html">
+      <img src="https://sanjaybc.com/logo1.png" alt="Sanjay B C & Co"/>
     </a>
-    <nav class="nav-menu">
-      <a href="about.html">About Us</a>
-      <a href="services.html">Services</a>
-      <a href="resources.html">Resources</a>
-      <a href="insights.html">Insights</a>
-      <a href="careers.html">Careers</a>
-      <a href="contactus.html" class="nav-cta">Contact Us</a>
-    </nav>
-  </div>
-</header>
+    <ul>
+      <li><a href="https://sanjaybc.com/about.html">About Us</a></li>
+      <li><a href="https://sanjaybc.com/services.html">Services</a></li>
+      <li><a href="https://sanjaybc.com/resources.html">Resources</a></li>
+      <li><a href="https://sanjaybc.com/insights.html">Insights</a></li>
+      <li><a href="https://sanjaybc.com/careers.html">Careers</a></li>
+      <li><a href="https://sanjaybc.com/contactus.html" class="active">Contact Us</a></li>
+    </ul>
+  </nav>
 
   <!-- HERO -->
   <div class="hero-strip">
