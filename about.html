@@ -4,179 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Us | Sanjay B C & Co</title>
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:    #1a2340;
+  --navy2:   #0a192f;
+  --gold:    #b8922a;
+  --gold-lt: #d4a83a;
+  --cream:   #f7f4ef;
+  --white:   #ffffff;
+  --text:    #2c2c2c;
+  --muted:   #6b6b6b;
+  --border:  #ddd8ce;
+  --teal:    #0b7285;
+}
+
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    margin: 0;
-    background-color: #f7f9fc;
-    color: #333;
+  font-family: 'DM Sans', 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  margin: 0;
 }
 
-/* HEADER */
-.header {
-    background: #ffffff;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 20px;
-}
-
-.header-inner {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    align-items: center;
-}
-
-.logo {
-    height: 60px;
-}
-/* NEW HEADER FIX */
+/* ── NAV (matches homepage) ── */
 .main-header {
-  background: #ffffff;
-  border-bottom: 1px solid #ddd;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-
 .nav-container {
   max-width: 1100px;
   margin: auto;
   padding: 10px 20px;
-  display: flex;              /* THIS FIXES ALIGNMENT */
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
-
-.logo-wrap img {
-  height: 60px;              /* THIS FIXES BIG LOGO */
-  width: auto;
-}
-
-.nav-menu {
-  display: flex;             /* THIS PUTS MENU IN ONE LINE */
-  gap: 20px;
-  align-items: center;
-}
-
+.logo-wrap img { height: 60px; width: auto; }
+.nav-menu { display: flex; gap: 20px; align-items: center; }
 .nav-menu a {
   text-decoration: none;
-  color: #1e2a38;
+  color: var(--navy);
   font-size: 14px;
   font-weight: 500;
+  transition: color 0.2s;
 }
-
-.nav-menu a:hover {
-  color: #b8922a;
-}
-
+.nav-menu a:hover { color: var(--gold); }
 .nav-cta {
-  background: #b8922a;
+  background: var(--gold);
   color: white !important;
-  padding: 8px 15px;
-  border-radius: 3px;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--navy) !important; }
+
+/* ── HERO BANNER ── */
+.about-hero {
+  background: var(--navy);
+  padding: 60px 20px 50px;
+  text-align: center;
+  border-bottom: 3px solid var(--gold);
+}
+.about-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 14px;
+}
+.about-hero p {
+  font-size: 16px;
+  color: rgba(255,255,255,0.72);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+.about-hero .gold-line {
+  width: 56px;
+  height: 3px;
+  background: var(--gold);
+  margin: 20px auto 0;
+  border-radius: 2px;
 }
 
-.nav-cta:hover {
-  background: #0a192f;
-}
-/* LAYOUT */
+/* ── MAIN LAYOUT ── */
 .container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 40px 20px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 56px 20px 80px;
 }
 
 .about-layout {
-    display: flex;
-    gap: 40px;
-    align-items: flex-start;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 52px;
+  align-items: start;
 }
 
-/* LEFT IMAGE */
-.about-image {
-    flex: 1;
-    height: 100%; /* important */
-}
+/* ── LEFT COLUMN ── */
+.about-left { display: flex; flex-direction: column; gap: 24px; }
 
 .about-image img {
-    width: 100%;
-    height: 100%;
-    max-height: 500px;   /* control size */
-    object-fit: cover;   /* crop nicely */
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(26,35,64,0.13);
+  display: block;
 }
 
-/* RIGHT CONTENT */
-.about-content {
-    flex: 2;
+.quick-info {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 28px 24px;
 }
-
-h1 {
-    color: #1e2a38;
-    font-size: 34px;
-    margin-bottom: 10px;
+.quick-info h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--gold-lt);
+  margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(184,146,42,0.3);
 }
-
-h2 {
-    color: #2c3e50;
-    margin-top: 30px;
+.qi-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
 }
-
-p {
-    line-height: 1.7;
-    font-size: 16px;
+.qi-row:last-child { margin-bottom: 0; }
+.qi-icon {
+  width: 32px; height: 32px;
+  background: rgba(184,146,42,0.15);
+  border-radius: 6px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
 }
+.qi-icon svg { width: 15px; height: 15px; fill: var(--gold); }
+.qi-text { font-size: 13px; color: rgba(255,255,255,0.8); line-height: 1.5; }
+.qi-text strong { color: var(--white); display: block; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
 
+/* ── RIGHT COLUMN ── */
+.about-content { display: flex; flex-direction: column; gap: 20px; }
+
+.intro-text {
+  font-size: 16px;
+  line-height: 1.8;
+  color: var(--text);
+  padding-bottom: 4px;
+}
+.intro-text strong { color: var(--navy); }
+
+/* Cards */
 .card {
-    background: #fff;
-    padding: 25px;
-    margin-top: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  background: var(--white);
+  border-radius: 12px;
+  padding: 28px 30px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--gold);
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 6px 24px rgba(26,35,64,0.08); }
+
+.card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card h2::before {
+  content: '';
+  display: inline-block;
+  width: 4px;
+  height: 20px;
+  background: var(--gold);
+  border-radius: 2px;
+  flex-shrink: 0;
 }
 
-ul {
-    padding-left: 20px;
+.card p {
+  font-size: 15px;
+  line-height: 1.75;
+  color: #444;
 }
 
-li {
-    margin-bottom: 10px;
+.card ul {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.card ul li {
+  font-size: 15px;
+  color: #444;
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.55;
+}
+.card ul li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-size: 18px;
+  line-height: 1.2;
+  font-weight: 700;
 }
 
-.highlight {
-    color: #0b7285;
-    font-weight: 600;
-}
+.highlight { color: var(--teal); font-weight: 600; }
 
+/* Services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 16px;
+  margin-top: 4px;
+}
+.services-grid li { font-size: 14px !important; }
+
+/* Geography badge */
+.geo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(11,114,133,0.09);
+  color: var(--teal);
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 20px;
+  margin-top: 14px;
+}
+.geo-badge svg { width: 14px; height: 14px; fill: var(--teal); }
+
+/* ── FOOTER ── */
 .footer {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    font-size: 12px;
-    color: gray;
-    text-align: center;
+  margin-top: 56px;
+  padding: 20px;
+  background: var(--navy);
+  border-radius: 10px;
+  font-size: 12.5px;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  line-height: 1.6;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-    .about-layout {
-        flex-direction: column;
-    }
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .about-layout { grid-template-columns: 1fr; gap: 32px; }
+  .about-image img { height: 280px; }
+  .services-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .nav-menu { gap: 10px; }
+  .nav-menu a:not(.nav-cta) { display: none; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- NEW HEADER -->
+<!-- NAV -->
 <header class="main-header">
   <div class="nav-container">
-
-    <!-- LOGO -->
     <a href="index.html" class="logo-wrap">
       <img src="logo1.png" alt="Sanjay B C & Co">
     </a>
-
-    <!-- MENU -->
     <nav class="nav-menu">
       <a href="about.html">About Us</a>
       <a href="services.html">Services</a>
@@ -185,79 +290,113 @@ li {
       <a href="careers.html">Careers</a>
       <a href="contactus.html" class="nav-cta">Contact Us</a>
     </nav>
-
   </div>
 </header>
 
-<!-- MAIN CONTENT -->
+<!-- HERO -->
+<div class="about-hero">
+  <h1>About Us</h1>
+  <p>A Chartered Accountancy firm built on the principles of integrity, independence, and professional insight.</p>
+  <div class="gold-line"></div>
+</div>
+
+<!-- MAIN -->
 <div class="container">
-    <div class="about-layout">
+  <div class="about-layout">
 
-        <!-- LEFT IMAGE -->
-        <div class="about-image">
-            <img src="about-image.png" alt="About Sanjay B C & Co">
+    <!-- LEFT -->
+    <div class="about-left">
+      <div class="sanjaybc">
+        <img src="sanjaybc.png" alt="Sanjay B C & Co Team">
+      </div>
+
+      <div class="quick-info">
+        <h3>At a Glance</h3>
+        <div class="qi-row">
+          <div class="qi-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+          </div>
+          <div class="qi-text"><strong>Founded</strong>Bengaluru, India</div>
         </div>
-
-        <!-- RIGHT CONTENT -->
-        <div class="about-content">
-
-            <h1>About Us</h1>
-            <p><strong>Sanjay B C & Co</strong> is a Chartered Accountancy firm providing professional services in Taxation, Audit, Financial Advisory, Litigation & Virtual CFO, with a focus on compliance, integrity, and client confidentiality.</p>
-
-            <div class="card">
-            <h2>Leadership</h2>
-            <p>The firm is led by <span class="highlight">CA Sanjay B C</span>, a member of the Institute of Chartered Accountants of India (ICAI), and adheres strictly to the professional and ethical standards prescribed under applicable regulations.</p>
-            </div>
-
-            <div class="card">
-            <h2>Our Approach</h2>
-              <ul>
-               <li>Providing practical and legally compliant solutions</li>
-               <li>Maintaining strict confidentiality of client information</li>
-               <li>Ensuring timely and accurate service delivery</li>
-               <li>Following professional ethics and regulatory standards</li>
-              </ul>
-            </div>
-
-            <div class="card">
-            <h2>Services</h2>
-             <ul>
-               <li>Income Tax Advisory & Compliance</li>
-               <li>GST Advisory & Filings</li>
-               <li>Audit & Assurance Services</li>
-               <li>Accounting / Bookkeeping & Financial Reporting</li>
-               <li>Tax Litigation & Representation</li>
-               <li>Business Advisory Services</li>
-               <li>Virtual CFO Services</li>
-                </ul>
-                <p>The firm supports clients across <span class="highlight">India, UAE, and UK</span> in advisory and financial management services.</p>
-            </div>
-
-            <div class="card">
-             <h2>Professional Ethics</h2>
-              <p>
-              In accordance with ICAI guidelines, the firm does not engage in solicitation or advertisement. 
-              Services are provided based on professional engagement and mutual understanding.
-              </p>
-            </div>
-
-            <div class="card">
-             <h2>Client Commitment</h2>
-              <p>
-              The firm aims to build long-term professional relationships through reliability, transparency, 
-              and adherence to legal and ethical standards.
-                </p>
-            </div>
-
+        <div class="qi-row">
+          <div class="qi-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+          </div>
+          <div class="qi-text"><strong>Membership</strong>Institute of Chartered Accountants of India (ICAI)</div>
         </div>
+        <div class="qi-row">
+          <div class="qi-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="qi-text"><strong>Practice Areas</strong>India · UAE · UK</div>
+        </div>
+        <div class="qi-row">
+          <div class="qi-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 6H16V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 9c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm2-9h-4V4h4v2z"/></svg>
+          </div>
+          <div class="qi-text"><strong>Specialisation</strong>Tax, Audit, Litigation, Virtual CFO</div>
+        </div>
+      </div>
     </div>
 
-    <!-- FOOTER NOTE -->
-    <div class="footer">
-        This website is in compliance with the guidelines issued by the Institute of Chartered Accountants of India (ICAI). 
-        The content is for informational purposes only and does not constitute solicitation.
-    </div>
+    <!-- RIGHT -->
+    <div class="about-content">
 
+      <p class="intro-text">
+        <strong>Sanjay B C &amp; Co</strong> is a Chartered Accountancy firm providing professional services in Taxation, Audit, Financial Advisory, Litigation &amp; Virtual CFO, with a focus on compliance, integrity, and client confidentiality.
+      </p>
+
+      <div class="card">
+        <h2>Leadership</h2>
+        <p>The firm is led by <span class="highlight">CA Sanjay B C</span>, a member of the Institute of Chartered Accountants of India (ICAI), and adheres strictly to the professional and ethical standards prescribed under applicable regulations.</p>
+      </div>
+
+      <div class="card">
+        <h2>Our Approach</h2>
+        <ul>
+          <li>Providing practical and legally compliant solutions</li>
+          <li>Maintaining strict confidentiality of client information</li>
+          <li>Ensuring timely and accurate service delivery</li>
+          <li>Following professional ethics and regulatory standards</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2>Services</h2>
+        <ul class="services-grid">
+          <li>Income Tax Advisory &amp; Compliance</li>
+          <li>GST Advisory &amp; Filings</li>
+          <li>Audit &amp; Assurance Services</li>
+          <li>Accounting &amp; Financial Reporting</li>
+          <li>Tax Litigation &amp; Representation</li>
+          <li>Business Advisory Services</li>
+          <li>Virtual CFO Services</li>
+          <li>Bookkeeping Services</li>
+        </ul>
+        <div class="geo-badge">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+          Serving clients across India · UAE · UK
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Professional Ethics</h2>
+        <p>In accordance with ICAI guidelines, the firm does not engage in solicitation or advertisement. Services are provided based on professional engagement and mutual understanding.</p>
+      </div>
+
+      <div class="card">
+        <h2>Client Commitment</h2>
+        <p>The firm aims to build long-term professional relationships through reliability, transparency, and adherence to legal and ethical standards.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER NOTE -->
+  <div class="footer">
+    This website is in compliance with the guidelines issued by the Institute of Chartered Accountants of India (ICAI).<br>
+    The content is for informational purposes only and does not constitute solicitation.
+  </div>
 </div>
 
 </body>
