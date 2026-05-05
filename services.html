@@ -3,228 +3,141 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sanjay B C & Co | Chartered Accountants</title>
-    
+    <title>Our Services | Sanjay B C & Co — Chartered Accountants</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-
     <style>
-        /* 1. VARIABLES & RESET */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        
         :root {
-            /* The "Professional Suite" Palette */
-            --navy: #0A192F;        /* Deep, stable Navy */
-            --gold: #B8922A;        /* Muted Professional Gold */
+            --navy: #0A192F;
+            --gold: #B8922A;
             --white: #ffffff;
-            --off-white: #F9F7F2;   /* Premium paper-like tint */
-            --text-main: #2D3A4A;   /* Sharp charcoal for text */
-            
-            /* Typography */
+            --off-white: #F9F7F2;
+            --text-main: #2D3A4A;
+            --text-muted: #6B7A8D;
             --serif: 'Playfair Display', serif;
             --sans: 'Inter', sans-serif;
         }
-
         html { scroll-behavior: smooth; }
-        body { 
-            font-family: var(--sans); 
-            background: var(--white); 
-            color: var(--navy); 
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
+        body { font-family: var(--sans); background: var(--white); color: var(--navy); line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-        /* 2. HEADER & NAVIGATION */
-        header {
-            background: var(--white);
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            height: 90px;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            padding: 0 5%;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.03);
-        }
+        /* HEADER */
+        header { background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.05); height: 90px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; padding: 0 5%; box-shadow: 0 2px 15px rgba(0,0,0,0.03); }
+        .nav-container { width: 100%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-wrap img { height: 65px; width: auto; display: block; }
+        nav { display: flex; align-items: center; gap: 15px; }
+        nav a { text-decoration: none; color: var(--navy); font-size: 14px; font-weight: 500; padding: 8px 15px; transition: all 0.3s ease; }
+        nav a:hover, nav a.active { color: var(--gold); }
+        .nav-cta { background: var(--gold); color: white !important; padding: 10px 22px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 12px; margin-left: 10px; }
+        .nav-cta:hover { background: var(--navy) !important; color: white !important; }
 
-        .nav-container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        /* PAGE HERO */
+        .page-hero { background: var(--navy); padding: 80px 5% 72px; text-align: center; position: relative; }
+        .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
+        .hero-eyebrow { color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.25em; font-size: 11px; display: block; margin-bottom: 18px; }
+        .page-hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); font-weight: 700; margin-bottom: 16px; }
+        .page-hero p { font-size: 1rem; color: rgba(255,255,255,0.58); max-width: 550px; margin: 0 auto; line-height: 1.8; }
 
-        .logo-wrap img {
-            height: 65px; /* Adjust based on your actual logo file */
-            width: auto;
-            display: block;
-        }
+        /* SERVICES SECTION */
+        .services-section { background: var(--off-white); padding: 90px 5% 110px; border-top: 4px solid var(--gold); }
+        .section-intro { text-align: center; max-width: 680px; margin: 0 auto 60px; }
+        .section-intro span { color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.22em; font-size: 11px; display: block; margin-bottom: 14px; }
+        .section-intro h2 { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem); color: var(--navy); font-weight: 700; }
 
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--navy);
-            font-size: 14px;
-            font-weight: 500;
-            padding: 8px 15px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover {
-            color: var(--gold);
-        }
-
-        .nav-cta {
-            background: var(--gold);
-            color: white !important;
-            padding: 10px 22px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            font-size: 12px;
-            margin-left: 10px;
-        }
-
-        .nav-cta:hover {
-            background: var(--navy);
-        }
-
-        /* 3. SERVICES SECTION */
-        .services-section {
-            background: var(--off-white);
-            padding: 100px 5%;
-            border-top: 4px solid var(--gold);
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 60px auto;
-        }
-
-        .section-header span {
-            color: var(--gold);
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.2em;
-            font-size: 12px;
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        .section-header h1 {
-            font-family: var(--serif);
-            font-size: 42px;
-            color: var(--navy);
-            font-weight: 700;
-        }
-
-        .services-grid {
+        /* TOP ROW: 3 cards */
+        .grid-top {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            max-width: 1400px;
+            grid-template-columns: repeat(3, 1fr);
+            max-width: 1300px;
             margin: 0 auto;
-            background: rgba(0,0,0,0.03); /* This creates the thin divider lines */
             gap: 1px;
-            border: 1px solid rgba(0,0,0,0.03);
+            background: rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-bottom: none;
+        }
+        /* BOTTOM ROW: 2 cards, same width as 2/3 of top */
+        .grid-bottom {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            max-width: calc(1300px * 2 / 3 + 2px);
+            margin: 0 auto;
+            gap: 1px;
+            background: rgba(0,0,0,0.06);
+            border: 1px solid rgba(0,0,0,0.06);
+            border-top: 1px solid rgba(0,0,0,0.06);
         }
 
+        /* CARD */
         .service-card {
-            background: var(--off-white); /* Match section bg */
-            padding: 60px 40px;
+            background: var(--off-white);
+            padding: 52px 38px 44px;
             text-decoration: none;
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             display: flex;
             flex-direction: column;
-        }
-
-        .service-card:hover {
-            background: var(--white);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
-            transform: translateY(-5px);
-            z-index: 1;
-        }
-
-        /* Icons */
-        .svc-icon {
-            width: 55px;
-            height: 55px;
-            border: 1px solid var(--gold);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 30px;
-            color: var(--gold);
-        }
-
-        .svc-icon svg {
-            width: 26px;
-            height: 26px;
-            stroke-width: 1.5px;
-        }
-
-        /* Card Content */
-        .svc-title {
-            font-family: var(--serif);
-            font-size: 24px;
-            color: var(--navy);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .svc-items {
-            list-style: none;
-            margin-bottom: 30px;
-            flex-grow: 1;
-        }
-
-        .svc-items li {
-            font-size: 14px;
-            color: var(--text-main);
-            padding: 6px 0 6px 20px;
             position: relative;
+            overflow: hidden;
+            transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
-
-        .svc-items li::before {
-            content: '→';
+        .service-card::before {
+            content: '';
             position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: 700;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gold);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.35s ease;
         }
+        .service-card:hover { background: var(--white); box-shadow: 0 18px 44px rgba(0,0,0,0.07); transform: translateY(-5px); z-index: 2; }
+        .service-card:hover::before { transform: scaleX(1); }
 
-        .explore-link {
-            font-size: 11px;
+        .card-num {
+            font-family: var(--serif);
+            font-size: 3.2rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--navy);
-            border-bottom: 2px solid var(--gold);
-            width: fit-content;
-            padding-bottom: 4px;
-            transition: 0.3s;
+            color: rgba(184,146,42,0.1);
+            line-height: 1;
+            position: absolute;
+            top: 24px; right: 28px;
+            transition: color 0.3s;
         }
+        .service-card:hover .card-num { color: rgba(184,146,42,0.2); }
 
-        .service-card:hover .explore-link {
-            letter-spacing: 0.18em;
-            color: var(--gold);
-        }
+        .svc-icon { width: 52px; height: 52px; border: 1.5px solid var(--gold); display: flex; align-items: center; justify-content: center; margin-bottom: 24px; color: var(--gold); flex-shrink: 0; }
+        .svc-icon svg { width: 24px; height: 24px; stroke-width: 1.5px; }
+
+        .card-tag { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+
+        .svc-title { font-family: var(--serif); font-size: 1.42rem; color: var(--navy); margin-bottom: 20px; font-weight: 700; line-height: 1.25; }
+
+        .svc-items { list-style: none; margin-bottom: 30px; flex-grow: 1; }
+        .svc-items li { font-size: 13.5px; color: var(--text-main); padding: 5px 0 5px 20px; position: relative; border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .svc-items li:last-child { border-bottom: none; }
+        .svc-items li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 16px; font-weight: 700; line-height: 1.4; }
+
+        .explore-link { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: var(--navy); border-bottom: 2px solid var(--gold); width: fit-content; padding-bottom: 3px; display: inline-flex; align-items: center; gap: 7px; transition: all 0.3s; }
+        .explore-link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.3s; }
+        .service-card:hover .explore-link { letter-spacing: 0.2em; color: var(--gold); }
+        .service-card:hover .explore-link svg { transform: translateX(4px); }
+
+        /* CTA STRIP */
+        .cta-strip { background: var(--navy); padding: 60px 5%; text-align: center; border-top: 3px solid var(--gold); }
+        .cta-strip p { font-family: var(--serif); font-size: 1.5rem; color: var(--white); margin-bottom: 28px; font-weight: 600; }
+        .cta-strip a { display: inline-block; background: var(--gold); color: var(--white); text-decoration: none; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px 36px; transition: all 0.3s; }
+        .cta-strip a:hover { background: var(--white); color: var(--navy); }
+
+        /* FOOTER */
+        footer { background: var(--off-white); border-top: 1px solid rgba(0,0,0,0.07); padding: 24px 5%; display: flex; align-items: center; justify-content: space-between; font-size: 13px; color: var(--text-muted); }
+        footer a { color: var(--gold); text-decoration: none; }
 
         /* RESPONSIVE */
         @media (max-width: 1024px) {
-            .services-grid { grid-template-columns: repeat(2, 1fr); }
+            .grid-top { grid-template-columns: repeat(2, 1fr); }
+            .grid-bottom { grid-template-columns: repeat(2, 1fr); max-width: 100%; border-top: 1px solid rgba(0,0,0,0.06); }
         }
-        @media (max-width: 600px) {
-            .services-grid { grid-template-columns: 1fr; }
-            .section-header h1 { font-size: 32px; }
-            header { padding: 0 20px; }
+        @media (max-width: 640px) {
+            .grid-top, .grid-bottom { grid-template-columns: 1fr; max-width: 100%; border-top: 1px solid rgba(0,0,0,0.06); }
+            .service-card { padding: 40px 26px 36px; }
+            nav a:not(.nav-cta) { display: none; }
         }
     </style>
 </head>
@@ -232,80 +145,129 @@
 
     <header>
         <div class="nav-container">
-            <a href="index.html" class="logo-wrap">
-                <img src="logo1.png" alt="Sanjay B C & Co">
-            </a>
-        <nav>
-            <a href="about.html">About Us</a>
-            <a href="services.html">Services</a>
-            <a href="resources.html">Resources</a>
-            <a href="insights.html">Insights</a>
-            <a href="careers.html">Careers</a>
-            <a href="contactus.html" class="nav-cta">Contact Us</a>
+            <a href="index.html" class="logo-wrap"><img src="logo1.png" alt="Sanjay B C & Co"></a>
+            <nav>
+                <a href="about.html">About Us</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="resources.html">Resources</a>
+                <a href="insights.html">Insights</a>
+                <a href="careers.html">Careers</a>
+                <a href="contactus.html" class="nav-cta">Contact Us</a>
             </nav>
         </div>
     </header>
 
+    <div class="page-hero">
+        <span class="hero-eyebrow">What We Do</span>
+        <h1>Our Practice Areas</h1>
+        <p>From tax compliance and dispute resolution to cross-border CFO advisory and internal financial controls — precision-driven expertise across every dimension of your finances.</p>
+    </div>
+
     <section class="services-section">
-        <div class="section-header">
+        <div class="section-intro">
             <span>Our Expertise</span>
-            <h1>Comprehensive Financial Solutions</h1>
+            <h2>Comprehensive Financial Solutions</h2>
         </div>
 
-        <div class="services-grid">
+        <!-- TOP ROW: 3 cards -->
+        <div class="grid-top">
+
+            <a href="direct-tax.html" class="service-card">
+                <span class="card-num">01</span>
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4M14 15h4"/></svg>
+                </div>
+                <div class="card-tag">Compliance &amp; Advisory</div>
+                <h3 class="svc-title">Direct Tax</h3>
+                <ul class="svc-items">
+                    <li>Registration &amp; Basic Setup</li>
+                    <li>Compliance &amp; Filings</li>
+                    <li>Tax Planning &amp; Structuring</li>
+                    <li>Audit &amp; Assurance Services</li>
+                </ul>
+                <div class="explore-link">Explore More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </a>
+
+            <a href="indirect-tax.html" class="service-card">
+                <span class="card-num">02</span>
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 14l6-6M9.5 8.5h.01M14.5 15.5h.01M12 3a9 9 0 1 0 0 18A9 9 0 0 0 12 3z"/></svg>
+                </div>
+                <div class="card-tag">GST &amp; Indirect Levies</div>
+                <h3 class="svc-title">Indirect Tax</h3>
+                <ul class="svc-items">
+                    <li>Registration &amp; Setup</li>
+                    <li>Compliance &amp; Filings</li>
+                    <li>Advisory &amp; Structuring</li>
+                    <li>Audit &amp; Review</li>
+                    <li>Refunds &amp; Special Cases</li>
+                </ul>
+                <div class="explore-link">Explore More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </a>
+
             <a href="appeals.html" class="service-card">
+                <span class="card-num">03</span>
                 <div class="svc-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"></path></svg>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/></svg>
                 </div>
-                <h3 class="svc-title">Appeals & Litigation</h3>
+                <div class="card-tag">Dispute Resolution</div>
+                <h3 class="svc-title">Appeals &amp; Litigation</h3>
                 <ul class="svc-items">
-                    <li>Income Tax Disputes</li>
-                    <li>ITAT Representation</li>
-                    <li>GST Appeals & Orders</li>
+                    <li>Income Tax &amp; GST Dept. Proceedings</li>
+                    <li>Appeals &amp; Higher Forums</li>
+                    <li>Litigation Support &amp; Advisory</li>
                 </ul>
-                <div class="explore-link">View Details</div>
+                <div class="explore-link">Explore More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
             </a>
 
-            <a href="representation.html" class="service-card">
-                <div class="svc-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                </div>
-                <h3 class="svc-title">Representation</h3>
-                <ul class="svc-items">
-                    <li>Notice & Scrutiny Response</li>
-                    <li>Hearing Assistance</li>
-                    <li>Department Liaising</li>
-                </ul>
-                <div class="explore-link">View Details</div>
-            </a>
-
-            <a href="taxation.html" class="service-card">
-                <div class="svc-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
-                <h3 class="svc-title">Tax Advisory</h3>
-                <ul class="svc-items">
-                    <li>Direct & Indirect Taxation</li>
-                    <li>Statutory Compliance</li>
-                    <li>Tax Planning Strategy</li>
-                </ul>
-                <div class="explore-link">View Details</div>
-            </a>
-
-            <a href="uae-cfo.html" class="service-card">
-                <div class="svc-icon">
-                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>
-                </div>
-                <h3 class="svc-title">Virtual CFO</h3>
-                <ul class="svc-items">
-                    <li>UAE Corporate Tax</li>
-                    <li>UK Financial Management</li>
-                    <li>Global Compliance</li>
-                </ul>
-                <div class="explore-link">View Details</div>
-            </a>
         </div>
+
+        <!-- BOTTOM ROW: 2 cards centred -->
+        <div class="grid-bottom">
+
+            <a href="virtual-cfo.html" class="service-card">
+                <span class="card-num">04</span>
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+                </div>
+                <div class="card-tag">Cross-Border Finance</div>
+                <h3 class="svc-title">Virtual CFO Services</h3>
+                <ul class="svc-items">
+                    <li>Virtual CFO &amp; Finance Leadership</li>
+                    <li>Regulatory Compliance (India–UK–UAE)</li>
+                    <li>Management Reporting &amp; FP&amp;A</li>
+                </ul>
+                <div class="explore-link">Explore More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </a>
+
+            <a href="icfr.html" class="service-card">
+                <span class="card-num">05</span>
+                <div class="svc-icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                </div>
+                <div class="card-tag">Governance &amp; Controls</div>
+                <h3 class="svc-title">Internal Financial Controls (ICFR)</h3>
+                <ul class="svc-items">
+                    <li>Advisory &amp; Support Services</li>
+                    <li>Designing &amp; Documentation</li>
+                    <li>Implementation &amp; Evaluation of Controls</li>
+                </ul>
+                <div class="explore-link">Explore More <svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+            </a>
+
+        </div>
+
     </section>
+
+    <div class="cta-strip">
+        <p>Not sure where to start? Let's talk about your needs.</p>
+        <a href="contactus.html">Schedule a Consultation</a>
+    </div>
+
+    <footer>
+        <span>© 2025 Sanjay B C &amp; Co. Chartered Accountants</span>
+        <a href="contactus.html">Get in touch →</a>
+    </footer>
 
 </body>
 </html>
