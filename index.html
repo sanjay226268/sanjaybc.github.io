@@ -313,9 +313,30 @@
   .footer-col h4 { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px; }
   .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; padding: 4px 0; transition: color 0.2s; }
   .footer-col a:hover { color: var(--white); }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; font-size: 12px; }
+  .footer-bottom {border-top: 1px solid rgba(255,255,255,0.08); padding-top: 24px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px; font-size: 12px;}
   .footer-bottom a { color: rgba(255,255,255,0.3); text-decoration: none; }
   .footer-bottom a:hover { color: var(--gold); }
+  /* FOOTER SOCIAL */
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.footer-social a {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color 0.2s ease;
+}
+
+.footer-social a:hover {
+  color: var(--gold);
+}
   /* ===== SERVICES DROPDOWN ===== */
 
 .nav-item {
@@ -461,7 +482,34 @@
   </a>
  
   <div class="nav-links">
-    <a href="about.html">About Us</a>
+    <a href="index.html">Home</a>
+    <div class="nav-item">
+  <a href="about.html">
+    About Us
+    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </a>
+
+  <div class="dropdown">
+
+    <a href="about.html" class="dd-row">
+      <div class="dd-row-bar"></div>
+      <div class="dd-row-label">Firm Overview</div>
+    </a>
+
+    <a href="team.html" class="dd-row">
+      <div class="dd-row-bar"></div>
+      <div class="dd-row-label">Our Team</div>
+    </a>
+
+    <a href="industries.html" class="dd-row">
+      <div class="dd-row-bar"></div>
+      <div class="dd-row-label">Industries We Serve</div>
+    </a>
+
+  </div>
+</div>
  
     <!-- ══ SERVICES DROPDOWN ══ -->
     <div class="nav-item">
@@ -558,7 +606,33 @@
       </div><!-- /dropdown -->
     </div><!-- /nav-item -->
  
-    <a href="resources.html">Resources</a>
+    <div class="nav-item">
+  <a href="resources.html">
+    Resources
+    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </a>
+
+  <div class="dropdown">
+
+    <a href="blog.html" class="dd-row">
+      <div class="dd-row-bar"></div>
+      <div class="dd-row-label">Blogs & Articles</div>
+    </a>
+
+    <a href="downloads.html" class="dd-row">
+      <div class="dd-row-bar"></div>
+      <div class="dd-row-label">Downloads</div>
+    </a>
+
+    <a href="faqs.html" class="dd-row">
+      <div class="dd-row-bar"></div>
+      <div class="dd-row-label">FAQs</div>
+    </a>
+
+  </div>
+</div>
     <a href="insights.html">Insights</a>
     <a href="careers.html">Careers</a>
     <a href="contactus.html">Contact Us</a>
@@ -776,21 +850,30 @@
     </div>
     <div class="footer-col">
       <h4>Company</h4>
+      <a href="#">Home</a>
       <a href="about.html">About Us</a>
-      <a href="industries.html">Industries</a>
+      <a href="services.html">Services</a>
+       <a href="resources.html">Resources</a>
       <a href="insights.html">Insights</a>
       <a href="careers.html">Careers</a>
       <a href="contactus.html">Contact Us</a>
     </div>
     <div class="footer-col">
       <h4>Contact</h4>
-      <a href="indiaoffice.html">India Office</a>
-      <a href="indiaoffice.html">UAE Desk</a>
-      <a href="indiaoffice.html">UK Desk</a>
+      <a href="contactus.html">India Office</a>
+      <a href="contactus.html">UAE Desk</a>
+      <a href="contactus.html">UK Desk</a>
       <a href="#">ca.sanjay@sanjaybc.com</a>
     </div>
   </div>
   <div class="footer-bottom">
+   <div class="footer-social">
+  <a href="#">LinkedIn</a>
+  <a href="#">Instagram</a>
+  <a href="#">Facebook</a>
+  <a href="#"> X </a>
+  <a href="#">YouTube</a>
+</div>
     <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
     <div style="display:flex;gap:20px;">
       <a href="privacy.html">Privacy Policy</a>
