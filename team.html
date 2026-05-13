@@ -142,18 +142,46 @@ nav {
 .team-card:hover {
   transform:translateY(-6px);
 }
+.team-card:hover {
+  transform:translateY(-6px);
+}
+/* TEAM INITIALS */
 
-.team-img {
-  height:320px;
-  background:#ddd;
+.team-initials{
+  width:90px;
+  height:90px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#0A192F,#1E2D45);
+  color:#D4AA4A;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  font-weight:700;
+  font-family:var(--serif);
+  margin:42px auto 8px;
+  letter-spacing:0.08em;
+  box-shadow:0 10px 25px rgba(10,25,47,0.12);
 }
 
-.team-img img {
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.team-meta{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
 }
 
+.team-tag{
+  border:1px solid rgba(184,146,42,0.25);
+  background:rgba(184,146,42,0.08);
+  color:var(--gold);
+  font-size:11px;
+  padding:7px 12px;
+  border-radius:30px;
+  font-weight:600;
+  letter-spacing:0.03em;
+}
+  
 .team-content {
   padding:28px;
 }
@@ -283,53 +311,106 @@ footer {
 
   <div class="team-grid">
 
-    <div class="team-card">
-      <div class="team-img">
-        <img src="team1.jpg" alt="Team Member">
-      </div>
+  <!-- CARD 1 -->
 
-      <div class="team-content">
-        <h3>CA Sanjay B C</h3>
-        <div class="team-role">Founder & Chartered Accountant</div>
-        <p>
-          Specialist in tax litigation, appeals, GST advisory, virtual CFO services,
-          and strategic business consulting for Indian and overseas clients.
-        </p>
-      </div>
+  <div class="team-card">
+
+    <div class="team-initials">
+      SBC
     </div>
 
-    <div class="team-card">
-      <div class="team-img">
-        <img src="team2.jpg" alt="Team Member">
+    <div class="team-content">
+
+      <h3>CA Sanjay B C</h3>
+
+      <div class="team-role">
+        Founder & Chartered Accountant
       </div>
 
-      <div class="team-content">
-        <h3>Senior Tax Advisor</h3>
-        <div class="team-role">Direct & International Tax</div>
-        <p>
-          Advising businesses on domestic taxation, DTAA matters,
-          transfer pricing and international tax structuring.
-        </p>
-      </div>
-    </div>
+      <p>
+        Specialist in taxation, GST litigation,
+        business advisory, appeals, virtual CFO
+        services and strategic financial consulting
+        for Indian and overseas clients.
+      </p>
 
-    <div class="team-card">
-      <div class="team-img">
-        <img src="team3.jpg" alt="Team Member">
+      <div class="team-meta">
+        <div class="team-tag">Tax Litigation</div>
+        <div class="team-tag">GST Advisory</div>
+        <div class="team-tag">Virtual CFO</div>
       </div>
 
-      <div class="team-content">
-        <h3>Audit & Compliance Lead</h3>
-        <div class="team-role">Audit & Internal Controls</div>
-        <p>
-          Experienced in audits, SOP implementation, internal controls,
-          process reviews and compliance management.
-        </p>
-      </div>
     </div>
 
   </div>
-</section>
+
+  <!-- CARD 2 -->
+
+  <div class="team-card">
+
+    <div class="team-initials">
+      TAX
+    </div>
+
+    <div class="team-content">
+
+      <h3>Direct & International Tax</h3>
+
+      <div class="team-role">
+        Advisory & Structuring Practice
+      </div>
+
+      <p>
+        Assisting businesses and professionals
+        with domestic taxation, DTAA matters,
+        international transactions and regulatory
+        advisory support.
+      </p>
+
+      <div class="team-meta">
+        <div class="team-tag">DTAA</div>
+        <div class="team-tag">International Tax</div>
+        <div class="team-tag">Transfer Pricing</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- CARD 3 -->
+
+  <div class="team-card">
+
+    <div class="team-initials">
+      ARC
+    </div>
+
+    <div class="team-content">
+
+      <h3>Audit, Risk & Compliance</h3>
+
+      <div class="team-role">
+        Controls & Process Advisory
+      </div>
+
+      <p>
+        Supporting organizations with internal
+        controls, SOP implementation, audits,
+        compliance reviews and operational
+        process strengthening.
+      </p>
+
+      <div class="team-meta">
+        <div class="team-tag">Internal Controls</div>
+        <div class="team-tag">Audit</div>
+        <div class="team-tag">SOP Design</div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div></section>
 
 <section class="values-section">
 
