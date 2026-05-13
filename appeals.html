@@ -1,75 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Appeals & Litigation | Sanjay B C & Co — Chartered Accountants</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-            --navy: #0A192F;
-            --gold: #B8922A;
-            --white: #ffffff;
-            --off-white: #F9F7F2;
-            --text-main: #2D3A4A;
-            --text-muted: #6B7A8D;
-            --serif: 'Playfair Display', serif;
-            --sans: 'Inter', sans-serif;
-        }
-        html { scroll-behavior: smooth; }
-        body { font-family: var(--sans); background: var(--white); color: var(--navy); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tax Notices, Litigation & Representation | Sanjay B C & Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        /* SHARED HEADER FROM SERVICES.HTML */
-        header { background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.05); height: 90px; display: flex; align-items: center; position: sticky; top: 0; z-index: 1000; padding: 0 5%; box-shadow: 0 2px 15px rgba(0,0,0,0.03); }
-        .nav-container { width: 100%; max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo-wrap img { height: 65px; width: auto; display: block; }
-        nav { display: flex; align-items: center; gap: 15px; }
-        nav a { text-decoration: none; color: var(--navy); font-size: 14px; font-weight: 500; padding: 8px 15px; transition: all 0.3s ease; }
-        nav a:hover, nav a.active { color: var(--gold); }
-        .nav-cta { background: var(--gold); color: white !important; padding: 10px 22px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; font-size: 12px; margin-left: 10px; }
-        
-        /* PAGE HERO */
-        .page-hero { background: var(--navy); padding: 80px 5% 72px; text-align: center; position: relative; }
-        .page-hero::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 4px; background: var(--gold); }
-        .hero-eyebrow { color: var(--gold); text-transform: uppercase; font-weight: 700; letter-spacing: 0.25em; font-size: 11px; display: block; margin-bottom: 18px; }
-        .page-hero h1 { font-family: var(--serif); font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); font-weight: 700; margin-bottom: 16px; }
-        .page-hero p { font-size: 1rem; color: rgba(255,255,255,0.58); max-width: 650px; margin: 0 auto; line-height: 1.8; }
+:root {
+  --navy:      #0B1B33;
+  --gold:      #B8942A;
+  --gold-lt:   #D4AF5C;
+  --gold-pale: rgba(184,148,42,.08);
+  --cream:     #F7F4EE;
+  --off-white: #FDFCF9;
+  --muted:     #6B7280;
+  --border:    rgba(184,148,42,.2);
+  --shadow-sm: 0 2px 16px rgba(11,27,51,.07);
+  --shadow-md: 0 8px 40px rgba(11,27,51,.12);
+}
 
-        /* CONTENT SECTION */
-        .content-section { padding: 90px 5%; background: var(--white); }
-        .max-width { max-width: 1200px; margin: 0 auto; }
-        
-        .notice-warning { background: var(--off-white); border-left: 4px solid var(--gold); padding: 25px; margin-bottom: 60px; font-size: 14px; color: var(--text-main); }
-        .notice-warning strong { color: var(--navy); display: block; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.05em; }
+html { scroll-behavior: smooth; }
+body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--navy); }
 
-        .service-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 40px; }
-        .service-item h3 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 20px; border-bottom: 1px solid var(--gold); padding-bottom: 10px; }
-        .service-list { list-style: none; }
-        .service-list li { padding: 12px 0; border-bottom: 1px solid rgba(0,0,0,0.05); font-size: 14px; display: flex; align-items: flex-start; gap: 10px; }
-        .service-list li::before { content: "•"; color: var(--gold); font-weight: bold; }
+/* ── TOPBAR ─────────────────────────────────── */
+.topbar {
+  background: var(--navy);
+  padding: 8px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,.5); letter-spacing: .04em;
+}
+.topbar a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+.topbar a:hover { color: var(--gold-lt); }
+.topbar-right { display: flex; gap: 28px; }
 
-        /* PROCESS BAR */
-        .process-container { background: var(--off-white); padding: 80px 5%; border-top: 1px solid rgba(0,0,0,0.05); }
-        .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
-        .step { position: relative; }
-        .step-num { font-family: var(--serif); font-size: 2.5rem; color: rgba(184,146,42,0.2); font-weight: 700; line-height: 1; margin-bottom: 15px; }
-        .step-title { font-weight: 700; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; color: var(--navy); }
-        .step-desc { font-size: 12px; color: var(--text-muted); line-height: 1.5; }
+/* ── HEADER ─────────────────────────────────── */
+header {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 64px; height: 74px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+.logo-mark {
+  width: 44px; height: 44px; background: var(--navy);
+  border-radius: 5px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-mark svg { width: 26px; height: 26px; }
+.logo-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 700; color: var(--navy); letter-spacing: .02em; line-height: 1.15; }
+.logo-tag  { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
 
-        /* FOOTER & ICAI NOTE */
-        .icai-disclaimer { background: #f0f0f0; padding: 40px 5%; font-size: 12px; color: #777; border-top: 1px solid #ddd; }
-        footer { background: var(--navy); color: white; padding: 30px 5%; text-align: center; font-size: 13px; }
-        
-        @media (max-width: 768px) {
-            .process-grid { grid-template-columns: 1fr; gap: 40px; }
-            .nav-container nav a:not(.nav-cta) { display: none; }
-        }
-    </style>
+nav { display: flex; align-items: center; gap: 2px; }
+.nav-link {
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  padding: 8px 13px; border-radius: 5px;
+  background: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: .02em; white-space: nowrap;
+  position: relative; transition: color .2s, background .2s;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; right: 50%;
+  height: 2px; background: var(--gold); border-radius: 2px;
+  transition: left .25s, right .25s;
+}
+.nav-link:hover { color: var(--navy); background: var(--gold-pale); }
+.nav-link.active { color: var(--navy); font-weight: 600; }
+.nav-link.active::after { left: 13px; right: 13px; }
+.nav-cta {
+  margin-left: 16px; background: var(--navy); color: #fff;
+  padding: 9px 22px; border-radius: 5px; font-size: 13px; font-weight: 500;
+  border: none; cursor: pointer; letter-spacing: .04em;
+  font-family: 'DM Sans', sans-serif; transition: background .2s;
+}
+.nav-cta:hover { background: var(--gold); }
+
+/* ── BREADCRUMB ─────────────────────────────── */
+.breadcrumb-bar {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 64px;
+}
+.breadcrumb {
+  max-width: 1280px; margin: 0 auto;
+  font-size: 12px; color: var(--muted);
+  display: flex; align-items: center; gap: 8px; letter-spacing: .02em;
+}
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: rgba(107,114,128,.4); }
+
+/* ── HERO ───────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  padding: 80px 64px 72px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px,
+    transparent 1px, transparent 44px
+  );
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1280px; margin: 0 auto;
+  position: relative;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(184,148,42,.3);
+  padding: 5px 14px; border-radius: 3px; margin-bottom: 22px; font-weight: 500;
+}
+.hero-eyebrow span { width: 18px; height: 1px; background: var(--gold); display: block; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 700; color: #fff; line-height: 1.08;
+  margin-bottom: 22px; max-width: 720px;
+}
+.hero h1 em { color: var(--gold-lt); font-style: italic; }
+.hero-desc {
+  font-size: 15.5px; color: rgba(255,255,255,.58);
+  line-height: 1.8; max-width: 580px; margin-bottom: 34px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: var(--navy);
+  padding: 13px 30px; border-radius: 5px;
+  font-size: 13.5px; font-weight: 600; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-outline {
+  background: transparent; color: rgba(255,255,255,.8);
+  padding: 13px 30px; border-radius: 5px;
+  font-size: 13.5px; font-weight: 500;
+  border: 1px solid rgba(255,255,255,.22); cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; transition: all .2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+.hero-ring {
+  position: absolute; right: -40px; top: -60px;
+  width: 360px; height: 360px;
+  border: 1px solid rgba(184,148,42,.10); border-radius: 50%;
+  pointer-events: none;
+}
+.hero-ring::before {
+  content: ''; position: absolute; inset: 40px;
+  border: 1px solid rgba(184,148,42,.06); border-radius: 50%;
+}
+
+/* ── DEADLINE NOTICE ────────────────────────── */
+.deadline-notice {
+  background: var(--off-white);
+  border-left: 4px solid var(--gold);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 64px;
+}
+.deadline-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; gap: 14px;
+}
+.deadline-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; flex-shrink: 0; }
+.deadline-text {
+  font-size: 13.5px; color: var(--navy); line-height: 1.5;
+}
+.deadline-text strong { font-weight: 600; }
+
+/* ── SECTION SCAFFOLDING ─────────────────────── */
+.section { padding: 72px 64px; }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-alt { background: var(--off-white); }
+.section-dark { background: var(--navy); }
+
+.section-label {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 36px); font-weight: 700;
+  color: var(--navy); margin-bottom: 12px; line-height: 1.2;
+}
+.section-title.light { color: #fff; }
+.section-sub {
+  font-size: 15px; color: var(--muted);
+  line-height: 1.75; max-width: 560px; margin-bottom: 48px;
+}
+.section-sub.light { color: rgba(255,255,255,.55); }
+.gold-rule { width: 44px; height: 2px; background: var(--gold); margin-bottom: 44px; border-radius: 2px; }
+
+/* ── INTRO CARD ──────────────────────────────── */
+.intro-card {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 48px 52px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center;
+  margin-bottom: 64px;
+  position: relative; overflow: hidden;
+}
+.intro-card::after {
+  content: '';
+  position: absolute; right: -60px; top: -60px;
+  width: 260px; height: 260px;
+  border: 1px solid rgba(184,148,42,.10); border-radius: 50%;
+  pointer-events: none;
+}
+.intro-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px;
+}
+.intro-card h2 em { color: var(--gold-lt); font-style: italic; }
+.intro-card p { font-size: 14.5px; color: rgba(255,255,255,.58); line-height: 1.8; }
+.intro-pillars { display: flex; flex-direction: column; gap: 14px; }
+.pillar {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(184,148,42,.14);
+  border-radius: 7px; padding: 16px 18px;
+}
+.pillar-icon {
+  width: 36px; height: 36px; background: rgba(184,148,42,.15);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pillar-icon svg { width: 18px; height: 18px; stroke: var(--gold-lt); fill: none; stroke-width: 1.6; }
+.pillar-text strong { display: block; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.88); margin-bottom: 2px; }
+.pillar-text span { font-size: 12.5px; color: rgba(255,255,255,.45); }
+
+/* ── NOTICE TYPES ────────────────────────────── */
+.notice-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px; margin-bottom: 64px;
+}
+.notice-pill {
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 18px 20px;
+  display: flex; align-items: center; gap: 12px;
+  transition: all .2s;
+}
+.notice-pill:hover { border-color: var(--gold); background: #fff; box-shadow: var(--shadow-sm); }
+.notice-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+.notice-pill span { font-size: 13.5px; font-weight: 500; color: var(--navy); }
+
+/* ── SERVICE CARDS ───────────────────────────── */
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px; margin-bottom: 64px;
+}
+.svc-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 9px; padding: 30px 28px;
+  position: relative; overflow: hidden;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.svc-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 4px; height: 0; background: var(--gold);
+  transition: height .3s ease;
+}
+.svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+.svc-card:hover::before { height: 100%; }
+.svc-icon-wrap {
+  width: 46px; height: 46px; background: var(--navy);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.svc-icon-wrap svg { width: 22px; height: 22px; stroke: var(--gold-lt); fill: none; stroke-width: 1.5; }
+.svc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.2;
+}
+.svc-list { list-style: none; }
+.svc-list li {
+  font-size: 13.5px; color: var(--muted);
+  padding: 8px 0; border-bottom: 1px solid rgba(184,148,42,.1);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.45;
+}
+.svc-list li:last-child { border-bottom: none; }
+.svc-list li::before {
+  content: ''; width: 5px; height: 5px;
+  background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+}
+
+/* ── PROCESS ─────────────────────────────────── */
+.process-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; border: 1px solid var(--border); border-radius: 9px; overflow: hidden;
+  margin-bottom: 64px;
+}
+.proc-step {
+  padding: 30px 24px; background: var(--off-white);
+  border-right: 1px solid var(--border);
+  position: relative; transition: background .2s;
+}
+.proc-step:last-child { border-right: none; }
+.proc-step:hover { background: #fff; }
+.proc-arrow {
+  position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%);
+  width: 22px; height: 22px; background: var(--cream);
+  border: 1px solid var(--border); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2; font-size: 10px; color: var(--gold);
+}
+.proc-step:last-child .proc-arrow { display: none; }
+.proc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700;
+  color: rgba(184,148,42,.13); line-height: 1; margin-bottom: 12px;
+}
+.proc-title { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.proc-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* ── WHY US ──────────────────────────────────── */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+.why-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 14px;
+}
+.why-left h2 em { color: var(--gold-lt); font-style: italic; }
+.why-left p { font-size: 14.5px; color: rgba(255,255,255,.55); line-height: 1.8; margin-bottom: 28px; }
+
+/* firm facts — only factual, ICAI-safe items */
+.firm-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fact-item {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(184,148,42,.18);
+  border-radius: 8px; padding: 18px 20px;
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.fact-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.fact-text { font-size: 13px; color: rgba(255,255,255,.58); line-height: 1.55; }
+.fact-text strong { display: block; color: rgba(255,255,255,.85); font-size: 13.5px; margin-bottom: 2px; }
+
+.why-right { display: flex; flex-direction: column; gap: 14px; }
+.why-item {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(184,148,42,.16);
+  border-radius: 8px; padding: 20px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: background .2s, border-color .2s;
+}
+.why-item:hover { background: rgba(184,148,42,.07); border-color: rgba(184,148,42,.32); }
+.why-check {
+  width: 28px; height: 28px; background: rgba(184,148,42,.15);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.why-check svg { width: 14px; height: 14px; stroke: var(--gold-lt); fill: none; stroke-width: 2.5; }
+.why-item-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.9); margin-bottom: 3px; }
+.why-item-desc { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.55; }
+
+/* ── CONTACT CTA ─────────────────────────────── */
+.cta-strip {
+  background: linear-gradient(125deg, var(--gold) 0%, #c8a040 55%, var(--gold-lt) 100%);
+  border-radius: 10px; padding: 48px 52px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+.cta-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 7px;
+}
+.cta-text p { font-size: 14.5px; color: rgba(11,27,51,.6); line-height: 1.65; }
+.cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.cta-btn-dark {
+  background: var(--navy); color: #fff;
+  padding: 13px 28px; border-radius: 5px;
+  font-size: 14px; font-weight: 600; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; white-space: nowrap;
+  transition: opacity .2s;
+}
+.cta-btn-dark:hover { opacity: .85; }
+.cta-btn-ghost {
+  background: transparent; color: var(--navy);
+  padding: 13px 28px; border-radius: 5px;
+  font-size: 14px; font-weight: 600; border: 2px solid rgba(11,27,51,.25); cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; white-space: nowrap;
+  transition: border-color .2s;
+}
+.cta-btn-ghost:hover { border-color: var(--navy); }
+
+/* ── ICAI NOTICE ─────────────────────────────── */
+.icai-note {
+  background: var(--gold-pale);
+  border: 1px solid rgba(184,148,42,.25);
+  border-radius: 8px; padding: 16px 22px;
+  font-size: 12.5px; color: var(--muted); line-height: 1.65;
+  margin-top: 28px; display: flex; gap: 12px; align-items: flex-start;
+}
+.icai-note svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; flex-shrink: 0; margin-top: 1px; }
+
+/* ── FOOTER ──────────────────────────────────── */
+footer {
+  background: var(--navy); border-top: 1px solid rgba(184,148,42,.18);
+  padding: 28px 64px; text-align: center;
+  font-size: 13px; color: rgba(255,255,255,.35);
+}
+footer strong { color: rgba(255,255,255,.6); }
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .topbar, .breadcrumb-bar, .hero, .section, .deadline-notice, footer { padding-left: 28px; padding-right: 28px; }
+  .header-inner { padding: 0 28px; }
+  .intro-card { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .cta-strip { flex-direction: column; text-align: center; }
+  nav { display: none; }
+  .hero-ring { display: none; }
+}
+</style>
 </head>
 <body>
 
-    <header>
+<!-- TOPBAR -->
+<div class="topbar">
+  <span>Chartered Accountants — Bangalore &nbsp;|&nbsp; ICAI Membership No. [XXXXXX]</span>
+  <div class="topbar-right">
+    <a href="tel:+919876543210">+91 98765 43210</a>
+    <a href="mailto:info@sanjaybc.com">info@sanjaybc.com</a>
+  </div>
+</div>
+
+<!-- HEADER -->
+ <header>
         <div class="nav-container">
             <a href="index.html" class="logo-wrap"><img src="logo1.png" alt="Sanjay B C & Co"></a>
             <nav>
@@ -83,89 +449,369 @@
         </div>
     </header>
 
-    <div class="page-hero">
-        <span class="hero-eyebrow">Dispute Resolution</span>
-        <h1>Appeals & Litigation</h1>
-        <p>Providing structured representation and advisory services for departmental proceedings under the Income Tax Act and GST framework.</p>
+<!-- BREADCRUMB -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="#">Services</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Tax Notices, Litigation &amp; Representation</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> Practice Area 04</div>
+    <h1>Tax Notices, Litigation<br/>&amp; <em>Representation</em></h1>
+    <p class="hero-desc">
+      Advisory, documentation and representation support across Income Tax
+      and GST proceedings — from notice receipt through resolution.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary">Get in Touch →</button>
+      <button class="btn-outline">Call Us: +91 98765 43210</button>
+    </div>
+  </div>
+  <div class="hero-ring"></div>
+</div>
+
+<!-- DEADLINE NOTICE — factual, not a sales push -->
+<div class="deadline-notice">
+  <div class="deadline-inner">
+    <div class="deadline-icon">
+      <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9"/><path d="M11 7v4l2 2"/></svg>
+    </div>
+    <p class="deadline-text">
+      <strong>Please note:</strong> Most tax notices carry mandatory response deadlines of 15–30 days.
+      We recommend consulting a CA promptly on receipt of any notice to avoid default or escalation.
+    </p>
+  </div>
+</div>
+
+<!-- INTRO -->
+<div class="section">
+  <div class="section-inner">
+    <div class="intro-card">
+      <div>
+        <h2>Support Through<br/><em>Tax Proceedings</em></h2>
+        <p>
+          Tax notices and departmental proceedings require timely, structured
+          responses supported by accurate documentation and a clear understanding
+          of the relevant provisions. We assist businesses and individuals with
+          the full range of Income Tax and GST litigation matters — from initial
+          notice review through to final orders or appeals.
+        </p>
+      </div>
+      <div class="intro-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 22 22"><path d="M11 3L4 7v5c0 5 7 8 7 8s7-3 7-8V7L11 3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Notice Analysis &amp; Response</strong>
+            <span>Structured review of the notice, applicable provisions and documentation requirements</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M7 8h8M7 12h5"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Documentation Support</strong>
+            <span>Preparation and organisation of evidence, reconciliations and case records</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 22 22"><circle cx="12" cy="8" r="5"/><path d="M3 19c0-4 4-7 9-7s9 3 9 7"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Representation at Proceedings</strong>
+            <span>Attendance and submissions at officer hearings on behalf of the client</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- NOTICE TYPES -->
+<div class="section section-alt" style="padding-top:56px;padding-bottom:56px;">
+  <div class="section-inner">
+    <div class="section-label">Scope of Matters</div>
+    <h2 class="section-title">Notices and Proceedings We Handle</h2>
+    <div class="gold-rule"></div>
+    <div class="notice-grid">
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 139(9) — Defective Return Notice</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 142(1) — Inquiry Before Assessment</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 143(1) — Intimation</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 143(2) — Scrutiny Assessment</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 144 — Best Judgment Assessment</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 145(3) — Rejection of Books</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 147 — Income Escaping Assessment</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 148 — Reassessment Notice</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 148A — Reassessment Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 153A — Search Assessment</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 153C — Assessment of Other Person</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 154 — Rectification Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 156 — Demand Notice</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 170 — Business Succession Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 179 — Director Liability Notice</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 194 Series — TDS Default Notices</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 200A — TDS Processing Intimation</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 206C — TCS Default Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 221 — Penalty for Default</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 234E — TDS Late Fee Notice</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 245 — Adjustment of Refund</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 263 — Revision by PCIT/CIT</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 270A — Underreporting Penalty</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 271AAC / 271AAD — Penalty Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 271B — Tax Audit Penalty</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 271C — TDS Penalty Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 271(1)(b) — Non-Compliance Penalty</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 271 — Penalty Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 276B — TDS Prosecution Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 131 — Summons & Inquiry</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 133(6) — Information Verification Notice</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 133A — Survey Proceedings</span></div>
+<div class="notice-pill"><div class="notice-dot"></div><span>Section 132 — Search & Seizure</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>GST Show Cause Notice (SCN)</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>GST DRC-01 — Demand Notice</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>GST Audit Notice — ASMT-14</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>ITC Mismatch — GSTR-2A / 2B</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>TDS Default &amp; Interest Notices</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Survey — Section 133A</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Search &amp; Seizure — Section 132</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Services Under This Practice</div>
+    <h2 class="section-title">What We Cover</h2>
+    <div class="gold-rule"></div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><path d="M3 5h16M3 11h10M3 17h7"/><circle cx="17" cy="15" r="3"/></svg>
+        </div>
+        <div class="svc-title">GST &amp; Income Tax Notices</div>
+        <ul class="svc-list">
+          <li>Notice review, provision analysis and risk mapping</li>
+          <li>Show-cause notice (SCN) reply preparation</li>
+          <li>GST reconciliation and ITC dispute support</li>
+          <li>Demand notice response and follow-up correspondence</li>
+          <li>Time-bound response co-ordination</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><circle cx="12" cy="8" r="5"/><path d="M3 19c0-4 4-7 9-7s9 3 9 7"/></svg>
+        </div>
+        <div class="svc-title">Appeals &amp; Assessments</div>
+        <ul class="svc-list">
+          <li>CIT(A) &amp; ITAT appeal preparation and filing</li>
+          <li>GST Appellate Authority proceedings support</li>
+          <li>Assessment hearing documentation and attendance</li>
+          <li>Advance Ruling applications (AAR / AAAR)</li>
+          <li>Co-ordination with advocates for High Court matters</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M3 9h16M9 21V9"/></svg>
+        </div>
+        <div class="svc-title">Department Proceedings</div>
+        <ul class="svc-list">
+          <li>Survey &amp; search (Section 132 / 133A) advisory</li>
+          <li>Penalty proceedings response and documentation</li>
+          <li>Section 148 reassessment proceedings</li>
+          <li>Prosecution proceedings advisory</li>
+          <li>Settlement through compounding provisions</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><path d="M12 2L2 7l10 5 10-5-10-5M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="svc-title">Refund &amp; Dispute Handling</div>
+        <ul class="svc-list">
+          <li>Income tax &amp; GST refund claim preparation</li>
+          <li>Blocked ITC resolution under GST provisions</li>
+          <li>Refund status follow-up with the department</li>
+          <li>Wrongful demand reversal applications</li>
+          <li>Refund documentation and reconciliation support</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><path d="M11 3L4 7v5c0 5 7 8 7 8s7-3 7-8V7L11 3z"/><path d="M9 12l2 2 4-4"/></svg>
+        </div>
+        <div class="svc-title">Advisory &amp; Representation</div>
+        <ul class="svc-list">
+          <li>Pre-proceeding advisory on applicable provisions</li>
+          <li>Representation at officer hearings and oral submissions</li>
+          <li>Review of assessment orders and further options</li>
+          <li>Advisory on litigation vis-à-vis settlement pathways</li>
+          <li>Long-term risk identification and record-keeping guidance</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">How We Work</div>
+    <h2 class="section-title">Our Notice Response Process</h2>
+    <div class="gold-rule"></div>
+    <div class="process-steps">
+      <div class="proc-step">
+        <div class="proc-num">01</div>
+        <div class="proc-title">Notice Review</div>
+        <div class="proc-desc">We review the notice in full, identify applicable legal provisions, assess the scope of the proceedings and advise on the required response.</div>
+        <div class="proc-arrow">›</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">02</div>
+        <div class="proc-title">Document Checklist</div>
+        <div class="proc-desc">We prepare a structured checklist of records required and assist in organising financial documents, statements and supporting evidence.</div>
+        <div class="proc-arrow">›</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">03</div>
+        <div class="proc-title">Reply Preparation</div>
+        <div class="proc-desc">A factual and legal reply is prepared with relevant case law, circulars and computation statements, reviewed before submission.</div>
+        <div class="proc-arrow">›</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">04</div>
+        <div class="proc-title">Submission &amp; Hearings</div>
+        <div class="proc-desc">We handle filing with the department, attend officer hearings on your behalf and manage follow-up correspondence through the proceedings.</div>
+        <div class="proc-arrow">›</div>
+      </div>
+      <div class="proc-step">
+        <div class="proc-num">05</div>
+        <div class="proc-title">Order &amp; Next Steps</div>
+        <div class="proc-desc">On receipt of the order, we advise on acceptance, rectification or appeal options — and assist with whichever course of action is appropriate.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY US — ICAI-compliant: no success rate claims, no volume boasts, only factual firm info -->
+<div class="section section-dark">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="section-label" style="color:var(--gold);">About Our Practice</div>
+        <h2>Our Approach to<br/><em>Tax Representation</em></h2>
+        <p>
+          We provide structured, methodical handling of tax notices and litigation
+          matters — focusing on accurate documentation, timely responses and
+          clear communication with clients at every stage of the proceedings.
+        </p>
+        <div class="firm-facts">
+          <div class="fact-item">
+            <div class="fact-dot"></div>
+            <div class="fact-text"><strong>Established Practice</strong>ICAI-registered firm based in Bangalore</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-dot"></div>
+            <div class="fact-text"><strong>Income Tax &amp; GST</strong>Covers both direct and indirect tax proceedings</div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-dot"></div>
+            <div class="fact-text"><strong>Partner-Led Work</strong>All matters reviewed by a qualified CA </div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-dot"></div>
+            <div class="fact-text"><strong>Bangalore-Based</strong>Proceedings before Bengaluru jurisdictional authorities</div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right">
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+          <div>
+            <div class="why-item-title">Structured Handling of Notices &amp; Disputes</div>
+            <div class="why-item-desc">Each notice follows a defined intake, review and response workflow. No matter is handled informally or without documentation.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+          <div>
+            <div class="why-item-title">Professional Documentation Support</div>
+            <div class="why-item-desc">We compile computation statements, reconciliation schedules and evidence annexures as part of every engagement.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+          <div>
+            <div class="why-item-title">Timely Advisory Within Prescribed Deadlines</div>
+            <div class="why-item-desc">We prioritise notice matters to ensure responses are prepared and filed well within the statutory timelines.</div>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-check"><svg viewBox="0 0 14 14"><polyline points="2,7 5.5,10.5 12,3"/></svg></div>
+          <div>
+            <div class="why-item-title">Considered Approach to Litigation Decisions</div>
+            <div class="why-item-desc">We advise on the applicable legal provisions, costs and realistic outcomes for each available course of action — without pressure tactics.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA — no "free review" or scheme language -->
+<div class="section">
+  <div class="section-inner">
+    <div class="cta-strip">
+      <div class="cta-text">
+        <h3>Received a Tax Notice?</h3>
+        <p>
+          We are available to review the notice, advise on the applicable provisions
+          and assist with the required response. Please contact us with the details.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <button class="cta-btn-dark">Contact Us →</button>
+        <button class="cta-btn-ghost">+91 97380 81962</button>
+      </div>
     </div>
 
-    <section class="content-section">
-        <div class="max-width">
-            <div class="notice-warning">
-                <strong>Statutory Timeline Notice</strong>
-                Standard tax notices (Section 143, 148, or GST SCNs) typically require responses within 15 to 30 days. We prioritize the review of time-sensitive documents to ensure statutory compliance.
-            </div>
-
-            <div class="service-grid">
-                <div class="service-item">
-                    <h3>Direct Tax Matters</h3>
-                    <ul class="service-list">
-                        <li>Representation for Scrutiny Assessments (u/s 143(3))</li>
-                        <li>Handling Reassessment Proceedings (u/s 148)</li>
-                        <li>Filing and Representation for Appeals before CIT (Appeals)</li>
-                        <li>Support for ITAT (Income Tax Appellate Tribunal) filings</li>
-                        <li>Responses to Penalty and Interest Notices</li>
-                    </ul>
-                </div>
-
-                <div class="service-item">
-                    <h3>Indirect Tax (GST)</h3>
-                    <ul class="service-list">
-                        <li>Representation for GST Audits and Investigations</li>
-                        <li>Drafting replies to Show Cause Notices (SCN)</li>
-                        <li>Handling ITC Mismatch disputes (GSTR-2A/2B vs 3B)</li>
-                        <li>Appeals before the GST Appellate Authority</li>
-                        <li>Assistance with Search and Seizure proceedings</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="process-container">
-        <div class="max-width">
-            <h2 style="font-family: var(--serif); text-align: center; margin-bottom: 50px;">Representation Methodology</h2>
-            <div class="process-grid">
-                <div class="step">
-                    <div class="step-num">01</div>
-                    <div class="step-title">Notice Analysis</div>
-                    <div class="step-desc">Technical review of the notice against applicable legal provisions and circulars.</div>
-                </div>
-                <div class="step">
-                    <div class="step-num">02</div>
-                    <div class="step-title">Fact Finding</div>
-                    <div class="step-desc">Collation of financial records, ledgers, and third-party reconciliations.</div>
-                </div>
-                <div class="step">
-                    <div class="step-num">03</div>
-                    <div class="step-title">Submission</div>
-                    <div class="step-desc">Drafting and electronic filing of factual and legal submissions.</div>
-                </div>
-                <div class="step">
-                    <div class="step-num">04</div>
-                    <div class="step-title">Hearings</div>
-                    <div class="step-desc">Representation before the Assessing Officer or Appellate Authority.</div>
-                </div>
-                <div class="step">
-                    <div class="step-num">05</div>
-                    <div class="step-title">Closure</div>
-                    <div class="step-desc">Review of final orders and advisory on further appellate remedies.</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="icai-disclaimer">
-        <div class="max-width">
-            <strong>ICAI Compliance Note:</strong> This information is provided as a pull-model resource for clients and interested parties. It does not constitute a solicitation or advertisement. Sanjay B C & Co. is a registered firm of Chartered Accountants in Bangalore. All services are rendered based on specific engagement terms.
-        </div>
+    <!-- ICAI compliance footnote -->
+    <div class="icai-note">
+      <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9"/><path d="M11 8v4M11 15h.01"/></svg>
+      <span>
+        <strong>Professional Notice:</strong> This website is maintained in accordance with the ICAI Guidelines on
+        Advertisement and Website for Chartered Accountants. The content is intended for informational purposes only
+        and does not constitute solicitation of professional work. Nature of services displayed on specific pull request only.
+        Past performance or outcomes are not represented or guaranteed. Sanjay B C &amp; Co. is an ICAI-registered
+        Chartered Accountants firm, Bangalore.
+      </span>
     </div>
+  </div>
+</div>
 
-    <footer>
-        <div class="max-width">
-            © 2025 Sanjay B C & Co. · Chartered Accountants · Bangalore · ICAI Membership No. [XXXXXX]
-        </div>
-    </footer>
+<!-- FOOTER -->
+<footer>
+  <strong>Sanjay B C &amp; Co.</strong> · Chartered Accountants · Bangalore · 
+  &nbsp;·&nbsp; © 2026 All rights reserved.
+  &nbsp;·&nbsp; This website is a pull-model information resource maintained per ICAI website guidelines.
+</footer>
 
 </body>
 </html>
