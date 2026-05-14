@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Tax Notices, Litigation & Representation | Sanjay B C & Co.</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -102,6 +102,109 @@ nav { display: flex; align-items: center; gap: 2px; }
   height:52px;
   width:auto;
   display:block;
+}
+  /* ── NAV MENU ───────────────────────────── */
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-menu > a,
+.nav-item > a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:500;
+  padding:10px 14px;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:.2s;
+  position:relative;
+}
+
+.nav-menu > a:hover,
+.nav-item > a:hover{
+  background:var(--gold-pale);
+  color:var(--navy);
+}
+
+.active-nav{
+  color:var(--navy) !important;
+  font-weight:600 !important;
+}
+
+.active-nav::after{
+  content:'';
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:6px;
+  height:2px;
+  background:var(--gold);
+  border-radius:2px;
+}
+
+/* dropdown */
+.nav-item{
+  position:relative;
+}
+
+.chevron{
+  width:14px;
+  height:14px;
+}
+
+.dropdown{
+  position:absolute;
+  top:calc(100% + 14px);
+  left:0;
+  min-width:250px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  box-shadow:var(--shadow-md);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:.22s ease;
+  z-index:100;
+}
+
+.nav-item:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.dd-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  padding:12px 14px;
+  border-radius:7px;
+  transition:.2s;
+}
+
+.dd-row:hover{
+  background:var(--gold-pale);
+}
+
+.dd-row-bar{
+  width:3px;
+  align-self:stretch;
+  background:var(--gold);
+  border-radius:10px;
+}
+
+.dd-row-label{
+  font-size:13px;
+  color:var(--navy);
+  font-weight:500;
 }
 /* ── BREADCRUMB ─────────────────────────────── */
 .breadcrumb-bar {
@@ -449,26 +552,142 @@ footer strong { color: rgba(255,255,255,.6); }
 <!-- TOPBAR -->
 <div class="topbar">
   <span></span>
-  <div class="topbar-right">
-    <a href=""></a>
-    <a href=""></a>
-  </div>
+<div class="topbar-right">
+  <span>Bangalore, India</span>
+  <span>Mon – Sat | 10:00 AM – 7:00 PM IST </span>
+</div>
+ 
 </div>
 
 <!-- HEADER -->
- <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo-wrap"><img src="logo1.png" alt="Sanjay B C & Co"></a>
-            <nav>
-                <a href="about.html">About Us</a>
-                <a href="services.html">Services</a>
-                <a href="resources.html">Resources</a>
-                <a href="insights.html">Insights</a>
-                <a href="careers.html">Careers</a>
-                <a href="contactus.html" class="nav-cta">Contact Us</a>
-            </nav>
+ <header class="main-header">
+
+  <div class="nav-container">
+
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co">
+    </a>
+
+    <nav class="nav-menu">
+
+      <a href="index.html">Home</a>
+
+      <!-- ABOUT -->
+      <div class="nav-item">
+
+        <a href="about.html" class="active-nav">
+          About Us
+
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+
+        </a>
+
+        <div class="dropdown">
+
+          <a href="about.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Firm Overview</div>
+          </a>
+
+          <a href="team.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Our Team</div>
+          </a>
+
+          <a href="industries.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Industries We Serve</div>
+          </a>
+
         </div>
-    </header>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="nav-item">
+
+        <a href="#">
+          Services
+
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+
+        </a>
+
+        <div class="dropdown">
+
+          <a href="compliance.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Tax & Compliance</div>
+          </a>
+
+          <a href="virtual-cfo.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">CFO Advisory</div>
+          </a>
+
+          <a href="appeals.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Litigation & Notices</div>
+          </a>
+
+          <a href="riskcontrol.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Risk & Internal Controls</div>
+          </a>
+
+        </div>
+
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="nav-item">
+
+        <a href="resources.html">
+          Resources
+
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+
+        </a>
+
+        <div class="dropdown">
+
+          <a href="blog.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Blogs & Articles</div>
+          </a>
+
+          <a href="downloads.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Downloads</div>
+          </a>
+
+          <a href="faqs.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">FAQs</div>
+          </a>
+
+        </div>
+
+      </div>
+
+      <a href="insights.html">Insights</a>
+
+      <a href="careers.html">Careers</a>
+
+      <a href="contactus.html" class="nav-cta">
+        Contact Us
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb-bar">
