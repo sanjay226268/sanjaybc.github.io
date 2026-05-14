@@ -4,200 +4,520 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Industries We Serve | Sanjay B C & Co.</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 
 <style>
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  color:#0A192F;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --navy:#0A192F;
-  --gold:#B8922A;
-  --off:#F9F7F2;
+  --navy:    #1a2340;
+  --navy2:   #0a192f;
+  --gold:    #b8922a;
+  --gold-lt: #d4a83a;
+  --cream:   #f7f4ef;
+  --white:   #ffffff;
+  --text:    #2c2c2c;
+  --muted:   #6b6b6b;
+  --border:  #ddd8ce;
+  --serif:   'Cormorant Garamond', Georgia, serif;
+  --sans:    'DM Sans', 'Segoe UI', sans-serif;
 }
 
-nav {
-  background:#fff;
-  height:88px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 48px;
-  border-bottom:1px solid rgba(0,0,0,0.06);
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--text);
+  margin: 0;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.main-header {
+  background: var(--white);
+  border-bottom: 1px solid rgba(13,27,46,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.04);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 36px;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrap {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .logo-wrap img {
-  height:60px;
+  height: 58px;
+  width: auto;
+  object-fit: contain;
 }
 
-.nav-links {
-  display:flex;
-  gap:18px;
-  align-items:center;
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
 
-.nav-links a {
-  text-decoration:none;
-  color:#0A192F;
-  font-size:13px;
-  font-weight:500;
+.nav-menu > a,
+.nav-item > a {
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 14px;
+  border-radius: 3px;
+  transition: all .2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
 }
 
-.nav-links a:hover {
-  color:var(--gold);
+.nav-menu > a:hover,
+.nav-item > a:hover {
+  color: var(--gold);
+  background: rgba(184,146,42,0.08);
 }
 
-.hero {
-  background:linear-gradient(rgba(10,25,47,0.82), rgba(10,25,47,0.82)), url('industry-banner.jpg');
-  background-size:cover;
-  background-position:center;
-  text-align:center;
-  padding:120px 40px;
+.active-nav {
+  color: var(--gold) !important;
+  font-weight: 600 !important;
 }
 
-.hero h1 {
-  font-family:'Playfair Display',serif;
-  font-size:58px;
-  color:#fff;
+.nav-item { position: relative; }
+
+.chevron {
+  width: 14px;
+  height: 14px;
+  transition: transform .25s ease;
 }
 
-.hero p {
-  color:rgba(255,255,255,0.82);
-  max-width:760px;
-  margin:auto;
-  line-height:1.8;
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 290px;
+  background: #fff;
+  border: 1px solid rgba(13,27,46,0.08);
+  border-radius: 8px;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.08);
+  padding: 10px 0;
+  display: none;
+  z-index: 999;
 }
 
-.industries {
-  padding:80px 48px;
-  background:var(--off);
+.nav-item:hover .dropdown { display: block; }
+.nav-item:hover .chevron  { transform: rotate(180deg); }
+
+.dd-row {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  text-decoration: none;
+  color: var(--navy);
+  position: relative;
+  transition: background .2s ease;
+}
+
+.dd-row:hover { background: rgba(184,146,42,0.08); }
+
+.dd-row-label {
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.dd-row-bar {
+  position: absolute;
+  left: 0; top: 0;
+  width: 4px; height: 100%;
+  background: transparent;
+}
+
+.dd-row:hover .dd-row-bar { background: var(--gold); }
+
+.nav-cta {
+  background: var(--gold);
+  color: #fff !important;
+  padding: 10px 18px !important;
+  border-radius: 4px;
+}
+
+.nav-cta:hover { background: var(--navy) !important; }
+
+/* =========================
+   HERO
+========================= */
+
+.page-hero {
+  background: var(--navy2);
+  color: var(--white);
+  padding: 64px 36px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,146,42,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.page-hero p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  max-width: 620px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+
+.gold-line {
+  width: 56px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* =========================
+   INDUSTRIES SECTION
+========================= */
+
+.industries-section {
+  padding: 72px 36px;
+  background: var(--cream);
+}
+
+.section-wrap {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.section-head {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-head span {
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.section-head h2 {
+  font-family: var(--serif);
+  font-size: clamp(28px, 4vw, 38px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-top: 10px;
 }
 
 .industry-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
 }
 
 .industry-card {
-  background:#fff;
-  padding:36px;
-  border-top:4px solid var(--gold);
-  border-radius:14px;
-  transition:0.3s;
+  background: var(--white);
+  padding: 32px 28px;
+  border: 1px solid var(--border);
+  border-top: 4px solid var(--gold);
+  border-radius: 8px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .industry-card:hover {
-  transform:translateY(-6px);
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(10,25,47,0.1);
+}
+
+.industry-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(184,146,42,0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.industry-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: var(--gold);
 }
 
 .industry-card h3 {
-  font-family:'Playfair Display',serif;
-  margin-bottom:14px;
-  font-size:26px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 10px;
 }
 
 .industry-card p {
-  color:#5d6978;
-  line-height:1.8;
-  font-size:14px;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 14px;
 }
 
-footer {
-  background:#0A192F;
-  color:rgba(255,255,255,0.7);
-  text-align:center;
-  padding:24px;
+/* =========================
+   FOOTER
+========================= */
+
+.site-footer {
+  background: var(--navy2);
+  color: rgba(255,255,255,0.55);
+  padding: 28px 36px;
+  text-align: center;
+  font-size: 13px;
+  border-top: 3px solid var(--gold);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 1100px) {
+  .nav-container { padding: 0 20px; }
+  .nav-menu { gap: 0; }
+  .nav-menu > a, .nav-item > a { font-size: 12px; padding: 10px 9px; }
+}
+
+@media(max-width: 900px) {
+  .nav-container { height: auto; padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .nav-menu { flex-wrap: wrap; width: 100%; }
+  .nav-item { width: 100%; }
+  .nav-item > a { width: 100%; justify-content: space-between; }
+  .dropdown { position: static; width: 100%; margin-top: 6px; box-shadow: none; }
+  .industries-section { padding: 56px 20px; }
+  .page-hero { padding: 48px 20px 40px; }
+}
+
+@media(max-width: 600px) {
+  .industry-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-  <a href="index.html" class="logo-wrap">
-    <img src="logo1.png" alt="Logo">
-  </a>
+<!-- NAV -->
+<header class="main-header">
+  <div class="nav-container">
 
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="services.html">Services</a>
-    <a href="resources.html">Resources</a>
-    <a href="insights.html">Insights</a>
-    <a href="careers.html">Careers</a>
-    <a href="contactus.html">Contact Us</a>
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co.">
+    </a>
+
+    <nav class="nav-menu">
+
+      <a href="index.html">Home</a>
+
+      <!-- ABOUT -->
+      <div class="nav-item">
+        <a href="about.html" class="active-nav">
+          About Us
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <a href="about.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Firm Overview</div>
+          </a>
+          <a href="team.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Our Team</div>
+          </a>
+          <a href="industries.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Industries We Serve</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- SERVICES -->
+      <div class="nav-item">
+        <a href="#">
+          Services
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <a href="compliance.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Tax & Compliance</div>
+          </a>
+          <a href="virtual-cfo.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">CFO Advisory</div>
+          </a>
+          <a href="appeals.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Litigation & Notices</div>
+          </a>
+          <a href="riskcontrol.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Risk & Internal Controls</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="nav-item">
+        <a href="resources.html">
+          Resources
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <a href="blog.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Blogs & Articles</div>
+          </a>
+          <a href="downloads.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Downloads</div>
+          </a>
+          <a href="faqs.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">FAQs</div>
+          </a>
+        </div>
+      </div>
+
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html" class="nav-cta">Contact Us</a>
+
+    </nav>
   </div>
-</nav>
+</header>
 
-<section class="hero">
+<!-- HERO -->
+<div class="page-hero">
   <h1>Industries We Serve</h1>
-  <p>
-    Delivering specialized financial, tax and advisory solutions across diverse industries and growing businesses.
-  </p>
-</section>
+  <p>Delivering specialized financial, tax and advisory solutions across diverse industries and growing businesses.</p>
+  <div class="gold-line"></div>
+</div>
 
-<section class="industries">
+<!-- INDUSTRIES -->
+<section class="industries-section">
+  <div class="section-wrap">
 
-  <div class="industry-grid">
-
-    <div class="industry-card">
-      <h3>Manufacturing</h3>
-      <p>
-        Advisory on GST, costing, SOP implementation, internal controls,
-        inventory systems and working capital management.
-      </p>
+    <div class="section-head">
+      <span>Our Domain Expertise</span>
+      <h2>Sectors We Work With</h2>
     </div>
 
-    <div class="industry-card">
-      <h3>Trading & Distribution</h3>
-      <p>
-        Tax compliance, finance optimization, audit support,
-        and business process improvements for trading businesses.
-      </p>
-    </div>
+    <div class="industry-grid">
 
-    <div class="industry-card">
-      <h3>Technology & Startups</h3>
-      <p>
-        Virtual CFO services, fundraising support,
-        MIS reporting and strategic business advisory.
-      </p>
-    </div>
+      <div class="industry-card">
+        <div class="industry-icon">
+          <!-- Factory / manufacturing icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 20V8l5-3v3l5-3v3l5-3v15H2zm2-2h14V9.5l-5 3V9l-5 3V9l-4 2.4V18zm2-2h2v-4H6v4zm4 0h2v-4h-2v4zm4 0h2v-4h-2v4z"/>
+          </svg>
+        </div>
+        <h3>Manufacturing</h3>
+        <p>Advisory on GST, costing, SOP implementation, internal controls, inventory systems and working capital management.</p>
+      </div>
 
-    <div class="industry-card">
-      <h3>Real Estate</h3>
-      <p>
-        Structuring advisory, GST implications,
-        project finance and compliance management.
-      </p>
-    </div>
+      <div class="industry-card">
+        <div class="industry-icon">
+          <!-- Cart / trading icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM5.2 6H20l-1.7 8H7.1L5.2 6zM3 2H1v2h2l3.6 7.6L5.2 14c-.2.3-.2.7-.2 1 0 1.1.9 2 2 2h13v-2H7.4c-.1 0-.2-.1-.2-.2l.1-.3.9-1.5H18c.8 0 1.4-.4 1.8-1l3-5.4c.1-.2.2-.5.2-.8C23 5.3 22.2 4 21 4H5.2L4.3 2H3z"/>
+          </svg>
+        </div>
+        <h3>Trading &amp; Distribution</h3>
+        <p>Tax compliance, finance optimization, audit support and business process improvements for trading businesses.</p>
+      </div>
 
-    <div class="industry-card">
-      <h3>Professional Services</h3>
-      <p>
-        Compliance management, taxation,
-        payroll systems and operational advisory.
-      </p>
-    </div>
+      <div class="industry-card">
+        <div class="industry-icon">
+          <!-- Code / tech icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+          </svg>
+        </div>
+        <h3>Technology &amp; Startups</h3>
+        <p>Virtual CFO services, fundraising support, MIS reporting and strategic business advisory.</p>
+      </div>
 
-    <div class="industry-card">
-      <h3>International Businesses</h3>
-      <p>
-        UAE and UK tax support,
-        cross-border advisory and international structuring.
-      </p>
-    </div>
+      <div class="industry-card">
+        <div class="industry-icon">
+          <!-- Building / real estate icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+          </svg>
+        </div>
+        <h3>Real Estate</h3>
+        <p>Structuring advisory, GST implications, project finance and compliance management.</p>
+      </div>
 
+      <div class="industry-card">
+        <div class="industry-icon">
+          <!-- Briefcase / professional services icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 6H16V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 9c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm2-9h-4V4h4v2z"/>
+          </svg>
+        </div>
+        <h3>Professional Services</h3>
+        <p>Compliance management, taxation, payroll systems and operational advisory.</p>
+      </div>
+
+      <div class="industry-card">
+        <div class="industry-icon">
+          <!-- Globe / international icon -->
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+          </svg>
+        </div>
+        <h3>International Businesses</h3>
+        <p>UAE and UK tax support, cross-border advisory and international structuring.</p>
+      </div>
+
+    </div>
   </div>
-
 </section>
 
-<footer>
-  © 2026 Sanjay B C & Co., Chartered Accountants. All rights reserved.
+<!-- FOOTER -->
+<footer class="site-footer">
+  © 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.
 </footer>
 
 </body>
