@@ -51,7 +51,6 @@ body {
   justify-content:space-between;
 }
 
-/* LOGO */
 .logo-wrap{
   display:flex;
   align-items:center;
@@ -64,7 +63,6 @@ body {
   object-fit:contain;
 }
 
-/* NAVIGATION */
 .nav-menu{
   display:flex;
   align-items:center;
@@ -92,13 +90,11 @@ body {
   background:rgba(184,146,42,0.08);
 }
 
-/* ACTIVE PAGE */
 .active-nav{
   color:var(--gold) !important;
   font-weight:600 !important;
 }
 
-/* DROPDOWN */
 .nav-item{
   position:relative;
 }
@@ -131,7 +127,6 @@ body {
   transform:rotate(180deg);
 }
 
-/* DROPDOWN ROWS */
 .dd-row{
   display:flex;
   align-items:center;
@@ -174,7 +169,6 @@ body {
   stroke-width:2;
 }
 
-/* CTA */
 .nav-cta{
   background:var(--gold);
   color:#fff !important;
@@ -186,54 +180,334 @@ body {
   background:var(--navy) !important;
 }
 
-/* RESPONSIVE */
-@media(max-width:1100px){
+/* =========================
+   HERO
+========================= */
 
-  .nav-container{
-    padding:0 20px;
+.about-hero {
+  background: var(--navy2);
+  color: var(--white);
+  padding: 64px 36px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,146,42,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.about-hero h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.about-hero p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  max-width: 560px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+}
+
+.gold-line {
+  width: 56px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* =========================
+   CONTAINER & LAYOUT
+========================= */
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 56px 36px 80px;
+}
+
+/* Two-column layout: left sidebar + right content */
+.about-layout {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+/* =========================
+   LEFT COLUMN
+========================= */
+
+.about-left {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  position: sticky;
+  top: 106px; /* navbar height + breathing room */
+}
+
+.about-image {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.about-image img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+}
+
+/* At a Glance card */
+.quick-info {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 24px 22px;
+}
+
+.quick-info h3 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 18px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--gold);
+  display: inline-block;
+}
+
+.qi-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.qi-row:last-child {
+  border-bottom: none;
+}
+
+.qi-icon {
+  width: 32px;
+  height: 32px;
+  background: rgba(184,146,42,0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.qi-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--gold);
+}
+
+.qi-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.qi-text strong {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+  color: var(--muted);
+}
+
+/* =========================
+   RIGHT COLUMN
+========================= */
+
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.intro-text {
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: var(--text);
+  padding: 20px 22px;
+  background: var(--white);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 6px 6px 0;
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 26px 28px;
+}
+
+.card h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+
+.card p {
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.card ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card ul li {
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 8px 12px 8px 32px;
+  position: relative;
+  background: var(--cream);
+  border-radius: 4px;
+}
+
+.card ul li::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* Services 2-column grid */
+.services-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+/* Highlighted name */
+.highlight {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Geo badge */
+.geo-badge {
+  margin-top: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(184,146,42,0.1);
+  border: 1px solid rgba(184,146,42,0.3);
+  color: var(--navy);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 20px;
+}
+
+.geo-badge svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--gold);
+  flex-shrink: 0;
+}
+
+/* =========================
+   FOOTER NOTE
+========================= */
+
+.footer {
+  margin-top: 48px;
+  padding: 20px 28px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width: 900px) {
+  .about-layout {
+    grid-template-columns: 1fr;
   }
 
-  .nav-menu{
-    gap:0;
+  .about-left {
+    position: static;
   }
 
-  .nav-menu > a,
-  .nav-item > a{
-    font-size:12px;
-    padding:10px 9px;
+  .about-image img {
+    height: 220px;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr !important;
   }
 }
 
+@media(max-width: 600px) {
+  .container {
+    padding: 36px 20px 60px;
+  }
+
+  .about-hero {
+    padding: 44px 20px 40px;
+  }
+
+  .card {
+    padding: 20px 18px;
+  }
+}
+
+/* =========================
+   NAVBAR RESPONSIVE
+========================= */
+
+@media(max-width:1100px){
+  .nav-container{ padding:0 20px; }
+  .nav-menu{ gap:0; }
+  .nav-menu > a, .nav-item > a{ font-size:12px; padding:10px 9px; }
+}
+
 @media(max-width:900px){
-
-  .nav-container{
-    height:auto;
-    padding:18px 20px;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
-  }
-
-  .nav-menu{
-    flex-wrap:wrap;
-    width:100%;
-  }
-
-  .nav-item{
-    width:100%;
-  }
-
-  .nav-item > a{
-    width:100%;
-    justify-content:space-between;
-  }
-
-  .dropdown{
-    position:static;
-    width:100%;
-    margin-top:6px;
-    box-shadow:none;
-  }
+  .nav-container{ height:auto; padding:18px 20px; flex-direction:column; align-items:flex-start; gap:14px; }
+  .nav-menu{ flex-wrap:wrap; width:100%; }
+  .nav-item{ width:100%; }
+  .nav-item > a{ width:100%; justify-content:space-between; }
+  .dropdown{ position:static; width:100%; margin-top:6px; box-shadow:none; }
 }
 </style>
 </head>
@@ -241,7 +515,6 @@ body {
 
 <!-- NAV -->
 <header class="main-header">
-
   <div class="nav-container">
 
     <a href="index.html" class="logo-wrap">
@@ -252,121 +525,85 @@ body {
 
       <a href="index.html">Home</a>
 
-      <!-- ABOUT -->
       <div class="nav-item">
-
         <a href="about.html" class="active-nav">
           About Us
-
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
-
         </a>
-
         <div class="dropdown">
-
           <a href="about.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Firm Overview</div>
           </a>
-
           <a href="team.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Our Team</div>
           </a>
-
           <a href="industries.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Industries We Serve</div>
           </a>
-
         </div>
       </div>
 
-      <!-- SERVICES -->
       <div class="nav-item">
-
         <a href="#">
           Services
-
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
-
         </a>
-
         <div class="dropdown">
-
           <a href="compliance.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Tax & Compliance</div>
           </a>
-
           <a href="virtual-cfo.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">CFO Advisory</div>
           </a>
-
           <a href="appeals.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Litigation & Notices</div>
           </a>
-
           <a href="riskcontrol.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Risk & Internal Controls</div>
           </a>
-
         </div>
-
       </div>
 
-      <!-- RESOURCES -->
       <div class="nav-item">
-
         <a href="resources.html">
           Resources
-
           <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
             <polyline points="6 9 12 15 18 9"/>
           </svg>
-
         </a>
-
         <div class="dropdown">
-
           <a href="blog.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Blogs & Articles</div>
           </a>
-
           <a href="downloads.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">Downloads</div>
           </a>
-
           <a href="faqs.html" class="dd-row">
             <div class="dd-row-bar"></div>
             <div class="dd-row-label">FAQs</div>
           </a>
-
         </div>
-
       </div>
 
       <a href="insights.html">Insights</a>
-
       <a href="careers.html">Careers</a>
-
-      <a href="contactus.html" class="nav-cta">
-        Contact Us
-      </a>
+      <a href="contactus.html" class="nav-cta">Contact Us</a>
 
     </nav>
-
   </div>
-
 </header>
 
 <!-- HERO -->
@@ -380,7 +617,7 @@ body {
 <div class="container">
   <div class="about-layout">
 
-    <!-- LEFT -->
+    <!-- LEFT SIDEBAR -->
     <div class="about-left">
       <div class="about-image">
         <img src="about-image.png" alt="Sanjay B C & Co Team">
@@ -392,30 +629,42 @@ body {
           <div class="qi-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
           </div>
-          <div class="qi-text"><strong>Founded</strong>Bengaluru, India</div>
+          <div class="qi-text">
+            <strong>Founded</strong>
+            Bengaluru, India
+          </div>
         </div>
         <div class="qi-row">
           <div class="qi-icon">
             <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
           </div>
-          <div class="qi-text"><strong>Membership</strong>Institute of Chartered Accountants of India (ICAI)</div>
+          <div class="qi-text">
+            <strong>Membership</strong>
+            Institute of Chartered Accountants of India (ICAI)
+          </div>
         </div>
         <div class="qi-row">
           <div class="qi-icon">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
           </div>
-          <div class="qi-text"><strong>Practice Areas</strong>India · UAE · UK</div>
+          <div class="qi-text">
+            <strong>Practice Areas</strong>
+            India · UAE · UK
+          </div>
         </div>
         <div class="qi-row">
           <div class="qi-icon">
             <svg viewBox="0 0 24 24"><path d="M20 6H16V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-8 9c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3zm2-9h-4V4h4v2z"/></svg>
           </div>
-          <div class="qi-text"><strong>Specialisation</strong>Tax, Audit, Litigation, Virtual CFO</div>
+          <div class="qi-text">
+            <strong>Specialisation</strong>
+            Tax, Audit, Litigation, Virtual CFO
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- RIGHT -->
+    <!-- RIGHT CONTENT -->
     <div class="about-content">
 
       <p class="intro-text">
