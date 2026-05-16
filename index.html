@@ -273,12 +273,20 @@
 .service-card:hover { box-shadow: 0 8px 28px rgba(13,27,46,0.10); transform: translateY(-3px); }
 .svc-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; flex-shrink: 0; }
 .svc-icon svg { width: 22px; height: 22px; stroke: var(--gold); fill: none; stroke-width: 1.5; }
-.svc-title { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 14px; }
+.svc-title { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--gold); line-height: 1.2; margin-bottom: 14px; }
+.service-card h3 { font-family: var(--serif); font-size: 18px; font-weight: 500; color: var(--gold); line-height: 1.2; margin-bottom: 14px; }
 .svc-items { list-style: none; flex: 1; }
 .svc-items li { font-size: 12.5px; color: #4a5a6e; padding: 6px 0 6px 14px; position: relative; border-bottom: 0.5px solid #f0ece4; line-height: 1.45; }
 .svc-items li:last-child { border-bottom: none; }
 .svc-items li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 15px; line-height: 1.2; font-weight: 700; }
 .explore-link { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--gold); margin-top: 18px; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.service-card ul { list-style: none; flex: 1; }
+.service-card ul li { font-size: 12.5px; color: #4a5a6e; padding: 6px 0 6px 14px; position: relative; border-bottom: 0.5px solid #f0ece4; line-height: 1.45; }
+.service-card ul li:last-child { border-bottom: none; }
+.service-card ul li::before { content: '›'; position: absolute; left: 0; color: var(--gold); font-size: 15px; line-height: 1.2; font-weight: 700; }
+.service-card > a { display: inline-flex; align-items: center; gap: 6px; font-size: 12.5px; font-weight: 600; color: var(--gold); margin-top: 18px; text-decoration: none; letter-spacing: 0.04em; transition: color 0.2s; }
+.service-card > a::after { content: '→'; transition: transform 0.2s; }
+.service-card:hover > a::after { transform: translateX(3px); }
 .explore-link::after { content: '→'; transition: transform 0.2s; }
 .service-card:hover .explore-link::after { transform: translateX(3px); }
 
@@ -663,7 +671,7 @@
 <h2>Comprehensive Financial &amp; Legal Services</h2>
 </div>
 <!-- ROW 1: Start Here -->
-<div class="services-row-label">🟢 Start here — Foundation services</div>
+<div class="services-row-label">🟢 Start here - Foundation services</div>
 <div class="services-grid services-grid--start">
 
   <div class="service-card">
@@ -704,7 +712,7 @@
 </div>
 
 <!-- ROW 2: Scale Up -->
-<div class="services-row-label">🔵 Scale up — Growth &amp; advisory services</div>
+<div class="services-row-label">🔵 Scale up - Growth &amp; advisory services</div>
 <div class="services-grid services-grid--scale">
 
   <div class="service-card">
