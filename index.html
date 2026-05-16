@@ -267,7 +267,8 @@
 .services-section .sec-head { text-align: center; margin-bottom: 40px; }
 .services-section .sec-head .sec-label { font-size: 11px; letter-spacing: 0.14em; color: var(--gold); text-transform: uppercase; font-weight: 500; margin-bottom: 8px; }
 .services-section .sec-head h2 { font-family: var(--serif); font-size: 32px; font-weight: 500; color: var(--navy); margin: 0; }
-.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; max-width: 100%; margin: 0 auto; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; max-width: 100%; margin: 0 auto 40px auto; }
+.services-row-label {  font-size: 12px;  font-weight: 700;  text-transform: uppercase;  letter-spacing: 0.08em;  color: var(--gold);  margin: 32px 0 14px 0;  padding-left: 12px;  border-left: 3px solid var(--gold);}
 .service-card { background: var(--white); border-radius: 12px; padding: 28px 24px; border: 1px solid rgba(13,27,46,0.1); border-top: 3px solid var(--gold); transition: box-shadow 0.2s, transform 0.2s; cursor: pointer; display: flex; flex-direction: column; }
 .service-card:hover { box-shadow: 0 8px 28px rgba(13,27,46,0.10); transform: translateY(-3px); }
 .svc-icon { width: 48px; height: 48px; background: var(--navy); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px; flex-shrink: 0; }
@@ -429,7 +430,8 @@
   @media (max-width: 900px) {
     .topbar, nav, .hero-content, .trust-bar, .insights-section, footer { padding-left: 20px; padding-right: 20px; }
     .hero-panel { display: none; }
-    .services-grid { grid-template-columns: repeat(2,1fr); }
+    .services-grid { grid-template-columns: 1fr; }
+    .services-row-label { margin-top: 24px; }
     .insights-grid { grid-template-columns: 1fr; }
     .footer-top { grid-template-columns: 1fr 1fr; }
   }
@@ -659,7 +661,7 @@
   <div class="sec-head">
     <div class="section-label">What we do</div>
 <h2>Comprehensive Financial &amp; Legal Services</h2>
-
+</div>
 <!-- ROW 1: Start Here -->
 <div class="services-row-label">🟢 Start here — Foundation services</div>
 <div class="services-grid services-grid--start">
