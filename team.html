@@ -4,170 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Team | Sanjay B C & Co.</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --navy:    #1a2340;
-  --navy2:   #0a192f;
-  --gold:    #b8922a;
-  --gold-lt: #d4a83a;
-  --cream:   #f7f4ef;
-  --white:   #ffffff;
-  --text:    #2c2c2c;
-  --muted:   #6b6b6b;
-  --border:  #ddd8ce;
-  --serif:   'Cormorant Garamond', Georgia, serif;
-  --sans:    'DM Sans', 'Segoe UI', sans-serif;
-}
+/* =============================================
+   TEAM PAGE — SPECIFIC STYLES ONLY
+   (navbar, footer, topbar, whatsapp → shared.css)
+============================================= */
 
 body {
-  font-family: var(--sans);
-  background: var(--cream);
-  color: var(--text);
-  margin: 0;
+  background: var(--off-white);
 }
 
-/* =========================
-   NAVBAR
-========================= */
-
-.main-header {
-  background: var(--white);
-  border-bottom: 1px solid rgba(13,27,46,0.08);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 14px rgba(0,0,0,0.04);
-}
-
-.nav-container {
-  width: 100%;
-  padding: 0 36px;
-  height: 86px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo-wrap {
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
-.logo-wrap img {
-  height: 58px;
-  width: auto;
-  object-fit: contain;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 2px;
-}
-
-.nav-menu > a,
-.nav-item > a {
-  text-decoration: none;
-  color: var(--navy);
-  font-size: 13px;
-  font-weight: 500;
-  padding: 10px 14px;
-  border-radius: 3px;
-  transition: all .2s ease;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
-
-.nav-menu > a:hover,
-.nav-item > a:hover {
-  color: var(--gold);
-  background: rgba(184,146,42,0.08);
-}
-
-.active-nav {
-  color: var(--gold) !important;
-  font-weight: 600 !important;
-}
-
-.nav-item {
-  position: relative;
-}
-
-.chevron {
-  width: 14px;
-  height: 14px;
-  transition: transform .25s ease;
-}
-
-.dropdown {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 290px;
-  background: #fff;
-  border: 1px solid rgba(13,27,46,0.08);
-  border-radius: 8px;
-  box-shadow: 0 12px 34px rgba(0,0,0,0.08);
-  padding: 10px 0;
-  display: none;
-  z-index: 999;
-}
-
-.nav-item:hover .dropdown { display: block; }
-.nav-item:hover .chevron  { transform: rotate(180deg); }
-
-.dd-row {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 18px;
-  text-decoration: none;
-  color: var(--navy);
-  position: relative;
-  transition: background .2s ease;
-}
-
-.dd-row:hover { background: rgba(184,146,42,0.08); }
-
-.dd-row-label {
-  font-size: 13px;
-  font-weight: 500;
-  flex: 1;
-}
-
-.dd-row-bar {
-  position: absolute;
-  left: 0; top: 0;
-  width: 4px; height: 100%;
-  background: transparent;
-}
-
-.dd-row:hover .dd-row-bar { background: var(--gold); }
-
-.nav-cta {
-  background: var(--gold);
-  color: #fff !important;
-  padding: 10px 18px !important;
-  border-radius: 4px;
-}
-
-.nav-cta:hover { background: var(--navy) !important; }
-
-/* =========================
-   HERO
-========================= */
-
+/* ── HERO ── */
 .page-hero {
-  background: var(--navy2);
+  background: var(--navy);
   color: var(--white);
-  padding: 64px 36px 52px;
+  padding: 64px 48px 52px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -187,6 +40,7 @@ body {
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 14px;
+  position: relative;
 }
 
 .page-hero p {
@@ -195,6 +49,7 @@ body {
   max-width: 620px;
   margin: 0 auto 24px;
   line-height: 1.7;
+  position: relative;
 }
 
 .gold-line {
@@ -203,18 +58,10 @@ body {
   background: var(--gold);
   margin: 0 auto;
   border-radius: 2px;
+  position: relative;
 }
 
-/* =========================
-   SECTION COMMON
-========================= */
-
-.container {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 36px;
-}
-
+/* ── SECTION COMMON ── */
 .section-head {
   text-align: center;
   margin-bottom: 50px;
@@ -236,13 +83,10 @@ body {
   margin-top: 10px;
 }
 
-/* =========================
-   TEAM SECTION
-========================= */
-
+/* ── TEAM SECTION ── */
 .team-section {
-  padding: 72px 36px;
-  background: var(--cream);
+  padding: 72px 48px;
+  background: var(--off-white);
 }
 
 .team-grid {
@@ -257,7 +101,7 @@ body {
   background: var(--white);
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(13,27,46,0.1);
   border-top: 4px solid var(--gold);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
@@ -271,8 +115,8 @@ body {
   width: 84px;
   height: 84px;
   border-radius: 50%;
-  background: var(--navy2);
-  color: var(--gold-lt);
+  background: var(--navy);
+  color: var(--gold-light);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -306,7 +150,7 @@ body {
 }
 
 .team-content p {
-  color: var(--muted);
+  color: var(--text-muted);
   line-height: 1.8;
   font-size: 14px;
   margin-bottom: 18px;
@@ -329,12 +173,9 @@ body {
   letter-spacing: 0.03em;
 }
 
-/* =========================
-   VALUES SECTION
-========================= */
-
+/* ── VALUES SECTION ── */
 .values-section {
-  padding: 72px 36px;
+  padding: 72px 48px;
   background: var(--white);
 }
 
@@ -348,10 +189,10 @@ body {
 
 .value-box {
   padding: 32px 28px;
-  border: 1px solid var(--border);
+  border: 1px solid rgba(13,27,46,0.1);
   border-top: 4px solid var(--gold);
   border-radius: 8px;
-  background: var(--cream);
+  background: var(--off-white);
   transition: box-shadow 0.2s ease;
 }
 
@@ -368,211 +209,271 @@ body {
 }
 
 .value-box p {
-  color: var(--muted);
+  color: var(--text-muted);
   line-height: 1.8;
   font-size: 14px;
 }
 
-/* =========================
-   FOOTER
-========================= */
-
-.site-footer {
-  background: var(--navy2);
-  color: rgba(255,255,255,0.55);
-  padding: 28px 36px;
-  text-align: center;
-  font-size: 13px;
-  border-top: 3px solid var(--gold);
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width: 1100px) {
-  .nav-container { padding: 0 20px; }
-  .nav-menu { gap: 0; }
-  .nav-menu > a, .nav-item > a { font-size: 12px; padding: 10px 9px; }
-}
-
-@media(max-width: 900px) {
-  .nav-container { height: auto; padding: 18px 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
-  .nav-menu { flex-wrap: wrap; width: 100%; }
-  .nav-item { width: 100%; }
-  .nav-item > a { width: 100%; justify-content: space-between; }
-  .dropdown { position: static; width: 100%; margin-top: 6px; box-shadow: none; }
-  .team-section, .values-section { padding: 56px 20px; }
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .team-section,
+  .values-section { padding: 56px 20px; }
   .page-hero { padding: 48px 20px 40px; }
 }
 
-@media(max-width: 600px) {
-  .team-grid, .values-grid { grid-template-columns: 1fr; }
+@media (max-width: 600px) {
+  .team-grid,
+  .values-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<header class="main-header">
-  <div class="nav-container">
+<!-- ═══════════════════════════════════
+     TOP BAR
+═══════════════════════════════════ -->
+<div class="topbar">
+  <span class="topbar-brand"> </span>
+  <div class="topbar-links">
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#" class="topbar-cta"> </a>
+  </div>
+</div>
 
-    <a href="index.html" class="logo-wrap">
-      <img src="logo1.png" alt="Sanjay B C & Co.">
-    </a>
+<!-- ═══════════════════════════════════
+     MAIN NAVBAR
+═══════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img
+      src="logo1.png"
+      alt="Sanjay B C & Co."
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    >
+    <div style="display:none; align-items:center; gap:10px;">
+      <div class="logo-initials">SBC</div>
+      <div>
+        <div class="logo-name">Sanjay B C &amp; Co.</div>
+        <div class="logo-tagline">Chartered Accountants</div>
+      </div>
+    </div>
+  </a>
 
-    <nav class="nav-menu">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
 
-      <a href="index.html">Home</a>
-
-      <!-- ABOUT -->
-      <div class="nav-item">
-        <a href="about.html" class="active-nav">
-          About Us
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
-        </a>
-        <div class="dropdown">
-          <a href="about.html" class="dd-row">
-            <div class="dd-row-bar"></div>
+    <!-- ABOUT US DROPDOWN — active on this page -->
+    <div class="nav-item">
+      <a href="#" class="active-nav">
+        About Us
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Who We Are</div>
+        <a href="about.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
             <div class="dd-row-label">Firm Overview</div>
-          </a>
-          <a href="team.html" class="dd-row">
-            <div class="dd-row-bar"></div>
+            <div class="dd-row-sub">Our history, values &amp; professional approach</div>
+          </div>
+        </a>
+        <a href="team.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
             <div class="dd-row-label">Our Team</div>
-          </a>
-          <a href="industries.html" class="dd-row">
-            <div class="dd-row-bar"></div>
+            <div class="dd-row-sub">Meet the professionals behind the firm</div>
+          </div>
+        </a>
+        <a href="industries.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+          </div>
+          <div class="dd-text">
             <div class="dd-row-label">Industries We Serve</div>
-          </a>
-        </div>
+            <div class="dd-row-sub">Sectors &amp; business types we specialise in</div>
+          </div>
+        </a>
       </div>
+    </div>
 
-      <!-- SERVICES -->
-      <div class="nav-item">
-        <a href="#">
-          Services
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+    <!-- SERVICES DROPDOWN -->
+    <div class="nav-item">
+      <a href="#">
+        Services
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Core Practice Areas</div>
+        <a href="virtual-cfo.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Growth &amp; CFO Advisory</div>
+            <div class="dd-row-sub">Cash flow, MIS, budgeting &amp; strategic finance</div>
+          </div>
         </a>
-<div class="dropdown">
- <a href="virtual-cfo.html" class="dd-row hi">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">CFO Advisory (Strategic scaling)</div>
-</a>
-
-<a href="litigation.html" class="dd-row lo">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Litigation & Notices (Reactive/Troubleshooting)</div>
-</a>
-
-<a href="#" class="dd-row hi">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Risk & Internal Controls (Operational stability)</div>
-</a>
-
-<a href="auditing.html" class="dd-row lo">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Auditing & Assurance (Statutory requirement)</div>
-</a>
-
-<a href="compliance.html" class="dd-row hi">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Tax & Compliance (Ongoing necessity)</div>
-</a>
-
-<a href="international-tax.html" class="dd-row lo">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">International Tax (Specialized/Advanced)</div>
-</a>
-
-<a href="riskcontrol.html" class="dd-row hi">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Business Finance & Banking (Growth support)</div>
-</a>
-
-<a href="business-setup.html" class="dd-row lo">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Business Setup (Start here)</div>
-</a>
-
-<a href="payroll.html" class="dd-row hi">
-  <div class="dd-row-bar"></div>
-  <div class="dd-row-arrow">
-    <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
-  </div>
-  <div class="dd-row-label">Payroll Services (Operational necessity)</div>
-</a>
-</div><!-- /dropdown -->
-</div><!-- /nav-item -->
-
-      <!-- RESOURCES -->
-      <div class="nav-item">
-        <a href="resources.html">
-          Resources
-          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-            <polyline points="6 9 12 15 18 9"/>
-          </svg>
+        <a href="litigation.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax Notices, Litigation &amp; Representation</div>
+            <div class="dd-row-sub">Notices, assessments &amp; dispute handling</div>
+          </div>
         </a>
-        <div class="dropdown">
-          <a href="blog.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Blogs & Articles</div>
-          </a>
-          <a href="downloads.html" class="dd-row">
-            <div class="dd-row-bar"></div>
+        <a href="riskcontrol.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Risk Control &amp; Business Systems</div>
+            <div class="dd-row-sub">Governance, SOPs &amp; process controls</div>
+          </div>
+        </a>
+        <a href="auditing.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Audit &amp; Assurance</div>
+            <div class="dd-row-sub">Statutory audit &amp; financial reporting</div>
+          </div>
+        </a>
+        <div class="dd-group-label">Business Support Services</div>
+        <a href="compliance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax &amp; Compliance</div>
+            <div class="dd-row-sub">Direct tax, GST &amp; compliance support</div>
+          </div>
+        </a>
+        <a href="international-tax.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">International Tax</div>
+            <div class="dd-row-sub">Cross-border taxation &amp; structuring</div>
+          </div>
+        </a>
+        <a href="finance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Finance &amp; Banking</div>
+            <div class="dd-row-sub">Funding, banking &amp; financial structuring</div>
+          </div>
+        </a>
+        <a href="business-setup.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Setup</div>
+            <div class="dd-row-sub">Entity formation &amp; regulatory registrations</div>
+          </div>
+        </a>
+        <a href="payroll.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Payroll Services</div>
+            <div class="dd-row-sub">Payroll processing &amp; labour compliance</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- RESOURCES DROPDOWN -->
+    <div class="nav-item">
+      <a href="#">
+        Resources
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Knowledge Centre</div>
+        <a href="blog.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Blogs &amp; Articles</div>
+            <div class="dd-row-sub">Expert views on tax, finance &amp; compliance</div>
+          </div>
+        </a>
+        <a href="downloads.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </div>
+          <div class="dd-text">
             <div class="dd-row-label">Downloads</div>
-          </a>
-          <a href="faqs.html" class="dd-row">
-            <div class="dd-row-bar"></div>
+            <div class="dd-row-sub">Checklists, formats &amp; reference documents</div>
+          </div>
+        </a>
+        <a href="faqs.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+          </div>
+          <div class="dd-text">
             <div class="dd-row-label">FAQs</div>
-          </a>
-        </div>
+            <div class="dd-row-sub">Quick answers to common queries</div>
+          </div>
+        </a>
       </div>
+    </div>
 
-      <a href="insights.html">Insights</a>
-      <a href="careers.html">Careers</a>
-      <a href="contactus.html" class="nav-cta">Contact Us</a>
-
-    </nav>
+    <a href="insights.html">Insights</a>
+    <a href="careers.html">Careers</a>
+    <a href="contactus.html">Contact Us</a>
   </div>
-</header>
+</nav>
 
-<!-- HERO -->
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
 <div class="page-hero">
   <h1>Our Team</h1>
   <p>Experienced professionals delivering strategic tax, litigation, audit, finance and compliance advisory solutions across India and international markets.</p>
   <div class="gold-line"></div>
 </div>
 
-<!-- TEAM -->
+<!-- ═══════════════════════════════════
+     TEAM SECTION
+═══════════════════════════════════ -->
 <section class="team-section">
 
   <div class="section-head">
@@ -630,7 +531,9 @@ body {
   </div>
 </section>
 
-<!-- VALUES -->
+<!-- ═══════════════════════════════════
+     VALUES SECTION
+═══════════════════════════════════ -->
 <section class="values-section">
 
   <div class="section-head">
@@ -658,10 +561,86 @@ body {
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="site-footer">
-  © 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.
+<!-- ═══════════════════════════════════
+     CONSULT BANNER
+═══════════════════════════════════ -->
+<div class="consult-banner">
+  <div class="consult-text">
+    <div class="badge">Get in Touch</div>
+    <h3>Stay Compliant. Stay Growth Ready.</h3>
+    <p>"Integrated tax, finance and advisory solutions for modern businesses."</p>
+  </div>
+  <a href="book.html" target="_blank" class="consult-cta">
+    <svg viewBox="0 0 24 24"><path d="M8 2v2M16 2v2M3 8h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    Schedule a Meeting →
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><img src="logo1.png" alt="Sanjay B C &amp; Co."></div>
+      <p class="footer-desc">Sanjay B C &amp; Co., Chartered Accountants, No.296, 1st Floor, S V Tower, Opp. to Hotel Janatha, Wilsongarden, Bangalore - 560 027, Karnataka India</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="virtual-cfo.html">Business Growth &amp; CFO Advisory</a>
+      <a href="litigation.html">Tax Notices, Litigation &amp; Representation</a>
+      <a href="riskcontrol.html">Risk Control &amp; Business Systems</a>
+      <a href="auditing.html">Audit &amp; Assurance</a>
+      <a href="compliance.html">Tax &amp; Compliance</a>
+      <a href="international-tax.html">International Taxation</a>
+      <a href="finance.html">Business Finance &amp; Banking Support</a>
+      <a href="business-setup.html">Business Setup</a>
+      <a href="payroll.html">Payroll Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="contactus.html">India Office</a>
+      <a href="contactus.html">UAE Desk</a>
+      <a href="contactus.html">UK Desk</a>
+      <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-social">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">X</a>
+      <a href="#">YouTube</a>
+    </div>
+    <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
+    <div style="display:flex;gap:20px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Terms of Use</a>
+      <a href="privacy.html">Disclaimer</a>
+    </div>
+  </div>
 </footer>
+
+<!-- ═══════════════════════════════════
+     WHATSAPP FLOAT
+═══════════════════════════════════ -->
+<a href="https://wa.me/919738081962" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.676 4.782 1.854 6.762L2 30l7.47-1.832A13.936 13.936 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.61l-.422-.25-4.436 1.088 1.12-4.316-.277-.444A11.6 11.6 0 1 1 16 27.6zm6.34-8.68c-.347-.174-2.054-1.013-2.374-1.13-.32-.116-.552-.173-.784.174-.232.347-.9 1.13-1.102 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.718-1.03-.918-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.435-.029-.608-.087-.174-.784-1.89-1.074-2.59-.283-.68-.57-.587-.784-.597l-.667-.012c-.232 0-.608.087-.926.434-.318.347-1.218 1.19-1.218 2.9s1.247 3.364 1.42 3.597c.174.232 2.453 3.747 5.944 5.254.83.359 1.48.573 1.985.733.834.266 1.593.228 2.193.138.669-.1 2.054-.84 2.344-1.65.29-.812.29-1.508.203-1.65-.086-.145-.318-.232-.665-.406z"/>
+  </svg>
+</a>
 
 </body>
 </html>
