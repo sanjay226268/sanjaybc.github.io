@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Audit, Assurance &amp; Risk Control | Sanjay B C &amp; Co.</title>
+  
+  <link rel="stylesheet" href="shared.css" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Service Page Specific Enhancements extending shared.css variables */
+    .service-intro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      margin-top: 40px;
+    }
+
+    .service-segment-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-top: 4px solid var(--gold);
+      border-radius: 6px;
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .segment-icon-wrap {
+      background: rgba(184, 148, 42, 0.08);
+      width: 48px;
+      height: 48px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .segment-icon-wrap svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      stroke: var(--gold);
+      stroke-width: 2;
+    }
+
+    .segment-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .segment-subtitle {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .scope-list {
+      list-style: none;
+      padding: 0;
+      margin: 20px 0 0 0;
+    }
+
+    .scope-list li {
+      font-size: 14px;
+      line-height: 1.6;
+      color: var(--muted);
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .scope-list li:last-child {
+      border-bottom: none;
+    }
+
+    .scope-list li::before {
+      content: "▪";
+      color: var(--gold);
+      font-size: 10px;
+      margin-top: 2px;
+    }
+
+    /* Methodology Matrix Table Styles */
+    .matrix-wrapper {
+      width: 100%;
+      overflow-x: auto;
+      margin-top: 32px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .matrix-table th {
+      background: var(--navy);
+      color: #ffffff;
+      padding: 16px 24px;
+      font-weight: 500;
+    }
+
+    .matrix-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      color: var(--navy);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .matrix-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .matrix-table tr:nth-child(even) {
+      background: var(--off-white);
+    }
+
+    .badge-framework {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      background: rgba(184, 148, 42, 0.12);
+      color: var(--gold);
+      padding: 4px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>Factual Technical Profile — For Informational Purposes Only</span>
+  <div class="topbar-right">
+    <a href="mailto:office@sanjaybc.com">office@sanjaybc.com</a>
+    <a href="tel:+918000000000">+91 80 0000 0000</a>
+  </div>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co">
+    </a>
+
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+
+      <div class="nav-item">
+        <a href="about.html">About Us <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown">
+          <a href="about.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Firm Overview</div></a>
+          <a href="team.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Our Team</div></a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" class="active-nav">Services <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
+        <div class="dropdown">
+          <a href="compliance.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Tax &amp; Compliance</div></a>
+          <a href="virtual-cfo.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">CFO Advisory</div></a>
+          <a href="audit-risk.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Audit &amp; Risk Control</div></a>
+        </div>
+      </div>
+
+      <a href="insights.html">Insights</a>
+      <a href="contactus.html" class="nav-cta">Contact Us</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header">
+    <img src="logo1.png" alt="Sanjay B C & Co" style="height: 40px;">
+    <button class="drawer-close" id="drawerClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html">Home</a>
+    <div class="drawer-heading">Services</div>
+    <div class="drawer-sub-links">
+      <a href="compliance.html">Tax &amp; Compliance</a>
+      <a href="virtual-cfo.html">CFO Advisory</a>
+      <a href="audit-risk.html" style="color: var(--gold); font-weight:600;">Audit &amp; Risk Control</a>
+    </div>
+    <a href="contactus.html" class="nav-cta" style="margin-left:0; text-align:center; margin-top:16px;">Contact Us</a>
+  </div>
+</div>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="#">Services</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Audit, Risk &amp; Assurance Frameworks</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> Practice Profile</div>
+    <h1>Audit, Risk &amp;<br/><em>Process Advisory</em></h1>
+    <p class="hero-desc">
+      Systematic validation of statutory financial reporting alongside structural analysis of enterprise control systems to assure ongoing governance and regulatory compliance.
+    </p>
+  </div>
+  <div class="hero-ring"></div>
+</div>
+
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Core Fields</div>
+    <h2 class="section-title">Technical Competencies &amp; Execution Sectors</h2>
+    <div class="gold-rule"></div>
+    <p style="font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 750px; margin-bottom: 12px;">
+      Our engagement models focus completely on objective auditing paths and internal structural designs to safeguard business assets and standardize standard operating reporting processes.
+    </p>
+
+    <div class="service-intro-grid">
+      
+      <div class="service-segment-card">
+        <div class="segment-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="segment-title">Audit &amp; Assurance</div>
+        <div class="segment-subtitle">Statutory Audit &amp; Financial Reporting</div>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.5;">
+          Execution of statutory, tax, and balancing audits under prevailing Indian accounting frameworks to verify financial statement correctness.
+        </p>
+        <ul class="scope-list">
+          <li>Independent evaluation of corporate balance sheets and performance accounts.</li>
+          <li>Verification of tax compliance structures against statutory reporting rules.</li>
+          <li>Review of systemic entries to clarify the integrity of trial ledger summaries.</li>
+        </ul>
+      </div>
+
+      <div class="service-segment-card">
+        <div class="segment-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="segment-title">Risk Control &amp; Systems</div>
+        <div class="segment-subtitle">Governance, SOPs &amp; Process Controls</div>
+        <p style="font-size: 14px; color: var(--muted); line-height: 1.5;">
+          Objective engineering and gap identification inside operational processes to eliminate system vulnerabilities and optimize corporate workflows.
+        </p>
+        <ul class="scope-list">
+          <li>Custom layout engineering for structural Standard Operating Procedures (SOPs).</li>
+          <li>Design effectiveness testing for complex Internal Financial Controls (IFC).</li>
+          <li>Systematic mapping of corporate authorization levels and transaction logs.</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">Execution Strategy</div>
+    <h2 class="section-title">Procedural Engagement Framework</h2>
+    <div class="gold-rule"></div>
+    
+    <div class="matrix-wrapper">
+      <table class="matrix-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Analytical Module</th>
+            <th style="width: 50%;">Substantive Processes &amp; Work Conducted</th>
+            <th style="width: 25%;">Compliance Standard Alignment</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Internal Control Evaluation</strong></td>
+            <td>Reviewing systemic business workflows, identifying tracking leaks across transactions, and evaluating structural Segregation of Duties (SoD).</td>
+            <td><span class="badge-framework">Companies Act § 143(3)(i)</span></td>
+          </tr>
+          <tr>
+            <td><strong>SOP Design &amp; Architecture</strong></td>
+            <td>Drafting end-to-end procedural logs for commercial accounts, purchase-to-pay segments, and physical inventory balance controls.</td>
+            <td><span class="badge-framework">ICAI Guidance Notes</span></td>
+          </tr>
+          <tr>
+            <td><strong>Statutory Assurance Reviews</strong></td>
+            <td>Verifying ledger values via direct transactional checks, assessing accounting estimations, and verifying complete reporting compliance.</td>
+            <td><span class="badge-framework">Standards on Auditing (SA)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="section" style="padding-top: 48px; padding-bottom: 48px;">
+  <div class="section-inner">
+    <div class="icai-note" style="margin-top: 0;">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <div>
+        <strong>Regulatory Compliance Notice:</strong> This digital page is curated exclusively to provide static, objective documentation relating to professional validation methodologies, standard industry process control engineering, and statutory legal reporting criteria. It does not contain promotional messaging, comparison statistics, or direct or indirect invitations to secure professional clients.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
+</footer>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const drawerClose = document.getElementById('drawerClose');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function openDrawer() {
+    mobileDrawer.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    mobileDrawer.classList.remove('remove'); // Reset handling
+    mobileDrawer.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  mobileOverlay.addEventListener('click', closeDrawer);
+</script>
+
+</body>
+</html>
