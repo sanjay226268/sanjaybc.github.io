@@ -1,1129 +1,727 @@
-<!-- =========================================================
-     RISK CONTROL & BUSINESS SYSTEMS
-     SANJAY B C & CO.
-========================================================= -->
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Risk Control & Business Systems | Sanjay B C & Co.</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="shared.css">
-
-<style>
-
-/* =========================================================
-   PAGE SPECIFIC STYLES
-========================================================= */
-
-.page-hero{
-  background:
-  linear-gradient(
-    100deg,
-    rgba(10,25,47,0.92) 0%,
-    rgba(10,25,47,0.88) 45%,
-    rgba(10,25,47,0.82) 100%
-  );
-  padding:90px 48px 82px;
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-}
-
-.page-hero::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-  radial-gradient(
-    circle at top right,
-    rgba(184,146,42,0.12),
-    transparent 42%
-  );
-}
-
-.breadcrumb{
-  position:relative;
-  z-index:2;
-  font-size:11px;
-  text-transform:uppercase;
-  letter-spacing:.12em;
-  color:rgba(255,255,255,.48);
-  margin-bottom:26px;
-}
-
-.breadcrumb a{
-  color:rgba(255,255,255,.48);
-  text-decoration:none;
-}
-
-.breadcrumb a:hover{
-  color:var(--gold);
-}
-
-.breadcrumb span{
-  color:var(--gold);
-  margin:0 10px;
-}
-
-.page-title{
-  position:relative;
-  z-index:2;
-  font-family:var(--serif);
-  font-size:clamp(46px,5vw,72px);
-  line-height:1.06;
-  color:#fff;
-  margin-bottom:24px;
-  font-weight:600;
-}
-
-.page-title em{
-  color:var(--gold-light);
-  font-style:normal;
-}
-
-.hero-desc{
-  position:relative;
-  z-index:2;
-  max-width:760px;
-  margin:auto;
-  color:rgba(255,255,255,.78);
-  font-size:16px;
-  line-height:1.9;
-}
-
-.hero-line{
-  position:relative;
-  z-index:2;
-  width:70px;
-  height:3px;
-  background:var(--gold);
-  margin:34px auto 0;
-  border-radius:3px;
-}
-
-/* =========================================================
-   CONTENT SECTION
-========================================================= */
-
-.page-section{
-  padding:78px 48px;
-  background:var(--off-white);
-}
-
-.page-container{
-  max-width:1240px;
-  margin:auto;
-}
-
-/* =========================================================
-   INTRO PANEL
-========================================================= */
-
-.intro-panel{
-  background:#fff;
-  border-radius:14px;
-  padding:54px;
-  border:1px solid rgba(13,27,46,.08);
-  border-left:5px solid var(--gold);
-  margin-bottom:34px;
-}
-
-.section-eyebrow{
-  font-size:11px;
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--gold);
-  margin-bottom:12px;
-  font-weight:600;
-}
-
-.intro-panel h2{
-  font-family:var(--serif);
-  font-size:42px;
-  line-height:1.15;
-  color:var(--navy);
-  margin-bottom:20px;
-}
-
-.intro-panel p{
-  font-size:15px;
-  line-height:1.95;
-  color:#5b6778;
-  max-width:980px;
-}
-
-/* =========================================================
-   ALERT STRIP
-========================================================= */
-
-.alert-strip{
-  background:#fff9ec;
-  border:1px solid rgba(184,146,42,.24);
-  border-left:5px solid var(--gold);
-  padding:24px 28px;
-  border-radius:10px;
-  margin-bottom:44px;
-}
-
-.alert-strip p{
-  font-size:14px;
-  line-height:1.8;
-  color:var(--navy);
-}
-
-/* =========================================================
-   SERVICE CARDS
-========================================================= */
-
-.services-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:28px;
-  margin-bottom:48px;
-}
-
-.service-card{
-  background:#fff;
-  border-radius:14px;
-  padding:34px 30px;
-  border:1px solid rgba(13,27,46,.08);
-  border-top:4px solid var(--gold);
-  transition:.25s ease;
-}
-
-.service-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 10px 34px rgba(13,27,46,.08);
-}
-
-.svc-icon{
-  width:56px;
-  height:56px;
-  border-radius:12px;
-  background:var(--navy);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  margin-bottom:24px;
-}
-
-.svc-icon svg{
-  width:24px;
-  height:24px;
-  stroke:var(--gold);
-  fill:none;
-  stroke-width:1.8;
-}
-
-.service-card h3{
-  font-family:var(--serif);
-  font-size:24px;
-  color:var(--navy);
-  margin-bottom:18px;
-}
-
-.service-card ul{
-  list-style:none;
-}
-
-.service-card ul li{
-  position:relative;
-  padding-left:16px;
-  margin-bottom:12px;
-  color:#5b6778;
-  font-size:14px;
-  line-height:1.7;
-}
-
-.service-card ul li::before{
-  content:'';
-  position:absolute;
-  left:0;
-  top:10px;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:var(--gold);
-}
-
-/* =========================================================
-   FRAMEWORK SECTION
-========================================================= */
-
-.framework-section{
-  background:#fff;
-  border-radius:14px;
-  border:1px solid rgba(13,27,46,.08);
-  padding:50px;
-  margin-bottom:44px;
-}
-
-.framework-section h2{
-  font-family:var(--serif);
-  font-size:38px;
-  color:var(--navy);
-  margin-bottom:32px;
-}
-
-.framework-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:18px;
-}
-
-.framework-item{
-  border:1px solid rgba(13,27,46,.08);
-  border-radius:10px;
-  padding:22px;
-  transition:.2s ease;
-}
-
-.framework-item:hover{
-  border-color:var(--gold);
-  background:rgba(184,146,42,.03);
-}
-
-.framework-item h4{
-  font-size:15px;
-  color:var(--navy);
-  margin-bottom:10px;
-}
-
-.framework-item p{
-  font-size:13px;
-  line-height:1.7;
-  color:#697588;
-}
-
-/* =========================================================
-   WHY US
-========================================================= */
-
-.why-section{
-  background:linear-gradient(
-    135deg,
-    var(--navy) 0%,
-    #12233f 100%
-  );
-  border-radius:14px;
-  padding:56px;
-  overflow:hidden;
-  position:relative;
-}
-
-.why-section::before{
-  content:'';
-  position:absolute;
-  inset:0;
-  background:
-  radial-gradient(
-    circle at top right,
-    rgba(184,146,42,.14),
-    transparent 42%
-  );
-}
-
-.why-section h2{
-  position:relative;
-  font-family:var(--serif);
-  font-size:40px;
-  color:#fff;
-  margin-bottom:34px;
-}
-
-.why-grid{
-  position:relative;
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:22px;
-}
-
-.why-item{
-  background:rgba(255,255,255,.05);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:10px;
-  padding:24px;
-}
-
-.why-item h4{
-  color:#fff;
-  font-size:15px;
-  margin-bottom:12px;
-}
-
-.why-item p{
-  color:rgba(255,255,255,.70);
-  font-size:13px;
-  line-height:1.8;
-}
-
-/* =========================================================
-   RESPONSIVE
-========================================================= */
-
-@media(max-width:1000px){
-
-  .services-grid,
-  .framework-grid,
-  .why-grid{
-    grid-template-columns:1fr 1fr;
-  }
-
-}
-
-@media(max-width:768px){
-
-  .page-hero{
-    padding:70px 20px;
-  }
-
-  .page-section{
-    padding:56px 20px;
-  }
-
-  .intro-panel,
-  .framework-section,
-  .why-section{
-    padding:34px 26px;
-  }
-
-  .services-grid,
-  .framework-grid,
-  .why-grid{
-    grid-template-columns:1fr;
-  }
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk Control & Business Systems | Sanjay B C & Co.</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="shared.css">
+
+  <style>
+    /* =========================================================
+       PAGE SPECIFIC STYLES ONLY
+    ========================================================= */
+
+    body {
+      background: var(--off-white);
+    }
+
+    .page-hero {
+      background: linear-gradient(100deg, rgba(10,25,47,0.92) 0%, rgba(10,25,47,0.88) 45%, rgba(10,25,47,0.82) 100%);
+      padding: 90px 48px 82px;
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(184,146,42,0.12), transparent 42%);
+    }
+
+    .breadcrumb {
+      position: relative;
+      z-index: 2;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.48);
+      margin-bottom: 26px;
+    }
+
+    .breadcrumb a {
+      color: rgba(255,255,255,.48);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--gold);
+    }
+
+    .breadcrumb span {
+      color: var(--gold);
+      margin: 0 10px;
+    }
+
+    .page-title {
+      position: relative;
+      z-index: 2;
+      font-family: var(--serif);
+      font-size: clamp(46px, 5vw, 72px);
+      line-height: 1.06;
+      color: #fff;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+
+    .page-title em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .hero-desc {
+      position: relative;
+      z-index: 2;
+      max-width: 760px;
+      margin: auto;
+      color: rgba(255,255,255,.78);
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .hero-line {
+      position: relative;
+      z-index: 2;
+      width: 70px;
+      height: 3px;
+      background: var(--gold);
+      margin: 34px auto 0;
+      border-radius: 3px;
+    }
+
+    /* =========================================================
+       CONTENT SECTIONS
+    ========================================================= */
+
+    .page-section {
+      padding: 78px 48px;
+    }
+
+    .page-container {
+      max-width: 1240px;
+      margin: auto;
+    }
+
+    /* Intro Panel */
+    .intro-panel {
+      background: #fff;
+      border-radius: 14px;
+      padding: 54px;
+      border: 1px solid rgba(13,27,46,.08);
+      border-left: 5px solid var(--gold);
+      margin-bottom: 34px;
+    }
+
+    .section-eyebrow {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .intro-panel h2 {
+      font-family: var(--serif);
+      font-size: 42px;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 20px;
+    }
+
+    .intro-panel p {
+      font-size: 15px;
+      line-height: 1.95;
+      color: var(--text-muted);
+      max-width: 980px;
+    }
+
+    /* Alert Strip */
+    .alert-strip {
+      background: #fff9ec;
+      border: 1px solid rgba(184,146,42,.24);
+      border-left: 5px solid var(--gold);
+      padding: 24px 28px;
+      border-radius: 10px;
+      margin-bottom: 44px;
+    }
+
+    .alert-strip p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--navy);
+    }
+
+    /* Service Cards Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+      margin-bottom: 48px;
+    }
+
+    .service-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 34px 30px;
+      border: 1px solid rgba(13,27,46,.08);
+      border-top: 4px solid var(--gold);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 34px rgba(13,27,46,.08);
+    }
+
+    .svc-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .svc-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--gold);
+      fill: none;
+      stroke-width: 1.8;
+    }
+
+    .service-card h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 18px;
+    }
+
+    .service-card ul {
+      list-style: none;
+    }
+
+    .service-card ul li {
+      position: relative;
+      padding-left: 16px;
+      margin-bottom: 12px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .service-card ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    /* Framework Sections */
+    .framework-section {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid rgba(13,27,46,.08);
+      padding: 50px;
+      margin-bottom: 44px;
+    }
+
+    .framework-section h2 {
+      font-family: var(--serif);
+      font-size: 38px;
+      color: var(--navy);
+      margin-bottom: 32px;
+    }
+
+    .framework-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .framework-item {
+      border: 1px solid rgba(13,27,46,.08);
+      border-radius: 10px;
+      padding: 22px;
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .framework-item:hover {
+      border-color: var(--gold);
+      background: rgba(184,146,42,.03);
+    }
+
+    .framework-item h4 {
+      font-size: 15px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .framework-item p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: #697588;
+    }
+
+    /* Why Us Section */
+    .why-section {
+      background: linear-gradient(135deg, var(--navy) 0%, #12233f 100%);
+      border-radius: 14px;
+      padding: 56px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .why-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(184,146,42,.14), transparent 42%);
+    }
+
+    .why-section h2 {
+      position: relative;
+      font-family: var(--serif);
+      font-size: 40px;
+      color: #fff;
+      margin-bottom: 34px;
+    }
+
+    .why-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .why-item {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .why-item h4 {
+      color: #fff;
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+
+    .why-item p {
+      color: rgba(255,255,255,.70);
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* =========================================================
+       RESPONSIVE ADAPTATIONS
+    ========================================================= */
+
+    @media(max-width:1000px){
+      .services-grid, .framework-grid, .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media(max-width:768px){
+      .page-hero { padding: 70px 20px; }
+      .page-section { padding: 56px 20px; }
+      .intro-panel, .framework-section, .why-section { padding: 34px 26px; }
+      .services-grid, .framework-grid, .why-grid { grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
 
-<!-- =========================================================
-     TOP BAR
-========================================================= -->
-
-<div class="topbar">
-
-  <span class="topbar-brand"> </span>
-
-  <div class="topbar-links">
-
-    <a href="#"> </a><span>|</span>
-    <a href="#"> </a><span>|</span>
-    <a href="#"> </a>
-    <a href="#"> </a>
-    <a href="#"> </a>
-
-    <a href="#" class="topbar-cta"> </a>
-
+  <div class="topbar">
+    <span class="topbar-brand">Sanjay B C & Co. | Financial Advisory</span>
+    <div class="topbar-links">
+      <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a><span>|</span>
+      <a href="tel:+919738081962">+91 97380 81962</a>
+      <a href="book.html" class="topbar-cta">Schedule Consultation</a>
+    </div>
   </div>
 
-</div>
-
-<!-- =========================================================
-     PREMIUM NAVBAR
-========================================================= -->
-
-<nav>
-
-  <a href="index.html" class="logo-wrap">
-
-    <img
-      src="logo1.png"
-      alt="Sanjay B C & Co."
-      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-    >
-
-    <div style="display:none; align-items:center; gap:10px;">
-
-      <div class="logo-initials">SBC</div>
-
-      <div>
-        <div class="logo-name">Sanjay B C &amp; Co.</div>
-        <div class="logo-tagline">Chartered Accountants</div>
+  <nav>
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co." onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div style="display:none; align-items:center; gap:10px;">
+        <div class="logo-initials">SBC</div>
+        <div>
+          <div class="logo-name">Sanjay B C &amp; Co.</div>
+          <div class="logo-tagline">Chartered Accountants</div>
+        </div>
       </div>
-
-    </div>
-
-  </a>
-
-  <div class="nav-links">
-
-    <a href="index.html">Home</a>
-
-    <!-- ABOUT -->
-
-    <div class="nav-item">
-
-      <a href="#">
-        About Us
-
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-
-      </a>
-
-      <div class="dropdown dropdown--wide">
-
-        <div class="dd-group-label">Who We Are</div>
-
-        <a href="about.html" class="dd-row">
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-            <div class="dd-row-label">Firm Overview</div>
-            <div class="dd-row-sub">
-              Our history, values &amp; professional approach
-            </div>
-          </div>
-
-        </a>
-
-        <a href="team.html" class="dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="9" cy="7" r="4"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-            <div class="dd-row-label">Our Team</div>
-            <div class="dd-row-sub">
-              Meet the professionals behind the firm
-            </div>
-          </div>
-
-        </a>
-
-        <a href="industries.html" class="dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M2 20h20"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-            <div class="dd-row-label">Industries We Serve</div>
-            <div class="dd-row-sub">
-              Sectors &amp; business types we specialise in
-            </div>
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-    <!-- SERVICES -->
-
-    <div class="nav-item">
-
-      <a href="#" class="active-nav">
-
-        Services
-
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-
-      </a>
-
-      <div class="dropdown dropdown--wide">
-
-        <div class="dd-group-label">Core Practice Areas</div>
-
-        <a href="virtual-cfo.html" class="dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 3h18v18H3z"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-
-            <div class="dd-row-label">
-              Business Growth &amp; CFO Advisory
-            </div>
-
-            <div class="dd-row-sub">
-              Cash flow, MIS, budgeting &amp; strategic finance
-            </div>
-
-          </div>
-
-        </a>
-
-        <a href="litigation.html" class="dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-
-            <div class="dd-row-label">
-              Tax Notices, Litigation &amp; Representation
-            </div>
-
-            <div class="dd-row-sub">
-              Notices, assessments &amp; dispute handling
-            </div>
-
-          </div>
-
-        </a>
-
-        <!-- ACTIVE -->
-
-        <a href="riskcontrol.html" class="active-nav dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-
-            <div class="dd-row-label">
-              Risk Control &amp; Business Systems
-            </div>
-
-            <div class="dd-row-sub">
-              Governance, SOPs &amp; process controls
-            </div>
-
-          </div>
-
-        </a>
-
-        <a href="auditing.html" class="dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M9 11l3 3L22 4"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-
-            <div class="dd-row-label">
-              Audit &amp; Assurance
-            </div>
-
-            <div class="dd-row-sub">
-              Statutory audit &amp; financial reporting
-            </div>
-
-          </div>
-
-        </a>
-
-        <div class="dd-group-label">Business Support Services</div>
-
-        <a href="compliance.html" class="dd-row">
-          <div class="dd-row-bar"></div>
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M14 2H6"/>
-            </svg>
-          </div>
-          <div class="dd-text">
-            <div class="dd-row-label">Tax &amp; Compliance</div>
-            <div class="dd-row-sub">
-              Direct tax, GST &amp; compliance support
-            </div>
-          </div>
-        </a>
-
-        <a href="international-tax.html" class="dd-row">
-          <div class="dd-row-bar"></div>
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="10"/>
-            </svg>
-          </div>
-          <div class="dd-text">
-            <div class="dd-row-label">International Tax</div>
-            <div class="dd-row-sub">
-              Cross-border taxation &amp; structuring
-            </div>
-          </div>
-        </a>
-
-        <a href="finance.html" class="dd-row">
-          <div class="dd-row-bar"></div>
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <rect x="2" y="7" width="20" height="14"/>
-            </svg>
-          </div>
-          <div class="dd-text">
-            <div class="dd-row-label">
-              Business Finance &amp; Banking
-            </div>
-            <div class="dd-row-sub">
-              Funding, banking &amp; financial structuring
-            </div>
-          </div>
-        </a>
-
-        <a href="business-setup.html" class="dd-row">
-          <div class="dd-row-bar"></div>
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 9l9-7 9 7"/>
-            </svg>
-          </div>
-          <div class="dd-text">
-            <div class="dd-row-label">Business Setup</div>
-            <div class="dd-row-sub">
-              Entity formation &amp; regulatory registrations
-            </div>
-          </div>
-        </a>
-
-        <a href="payroll.html" class="dd-row">
-          <div class="dd-row-bar"></div>
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <circle cx="9" cy="7" r="4"/>
-            </svg>
-          </div>
-          <div class="dd-text">
-            <div class="dd-row-label">Payroll Services</div>
-            <div class="dd-row-sub">
-              Payroll processing &amp; labour compliance
-            </div>
-          </div>
-        </a>
-
-      </div>
-
-    </div>
-
-    <!-- RESOURCES -->
-
-    <div class="nav-item">
-
-      <a href="#">
-        Resources
-
-        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </a>
-
-      <div class="dropdown dropdown--wide">
-
-        <div class="dd-group-label">Knowledge Centre</div>
-
-        <a href="blog.html" class="dd-row">
-
-          <div class="dd-row-bar"></div>
-
-          <div class="dd-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 20h9"/>
-            </svg>
-          </div>
-
-          <div class="dd-text">
-            <div class="dd-row-label">Blogs &amp; Articles</div>
-            <div class="dd-row-sub">
-              Expert views on tax, finance &amp; compliance
-            </div>
-          </div>
-
-        </a>
-
-      </div>
-
-    </div>
-
-    <a href="insights.html">Insights</a>
-    <a href="careers.html">Careers</a>
-    <a href="contactus.html">Contact Us</a>
-
-  </div>
-
-</nav>
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="page-hero">
-
-  <div class="breadcrumb">
-
-    <a href="index.html">Home</a>
-
-    <span>›</span>
-
-    <a href="#">Services</a>
-
-    <span>›</span>
-
-    Risk Control &amp; Business Systems
-
-  </div>
-
-  <h1 class="page-title">
-
-    Risk Control &amp;<br>
-    <em>Business Systems</em>
-
-  </h1>
-
-  <p class="hero-desc">
-
-    Governance-driven operational frameworks designed to reduce
-    enterprise leakage, strengthen internal controls,
-    improve financial discipline, and build scalable systems
-    for sustainable business growth.
-
-  </p>
-
-  <div class="hero-line"></div>
-
-</section>
-
-<!-- =========================================================
-     MAIN CONTENT
-========================================================= -->
-
-<section class="page-section">
-
-  <div class="page-container">
-
-    <!-- INTRO -->
-
-    <div class="intro-panel">
-
-      <div class="section-eyebrow">
-        Enterprise Governance & Controls
-      </div>
-
-      <h2>
-        Strong Systems Create Strong Businesses.
-      </h2>
-
-      <p>
-        Many growing businesses suffer from hidden operational leakages,
-        undocumented workflows, weak approval structures,
-        and poor financial discipline. We help businesses
-        build institutional-grade internal systems,
-        financial controls, SOP frameworks,
-        and governance mechanisms that improve accountability,
-        reduce risks, and support scalable growth.
-      </p>
-
-    </div>
-
-    <!-- ALERT -->
-
-    <div class="alert-strip">
-
-      <p>
-
-        <strong>Business Insight:</strong>
-        Most frauds and operational inefficiencies in SMEs
-        originate from weak process controls,
-        lack of segregation of duties,
-        and absence of monitoring frameworks.
-        Early implementation of structured systems
-        significantly improves business stability.
-
-      </p>
-
-    </div>
-
-    <!-- SERVICES -->
-
-    <div class="services-grid">
-
-      <!-- CARD -->
-
-      <div class="service-card">
-
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24">
-            <path d="M3 5h18M3 12h12M3 19h8"/>
+    </a>
+
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+
+      <div class="nav-item">
+        <a href="#">
+          About Us
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
           </svg>
+        </a>
+        <div class="dropdown dropdown--wide">
+          <div class="dd-group-label">Who We Are</div>
+          <a href="about.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Firm Overview</div>
+              <div class="dd-row-sub">Our history, values &amp; professional approach</div>
+            </div>
+          </a>
+          <a href="team.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Our Team</div>
+              <div class="dd-row-sub">Meet the professionals behind the firm</div>
+            </div>
+          </a>
+          <a href="industries.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Industries We Serve</div>
+              <div class="dd-row-sub">Sectors &amp; business types we specialise in</div>
+            </div>
+          </a>
         </div>
-
-        <h3>Internal Financial Controls</h3>
-
-        <ul>
-
-          <li>Control framework implementation</li>
-          <li>Approval & delegation systems</li>
-          <li>Process risk identification</li>
-          <li>Governance reporting structures</li>
-          <li>Financial control evaluations</li>
-          <li>Monitoring & compliance systems</li>
-
-        </ul>
-
       </div>
 
-      <!-- CARD -->
-
-      <div class="service-card">
-
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24">
-            <circle cx="12" cy="8" r="4"/>
-            <path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/>
+      <div class="nav-item">
+        <a href="#" class="active-nav">
+          Services
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
           </svg>
+        </a>
+        <div class="dropdown dropdown--wide">
+          <div class="dd-group-label">Core Practice Areas</div>
+          
+          <a href="virtual-cfo.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Business Growth &amp; CFO Advisory</div>
+              <div class="dd-row-sub">Cash flow, MIS, budgeting &amp; strategic finance</div>
+            </div>
+          </a>
+
+          <a href="litigation.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Tax Notices, Litigation &amp; Representation</div>
+              <div class="dd-row-sub">Notices, assessments &amp; dispute handling</div>
+            </div>
+          </a>
+
+          <a href="riskcontrol.html" class="active-nav dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Risk Control &amp; Business Systems</div>
+              <div class="dd-row-sub">Governance, SOPs &amp; process controls</div>
+            </div>
+          </a>
+
+          <a href="auditing.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Audit &amp; Assurance</div>
+              <div class="dd-row-sub">Statutory audit &amp; financial reporting</div>
+            </div>
+          </a>
+
+          <div class="dd-group-label">Business Support Services</div>
+
+          <a href="compliance.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Tax &amp; Compliance</div>
+              <div class="dd-row-sub">Direct tax, GST &amp; compliance support</div>
+            </div>
+          </a>
+
+          <a href="international-tax.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">International Tax</div>
+              <div class="dd-row-sub">Cross-border taxation &amp; structuring</div>
+            </div>
+          </a>
+
+          <a href="finance.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Business Finance &amp; Banking</div>
+              <div class="dd-row-sub">Funding, banking &amp; financial structuring</div>
+            </div>
+          </a>
+
+          <a href="business-setup.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Business Setup</div>
+              <div class="dd-row-sub">Entity formation &amp; regulatory registrations</div>
+            </div>
+          </a>
+
+          <a href="payroll.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Payroll Services</div>
+              <div class="dd-row-sub">Payroll processing &amp; labour compliance</div>
+            </div>
+          </a>
         </div>
-
-        <h3>Fraud Risk Reduction</h3>
-
-        <ul>
-
-          <li>Operational vulnerability reviews</li>
-          <li>Control bypass analysis</li>
-          <li>Process gap assessments</li>
-          <li>Risk mitigation frameworks</li>
-          <li>Management review mechanisms</li>
-          <li>Preventive monitoring systems</li>
-
-        </ul>
-
       </div>
 
-      <!-- CARD -->
-
-      <div class="service-card">
-
-        <div class="svc-icon">
-          <svg viewBox="0 0 24 24">
-            <rect x="3" y="3" width="18" height="18" rx="2"/>
-            <path d="M3 9h18"/>
+      <div class="nav-item">
+        <a href="#">
+          Resources
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
           </svg>
+        </a>
+        <div class="dropdown dropdown--wide">
+          <div class="dd-group-label">Knowledge Centre</div>
+          <a href="blog.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Blogs &amp; Articles</div>
+              <div class="dd-row-sub">Expert views on tax, finance &amp; compliance</div>
+            </div>
+          </a>
+          <a href="downloads.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">Downloads</div>
+              <div class="dd-row-sub">Checklists, formats &amp; reference documents</div>
+            </div>
+          </a>
+          <a href="faqs.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+            </div>
+            <div class="dd-text">
+              <div class="dd-row-label">FAQs</div>
+              <div class="dd-row-sub">Quick answers to common queries</div>
+            </div>
+          </a>
         </div>
-
-        <h3>SOP Design & Documentation</h3>
-
-        <ul>
-
-          <li>Standard operating procedures</li>
-          <li>Workflow documentation</li>
-          <li>Department process mapping</li>
-          <li>Inventory & payment controls</li>
-          <li>Operational benchmark systems</li>
-          <li>Compliance-oriented SOP structures</li>
-
-        </ul>
-
       </div>
 
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html">Contact Us</a>
     </div>
+  </nav>
 
-    <!-- FRAMEWORKS -->
-
-    <div class="framework-section">
-
-      <h2>Critical Control Areas We Review</h2>
-
-      <div class="framework-grid">
-
-        <div class="framework-item">
-          <h4>Segregation of Duties (SoD)</h4>
-          <p>
-            Eliminating excessive concentration of authority
-            within operational and financial workflows.
-          </p>
-        </div>
-
-        <div class="framework-item">
-          <h4>Procure-to-Pay Controls</h4>
-          <p>
-            Reviewing procurement approvals,
-            vendor management, and payment processes.
-          </p>
-        </div>
-
-        <div class="framework-item">
-          <h4>Inventory Safeguards</h4>
-          <p>
-            Improving stock controls,
-            inventory accountability,
-            and leakage prevention systems.
-          </p>
-        </div>
-
-        <div class="framework-item">
-          <h4>Delegation Structures</h4>
-          <p>
-            Structured authorization matrices
-            for operational and financial decisions.
-          </p>
-        </div>
-
-        <div class="framework-item">
-          <h4>Business Process Reviews</h4>
-          <p>
-            Identifying operational bottlenecks,
-            inefficiencies, and undocumented practices.
-          </p>
-        </div>
-
-        <div class="framework-item">
-          <h4>Financial Discipline Systems</h4>
-          <p>
-            Building structured review and monitoring
-            frameworks for sustainable control.
-          </p>
-        </div>
-
-      </div>
-
+  <section class="page-hero">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span>&rsaquo;</span>
+      <a href="#">Services</a>
+      <span>&rsaquo;</span>
+      Risk Control &amp; Business Systems
     </div>
-
-    <!-- WHY US -->
-
-    <div class="why-section">
-
-      <h2>
-        Why Businesses Engage With Us
-      </h2>
-
-      <div class="why-grid">
-
-        <div class="why-item">
-
-          <h4>Institutional Governance</h4>
-
-          <p>
-            We help SMEs transition
-            from informal operations
-            into professionally structured systems.
-          </p>
-
-        </div>
-
-        <div class="why-item">
-
-          <h4>Operational Discipline</h4>
-
-          <p>
-            Strong process controls reduce
-            recurring financial leakages
-            and improve accountability.
-          </p>
-
-        </div>
-
-        <div class="why-item">
-
-          <h4>Scalable Systems</h4>
-
-          <p>
-            Governance structures designed
-            to support long-term business growth
-            and management visibility.
-          </p>
-
-        </div>
-
-        <div class="why-item">
-
-          <h4>Integrated Oversight</h4>
-
-          <p>
-            Aligning operational processes
-            with finance, compliance,
-            and management control objectives.
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- =========================================================
-     CONSULTATION BANNER
-========================================================= -->
-
-<div class="consult-banner">
-
-  <div class="consult-text">
-
-    <div class="badge">
-      Governance & Internal Controls
-    </div>
-
-    <h3>
-      Build Structured Systems Before Risks Escalate.
-    </h3>
-
-    <p>
-      Enterprise-level governance,
-      process discipline,
-      and sustainable control frameworks for growing businesses.
+    <h1 class="page-title">
+      Risk Control &amp;<br>
+      <em>Business Systems</em>
+    </h1>
+    <p class="hero-desc">
+      Governance-driven operational frameworks designed to reduce enterprise leakage, strengthen internal controls, improve financial discipline, and build scalable systems for sustainable business growth.
     </p>
+    <div class="hero-line"></div>
+  </section>
 
+  <section class="page-section">
+    <div class="page-container">
+
+      <div class="intro-panel">
+        <div class="section-eyebrow">Enterprise Governance &amp; Controls</div>
+        <h2>Strong Systems Create Strong Businesses.</h2>
+        <p>
+          Many growing businesses suffer from hidden operational leakages, undocumented workflows, weak approval structures, and poor financial discipline. We help businesses build institutional-grade internal systems, financial controls, SOP frameworks, and governance mechanisms that improve accountability, reduce risks, and support scalable growth.
+        </p>
+      </div>
+
+      <div class="alert-strip">
+        <p>
+          <strong>Business Insight:</strong> Most frauds and operational inefficiencies in SMEs originate from weak process controls, lack of segregation of duties, and absence of monitoring frameworks. Early implementation of structured systems significantly improves business stability.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 5h18M3 12h12M3 19h8"/></svg>
+          </div>
+          <h3>Internal Financial Controls</h3>
+          <ul>
+            <li>Control framework implementation</li>
+            <li>Approval &amp; delegation systems</li>
+            <li>Process risk identification</li>
+            <li>Governance reporting structures</li>
+            <li>Financial control evaluations</li>
+            <li>Monitoring &amp; compliance systems</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+          </div>
+          <h3>Fraud Risk Reduction</h3>
+          <ul>
+            <li>Operational vulnerability reviews</li>
+            <li>Control bypass analysis</li>
+            <li>Process gap assessments</li>
+            <li>Risk mitigation frameworks</li>
+            <li>Management review mechanisms</li>
+            <li>Preventive monitoring systems</li>
+          </ul>
+        </div>
+
+        <div class="service-card">
+          <div class="svc-icon">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/></svg>
+          </div>
+          <h3>SOP Design &amp; Documentation</h3>
+          <ul>
+            <li>Standard operating procedures</li>
+            <li>Workflow documentation</li>
+            <li>Department process mapping</li>
+            <li>Inventory &amp; payment controls</li>
+            <li>Operational benchmark systems</li>
+            <li>Compliance-oriented SOP structures</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="framework-section">
+        <h2>Critical Control Areas We Review</h2>
+        <div class="framework-grid">
+          <div class="framework-item">
+            <h4>Segregation of Duties (SoD)</h4>
+            <p>Eliminating excessive concentration of authority within operational and financial workflows.</p>
+          </div>
+          <div class="framework-item">
+            <h4>Procure-to-Pay Controls</h4>
+            <p>Reviewing procurement approvals, vendor management, and payment processes.</p>
+          </div>
+          <div class="framework-item">
+            <h4>Inventory Safeguards</h4>
+            <p>Improving stock controls, inventory accountability, and leakage prevention systems.</p>
+          </div>
+          <div class="framework-item">
+            <h4>Delegation Structures</h4>
+            <p>Structured authorization matrices for operational and financial decisions.</p>
+          </div>
+          <div class="framework-item">
+            <h4>Business Process Reviews</h4>
+            <p>Identifying operational bottlenecks, inefficiencies, and undocumented practices.</p>
+          </div>
+          <div class="framework-item">
+            <h4>Financial Discipline Systems</h4>
+            <p>Building structured review and monitoring frameworks for sustainable control.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="why-section">
+        <h2>Why Businesses Engage With Us</h2>
+        <div class="why-grid">
+          <div class="why-item">
+            <h4>Institutional Governance</h4>
+            <p>We help SMEs transition from informal operations into professionally structured systems.</p>
+          </div>
+          <div class="why-item">
+            <h4>Operational Discipline</h4>
+            <p>Strong process controls reduce recurring financial leakages and improve accountability.</p>
+          </div>
+          <div class="why-item">
+            <h4>Scalable Systems</h4>
+            <p>Governance structures designed to support long-term business growth and management visibility.</p>
+          </div>
+          <div class="why-item">
+            <h4>Integrated Oversight</h4>
+            <p>Aligning operational processes with finance, compliance, and management control objectives.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="consult-banner">
+    <div class="consult-text">
+      <div class="badge">Governance &amp; Internal Controls</div>
+      <h3>Build Structured Systems Before Risks Escalate.</h3>
+      <p>Enterprise-level governance, process discipline, and sustainable control frameworks for growing businesses.</p>
+    </div>
+    <a href="book.html" target="_blank" class="consult-cta">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 2v2M16 2v2M3 8h18"/></svg>
+      Schedule a Consultation &rarr;
+    </a>
   </div>
-
-  <a href="book.html"
-     target="_blank"
-     class="consult-cta">
-
-    <svg viewBox="0 0 24 24">
-
-      <path d="M8 2v2M16 2v2M3 8h18"/>
-
-    </svg>
-
-    Schedule a Consultation →
-
-  </a>
-
-</div>
 
 </body>
 </html>
