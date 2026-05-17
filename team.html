@@ -89,7 +89,6 @@ body {
   background: var(--off-white);
 }
 
-/* This row wrapper forces the 3 layout columns to stretch equally */
 .team-grid {
   max-width: 1160px;
   margin: 0 auto;
@@ -105,11 +104,11 @@ body {
   overflow: hidden;
   border: 1px solid rgba(13,27,46,0.1);
   border-top: 4px solid var(--gold);
-  padding-top: 36px; /* Gives top padding above the icon */
+  padding-top: 36px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers items horizontally */
-  text-align: center; /* Centers typography text */
+  align-items: center;
+  text-align: center;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -118,7 +117,6 @@ body {
   box-shadow: 0 16px 40px rgba(10,25,47,0.1);
 }
 
-/* Transforms your old text initials placeholder into a polished icon circle */
 .team-icon-wrapper {
   width: 72px;
   height: 72px;
@@ -133,14 +131,14 @@ body {
 }
 
 .team-icon {
-  stroke: var(--gold); /* Forces your SVG icon stroke to match your site gold color */
+  stroke: var(--gold);
 }
 
 .team-content {
   padding: 16px 26px 28px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1; /* Allows container to stretch to fill card height */
+  flex-grow: 1;
 }
 
 .team-content h3 {
@@ -166,14 +164,14 @@ body {
   line-height: 1.7;
   font-size: 14px;
   margin-bottom: 24px;
-  flex-grow: 1; /* Seamlessly forces metadata tags downward to align cleanly */
+  flex-grow: 1;
 }
 
 .team-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center; /* Centers your tags below the text content */
+  justify-content: center;
   margin-top: auto;
 }
 
@@ -188,6 +186,7 @@ body {
   letter-spacing: 0.03em;
   white-space: nowrap;
 }
+
 /* ── VALUES SECTION ── */
 .values-section {
   padding: 72px 48px;
@@ -244,9 +243,6 @@ body {
 </head>
 <body>
 
-<!-- ═══════════════════════════════════
-     TOP BAR
-═══════════════════════════════════ -->
 <div class="topbar">
   <span class="topbar-brand"> </span>
   <div class="topbar-links">
@@ -259,9 +255,6 @@ body {
   </div>
 </div>
 
-<!-- ═══════════════════════════════════
-     MAIN NAVBAR
-═══════════════════════════════════ -->
 <nav>
   <a href="index.html" class="logo-wrap">
     <img
@@ -281,7 +274,6 @@ body {
   <div class="nav-links">
     <a href="index.html">Home</a>
 
-    <!-- ABOUT US DROPDOWN — active on this page -->
     <div class="nav-item">
       <a href="#" class="active-nav">
         About Us
@@ -324,7 +316,6 @@ body {
       </div>
     </div>
 
-    <!-- SERVICES DROPDOWN -->
     <div class="nav-item">
       <a href="#">
         Services
@@ -428,7 +419,6 @@ body {
       </div>
     </div>
 
-    <!-- RESOURCES DROPDOWN -->
     <div class="nav-item">
       <a href="#">
         Resources
@@ -477,23 +467,69 @@ body {
   </div>
 </nav>
 
-<!-- ═══════════════════════════════════
-     HERO
-═══════════════════════════════════ -->
 <div class="page-hero">
   <h1>Our Team</h1>
   <p>Experienced professionals delivering strategic tax, litigation, audit, finance and compliance advisory solutions across India and international markets.</p>
   <div class="gold-line"></div>
 </div>
 
-<!-- ═══════════════════════════════════
-     TEAM SECTION
-═══════════════════════════════════ -->
-team-section
+<section class="team-section">
+  <div class="section-head">
+    <span>Leadership &amp; Expertise</span>
+    <h2>Meet Our Professionals</h2>
+  </div>
 
-<!-- ═══════════════════════════════════
-     VALUES SECTION
-═══════════════════════════════════ -->
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="team-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div class="team-content">
+        <h3>CA Sanjay B C</h3>
+        <div class="team-role">FOUNDER &amp; CHARTERED ACCOUNTANT</div>
+        <p>Specialist in taxation, GST litigation, business advisory, appeals, virtual CFO services and strategic financial consulting for Indian and overseas clients.</p>
+        <div class="team-meta">
+          <span class="team-tag">Tax Litigation</span>
+          <span class="team-tag">GST Advisory</span>
+          <span class="team-tag">Virtual CFO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="team-icon"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+      </div>
+      <div class="team-content">
+        <h3>Direct &amp; International Tax</h3>
+        <div class="team-role">ADVISORY &amp; STRUCTURING PRACTICE</div>
+        <p>Assisting businesses and professionals with domestic taxation, DTAA matters, international transactions and regulatory advisory support.</p>
+        <div class="team-meta">
+          <span class="team-tag">DTAA</span>
+          <span class="team-tag">International Tax</span>
+          <span class="team-tag">Transfer Pricing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="team-card">
+      <div class="team-icon-wrapper">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="team-icon"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c4 0 7-2 7-2s3 2 7 2a1 1 0 0 1 1 1v7z"/></svg>
+      </div>
+      <div class="team-content">
+        <h3>Audit, Risk &amp; Compliance</h3>
+        <div class="team-role">CONTROLS &amp; PROCESS ADVISORY</div>
+        <p>Supporting organizations with internal controls, SOP implementation, audits, compliance reviews and operational process strengthening.</p>
+        <div class="team-meta">
+          <span class="team-tag">Internal Controls</span>
+          <span class="team-tag">Audit</span>
+          <span class="team-tag">SOP Design</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="values-section">
 
   <div class="section-head">
@@ -521,9 +557,6 @@ team-section
   </div>
 </section>
 
-<!-- ═══════════════════════════════════
-     CONSULT BANNER
-═══════════════════════════════════ -->
 <div class="consult-banner">
   <div class="consult-text">
     <div class="badge">Get in Touch</div>
@@ -536,9 +569,6 @@ team-section
   </a>
 </div>
 
-<!-- ═══════════════════════════════════
-     FOOTER
-═══════════════════════════════════ -->
 <footer>
   <div class="footer-top">
     <div>
@@ -592,9 +622,6 @@ team-section
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════
-     WHATSAPP FLOAT
-═══════════════════════════════════ -->
 <a href="https://wa.me/919738081962" target="_blank" class="wa-float" title="Chat on WhatsApp">
   <div class="wa-pulse"></div>
   <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
