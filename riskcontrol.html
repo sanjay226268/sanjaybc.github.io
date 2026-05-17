@@ -1,82 +1,933 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Risk Control & Business Systems | SanjayBC</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Risk Control & Business Systems | Sanjay B C & Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy:      #0B1B33;
+  --gold:      #B8942A;
+  --gold-lt:   #D4AF5C;
+  --gold-pale: rgba(184,148,42,.08);
+  --cream:     #F7F4EE;
+  --off-white: #FDFCF9;
+  --muted:     #6B7280;
+  --border:    rgba(184,148,42,.2);
+  --shadow-sm: 0 2px 16px rgba(11,27,51,.07);
+  --shadow-md: 0 8px 40px rgba(11,27,51,.12);
+}
+
+html { scroll-behavior: smooth; }
+body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--navy); }
+
+/* ── TOPBAR ─────────────────────────────────── */
+.topbar {
+  background: var(--navy);
+  padding: 8px 64px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 12px; color: rgba(255,255,255,.5); letter-spacing: .04em;
+}
+.topbar a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
+.topbar a:hover { color: var(--gold-lt); }
+.topbar-right { display: flex; gap: 28px; }
+
+/* ── HEADER ─────────────────────────────────── */
+header {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+.header-inner {
+  max-width: 1280px; margin: 0 auto;
+  padding: 0 64px; height: 74px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.logo { display: flex; align-items: center; gap: 13px; text-decoration: none; }
+.logo-mark {
+  width: 44px; height: 44px; background: var(--navy);
+  border-radius: 5px; display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.logo-mark svg { width: 26px; height: 26px; }
+.logo-name { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-weight: 700; color: var(--navy); letter-spacing: .02em; line-height: 1.15; }
+.logo-tag  { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+
+nav { display: flex; align-items: center; gap: 2px; }
+.nav-link {
+  font-size: 13px; font-weight: 500; color: var(--muted);
+  padding: 8px 13px; border-radius: 5px;
+  background: none; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: .02em; white-space: nowrap;
+  position: relative; transition: color .2s, background .2s;
+}
+.nav-link::after {
+  content: ''; position: absolute; bottom: 4px; left: 50%; right: 50%;
+  height: 2px; background: var(--gold); border-radius: 2px;
+  transition: left .25s, right .25s;
+}
+.nav-link:hover { color: var(--navy); background: var(--gold-pale); }
+.nav-link.active { color: var(--navy); font-weight: 600; }
+.nav-link.active::after { left: 13px; right: 13px; }
+.nav-cta {
+  margin-left: 16px; background: var(--navy); color: #fff;
+  padding: 9px 22px; border-radius: 5px; font-size: 13px; font-weight: 500;
+  border: none; cursor: pointer; letter-spacing: .04em;
+  font-family: 'DM Sans', sans-serif; transition: background .2s;
+}
+.nav-cta:hover { background: var(--gold); }
+.nav-container {
+  width: 100%;
+  padding: 0 36px;
+  height: 86px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo-wrap{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.logo-wrap img{
+  height:52px;
+  width:auto;
+  display:block;
+}
+  /* ── NAV MENU ───────────────────────────── */
+.nav-menu{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.nav-menu > a,
+.nav-item > a{
+  text-decoration:none;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:500;
+  padding:10px 14px;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  transition:.2s;
+  position:relative;
+}
+
+.nav-menu > a:hover,
+.nav-item > a:hover{
+  background:var(--gold-pale);
+  color:var(--navy);
+}
+
+.active-nav{
+  color:var(--navy) !important;
+  font-weight:600 !important;
+}
+
+.active-nav::after{
+  content:'';
+  position:absolute;
+  left:14px;
+  right:14px;
+  bottom:6px;
+  height:2px;
+  background:var(--gold);
+  border-radius:2px;
+}
+
+/* dropdown */
+.nav-item{
+  position:relative;
+}
+
+.chevron{
+  width:14px;
+  height:14px;
+}
+
+.dropdown{
+  position:absolute;
+  top:calc(100% + 14px);
+  left:0;
+  min-width:250px;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+  box-shadow:var(--shadow-md);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(8px);
+  transition:.22s ease;
+  z-index:100;
+}
+
+.nav-item:hover .dropdown{
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
+
+.dd-row{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+  padding:12px 14px;
+  border-radius:7px;
+  transition:.2s;
+}
+
+.dd-row:hover{
+  background:var(--gold-pale);
+}
+
+.dd-row-bar{
+  width:3px;
+  align-self:stretch;
+  background:var(--gold);
+  border-radius:10px;
+}
+
+.dd-row-label{
+  font-size:13px;
+  color:var(--navy);
+  font-weight:500;
+}
+/* ── BREADCRUMB ─────────────────────────────── */
+.breadcrumb-bar {
+  background: var(--off-white);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 64px;
+}
+.breadcrumb {
+  max-width: 1280px; margin: 0 auto;
+  font-size: 12px; color: var(--muted);
+  display: flex; align-items: center; gap: 8px; letter-spacing: .02em;
+}
+.breadcrumb a { color: var(--gold); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+.breadcrumb-sep { color: rgba(107,114,128,.4); }
+
+/* ── HERO ───────────────────────────────────── */
+.hero {
+  background: var(--navy);
+  padding: 80px 64px 72px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    -55deg,
+    rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px,
+    transparent 1px, transparent 44px
+  );
+  pointer-events: none;
+}
+.hero-inner {
+  max-width: 1280px; margin: 0 auto;
+  position: relative;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 9px;
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); border: 1px solid rgba(184,148,42,.3);
+  padding: 5px 14px; border-radius: 3px; margin-bottom: 22px; font-weight: 500;
+}
+.hero-eyebrow span { width: 18px; height: 1px; background: var(--gold); display: block; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 4.5vw, 56px);
+  font-weight: 700; color: #fff; line-height: 1.08;
+  margin-bottom: 22px; max-width: 760px;
+}
+.hero h1 em { color: var(--gold-lt); font-style: italic; }
+.hero-desc {
+  font-size: 15.5px; color: rgba(255,255,255,.58);
+  line-height: 1.8; max-width: 580px; margin-bottom: 34px;
+}
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: var(--navy);
+  padding: 13px 30px; border-radius: 5px;
+  font-size: 13.5px; font-weight: 600; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-outline {
+  background: transparent; color: rgba(255,255,255,.8);
+  padding: 13px 30px; border-radius: 5px;
+  font-size: 13.5px; font-weight: 500;
+  border: 1px solid rgba(255,255,255,.22); cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; transition: all .2s;
+}
+.btn-outline:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+.hero-ring {
+  position: absolute; right: -40px; top: -60px;
+  width: 360px; height: 360px;
+  border: 1px solid rgba(184,148,42,.10); border-radius: 50%;
+  pointer-events: none;
+}
+.hero-ring::before {
+  content: ''; position: absolute; inset: 40px;
+  border: 1px solid rgba(184,148,42,.06); border-radius: 50%;
+}
+
+/* ── DEADLINE NOTICE ────────────────────────── */
+.deadline-notice {
+  background: var(--off-white);
+  border-left: 4px solid var(--gold);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 64px;
+}
+.deadline-inner {
+  max-width: 1280px; margin: 0 auto;
+  display: flex; align-items: center; gap: 14px;
+}
+.deadline-icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; flex-shrink: 0; }
+.deadline-text {
+  font-size: 13.5px; color: var(--navy); line-height: 1.5;
+}
+.deadline-text strong { font-weight: 600; }
+
+/* ── SECTION SCAFFOLDING ─────────────────────── */
+.section { padding: 72px 64px; }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-alt { background: var(--off-white); }
+.section-dark { background: var(--navy); }
+
+.section-label {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(26px, 3vw, 36px); font-weight: 700;
+  color: var(--navy); margin-bottom: 12px; line-height: 1.2;
+}
+.section-title.light { color: #fff; }
+.section-sub {
+  font-size: 15px; color: var(--muted);
+  line-height: 1.75; max-width: 560px; margin-bottom: 48px;
+}
+.section-sub.light { color: rgba(255,255,255,.55); }
+.gold-rule { width: 44px; height: 2px; background: var(--gold); margin-bottom: 44px; border-radius: 2px; }
+
+/* ── INTRO CARD ──────────────────────────────── */
+.intro-card {
+  background: var(--navy);
+  border-radius: 10px;
+  padding: 48px 52px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: center;
+  margin-bottom: 64px;
+  position: relative; overflow: hidden;
+}
+.intro-card::after {
+  content: '';
+  position: absolute; right: -60px; top: -60px;
+  width: 260px; height: 260px;
+  border: 1px solid rgba(184,148,42,.10); border-radius: 50%;
+  pointer-events: none;
+}
+.intro-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px;
+}
+.intro-card h2 em { color: var(--gold-lt); font-style: italic; }
+.intro-card p { font-size: 14.5px; color: rgba(255,255,255,.58); line-height: 1.8; }
+.intro-pillars { display: flex; flex-direction: column; gap: 14px; }
+.pillar {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: rgba(255,255,255,.04); border: 1px solid rgba(184,148,42,.14);
+  border-radius: 7px; padding: 16px 18px;
+}
+.pillar-icon {
+  width: 36px; height: 36px; background: rgba(184,148,42,.15);
+  border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.pillar-icon svg { width: 18px; height: 18px; stroke: var(--gold-lt); fill: none; stroke-width: 1.6; }
+.pillar-text strong { display: block; font-size: 13.5px; font-weight: 600; color: rgba(255,255,255,.88); margin-bottom: 2px; }
+.pillar-text span { font-size: 12.5px; color: rgba(255,255,255,.45); }
+
+/* ── RISK OBJECTIVES GRID (Notice Types Variant) ── */
+.notice-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 14px; margin-bottom: 64px;
+}
+.notice-pill {
+  background: var(--off-white); border: 1px solid var(--border);
+  border-radius: 8px; padding: 18px 20px;
+  display: flex; align-items: center; gap: 12px;
+  transition: all .2s;
+}
+.notice-pill:hover { border-color: var(--gold); background: #fff; box-shadow: var(--shadow-sm); }
+.notice-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+.notice-pill span { font-size: 13.5px; font-weight: 500; color: var(--navy); }
+
+/* ── SERVICE CARDS ───────────────────────────── */
+.services-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px; margin-bottom: 64px;
+}
+.svc-card {
+  background: var(--off-white);
+  border: 1px solid var(--border);
+  border-radius: 9px; padding: 30px 28px;
+  position: relative; overflow: hidden;
+  transition: transform .25s, box-shadow .25s, border-color .25s;
+}
+.svc-card::before {
+  content: ''; position: absolute; top: 0; left: 0;
+  width: 4px; height: 0; background: var(--gold);
+  transition: height .3s ease;
+}
+.svc-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); border-color: var(--gold); }
+.svc-card:hover::before { height: 100%; }
+.svc-icon-wrap {
+  width: 46px; height: 46px; background: var(--navy);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  margin-bottom: 18px;
+}
+.svc-icon-wrap svg { width: 22px; height: 22px; stroke: var(--gold-lt); fill: none; stroke-width: 1.5; }
+.svc-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.2;
+}
+.svc-list { list-style: none; }
+.svc-list li {
+  font-size: 13.5px; color: var(--muted);
+  padding: 8px 0; border-bottom: 1px solid rgba(184,148,42,.1);
+  display: flex; align-items: flex-start; gap: 10px; line-height: 1.45;
+}
+.svc-list li:last-child { border-bottom: none; }
+.svc-list li::before {
+  content: ''; width: 5px; height: 5px;
+  background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px;
+}
+
+/* ── PROCESS ─────────────────────────────────── */
+.process-steps {
+  display: grid; grid-template-columns: repeat(5, 1fr);
+  gap: 0; border: 1px solid var(--border); border-radius: 9px; overflow: hidden;
+  margin-bottom: 64px;
+}
+.proc-step {
+  padding: 30px 24px; background: var(--off-white);
+  border-right: 1px solid var(--border);
+  position: relative; transition: background .2s;
+}
+.proc-step:last-child { border-right: none; }
+.proc-step:hover { background: #fff; }
+.proc-arrow {
+  position: absolute; right: -12px; top: 50%;
+  transform: translateY(-50%);
+  width: 22px; height: 22px; background: var(--cream);
+  border: 1px solid var(--border); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2; font-size: 10px; color: var(--gold);
+}
+.proc-step:last-child .proc-arrow { display: none; }
+.proc-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px; font-weight: 700;
+  color: rgba(184,148,42,.13); line-height: 1; margin-bottom: 12px;
+}
+.proc-title { font-size: 13.5px; font-weight: 600; color: var(--navy); margin-bottom: 8px; }
+.proc-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+
+/* ── WHY US ──────────────────────────────────── */
+.why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px; align-items: start; }
+.why-left h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 34px; font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 14px;
+}
+.why-left h2 em { color: var(--gold-lt); font-style: italic; }
+.why-left p { font-size: 14.5px; color: rgba(255,255,255,.55); line-height: 1.8; margin-bottom: 28px; }
+
+/* firm facts — only factual, ICAI-safe items */
+.firm-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.fact-item {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(184,148,42,.18);
+  border-radius: 8px; padding: 18px 20px;
+  display: flex; align-items: flex-start; gap: 12px;
+}
+.fact-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 5px; }
+.fact-text { font-size: 13px; color: rgba(255,255,255,.58); line-height: 1.55; }
+.fact-text strong { display: block; color: rgba(255,255,255,.85); font-size: 13.5px; margin-bottom: 2px; }
+
+.why-right { display: flex; flex-direction: column; gap: 14px; }
+.why-item {
+  background: rgba(255,255,255,.04); border: 1px solid rgba(184,148,42,.16);
+  border-radius: 8px; padding: 20px 22px;
+  display: flex; align-items: flex-start; gap: 14px;
+  transition: background .2s, border-color .2s;
+}
+.why-item:hover { background: rgba(184,148,42,.07); border-color: rgba(184,148,42,.32); }
+.why-check {
+  width: 28px; height: 28px; background: rgba(184,148,42,.15);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.why-check svg { width: 14px; height: 14px; stroke: var(--gold-lt); fill: none; stroke-width: 2.5; }
+.why-item-title { font-size: 14px; font-weight: 600; color: rgba(255,255,255,.9); margin-bottom: 3px; }
+.why-item-desc { font-size: 12.5px; color: rgba(255,255,255,.45); line-height: 1.55; }
+
+/* ── CONTACT CTA ─────────────────────────────── */
+.cta-strip {
+  background: linear-gradient(125deg, var(--gold) 0%, #c8a040 55%, var(--gold-lt) 100%);
+  border-radius: 10px; padding: 48px 52px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+}
+.cta-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px; font-weight: 700; color: var(--navy); margin-bottom: 7px;
+}
+.cta-text p { font-size: 14.5px; color: rgba(11,27,51,.6); line-height: 1.65; }
+.cta-actions { display: flex; gap: 12px; flex-shrink: 0; }
+.cta-btn-dark {
+  background: var(--navy); color: #fff;
+  padding: 13px 28px; border-radius: 5px;
+  font-size: 14px; font-weight: 600; border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; white-space: nowrap;
+  transition: opacity .2s;
+}
+.cta-btn-dark:hover { opacity: .85; }
+.cta-btn-ghost {
+  background: transparent; color: var(--navy);
+  padding: 13px 28px; border-radius: 5px;
+  font-size: 14px; font-weight: 600; border: 2px solid rgba(11,27,51,.25); cursor: pointer;
+  font-family: 'DM Sans', sans-serif; letter-spacing: .04em; white-space: nowrap;
+  transition: border-color .2s;
+}
+.cta-btn-ghost:hover { border-color: var(--navy); }
+
+/* ── ICAI NOTICE ─────────────────────────────── */
+.icai-note {
+  background: var(--gold-pale);
+  border: 1px solid rgba(184,148,42,.25);
+  border-radius: 8px; padding: 16px 22px;
+  font-size: 12.5px; color: var(--muted); line-height: 1.65;
+  margin-top: 28px; display: flex; gap: 12px; align-items: flex-start;
+}
+.icai-note svg { width: 16px; height: 16px; stroke: var(--gold); fill: none; flex-shrink: 0; margin-top: 1px; }
+
+/* ── FOOTER ──────────────────────────────────── */
+footer {
+  background: var(--navy); border-top: 1px solid rgba(184,148,42,.18);
+  padding: 28px 64px; text-align: center;
+  font-size: 13px; color: rgba(255,255,255,.35);
+}
+footer strong { color: rgba(255,255,255,.6); }
+
+/* ── RESPONSIVE ──────────────────────────────── */
+@media (max-width: 1024px) {
+  .topbar, .breadcrumb-bar, .hero, .section, .deadline-notice, footer { padding-left: 28px; padding-right: 28px; }
+  .header-inner { padding: 0 28px; }
+  .intro-card { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .cta-strip { flex-direction: column; text-align: center; }
+  nav { display: none; }
+  .hero-ring { display: none; }
+}
+</style>
 </head>
 <body>
 
-<section class="hero-section">
-  <div class="container">
-    <h1>Risk Control & Business Systems</h1>
-    <p>
-      Strengthening internal financial systems, operational controls
-      and business discipline.
+<div class="topbar">
+  <span></span>
+  <div class="topbar-right"></div>
+</div>
+
+<header class="main-header">
+  <div class="nav-container">
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co">
+    </a>
+
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+
+      <div class="nav-item">
+        <a href="about.html">
+          About Us
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <a href="about.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Firm Overview</div>
+          </a>
+          <a href="team.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Our Team</div>
+          </a>
+          <a href="industries.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Industries We Serve</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" class="active-nav">
+          Services
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <a href="compliance.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Tax & Compliance</div>
+          </a>
+          <a href="virtual-cfo.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">CFO Advisory</div>
+          </a>
+          <a href="appeals.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Litigation & Notices</div>
+          </a>
+          <a href="riskcontrol.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Risk & Internal Controls</div>
+          </a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="resources.html">
+          Resources
+          <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="6 9 12 15 18 9"/>
+          </svg>
+        </a>
+        <div class="dropdown">
+          <a href="blog.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Blogs & Articles</div>
+          </a>
+          <a href="downloads.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">Downloads</div>
+          </a>
+          <a href="faqs.html" class="dd-row">
+            <div class="dd-row-bar"></div>
+            <div class="dd-row-label">FAQs</div>
+          </a>
+        </div>
+      </div>
+
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html" class="nav-cta">Contact Us</a>
+    </nav>
+  </div>
+</header>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="#">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="#">Services</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Risk &amp; Internal Controls</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> Practice Area 05</div>
+    <h1>Risk Control &amp;<br/><em>Business Systems</em></h1>
+    <p class="hero-desc">
+      Strengthening internal financial systems, establishing operational corporate controls, 
+      and introducing rigorous process discipline to eliminate enterprise system leakage.
+    </p>
+    <div class="hero-actions">
+      <button class="btn-primary">Request System Audit →</button>
+    </div>
+  </div>
+  <div class="hero-ring"></div>
+</div>
+
+<div class="deadline-notice">
+  <div class="deadline-inner">
+    <div class="deadline-icon">
+      <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9"/><path d="M11 7v4l2 2"/></svg>
+    </div>
+    <p class="deadline-text">
+      <strong>Enterprise Warning:</strong> Over 70% of unidentified mid-market losses stem from 
+      outdated authorization matrices and undocumented process workflows. Early evaluation preserves operating capital.
     </p>
   </div>
-</section>
+</div>
 
-<section class="content-section">
-  <div class="container">
+<div class="section">
+  <div class="section-inner">
+    <div class="intro-card">
+      <div>
+        <h2>Build Stronger<br/><em>Business Systems</em></h2>
+        <p>
+          Weak internal operating systems often lead to hidden inefficiencies, 
+          financial leakages, and compounding regulatory risks. We systematically review enterprise parameters 
+          to engineer robust control layers, clean transactional authorization frameworks, and operational monitoring 
+          mechanisms tailored for organizational continuity.
+        </p>
+      </div>
+      <div class="intro-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 22 22"><path d="M11 3L4 7v5c0 5 7 8 7 8s7-3 7-8V7L11 3z"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Leakage Prevention</strong>
+            <span>Isolating operational weaknesses and tracking hidden cost drivers across functions.</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M7 8h8M7 12h5"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Statutory Alignment</strong>
+            <span>Structuring controls to fulfill strict corporate governance criteria and IFC requirements.</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 22 22"><circle cx="12" cy="8" r="5"/><path d="M3 19c0-4 4-7 9-7s9 3 9 7"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>SOP Standardization</strong>
+            <span>Transforming loose informal processes into clear, auditable operational playbooks.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <div class="intro-box">
-      <h2>Build Stronger Business Systems</h2>
-      <p>
-        Weak internal systems often lead to operational inefficiencies,
-        financial leakages and increased business risks. Our services help
-        businesses implement structured financial controls and operational
-        monitoring systems.
-      </p>
+<div class="section section-alt" style="padding-top:56px;padding-bottom:56px;">
+  <div class="section-inner">
+    <div class="section-label">Risk Vectors Monitored</div>
+    <h2 class="section-title">Critical System Frameworks We Audit</h2>
+    <div class="gold-rule"></div>
+    <div class="notice-grid">
+      <div class="notice-pill"><div class="notice-dot"></div><span>Segregation of Duties (SoD) Testing</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Procure-to-Pay (P2P) Cycle Controls</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Order-to-Cash (O2C) Leakage Reviews</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Inventory &amp; Asset Protection Tracking</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Delegation of Financial Authority Matrix</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Data Access Control &amp; IT General Controls</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Regulatory Compliance Mapping Systems</span></div>
+      <div class="notice-pill"><div class="notice-dot"></div><span>Vendor Due Diligence Onboarding Frameworks</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Services Under This Practice</div>
+    <h2 class="section-title">Operational Core Deliverables</h2>
+    <div class="gold-rule"></div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><path d="M3 5h16M3 11h10M3 17h7"/><circle cx="17" cy="15" r="3"/></svg>
+        </div>
+        <div class="svc-title">Internal Financial Controls (IFC)</div>
+        <ul class="svc-list">
+          <li>Internal Control Framework Architecture Design</li>
+          <li>Corporate Enterprise Risk Assessment Surveys</li>
+          <li>Granular Authorization Matrix Validation</li>
+          <li>Continuous Financial Monitoring Dashboards</li>
+          <li>Board-Level Corporate Governance Reporting</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><circle cx="12" cy="8" r="5"/><path d="M3 19c0-4 4-7 9-7s9 3 9 7"/></svg>
+        </div>
+        <div class="svc-title">Fraud Risk Reduction</div>
+        <ul class="svc-list">
+          <li>Proactive Vulnerability Identification mapping</li>
+          <li>Control Weakness and system bypass diagnostics</li>
+          <li>Cross-department Process Gap Analysis</li>
+          <li>Whistleblower &amp; Anti-Fraud Protection protocols</li>
+          <li>Actionable Risk Mitigation Implementations</li>
+        </ul>
+      </div>
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 22 22"><rect x="3" y="3" width="16" height="16" rx="2"/><path d="M3 9h16M9 21V9"/></svg>
+        </div>
+        <div class="svc-title">SOP Design &amp; Documentation</div>
+        <ul class="svc-list">
+          <li>Standard Operating Procedures (SOP) Compilation</li>
+          <li>Multi-tier operational workflow structuring</li>
+          <li>Operational control metrics and benchmarks</li>
+          <li>Visual End-to-End Process Mapping</li>
+          <li>System implementation and user compliance audits</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">Implementation Flow</div>
+    <h2 class="section-title">Our System Transformation Blueprint</h2>
+    <div class="gold-rule"></div>
+    <div class="process-steps">
+      
+      <div class="proc-step">
+        <div class="proc-arrow">→</div>
+        <div class="proc-num">01</div>
+        <div class="proc-title">Discovery</div>
+        <div class="proc-desc">Interviewing stakeholders to map actual operations against existing manual profiles.</div>
+      </div>
+
+      <div class="proc-step">
+        <div class="proc-arrow">→</div>
+        <div class="proc-num">02</div>
+        <div class="proc-title">Stress Testing</div>
+        <div class="proc-desc">Simulating ledger breakdowns and authorization bypass loops to locate stress vulnerabilities.</div>
+      </div>
+
+      <div class="proc-step">
+        <div class="proc-arrow">→</div>
+        <div class="proc-num">03</div>
+        <div class="proc-title">Architecture</div>
+        <div class="proc-desc">Formulating updated risk matrices, clear authorization tiers, and clean SOP manuals.</div>
+      </div>
+
+      <div class="proc-step">
+        <div class="proc-arrow">→</div>
+        <div class="proc-num">04</div>
+        <div class="proc-title">Deployment</div>
+        <div class="proc-desc">Integrating controls into primary bookkeeping software and ERP configurations.</div>
+      </div>
+
+      <div class="proc-step">
+        <div class="proc-num">05</div>
+        <div class="proc-title">Review</div>
+        <div class="proc-desc">Conducting periodic balance reviews to ensure ongoing operational transparency.</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="section section-dark">
+  <div class="section-inner">
+    <div class="why-grid">
+      <div class="why-left">
+        <div class="section-label">Why Businesses Choose Us</div>
+        <h2 class="section-title light">Engineered for <em>Accountability</em></h2>
+        <p>
+          We replace loose informal habits with strict corporate frameworks, providing modern leadership teams with absolute insight into balance management and process compliance.
+        </p>
+        <div class="firm-facts">
+          <div class="fact-item">
+            <div class="fact-dot"></div>
+            <div class="fact-text">
+              <strong>Operational Discipline</strong>
+              Establishing clear responsibility profiles to stop organizational drift.
+            </div>
+          </div>
+          <div class="fact-item">
+            <div class="fact-dot"></div>
+            <div class="fact-text">
+              <strong>Leakage Remediation</strong>
+              Halting financial erosion through real-time check-and-balance systems.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right">
+        
+        <div class="why-item">
+          <div class="why-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Enhanced Accountability Matrix</div>
+            <div class="why-item-desc">Isolating transaction duties explicitly so no individual maintains singular transaction handling capability.</div>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Optimized Structural Efficiency</div>
+            <div class="why-item-desc">Streamlining workflows to uncover latent capabilities and cut cycle times.</div>
+          </div>
+        </div>
+
+        <div class="why-item">
+          <div class="why-check">
+            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="why-item-title">Integrated Control Systems</div>
+            <div class="why-item-desc">Linking regulatory compliance monitoring seamlessly with daily workflows.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="section-inner">
+    <div class="cta-strip">
+      <div class="cta-text">
+        <h3>Ready to close the vulnerabilities in your current systems?</h3>
+        <p>Contact our advisory group to map out a structured corporate health overview.</p>
+      </div>
+      <div class="cta-actions">
+        <button class="cta-btn-dark">Consult Our Team</button>
+        <button class="cta-btn-ghost">View Practice Specialties</button>
+      </div>
     </div>
 
-    <div class="service-grid">
-
-      <div class="service-card">
-        <h3>Internal Financial Controls</h3>
-        <ul>
-          <li>Internal Control Framework Design</li>
-          <li>Risk Assessment Support</li>
-          <li>Authorization Matrix Development</li>
-          <li>Financial Monitoring Systems</li>
-        </ul>
+    <div class="icai-note">
+      <svg viewBox="0 0 22 22"><circle cx="11" cy="11" r="9"/><path d="M11 7v4M11 15h.01"/></svg>
+      <div>
+        <strong>ICAI Compliance Note:</strong> In accordance with the ethical directives laid out by the Institute of Chartered Accountants of India (ICAI), this profile sheet is designed exclusively for factual informational dissemination regarding administrative processes and carries absolutely no public solicitation markers.
       </div>
-
-      <div class="service-card">
-        <h3>Fraud Risk Reduction</h3>
-        <ul>
-          <li>Fraud Risk Identification</li>
-          <li>Control Weakness Assessment</li>
-          <li>Process Gap Analysis</li>
-          <li>Risk Mitigation Recommendations</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>SOP Design & Documentation</h3>
-        <ul>
-          <li>Standard Operating Procedures</li>
-          <li>Workflow Structuring</li>
-          <li>Operational Control Frameworks</li>
-          <li>Process Mapping</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="why-box">
-      <h2>Why Businesses Choose Us</h2>
-      <ul>
-        <li>Improved operational discipline</li>
-        <li>Reduced financial leakages</li>
-        <li>Better accountability systems</li>
-        <li>Improved business efficiency</li>
-      </ul>
     </div>
 
   </div>
-</section>
+</div>
+
+<footer>
+  &copy; 2026 <strong>Sanjay B C & Co.</strong> Chartered Accountants. All Rights Reserved.
+</footer>
 
 </body>
 </html>
