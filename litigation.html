@@ -1,614 +1,1449 @@
+<!-- =========================================================
+     TAX NOTICES, LITIGATION & REPRESENTATION
+     SANJAY B C & CO.
+========================================================= -->
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax Notices, Litigation &amp; Representation | Sanjay B C &amp; Co.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
-  <style>
-    /* ── LAYOUT CRITICAL CORRECTIONS ── */
-    
-    /* Forces content to sit cleanly below fixed or absolute navigation spaces */
-    .main-content {
-      display: block;
-      position: relative;
-      width: 100%;
-      clear: both;
-      z-index: 1;
-      margin-top: 0;
-    }
 
-    /* Clearfix safety rules for structural elements */
-    .hero, .section, .deadline-notice {
-      clear: both;
-      position: relative;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    /* ── PAGE-SPECIFIC MICRO-LAYOUTS ── */
-    
-    /* Deadline Limitation Banner */
-    .deadline-notice { 
-      background: #FFFDF9; 
-      border-left: 4px solid var(--gold); 
-      border-bottom: 1px solid var(--border); 
-      padding: 18px 24px;
-    }
-    .deadline-inner { 
-      max-width: 1280px; 
-      margin: 0 auto; 
-      display: flex; 
-      align-items: center; 
-      gap: 16px; 
-    }
-    .deadline-icon svg { 
-      width: 20px; 
-      height: 20px; 
-      stroke: var(--gold); 
-      stroke-width: 2; 
-      fill: none; 
-      flex-shrink: 0; 
-      display: block; 
-    }
-    .deadline-text { 
-      font-size: 14px; 
-      color: var(--navy); 
-      line-height: 1.6; 
-    }
-    .deadline-text strong { 
-      font-weight: 600; 
-      color: #9E1A1A; 
-    }
+<title>
+Tax Notices, Litigation & Representation | Sanjay B C & Co.
+</title>
 
-    /* Split Overview Card */
-    .intro-card {
-      background: var(--navy); 
-      border-radius: 12px; 
-      padding: 56px;
-      display: grid; 
-      grid-template-columns: 1.1fr 0.9fr; 
-      gap: 64px; 
-      align-items: center;
-      margin-bottom: 16px; 
-      position: relative; 
-      overflow: hidden; 
-      border: 1px solid rgba(184,148,42,0.15);
-    }
-    .intro-card::after {
-      content: ''; 
-      position: absolute; 
-      right: -60px; 
-      top: -60px;
-      width: 260px; 
-      height: 260px; 
-      border: 1px solid rgba(184,148,42,.08); 
-      border-radius: 50%; 
-      pointer-events: none;
-    }
-    .intro-card h2 { 
-      font-family: 'Playfair Display', serif; 
-      font-size: clamp(28px, 3vw, 36px); 
-      font-weight: 700; 
-      color: #fff; 
-      line-height: 1.3; 
-      margin-bottom: 20px; 
-    }
-    .intro-card h2 em { 
-      color: var(--gold-lt); 
-      font-style: italic; 
-    }
-    .intro-card p { 
-      font-size: 15px; 
-      color: rgba(255,255,255,.65); 
-      line-height: 1.8; 
-    }
-    .intro-pillars { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 16px; 
-      position: relative; 
-      z-index: 2; 
-    }
-    .pillar {
-      display: flex; 
-      align-items: flex-start; 
-      gap: 16px;
-      background: rgba(255,255,255,.03); 
-      border: 1px solid rgba(184,148,42,.12);
-      border-radius: 8px; 
-      padding: 18px 20px; 
-      transition: all 0.2s;
-    }
-    .pillar:hover { 
-      background: rgba(255,255,255,0.05); 
-      border-color: var(--gold); 
-    }
-    .pillar-icon {
-      width: 40px; 
-      height: 40px; 
-      background: rgba(184,148,42,.15);
-      border-radius: 6px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      flex-shrink: 0;
-    }
-    .pillar-icon svg { 
-      width: 20px; 
-      height: 20px; 
-      stroke: var(--gold-lt); 
-      fill: none; 
-      stroke-width: 1.75; 
-    }
-    .pillar-text strong { 
-      display: block; 
-      font-size: 14.5px; 
-      font-weight: 600; 
-      color: rgba(255,255,255,.9); 
-      margin-bottom: 4px; 
-    }
-    .pillar-text span { 
-      font-size: 13px; 
-      color: rgba(255,255,255,.5); 
-      line-height: 1.5; 
-      display: block; 
-    }
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-    /* Statutory Scope Matrix Pills */
-    .notice-grid {
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .notice-pill {
-      background: var(--off-white); 
-      border: 1px solid var(--border);
-      border-radius: 8px; 
-      padding: 18px 22px;
-      display: flex; 
-      align-items: center; 
-      gap: 14px; 
-      transition: all .25s ease;
-    }
-    .notice-pill:hover { 
-      border-color: var(--gold); 
-      background: #fff; 
-      transform: translateY(-2px); 
-      box-shadow: var(--shadow-sm); 
-    }
-    .notice-dot { 
-      width: 6px; 
-      height: 6px; 
-      background: var(--gold); 
-      border-radius: 50%; 
-      flex-shrink: 0; 
-    }
-    .notice-pill span { 
-      font-size: 13.5px; 
-      font-weight: 500; 
-      color: var(--navy); 
-      line-height: 1.4; 
-      letter-spacing: -0.01em; 
-    }
+<link rel="stylesheet" href="shared.css">
 
-    /* Structural Deliverable Grid Columns */
-    .services-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
-      gap: 24px; 
-      margin-top: 32px;
-    }
-    .svc-card {
-      background: var(--off-white); 
-      border: 1px solid var(--border);
-      border-radius: 10px; 
-      padding: 36px 32px; 
-      position: relative; 
-      overflow: hidden;
-      transition: transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .svc-card::before { 
-      content: ''; 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      width: 4px; 
-      height: 0; 
-      background: var(--gold); 
-      transition: height .3s ease; 
-    }
-    .svc-card:hover { 
-      transform: translateY(-6px); 
-      box-shadow: var(--shadow-md); 
-      border-color: var(--gold); 
-    }
-    .svc-card:hover::before { 
-      height: 100%; 
-    }
-    .svc-icon-wrap { 
-      width: 48px; 
-      height: 48px; 
-      background: var(--navy); 
-      border-radius: 8px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-bottom: 22px; 
-    }
-    .svc-icon-wrap svg { 
-      width: 22px; 
-      height: 22px; 
-      stroke: var(--gold-lt); 
-      fill: none; 
-      stroke-width: 1.75; 
-    }
-    .svc-title { 
-      font-family: 'Playfair Display', serif; 
-      font-size: 22px; 
-      font-weight: 700; 
-      color: var(--navy); 
-      margin-bottom: 18px; 
-      line-height: 1.2; 
-    }
-    .svc-list { 
-      list-style: none; 
-      padding: 0;
-      margin: 0;
-    }
-    .svc-list li {
-      font-size: 14px; 
-      color: var(--muted); 
-      padding: 10px 0; 
-      border-bottom: 1px solid rgba(184,148,42,.08);
-      display: flex; 
-      align-items: flex-start; 
-      gap: 12px; 
-      line-height: 1.5;
-    }
-    .svc-list li:last-child { 
-      border-bottom: none; 
-    }
-    .svc-list li::before { 
-      content: ''; 
-      width: 5px; 
-      height: 5px; 
-      background: var(--gold); 
-      border-radius: 50%; 
-      flex-shrink: 0; 
-      margin-top: 7px; 
-    }
+<style>
 
-    /* Fixed Floating WhatsApp Integration Placement */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background-color: #25D366;
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      width: 56px;
-      height: 56px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-    .whatsapp-float svg {
-      width: 30px;
-      height: 30px;
-      fill: currentColor;
-    }
+/* =========================================================
+   PAGE-SPECIFIC DESIGN ONLY
+========================================================= */
 
-    /* Media Adaptive Layout Breakdowns */
-    @media (max-width: 1160px) {
-      .services-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 1024px) {
-      .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
-    }
-    @media (max-width: 768px) {
-      .services-grid { grid-template-columns: 1fr; }
-      .notice-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+.page-hero{
+  position:relative;
+  overflow:hidden;
+  padding:90px 48px 84px;
+  background:
+  linear-gradient(
+    110deg,
+    rgba(10,25,47,0.96) 0%,
+    rgba(10,25,47,0.90) 45%,
+    rgba(10,25,47,0.84) 100%
+  );
+}
+
+.page-hero::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+  radial-gradient(
+    circle at top right,
+    rgba(184,146,42,.16),
+    transparent 40%
+  );
+}
+
+.hero-inner{
+  position:relative;
+  z-index:2;
+  max-width:1240px;
+  margin:auto;
+}
+
+.breadcrumb{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:rgba(255,255,255,.45);
+  margin-bottom:26px;
+}
+
+.breadcrumb a{
+  color:rgba(255,255,255,.45);
+  text-decoration:none;
+}
+
+.breadcrumb a:hover{
+  color:var(--gold);
+}
+
+.breadcrumb span{
+  margin:0 10px;
+  color:var(--gold);
+}
+
+.hero-eyebrow{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid rgba(184,146,42,.24);
+  padding:6px 14px;
+  border-radius:40px;
+  color:var(--gold);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  margin-bottom:28px;
+}
+
+.hero-eyebrow::before{
+  content:'';
+  width:18px;
+  height:1px;
+  background:var(--gold);
+}
+
+.page-title{
+  font-family:var(--serif);
+  font-size:clamp(48px,5vw,76px);
+  line-height:1.05;
+  color:#fff;
+  margin-bottom:24px;
+  max-width:820px;
+}
+
+.page-title em{
+  color:var(--gold-light);
+  font-style:italic;
+}
+
+.hero-desc{
+  max-width:720px;
+  font-size:16px;
+  line-height:1.95;
+  color:rgba(255,255,255,.72);
+}
+
+.hero-line{
+  width:70px;
+  height:3px;
+  border-radius:3px;
+  background:var(--gold);
+  margin-top:34px;
+}
+
+/* =========================================================
+   DEADLINE STRIP
+========================================================= */
+
+.deadline-strip{
+  background:#fffdf9;
+  border-bottom:1px solid rgba(184,146,42,.16);
+  border-left:5px solid var(--gold);
+  padding:20px 48px;
+}
+
+.deadline-inner{
+  max-width:1240px;
+  margin:auto;
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+
+.deadline-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:rgba(184,146,42,.10);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.deadline-icon svg{
+  width:18px;
+  height:18px;
+  stroke:var(--gold);
+  fill:none;
+  stroke-width:2;
+}
+
+.deadline-text{
+  font-size:14px;
+  line-height:1.8;
+  color:var(--navy);
+}
+
+.deadline-text strong{
+  color:#9d1b1b;
+}
+
+/* =========================================================
+   SECTION SYSTEM
+========================================================= */
+
+.page-section{
+  padding:78px 48px;
+  background:var(--off-white);
+}
+
+.page-container{
+  max-width:1240px;
+  margin:auto;
+}
+
+.section-label{
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.18em;
+  color:var(--gold);
+  font-weight:600;
+  margin-bottom:12px;
+}
+
+.section-title{
+  font-family:var(--serif);
+  font-size:clamp(30px,3vw,42px);
+  color:var(--navy);
+  line-height:1.18;
+  margin-bottom:16px;
+}
+
+.gold-rule{
+  width:52px;
+  height:2px;
+  background:var(--gold);
+  border-radius:3px;
+  margin-bottom:42px;
+}
+
+/* =========================================================
+   INTRO CARD
+========================================================= */
+
+.intro-card{
+  background:linear-gradient(
+    135deg,
+    var(--navy) 0%,
+    #12233f 100%
+  );
+  border-radius:16px;
+  padding:58px;
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:60px;
+  position:relative;
+  overflow:hidden;
+}
+
+.intro-card::before{
+  content:'';
+  position:absolute;
+  right:-80px;
+  top:-80px;
+  width:280px;
+  height:280px;
+  border:1px solid rgba(184,146,42,.08);
+  border-radius:50%;
+}
+
+.intro-card h2{
+  font-family:var(--serif);
+  font-size:42px;
+  color:#fff;
+  line-height:1.18;
+  margin-bottom:22px;
+}
+
+.intro-card h2 em{
+  color:var(--gold-light);
+  font-style:italic;
+}
+
+.intro-card p{
+  font-size:15px;
+  line-height:1.9;
+  color:rgba(255,255,255,.68);
+}
+
+.intro-points{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  position:relative;
+  z-index:2;
+}
+
+.point-box{
+  display:flex;
+  gap:16px;
+  padding:18px 20px;
+  border-radius:10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(184,146,42,.12);
+}
+
+.point-icon{
+  width:42px;
+  height:42px;
+  border-radius:8px;
+  background:rgba(184,146,42,.14);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.point-icon svg{
+  width:20px;
+  height:20px;
+  stroke:var(--gold-light);
+  fill:none;
+  stroke-width:1.8;
+}
+
+.point-text strong{
+  display:block;
+  color:#fff;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.point-text span{
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(255,255,255,.55);
+}
+
+/* =========================================================
+   NOTICE GRID
+========================================================= */
+
+.notice-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:18px;
+}
+
+.notice-pill{
+  background:#fff;
+  border:1px solid rgba(184,146,42,.18);
+  border-radius:10px;
+  padding:18px 22px;
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+  transition:.25s ease;
+}
+
+.notice-pill:hover{
+  transform:translateY(-3px);
+  border-color:var(--gold);
+  box-shadow:0 8px 24px rgba(10,25,47,.06);
+}
+
+.notice-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--gold);
+  margin-top:7px;
+  flex-shrink:0;
+}
+
+.notice-pill span{
+  font-size:13.5px;
+  line-height:1.55;
+  color:var(--navy);
+  font-weight:500;
+}
+
+/* =========================================================
+   SERVICE CARDS
+========================================================= */
+
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:24px;
+}
+
+.svc-card{
+  background:#fff;
+  border:1px solid rgba(184,146,42,.16);
+  border-radius:12px;
+  padding:36px 34px;
+  transition:.28s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.svc-card::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  width:4px;
+  height:0;
+  background:var(--gold);
+  transition:.3s ease;
+}
+
+.svc-card:hover{
+  transform:translateY(-5px);
+  border-color:var(--gold);
+  box-shadow:0 12px 34px rgba(10,25,47,.08);
+}
+
+.svc-card:hover::before{
+  height:100%;
+}
+
+.svc-icon{
+  width:52px;
+  height:52px;
+  border-radius:10px;
+  background:var(--navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:22px;
+}
+
+.svc-icon svg{
+  width:22px;
+  height:22px;
+  stroke:var(--gold-light);
+  fill:none;
+  stroke-width:1.8;
+}
+
+.svc-title{
+  font-family:var(--serif);
+  font-size:24px;
+  color:var(--navy);
+  margin-bottom:20px;
+  line-height:1.2;
+}
+
+.svc-list{
+  list-style:none;
+}
+
+.svc-list li{
+  position:relative;
+  padding-left:16px;
+  margin-bottom:12px;
+  color:#667588;
+  font-size:14px;
+  line-height:1.7;
+}
+
+.svc-list li::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:10px;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:var(--gold);
+}
+
+/* =========================================================
+   WHY SECTION
+========================================================= */
+
+.dark-section{
+  background:linear-gradient(
+    135deg,
+    var(--navy) 0%,
+    #12233f 100%
+  );
+}
+
+.dark-section .section-title{
+  color:#fff;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+}
+
+.why-left p{
+  font-size:15px;
+  line-height:1.9;
+  color:rgba(255,255,255,.62);
+  margin-bottom:30px;
+}
+
+.fact-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+}
+
+.fact-box{
+  padding:18px;
+  border-radius:10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(184,146,42,.12);
+}
+
+.fact-box strong{
+  display:block;
+  color:#fff;
+  margin-bottom:6px;
+  font-size:14px;
+}
+
+.fact-box span{
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(255,255,255,.55);
+}
+
+.why-right{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.why-item{
+  display:flex;
+  gap:14px;
+  padding:20px 22px;
+  border-radius:10px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(184,146,42,.12);
+}
+
+.why-check{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  background:rgba(184,146,42,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+
+.why-check svg{
+  width:14px;
+  height:14px;
+  stroke:var(--gold-light);
+  fill:none;
+  stroke-width:2.5;
+}
+
+.why-item strong{
+  display:block;
+  color:#fff;
+  margin-bottom:5px;
+  font-size:14px;
+}
+
+.why-item span{
+  font-size:13px;
+  line-height:1.6;
+  color:rgba(255,255,255,.55);
+}
+
+/* =========================================================
+   ICAI NOTE
+========================================================= */
+
+.icai-note{
+  margin-top:40px;
+  padding:20px 24px;
+  border-radius:10px;
+  border:1px solid rgba(184,146,42,.22);
+  background:rgba(184,146,42,.06);
+  font-size:13px;
+  line-height:1.8;
+  color:#667588;
+}
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1024px){
+
+  .intro-card,
+  .why-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .page-hero,
+  .page-section,
+  .deadline-strip{
+    padding-left:20px;
+    padding-right:20px;
+  }
+
+  .intro-card{
+    padding:38px 28px;
+  }
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-<div class="topbar">
-  <span>Administrative Practice Profile — Dissemination Framework</span>
-  <div class="topbar-right">
-    <a href="mailto:office@sanjaybc.com">office@sanjaybc.com</a>
-    <a href="tel:+918000000000">+91 80 0000 0000</a>
-  </div>
-</div>
+<!-- =========================================================
+     TOPBAR
+========================================================= -->
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <img src="logo1.png" alt="Sanjay B C & Co">
+<div class="topbar">
+
+  <span class="topbar-brand">
+    Administrative Practice Profile — Dissemination Framework
+  </span>
+
+  <div class="topbar-links">
+
+    <a href="mailto:office@sanjaybc.com">
+      office@sanjaybc.com
     </a>
 
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
+    <a href="tel:+919738081962">
+      +91 97380 81962
+    </a>
 
-      <div class="nav-item">
-        <a href="about.html">
-          About Us
-          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown">
-          <a href="about.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Firm Overview</div></a>
-          <a href="team.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Our Team</div></a>
-          <a href="industries.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Industries We Serve</div></a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="#" class="active-nav">
-          Services
-          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown">
-          <a href="compliance.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Tax &amp; Compliance</div></a>
-          <a href="virtual-cfo.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">CFO Advisory</div></a>
-          <a href="litigation.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Litigation &amp; Notices</div></a>
-          <a href="riskcontrol.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Risk &amp; Internal Controls</div></a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="resources.html">
-          Resources
-          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown">
-          <a href="blog.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Blogs &amp; Articles</div></a>
-          <a href="downloads.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Downloads</div></a>
-          <a href="faqs.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">FAQs</div></a>
-        </div>
-      </div>
-
-      <a href="insights.html">Insights</a>
-      <a href="careers.html">Careers</a>
-      <a href="contactus.html" class="nav-cta">Contact Us</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
-      <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
   </div>
-</header>
 
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-drawer" id="mobileDrawer">
-  <div class="drawer-header">
-    <img src="logo1.png" alt="Sanjay B C & Co" style="height: 40px;">
-    <button class="drawer-close" id="drawerClose">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-  <div class="drawer-links">
+</div>
+
+<!-- =========================================================
+     PREMIUM NAVBAR
+========================================================= -->
+
+<nav>
+
+  <a href="index.html" class="logo-wrap">
+
+    <img
+      src="logo1.png"
+      alt="Sanjay B C & Co."
+    >
+
+  </a>
+
+  <div class="nav-links">
+
     <a href="index.html">Home</a>
-    
-    <div class="drawer-heading">About Us</div>
-    <div class="drawer-sub-links">
-      <a href="about.html">Firm Overview</a>
-      <a href="team.html">Our Team</a>
-      <a href="industries.html">Industries We Serve</a>
+
+    <div class="nav-item">
+
+      <a href="#">
+        About Us
+
+        <svg class="chevron" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+
+      </a>
+
+      <div class="dropdown dropdown--wide">
+
+        <div class="dd-group-label">
+          Who We Are
+        </div>
+
+        <a href="about.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+
+          <div class="dd-text">
+            <div class="dd-row-label">
+              Firm Overview
+            </div>
+
+            <div class="dd-row-sub">
+              Our history, values & professional approach
+            </div>
+          </div>
+        </a>
+
+        <a href="team.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+
+          <div class="dd-text">
+            <div class="dd-row-label">
+              Our Team
+            </div>
+
+            <div class="dd-row-sub">
+              Meet the professionals behind the firm
+            </div>
+          </div>
+        </a>
+
+      </div>
+
     </div>
 
-    <div class="drawer-heading">Services</div>
-    <div class="drawer-sub-links">
-      <a href="compliance.html">Tax &amp; Compliance</a>
-      <a href="virtual-cfo.html">CFO Advisory</a>
-      <a href="litigation.html" style="color: var(--gold); font-weight:600;">Litigation &amp; Notices</a>
-      <a href="riskcontrol.html">Risk &amp; Internal Controls</a>
+    <!-- ACTIVE -->
+
+    <div class="nav-item">
+
+      <a href="#" class="active-nav">
+
+        Services
+
+        <svg class="chevron" viewBox="0 0 24 24">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+
+      </a>
+
+      <div class="dropdown dropdown--wide">
+
+        <div class="dd-group-label">
+          Core Practice Areas
+        </div>
+
+        <a href="virtual-cfo.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+
+          <div class="dd-text">
+            <div class="dd-row-label">
+              Business Growth & CFO Advisory
+            </div>
+
+            <div class="dd-row-sub">
+              Cash flow, MIS & strategic finance
+            </div>
+          </div>
+        </a>
+
+        <a href="litigation.html" class="active-nav dd-row">
+
+          <div class="dd-row-bar"></div>
+
+          <div class="dd-text">
+            <div class="dd-row-label">
+              Tax Notices, Litigation & Representation
+            </div>
+
+            <div class="dd-row-sub">
+              Notices, assessments & dispute handling
+            </div>
+          </div>
+
+        </a>
+
+        <a href="riskcontrol.html" class="dd-row">
+
+          <div class="dd-row-bar"></div>
+
+          <div class="dd-text">
+            <div class="dd-row-label">
+              Risk Control & Business Systems
+            </div>
+
+            <div class="dd-row-sub">
+              Governance, SOPs & process controls
+            </div>
+          </div>
+
+        </a>
+
+      </div>
+
     </div>
 
-    <div class="drawer-heading">Resources</div>
-    <div class="drawer-sub-links">
-      <a href="blog.html">Blogs &amp; Articles</a>
-      <a href="downloads.html">Downloads</a>
-      <a href="faqs.html">FAQs</a>
-    </div>
-
-    <a href="insights.html" style="margin-top: 10px;">Insights</a>
+    <a href="resources.html">Resources</a>
+    <a href="insights.html">Insights</a>
     <a href="careers.html">Careers</a>
-    <a href="contactus.html" class="nav-cta" style="margin-left:0; text-align:center; margin-top:16px;">Contact Us</a>
+    <a href="contactus.html">Contact Us</a>
+
   </div>
-</div>
 
-<main class="main-content">
+</nav>
 
-  <div class="breadcrumb-bar">
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="page-hero">
+
+  <div class="hero-inner">
+
     <div class="breadcrumb">
+
       <a href="index.html">Home</a>
-      <span class="breadcrumb-sep">›</span>
+
+      <span>›</span>
+
       <a href="#">Services</a>
-      <span class="breadcrumb-sep">›</span>
-      <span>Tax Notices, Litigation &amp; Representation</span>
+
+      <span>›</span>
+
+      Tax Notices, Litigation & Representation
+
     </div>
+
+    <div class="hero-eyebrow">
+      Practice Area 04
+    </div>
+
+    <h1 class="page-title">
+
+      Tax Notices, Litigation<br>
+      &amp; <em>Representation</em>
+
+    </h1>
+
+    <p class="hero-desc">
+
+      Advisory, technical documentation,
+      and representation support across complex
+      Income Tax and GST proceedings —
+      from initial departmental review
+      through structured resolution.
+
+    </p>
+
+    <div class="hero-line"></div>
+
   </div>
 
-  <div class="hero">
-    <div class="hero-inner">
-      <div class="hero-eyebrow"><span></span> Practice Area 04</div>
-      <h1>Tax Notices, Litigation<br/>&amp; <em>Representation</em></h1>
-      <p class="hero-desc">
-        Advisory, technical documentation, and representation support across challenging Income Tax
-        and GST proceedings — from initial department notice review through to resolution.
-      </p>
+</section>
+
+<!-- =========================================================
+     DEADLINE STRIP
+========================================================= -->
+
+<div class="deadline-strip">
+
+  <div class="deadline-inner">
+
+    <div class="deadline-icon">
+
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </svg>
+
     </div>
-    <div class="hero-ring"></div>
+
+    <div class="deadline-text">
+
+      <strong>Statutory Limitation Warning:</strong>
+
+      Most tax department notices carry
+      strict response timelines ranging between
+      15–30 days. Immediate legal and factual review
+      significantly reduces escalation risks
+      and ex-parte assessment exposure.
+
+    </div>
+
   </div>
 
-  <div class="deadline-notice">
-    <div class="deadline-inner">
-      <div class="deadline-icon">
-        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-      </div>
-      <p class="deadline-text">
-        <strong>Statutory Limitation Warning:</strong> Most tax department notices carry non-negotiable response deadlines of 15–30 days. 
-        Immediate legal and factual analysis prevents ex-parte orders or structural escalation.
-      </p>
-    </div>
-  </div>
-
-  <div class="section">
-    <div class="section-inner">
-      <div class="intro-card">
-        <div>
-          <h2>Support Through<br/><em>Tax Proceedings</em></h2>
-          <p>
-            Tax notices and departmental proceedings require timely, highly structured 
-            responses supported by airtight reconciliations and absolute alignment with 
-            contemporary judicial precedents. We assist corporate entities and high-net-worth 
-            individuals through the full lifecycle of Income Tax and GST litigation.
-          </p>
-        </div>
-        <div class="intro-pillars">
-          <div class="pillar">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <div class="pillar-text">
-              <strong>Technical Notice Appraisal</strong>
-              <span>Granular assessment of alleged leakages, statutory provisions, and direct financial exposure.</span>
-            </div>
-          </div>
-          <div class="pillar">
-            <div class="pillar-icon">
-              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-          </div>
-          <div class="pillar-text">
-            <strong>Documentation Reconciliations</strong>
-            <span>Comprehensive curation of transactional ledgers, bank statements, and auditable evidence trails.</span>
-          </div>
-        </div>
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-          </div>
-          <div class="pillar-text">
-            <strong>Departmental Representation</strong>
-            <span>Formal professional representation and brief submissions before assessing officers and commissioners.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
-<div class="section section-alt">
-  <div class="section-inner">
-    <div class="section-label">Scope of Competency</div>
-    <h2 class="section-title">Statutory Notices &amp; Frameworks Covered</h2>
+<!-- =========================================================
+     INTRO
+========================================================= -->
+
+<section class="page-section">
+
+  <div class="page-container">
+
+    <div class="intro-card">
+
+      <div>
+
+        <h2>
+
+          Support Through<br>
+          <em>Tax Proceedings</em>
+
+        </h2>
+
+        <p>
+
+          Tax notices and departmental proceedings require
+          timely, highly structured responses supported
+          by accurate reconciliations,
+          technical interpretations,
+          and alignment with judicial precedents.
+
+          We assist businesses,
+          professionals,
+          and high-net-worth individuals
+          throughout the lifecycle of
+          Income Tax and GST litigation matters.
+
+        </p>
+
+      </div>
+
+      <div class="intro-points">
+
+        <div class="point-box">
+
+          <div class="point-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+
+          <div class="point-text">
+
+            <strong>
+              Technical Notice Review
+            </strong>
+
+            <span>
+              Detailed analysis of statutory allegations,
+              financial exposure,
+              and procedural validity.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="point-box">
+
+          <div class="point-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            </svg>
+          </div>
+
+          <div class="point-text">
+
+            <strong>
+              Documentation Reconciliation
+            </strong>
+
+            <span>
+              Structured compilation of books,
+              bank statements,
+              GST data,
+              and evidence trails.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="point-box">
+
+          <div class="point-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4"/>
+            </svg>
+          </div>
+
+          <div class="point-text">
+
+            <strong>
+              Departmental Representation
+            </strong>
+
+            <span>
+              Professional submissions
+              and structured appearances before
+              assessing authorities.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     NOTICE FRAMEWORKS
+========================================================= -->
+
+<section class="page-section">
+
+  <div class="page-container">
+
+    <div class="section-label">
+      Scope of Competency
+    </div>
+
+    <h2 class="section-title">
+      Statutory Notices & Frameworks Covered
+    </h2>
+
     <div class="gold-rule"></div>
+
     <div class="notice-grid">
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 139(9) — Defective Return Notices</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 142(1) — Inquiry Before Assessment</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 143(2) — Scrutiny Assessments</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 144 — Best Judgment Frameworks</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 147 / 148 — Income Escaping Assessment</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 148A — Preliminary Reassessment Loops</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 154 — Errors &amp; Rectification Orders</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 156 — Formal Demand Review notices</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 179 — Corporate Director Liabilities</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 194 / 200A — TDS Default Demands</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 263 / 270A — PCIT Revisions &amp; Underreporting</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>Sec. 131 / 133(6) — Administrative Summons Calls</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>GST DRC-01 &amp; SCN — Show Cause Responses</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>GST ASMT-14 — Departmental Audit Defense</span></div>
-      <div class="notice-pill"><div class="notice-dot"></div><span>GSTR-2A / 2B — ITC Mismatch Reconciliations</span></div>
-    </div>
-  </div>
-</div>
 
-<div class="section">
-  <div class="section-inner">
-    <div class="section-label">Core Capabilities</div>
-    <h2 class="section-title">Strategic Litigation Deliverables</h2>
+      <div class="notice-pill">
+        <div class="notice-dot"></div>
+        <span>Sec. 139(9) — Defective Return Notices</span>
+      </div>
+
+      <div class="notice-pill">
+        <div class="notice-dot"></div>
+        <span>Sec. 142(1) — Inquiry Before Assessment</span>
+      </div>
+
+      <div class="notice-pill">
+        <div class="notice-dot"></div>
+        <span>Sec. 143(2) — Scrutiny Assessments</span>
+      </div>
+
+      <div class="notice-pill">
+        <div class="notice-dot"></div>
+        <span>Sec. 147 / 148 — Income Escaping Assessment</span>
+      </div>
+
+      <div class="notice-pill">
+        <div class="notice-dot"></div>
+        <span>GST DRC-01 — Show Cause Responses</span>
+      </div>
+
+      <div class="notice-pill">
+        <div class="notice-dot"></div>
+        <span>GSTR-2A / 2B ITC Reconciliations</span>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="page-section">
+
+  <div class="page-container">
+
+    <div class="section-label">
+      Core Capabilities
+    </div>
+
+    <h2 class="section-title">
+      Strategic Litigation Deliverables
+    </h2>
+
     <div class="gold-rule"></div>
+
     <div class="services-grid">
 
       <div class="svc-card">
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+
+        <div class="svc-icon">
+
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2H6"/>
+          </svg>
+
         </div>
-        <div class="svc-title">Direct &amp; Indirect Notice Defense</div>
+
+        <div class="svc-title">
+          Direct & Indirect Notice Defense
+        </div>
+
         <ul class="svc-list">
-          <li>Deep technical appraisal of statutory grounds and risk layers</li>
-          <li>Compilation of precise factual Show-Cause (SCN) written responses</li>
-          <li>GST ledger matching and cross-verification against portal data</li>
-          <li>Systematic representation tracking to ensure deadline safety</li>
+
+          <li>
+            Technical appraisal of statutory grounds
+          </li>
+
+          <li>
+            Structured SCN response drafting
+          </li>
+
+          <li>
+            GST ledger and portal reconciliation
+          </li>
+
+          <li>
+            Procedural tracking for deadline safety
+          </li>
+
         </ul>
+
       </div>
 
       <div class="svc-card">
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+
+        <div class="svc-icon">
+
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="8" r="4"/>
+          </svg>
+
         </div>
-        <div class="svc-title">Appeals &amp; Advanced Representation</div>
+
+        <div class="svc-title">
+          Appeals & Representation
+        </div>
+
         <ul class="svc-list">
-          <li>Preparation, ground design, and filing for CIT(Appeals) and ITAT</li>
-          <li>Submissions handling before the GST Appellate Authorities</li>
-          <li>Strategic documentation architecture for formal assessment hearings</li>
-          <li>Professional co-ordination with legal counsel for High Court litigations</li>
+
+          <li>
+            CIT(A) & ITAT appeal handling
+          </li>
+
+          <li>
+            GST appellate authority submissions
+          </li>
+
+          <li>
+            Hearing documentation architecture
+          </li>
+
+          <li>
+            High Court counsel coordination
+          </li>
+
         </ul>
+
+      </div>
+
+      <div class="svc-card">
+
+        <div class="svc-icon">
+
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18"/>
+          </svg>
+
+        </div>
+
+        <div class="svc-title">
+          Strategic Tax Advisory
+        </div>
+
+        <ul class="svc-list">
+
+          <li>
+            High-value transaction reviews
+          </li>
+
+          <li>
+            Transfer pricing dispute analysis
+          </li>
+
+          <li>
+            Section 154 rectification support
+          </li>
+
+          <li>
+            DTAA structuring evaluation
+          </li>
+
+        </ul>
+
       </div>
 
     </div>
 
-    <div class="icai-note">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      <div>
-        <strong>ICAI Compliance Note:</strong> In accordance with the ethical directives laid down by the Institute of Chartered Accountants of India (ICAI), this profile sheet is designed exclusively for factual informational dissemination regarding administrative processes, operational methodologies, and statutory structural requirements. It carries absolutely no public solicitation markers or client procurement intents.
-      </div>
-    </div>
   </div>
+
+</section>
+
+<!-- =========================================================
+     WHY US
+========================================================= -->
+
+<section class="page-section dark-section">
+
+  <div class="page-container">
+
+    <div class="why-grid">
+
+      <div class="why-left">
+
+        <div class="section-label">
+          Professional Standards
+        </div>
+
+        <h2 class="section-title">
+          Engineered for Resolution
+        </h2>
+
+        <div class="gold-rule"></div>
+
+        <p>
+
+          We resolve complex tax disputes
+          through rigorous statutory documentation,
+          structured legal positioning,
+          and disciplined procedural management —
+          helping businesses protect liquidity,
+          reputation,
+          and operational continuity.
+
+        </p>
+
+        <div class="fact-grid">
+
+          <div class="fact-box">
+
+            <strong>
+              Procedural Discipline
+            </strong>
+
+            <span>
+              Strict timeline monitoring
+              to avoid technical defaults.
+            </span>
+
+          </div>
+
+          <div class="fact-box">
+
+            <strong>
+              Precedent-Driven Analysis
+            </strong>
+
+            <span>
+              Supported by relevant tribunal
+              and judicial rulings.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="why-right">
+
+        <div class="why-item">
+
+          <div class="why-check">
+
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+
+          </div>
+
+          <div>
+
+            <strong>
+              Objective Exposure Review
+            </strong>
+
+            <span>
+              Clear assessment of financial
+              and procedural implications.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="why-item">
+
+          <div class="why-check">
+
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+
+          </div>
+
+          <div>
+
+            <strong>
+              Structured Documentation
+            </strong>
+
+            <span>
+              Clean evidence architecture
+              for faster departmental processing.
+            </span>
+
+          </div>
+
+        </div>
+
+        <div class="why-item">
+
+          <div class="why-check">
+
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"/>
+            </svg>
+
+          </div>
+
+          <div>
+
+            <strong>
+              Clear Strategic Guidance
+            </strong>
+
+            <span>
+              Translating complex notices
+              into manageable action frameworks.
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     CONSULT BANNER
+========================================================= -->
+
+<div class="consult-banner">
+
+  <div class="consult-text">
+
+    <div class="badge">
+      Litigation & Representation Advisory
+    </div>
+
+    <h3>
+      Received a Tax Notice or Departmental Communication?
+    </h3>
+
+    <p>
+      Early technical review and structured response
+      significantly improves procedural outcomes.
+    </p>
+
+  </div>
+
+  <a href="book.html"
+     target="_blank"
+     class="consult-cta">
+
+    Schedule a Consultation →
+
+  </a>
+
 </div>
 
-</main>
+<!-- =========================================================
+     ICAI NOTE
+========================================================= -->
+
+<section class="page-section"
+         style="padding-top:0;">
+
+  <div class="page-container">
+
+    <div class="icai-note">
+
+      <strong>
+        ICAI Compliance Note:
+      </strong>
+
+      In accordance with the ethical directives
+      prescribed by the Institute of Chartered Accountants of India (ICAI),
+      this page is intended solely for factual informational dissemination
+      relating to professional capabilities,
+      statutory frameworks,
+      and administrative processes,
+      and does not constitute solicitation.
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
 
 <footer>
-  &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
+
+  <div class="footer-top">
+
+    <div>
+
+      <div class="footer-logo">
+        <img src="logo1.png"
+             alt="Sanjay B C & Co.">
+      </div>
+
+      <p class="footer-desc">
+
+        Sanjay B C & Co.,
+        Chartered Accountants,
+        Bangalore, Karnataka, India.
+
+      </p>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h4>Services</h4>
+
+      <a href="virtual-cfo.html">
+        Business Growth & CFO Advisory
+      </a>
+
+      <a href="litigation.html">
+        Tax Litigation & Representation
+      </a>
+
+      <a href="riskcontrol.html">
+        Risk Control & Business Systems
+      </a>
+
+    </div>
+
+    <div class="footer-col">
+
+      <h4>Company</h4>
+
+      <a href="about.html">About Us</a>
+      <a href="resources.html">Resources</a>
+      <a href="contactus.html">Contact Us</a>
+
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+
+    <span>
+
+      © 2026 Sanjay B C & Co.
+      Chartered Accountants.
+      All rights reserved.
+
+    </span>
+
+  </div>
+
 </footer>
-
-<a href="https://wa.me/919738081962" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 448 512">
-    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
-  </svg>
-</a>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const drawerClose = document.getElementById('drawerClose');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-
-  function openDrawer() {
-    mobileDrawer.classList.add('active');
-    mobileOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDrawer() {
-    mobileDrawer.classList.remove('active');
-    mobileOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  menuToggle.addEventListener('click', openDrawer);
-  drawerClose.addEventListener('click', closeDrawer);
-  mobileOverlay.addEventListener('click', closeDrawer);
-</script>
 
 </body>
 </html>
