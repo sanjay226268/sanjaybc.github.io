@@ -10,74 +10,101 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
   
   <style>
-    /* Service Page Specific Enhancements extending shared.css variables */
+    /* ── LOCAL ARCHITECTURAL BACKBONES (Prevents Structural Collapsing) ── */
+    .section {
+      padding: 80px 0;
+      position: relative;
+    }
+    .section-alt {
+      background-color: var(--off-white, #F9F8F6);
+    }
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .gold-rule {
+      width: 48px;
+      height: 2px;
+      background-color: var(--gold, #b8942a);
+      margin: 16px 0 24px 0;
+    }
+
+    /* ── CORE FIELDS SEGMENT GRID ── */
     .service-intro-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(2, 1fr);
       gap: 32px;
       margin-top: 40px;
     }
 
     .service-segment-card {
       background: #ffffff;
-      border: 1px solid var(--border);
-      border-top: 4px solid var(--gold);
-      border-radius: 6px;
-      padding: 32px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--border, #e5e5e5);
+      border-top: 4px solid var(--gold, #b8942a);
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-segment-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,0.08));
     }
 
     .segment-icon-wrap {
       background: rgba(184, 148, 42, 0.08);
-      width: 48px;
-      height: 48px;
-      border-radius: 6px;
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .segment-icon-wrap svg {
       width: 24px;
       height: 24px;
       fill: none;
-      stroke: var(--gold);
-      stroke-width: 2;
+      stroke: var(--gold, #b8942a);
+      stroke-width: 1.75;
     }
 
     .segment-title {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
-      color: var(--navy);
-      margin-bottom: 12px;
+      color: var(--navy, #0a192f);
+      margin-bottom: 6px;
     }
 
     .segment-subtitle {
       font-size: 12px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: var(--gold);
+      color: var(--gold, #b8942a);
       font-weight: 600;
-      margin-bottom: 16px;
+      margin-bottom: 20px;
     }
 
     .scope-list {
       list-style: none;
       padding: 0;
-      margin: 20px 0 0 0;
+      margin: 24px 0 0 0;
+      border-top: 1px solid var(--border, #e5e5e5);
     }
 
     .scope-list li {
       font-size: 14px;
       line-height: 1.6;
-      color: var(--muted);
-      padding: 8px 0;
+      color: var(--muted, #64748b);
+      padding: 12px 0;
       border-bottom: 1px solid rgba(0, 0, 0, 0.04);
       display: flex;
       align-items: flex-start;
-      gap: 10px;
+      gap: 12px;
     }
 
     .scope-list li:last-child {
@@ -86,41 +113,46 @@
 
     .scope-list li::before {
       content: "▪";
-      color: var(--gold);
-      font-size: 10px;
-      margin-top: 2px;
+      color: var(--gold, #b8942a);
+      font-size: 12px;
+      margin-top: -1px;
     }
 
-    /* Methodology Matrix Table Styles */
+    /* ── PROCEDURAL ENGAGEMENT MATRIX TABLE ── */
     .matrix-wrapper {
       width: 100%;
       overflow-x: auto;
-      margin-top: 32px;
-      border: 1px solid var(--border);
+      margin-top: 40px;
+      border: 1px solid var(--border, #e5e5e5);
       border-radius: 8px;
       background: #ffffff;
+      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
     }
 
     .matrix-table {
       width: 100%;
       border-collapse: collapse;
       text-align: left;
-      font-size: 14px;
+      font-size: 14.5px;
+      min-width: 720px;
     }
 
     .matrix-table th {
-      background: var(--navy);
+      background: var(--navy, #0a192f);
       color: #ffffff;
-      padding: 16px 24px;
+      padding: 18px 24px;
       font-weight: 500;
+      font-size: 13.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     .matrix-table td {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      color: var(--navy);
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border, #e5e5e5);
+      color: var(--navy, #0a192f);
       vertical-align: top;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .matrix-table tr:last-child td {
@@ -128,7 +160,7 @@
     }
 
     .matrix-table tr:nth-child(even) {
-      background: var(--off-white);
+      background: var(--off-white, #F9F8F6);
     }
 
     .badge-framework {
@@ -136,11 +168,23 @@
       font-size: 11px;
       font-weight: 600;
       background: rgba(184, 148, 42, 0.12);
-      color: var(--gold);
-      padding: 4px 8px;
+      color: var(--gold, #b8942a);
+      padding: 6px 10px;
       border-radius: 4px;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    /* ── RESPONSIVE ADAPTATION LAYERS ── */
+    @media (max-width: 992px) {
+      .service-intro-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .section {
+        padding: 60px 0;
+      }
     }
   </style>
 </head>
@@ -234,7 +278,7 @@
     <div class="section-label">Core Fields</div>
     <h2 class="section-title">Technical Competencies &amp; Execution Sectors</h2>
     <div class="gold-rule"></div>
-    <p style="font-size: 15px; color: var(--muted); line-height: 1.6; max-width: 750px; margin-bottom: 12px;">
+    <p style="font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 780px; margin-bottom: 12px;">
       Our engagement models focus completely on objective auditing paths and internal structural designs to safeguard business assets and standardize standard operating reporting processes.
     </p>
 
@@ -246,7 +290,7 @@
         </div>
         <div class="segment-title">Audit &amp; Assurance</div>
         <div class="segment-subtitle">Statutory Audit &amp; Financial Reporting</div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.5;">
+        <p style="font-size: 14.5px; color: var(--muted); line-height: 1.6;">
           Execution of statutory, tax, and balancing audits under prevailing Indian accounting frameworks to verify financial statement correctness.
         </p>
         <ul class="scope-list">
@@ -262,7 +306,7 @@
         </div>
         <div class="segment-title">Risk Control &amp; Systems</div>
         <div class="segment-subtitle">Governance, SOPs &amp; Process Controls</div>
-        <p style="font-size: 14px; color: var(--muted); line-height: 1.5;">
+        <p style="font-size: 14.5px; color: var(--muted); line-height: 1.6;">
           Objective engineering and gap identification inside operational processes to eliminate system vulnerabilities and optimize corporate workflows.
         </p>
         <ul class="scope-list">
@@ -286,8 +330,8 @@
       <table class="matrix-table">
         <thead>
           <tr>
-            <th style="width: 25%;">Analytical Module</th>
-            <th style="width: 50%;">Substantive Processes &amp; Work Conducted</th>
+            <th style="width: 28%;">Analytical Module</th>
+            <th style="width: 47%;">Substantive Processes &amp; Work Conducted</th>
             <th style="width: 25%;">Compliance Standard Alignment</th>
           </tr>
         </thead>
@@ -313,7 +357,7 @@
   </div>
 </div>
 
-<div class="section" style="padding-top: 48px; padding-bottom: 48px;">
+<div class="section" style="padding: 48px 0;">
   <div class="section-inner">
     <div class="icai-note" style="margin-top: 0;">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
@@ -341,7 +385,6 @@
   }
 
   function closeDrawer() {
-    mobileDrawer.classList.remove('remove'); // Reset handling
     mobileDrawer.classList.remove('active');
     mobileOverlay.classList.remove('active');
     document.body.style.overflow = '';
