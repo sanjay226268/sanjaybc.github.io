@@ -7,7 +7,25 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="shared.css">
   <style>
-    /* ── PAGE-SPECIFIC MICRO-LAYOUTS ONLY ── */
+    /* ── LAYOUT CRITICAL CORRECTIONS ── */
+    
+    /* Forces content to sit cleanly below fixed or absolute navigation spaces */
+    .main-content {
+      display: block;
+      position: relative;
+      width: 100%;
+      clear: both;
+      z-index: 1;
+      margin-top: 0;
+    }
+
+    /* Clearfix safety rules for structural elements */
+    .hero, .section, .deadline-notice {
+      clear: both;
+      position: relative;
+    }
+
+    /* ── PAGE-SPECIFIC MICRO-LAYOUTS ── */
     
     /* Deadline Limitation Banner */
     .deadline-notice { 
@@ -407,65 +425,67 @@
   </div>
 </div>
 
-<div class="breadcrumb-bar">
-  <div class="breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep">›</span>
-    <a href="#">Services</a>
-    <span class="breadcrumb-sep">›</span>
-    <span>Tax Notices, Litigation &amp; Representation</span>
-  </div>
-</div>
+<main class="main-content">
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span></span> Practice Area 04</div>
-    <h1>Tax Notices, Litigation<br/>&amp; <em>Representation</em></h1>
-    <p class="hero-desc">
-      Advisory, technical documentation, and representation support across challenging Income Tax
-      and GST proceedings — from initial department notice review through to resolution.
-    </p>
-  </div>
-  <div class="hero-ring"></div>
-</div>
-
-<div class="deadline-notice">
-  <div class="deadline-inner">
-    <div class="deadline-icon">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+  <div class="breadcrumb-bar">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">›</span>
+      <a href="#">Services</a>
+      <span class="breadcrumb-sep">›</span>
+      <span>Tax Notices, Litigation &amp; Representation</span>
     </div>
-    <p class="deadline-text">
-      <strong>Statutory Limitation Warning:</strong> Most tax department notices carry non-negotiable response deadlines of 15–30 days. 
-      Immediate legal and factual analysis prevents ex-parte orders or structural escalation.
-    </p>
   </div>
-</div>
 
-<div class="section">
-  <div class="section-inner">
-    <div class="intro-card">
-      <div>
-        <h2>Support Through<br/><em>Tax Proceedings</em></h2>
-        <p>
-          Tax notices and departmental proceedings require timely, highly structured 
-          responses supported by airtight reconciliations and absolute alignment with 
-          contemporary judicial precedents. We assist corporate entities and high-net-worth 
-          individuals through the full lifecycle of Income Tax and GST litigation.
-        </p>
+  <div class="hero">
+    <div class="hero-inner">
+      <div class="hero-eyebrow"><span></span> Practice Area 04</div>
+      <h1>Tax Notices, Litigation<br/>&amp; <em>Representation</em></h1>
+      <p class="hero-desc">
+        Advisory, technical documentation, and representation support across challenging Income Tax
+        and GST proceedings — from initial department notice review through to resolution.
+      </p>
+    </div>
+    <div class="hero-ring"></div>
+  </div>
+
+  <div class="deadline-notice">
+    <div class="deadline-inner">
+      <div class="deadline-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       </div>
-      <div class="intro-pillars">
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="pillar-text">
-            <strong>Technical Notice Appraisal</strong>
-            <span>Granular assessment of alleged leakages, statutory provisions, and direct financial exposure.</span>
-          </div>
+      <p class="deadline-text">
+        <strong>Statutory Limitation Warning:</strong> Most tax department notices carry non-negotiable response deadlines of 15–30 days. 
+        Immediate legal and factual analysis prevents ex-parte orders or structural escalation.
+      </p>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-inner">
+      <div class="intro-card">
+        <div>
+          <h2>Support Through<br/><em>Tax Proceedings</em></h2>
+          <p>
+            Tax notices and departmental proceedings require timely, highly structured 
+            responses supported by airtight reconciliations and absolute alignment with 
+            contemporary judicial precedents. We assist corporate entities and high-net-worth 
+            individuals through the full lifecycle of Income Tax and GST litigation.
+          </p>
         </div>
-        <div class="pillar">
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <div class="intro-pillars">
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="pillar-text">
+              <strong>Technical Notice Appraisal</strong>
+              <span>Granular assessment of alleged leakages, statutory provisions, and direct financial exposure.</span>
+            </div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">
+              <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
           </div>
           <div class="pillar-text">
             <strong>Documentation Reconciliations</strong>
@@ -554,6 +574,8 @@
     </div>
   </div>
 </div>
+
+</main>
 
 <footer>
   &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
