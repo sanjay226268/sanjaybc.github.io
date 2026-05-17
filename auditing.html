@@ -1,315 +1,615 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Audit, Assurance &amp; Risk Control | Sanjay B C &amp; Co.</title>
-  
-  <link rel="stylesheet" href="shared.css" />
-  
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
-  
-  <style>
-    /* ── LOCAL ARCHITECTURAL BACKBONES (Prevents Structural Collapsing) ── */
-    .section {
-      padding: 80px 0;
-      position: relative;
-    }
-    .section-alt {
-      background-color: var(--off-white, #F9F8F6);
-    }
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-    .gold-rule {
-      width: 48px;
-      height: 2px;
-      background-color: var(--gold, #b8942a);
-      margin: 16px 0 24px 0;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit, Assurance &amp; Risk Control | Sanjay B C &amp; Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* =============================================
+   AUDIT & ASSURANCE PAGE — SPECIFIC STYLES ONLY
+   (navbar, footer, topbar, whatsapp → shared.css)
+============================================= */
 
-    /* ── CORE FIELDS SEGMENT GRID ── */
-    .service-intro-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      margin-top: 40px;
-    }
+body {
+  background: var(--off-white);
+}
 
-    .service-segment-card {
-      background: #ffffff;
-      border: 1px solid var(--border, #e5e5e5);
-      border-top: 4px solid var(--gold, #b8942a);
-      border-radius: 8px;
-      padding: 40px;
-      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
+/* ── HERO ── */
+.page-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 64px 48px 52px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
 
-    .service-segment-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md, 0 8px 24px rgba(0,0,0,0.08));
-    }
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,146,42,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
 
-    .segment-icon-wrap {
-      background: rgba(184, 148, 42, 0.08);
-      width: 52px;
-      height: 52px;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-    }
+.breadcrumb {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
 
-    .segment-icon-wrap svg {
-      width: 24px;
-      height: 24px;
-      fill: none;
-      stroke: var(--gold, #b8942a);
-      stroke-width: 1.75;
-    }
+.breadcrumb a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
 
-    .segment-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 700;
-      color: var(--navy, #0a192f);
-      margin-bottom: 6px;
-    }
+.breadcrumb a:hover { 
+  color: var(--gold); 
+}
 
-    .segment-subtitle {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gold, #b8942a);
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
+.breadcrumb span {
+  color: var(--gold);
+  margin: 0 8px;
+}
 
-    .scope-list {
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0 0;
-      border-top: 1px solid var(--border, #e5e5e5);
-    }
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(36px, 5vw, 52px);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+  position: relative;
+}
 
-    .scope-list li {
-      font-size: 14px;
-      line-height: 1.6;
-      color: var(--muted, #64748b);
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-    }
+.page-hero p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.72);
+  max-width: 620px;
+  margin: 0 auto 24px;
+  line-height: 1.7;
+  position: relative;
+}
 
-    .scope-list li:last-child {
-      border-bottom: none;
-    }
+.gold-line {
+  width: 56px;
+  height: 3px;
+  background: var(--gold);
+  margin: 0 auto;
+  border-radius: 2px;
+  position: relative;
+}
 
-    .scope-list li::before {
-      content: "▪";
-      color: var(--gold, #b8942a);
-      font-size: 12px;
-      margin-top: -1px;
-    }
+/* ── MAIN CONTENT LAYER ── */
+.content-section {
+  padding: 72px 48px;
+}
 
-    /* ── PROCEDURAL ENGAGEMENT MATRIX TABLE ── */
-    .matrix-wrapper {
-      width: 100%;
-      overflow-x: auto;
-      margin-top: 40px;
-      border: 1px solid var(--border, #e5e5e5);
-      border-radius: 8px;
-      background: #ffffff;
-      box-shadow: var(--shadow-sm, 0 2px 8px rgba(0,0,0,0.04));
-    }
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
 
-    .matrix-table {
-      width: 100%;
-      border-collapse: collapse;
-      text-align: left;
-      font-size: 14.5px;
-      min-width: 720px;
-    }
+/* Intro block */
+.intro-box {
+  background: var(--white);
+  border-radius: 10px;
+  padding: 40px 44px;
+  border: 1px solid rgba(13,27,46,0.1);
+  border-left: 5px solid var(--gold);
+}
 
-    .matrix-table th {
-      background: var(--navy, #0a192f);
-      color: #ffffff;
-      padding: 18px 24px;
-      font-weight: 500;
-      font-size: 13.5px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+.intro-box h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 34px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 16px;
+}
 
-    .matrix-table td {
-      padding: 20px 24px;
-      border-bottom: 1px solid var(--border, #e5e5e5);
-      color: var(--navy, #0a192f);
-      vertical-align: top;
-      line-height: 1.6;
-    }
+.intro-box p {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
 
-    .matrix-table tr:last-child td {
-      border-bottom: none;
-    }
+/* Service cards grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
+}
 
-    .matrix-table tr:nth-child(even) {
-      background: var(--off-white, #F9F8F6);
-    }
+.service-card {
+  background: var(--white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-top: 4px solid var(--gold);
+  border-radius: 10px;
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
 
-    .badge-framework {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 600;
-      background: rgba(184, 148, 42, 0.12);
-      color: var(--gold, #b8942a);
-      padding: 6px 10px;
-      border-radius: 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
-    }
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(10,25,47,0.1);
+}
 
-    /* ── RESPONSIVE ADAPTATION LAYERS ── */
-    @media (max-width: 992px) {
-      .service-intro-grid {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      .section {
-        padding: 60px 0;
-      }
-    }
-  </style>
+.service-card-icon {
+  width: 54px;
+  height: 54px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 3px solid rgba(184,146,42,0.25);
+}
+
+.service-card-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.8;
+}
+
+.service-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.service-card-subtitle {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.service-card-desc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.service-card ul {
+  list-style: none;
+  padding: 16px 0 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(13,27,46,0.08);
+}
+
+.service-card ul li {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  padding-left: 20px;
+  position: relative;
+}
+
+.service-card ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+}
+
+/* ── METHODOLOGY MATRIX TABLE — EXCLUSIVE CLEAN IMPLEMENTATION ── */
+.matrix-box {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 44px 44px;
+  border: 1px solid rgba(13,27,46,0.1);
+}
+
+.matrix-box h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 32px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.matrix-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(13,27,46,0.08);
+  border-radius: 8px;
+}
+
+.matrix-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 14.5px;
+  min-width: 750px;
+}
+
+.matrix-table th {
+  background: var(--navy);
+  color: var(--white);
+  padding: 16px 24px;
+  font-weight: 500;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.matrix-table td {
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(13,27,46,0.08);
+  color: var(--navy);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.matrix-table tr:last-child td {
+  border-bottom: none;
+}
+
+.matrix-table tr:nth-child(even) td {
+  background: rgba(13,27,46,0.015);
+}
+
+.badge-framework {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(184,146,42,0.12);
+  color: var(--gold);
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+/* ── REGULATORY NOTICE BOX ── */
+.regulatory-container {
+  margin-top: -12px;
+}
+
+.icai-note {
+  background: var(--white);
+  border: 1px dashed rgba(13,27,46,0.15);
+  border-radius: 8px;
+  padding: 24px 32px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.icai-note svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.8;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.icai-note p {
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* =========================
+   RESPONSIVE OVERRIDES
+========================= */
+@media(max-width: 900px) {
+  .content-section { padding: 56px 20px; }
+  .page-hero { padding: 48px 20px 40px; }
+  .matrix-box { padding: 32px 20px; }
+  .intro-box { padding: 32px 28px; }
+  .icai-note { padding: 20px; }
+}
+
+@media(max-width: 600px) {
+  .service-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
 <div class="topbar">
-  <span>Factual Technical Profile — For Informational Purposes Only</span>
-  <div class="topbar-right">
-    <a href="mailto:office@sanjaybc.com">office@sanjaybc.com</a>
-    <a href="tel:+918000000000">+91 80 0000 0000</a>
+  <span class="topbar-brand"> </span>
+  <div class="topbar-links">
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#" class="topbar-cta"> </a>
   </div>
 </div>
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <img src="logo1.png" alt="Sanjay B C & Co">
-    </a>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-
-      <div class="nav-item">
-        <a href="about.html">About Us <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="dropdown">
-          <a href="about.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Firm Overview</div></a>
-          <a href="team.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Our Team</div></a>
-        </div>
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img
+      src="logo1.png"
+      alt="Sanjay B C & Co."
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    >
+    <div style="display:none; align-items:center; gap:10px;">
+      <div class="logo-initials">SBC</div>
+      <div>
+        <div class="logo-name">Sanjay B C &amp; Co.</div>
+        <div class="logo-tagline">Chartered Accountants</div>
       </div>
-
-      <div class="nav-item">
-        <a href="#" class="active-nav">Services <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg></a>
-        <div class="dropdown">
-          <a href="compliance.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Tax &amp; Compliance</div></a>
-          <a href="virtual-cfo.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">CFO Advisory</div></a>
-          <a href="audit-risk.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Audit &amp; Risk Control</div></a>
-        </div>
-      </div>
-
-      <a href="insights.html">Insights</a>
-      <a href="contactus.html" class="nav-cta">Contact Us</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
-      <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</header>
-
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-drawer" id="mobileDrawer">
-  <div class="drawer-header">
-    <img src="logo1.png" alt="Sanjay B C & Co" style="height: 40px;">
-    <button class="drawer-close" id="drawerClose"><svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
-  </div>
-  <div class="drawer-links">
-    <a href="index.html">Home</a>
-    <div class="drawer-heading">Services</div>
-    <div class="drawer-sub-links">
-      <a href="compliance.html">Tax &amp; Compliance</a>
-      <a href="virtual-cfo.html">CFO Advisory</a>
-      <a href="audit-risk.html" style="color: var(--gold); font-weight:600;">Audit &amp; Risk Control</a>
     </div>
-    <a href="contactus.html" class="nav-cta" style="margin-left:0; text-align:center; margin-top:16px;">Contact Us</a>
-  </div>
-</div>
+  </a>
 
-<div class="breadcrumb-bar">
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+
+    <div class="nav-item">
+      <a href="#">
+        About Us
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Who We Are</div>
+        <a href="about.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Firm Overview</div>
+            <div class="dd-row-sub">Our history, values &amp; professional approach</div>
+          </div>
+        </a>
+        <a href="team.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Our Team</div>
+            <div class="dd-row-sub">Meet the professionals behind the firm</div>
+          </div>
+        </a>
+        <a href="industries.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Industries We Serve</div>
+            <div class="dd-row-sub">Sectors &amp; business types we specialise in</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#" class="active-nav">
+        Services
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Core Practice Areas</div>
+        <a href="virtual-cfo.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Growth &amp; Virtual CFO Advisory</div>
+            <div class="dd-row-sub">Cash flow, MIS, budgeting &amp; strategic finance</div>
+          </div>
+        </a>
+        <a href="litigation.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax Notices, Litigation &amp; Representation</div>
+            <div class="dd-row-sub">Notices, assessments &amp; dispute handling</div>
+          </div>
+        </a>
+        <a href="riskcontrol.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Risk Control &amp; Business Systems</div>
+            <div class="dd-row-sub">Governance, SOPs &amp; process controls</div>
+          </div>
+        </a>
+        <a href="auditing.html" class="active-nav dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Audit &amp; Assurance</div>
+            <div class="dd-row-sub">Statutory audit &amp; financial reporting</div>
+          </div>
+        </a>
+        <div class="dd-group-label">Business Support Services</div>
+        <a href="compliance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax &amp; Compliance</div>
+            <div class="dd-row-sub">Direct tax, GST &amp; compliance support</div>
+          </div>
+        </a>
+        <a href="international-tax.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">International Tax</div>
+            <div class="dd-row-sub">Cross-border taxation &amp; structuring</div>
+          </div>
+        </a>
+        <a href="finance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Finance &amp; Banking</div>
+            <div class="dd-row-sub">Funding, banking &amp; financial structuring</div>
+          </div>
+        </a>
+        <a href="business-setup.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Setup</div>
+            <div class="dd-row-sub">Entity formation &amp; regulatory registrations</div>
+          </div>
+        </a>
+        <a href="payroll.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Payroll Services</div>
+            <div class="dd-row-sub">Payroll processing &amp; labour compliance</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="#">
+        Resources
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Knowledge Centre</div>
+        <a href="blog.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Blogs &amp; Articles</div>
+            <div class="dd-row-sub">Expert views on tax, finance &amp; compliance</div>
+          </div>
+        </a>
+        <a href="downloads.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Downloads</div>
+            <div class="dd-row-sub">Checklists, formats &amp; reference documents</div>
+          </div>
+        </a>
+        <a href="faqs.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">FAQs</div>
+            <div class="dd-row-sub">Quick answers to common queries</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a href="insights.html">Insights</a>
+    <a href="careers.html">Careers</a>
+    <a href="contactus.html">Contact Us</a>
+  </div>
+</nav>
+
+<div class="page-hero">
   <div class="breadcrumb">
     <a href="index.html">Home</a>
-    <span class="breadcrumb-sep">›</span>
+    <span>&rsaquo;</span>
     <a href="#">Services</a>
-    <span class="breadcrumb-sep">›</span>
-    <span>Audit, Risk &amp; Assurance Frameworks</span>
+    <span>&rsaquo;</span>
+    Audit &amp; Assurance
   </div>
+  <h1>Audit, Risk &amp; Assurance Frameworks</h1>
+  <p>Systematic validation of statutory financial reporting alongside structural analysis of enterprise control systems to assure ongoing governance and regulatory compliance.</p>
+  <div class="gold-line"></div>
 </div>
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span></span> Practice Profile</div>
-    <h1>Audit, Risk &amp;<br/><em>Process Advisory</em></h1>
-    <p class="hero-desc">
-      Systematic validation of statutory financial reporting alongside structural analysis of enterprise control systems to assure ongoing governance and regulatory compliance.
-    </p>
-  </div>
-  <div class="hero-ring"></div>
-</div>
+<section class="content-section">
+  <div class="container">
 
-<div class="section">
-  <div class="section-inner">
-    <div class="section-label">Core Fields</div>
-    <h2 class="section-title">Technical Competencies &amp; Execution Sectors</h2>
-    <div class="gold-rule"></div>
-    <p style="font-size: 15px; color: var(--muted); line-height: 1.7; max-width: 780px; margin-bottom: 12px;">
-      Our engagement models focus completely on objective auditing paths and internal structural designs to safeguard business assets and standardize standard operating reporting processes.
-    </p>
+    <div class="intro-box">
+      <h2>Technical Competencies &amp; Execution Sectors</h2>
+      <p>Our engagement models focus completely on objective auditing paths and internal structural designs to safeguard business assets and standardize standard operating reporting processes.</p>
+    </div>
 
-    <div class="service-intro-grid">
-      
-      <div class="service-segment-card">
-        <div class="segment-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4" stroke-linecap="round" stroke-linejoin="round"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <div class="service-grid">
+
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 11l3 3L22 4"></path>
+            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+          </svg>
         </div>
-        <div class="segment-title">Audit &amp; Assurance</div>
-        <div class="segment-subtitle">Statutory Audit &amp; Financial Reporting</div>
-        <p style="font-size: 14.5px; color: var(--muted); line-height: 1.6;">
-          Execution of statutory, tax, and balancing audits under prevailing Indian accounting frameworks to verify financial statement correctness.
-        </p>
-        <ul class="scope-list">
+        <h3>Audit &amp; Assurance</h3>
+        <div class="service-card-subtitle">Statutory Audit &amp; Financial Reporting</div>
+        <p class="service-card-desc">Execution of statutory, tax, and balancing audits under prevailing Indian accounting frameworks to verify financial statement correctness.</p>
+        <ul>
           <li>Independent evaluation of corporate balance sheets and performance accounts.</li>
           <li>Verification of tax compliance structures against statutory reporting rules.</li>
           <li>Review of systemic entries to clarify the integrity of trial ledger summaries.</li>
         </ul>
       </div>
 
-      <div class="service-segment-card">
-        <div class="segment-icon-wrap">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="service-card">
+        <div class="service-card-icon">
+          <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
         </div>
-        <div class="segment-title">Risk Control &amp; Systems</div>
-        <div class="segment-subtitle">Governance, SOPs &amp; Process Controls</div>
-        <p style="font-size: 14.5px; color: var(--muted); line-height: 1.6;">
-          Objective engineering and gap identification inside operational processes to eliminate system vulnerabilities and optimize corporate workflows.
-        </p>
-        <ul class="scope-list">
+        <h3>Risk Control &amp; Systems</h3>
+        <div class="service-card-subtitle">Governance, SOPs &amp; Process Controls</div>
+        <p class="service-card-desc">Objective engineering and gap identification inside operational processes to eliminate system vulnerabilities and optimize corporate workflows.</p>
+        <ul>
           <li>Custom layout engineering for structural Standard Operating Procedures (SOPs).</li>
           <li>Design effectiveness testing for complex Internal Financial Controls (IFC).</li>
           <li>Systematic mapping of corporate authorization levels and transaction logs.</li>
@@ -317,83 +617,120 @@
       </div>
 
     </div>
-  </div>
-</div>
 
-<div class="section section-alt">
-  <div class="section-inner">
-    <div class="section-label">Execution Strategy</div>
-    <h2 class="section-title">Procedural Engagement Framework</h2>
-    <div class="gold-rule"></div>
-    
-    <div class="matrix-wrapper">
-      <table class="matrix-table">
-        <thead>
-          <tr>
-            <th style="width: 28%;">Analytical Module</th>
-            <th style="width: 47%;">Substantive Processes &amp; Work Conducted</th>
-            <th style="width: 25%;">Compliance Standard Alignment</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Internal Control Evaluation</strong></td>
-            <td>Reviewing systemic business workflows, identifying tracking leaks across transactions, and evaluating structural Segregation of Duties (SoD).</td>
-            <td><span class="badge-framework">Companies Act § 143(3)(i)</span></td>
-          </tr>
-          <tr>
-            <td><strong>SOP Design &amp; Architecture</strong></td>
-            <td>Drafting end-to-end procedural logs for commercial accounts, purchase-to-pay segments, and physical inventory balance controls.</td>
-            <td><span class="badge-framework">ICAI Guidance Notes</span></td>
-          </tr>
-          <tr>
-            <td><strong>Statutory Assurance Reviews</strong></td>
-            <td>Verifying ledger values via direct transactional checks, assessing accounting estimations, and verifying complete reporting compliance.</td>
-            <td><span class="badge-framework">Standards on Auditing (SA)</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<div class="section" style="padding: 48px 0;">
-  <div class="section-inner">
-    <div class="icai-note" style="margin-top: 0;">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-      <div>
-        <strong>Regulatory Compliance Notice:</strong> This digital page is curated exclusively to provide static, objective documentation relating to professional validation methodologies, standard industry process control engineering, and statutory legal reporting criteria. It does not contain promotional messaging, comparison statistics, or direct or indirect invitations to secure professional clients.
+    <div class="matrix-box">
+      <h2>Procedural Engagement Framework</h2>
+      <div class="matrix-wrapper">
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Analytical Module</th>
+              <th style="width: 50%;">Substantive Processes &amp; Work Conducted</th>
+              <th style="width: 25%;">Compliance Standard Alignment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Internal Control Evaluation</strong></td>
+              <td>Reviewing systemic business workflows, identifying tracking leaks across transactions, and evaluating structural Segregation of Duties (SoD).</td>
+              <td><span class="badge-framework">Companies Act § 143(3)(i)</span></td>
+            </tr>
+            <tr>
+              <td><strong>SOP Design &amp; Architecture</strong></td>
+              <td>Drafting end-to-end procedural logs for commercial accounts, purchase-to-pay segments, and physical inventory balance controls.</td>
+              <td><span class="badge-framework">ICAI Guidance Notes</span></td>
+            </tr>
+            <tr>
+              <td><strong>Statutory Assurance Reviews</strong></td>
+              <td>Verifying ledger values via direct transactional checks, assessing accounting estimations, and verifying complete reporting compliance.</td>
+              <td><span class="badge-framework">Standards on Auditing (SA)</span></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
+
+    <div class="regulatory-container">
+      <div class="icai-note">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <p><strong>Regulatory Compliance Notice:</strong> This digital page is curated exclusively to provide static, objective documentation relating to professional validation methodologies, standard industry process control engineering, and statutory legal reporting criteria. It does not contain promotional messaging, comparison statistics, or direct or indirect invitations to secure professional clients.</p>
+      </div>
+    </div>
+
   </div>
+</section>
+
+<div class="consult-banner">
+  <div class="consult-text">
+    <div class="badge">Get in Touch</div>
+    <h3>Stay Compliant. Stay Growth Ready.</h3>
+    <p>"Integrated tax, finance and advisory solutions for modern businesses."</p>
+  </div>
+  <a href="book.html" target="_blank" class="consult-cta">
+    <svg viewBox="0 0 24 24"><path d="M8 2v2M16 2v2M3 8h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    Schedule a Meeting →
+  </a>
 </div>
 
 <footer>
-  &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><img src="logo1.png" alt="Sanjay B C &amp; Co."></div>
+      <p class="footer-desc">Sanjay B C &amp; Co., Chartered Accountants, No.296, 1st Floor, S V Tower, Opp. to Hotel Janatha, Wilsongarden, Bangalore - 560 027, Karnataka India</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="virtual-cfo.html">Business Growth &amp; Virtual CFO Advisory</a>
+      <a href="litigation.html">Tax Notices, Litigation &amp; Representation</a>
+      <a href="riskcontrol.html">Risk Control &amp; Business Systems</a>
+      <a href="auditing.html">Audit &amp; Assurance</a>
+      <a href="compliance.html">Tax &amp; Compliance</a>
+      <a href="international-tax.html">International Taxation</a>
+      <a href="finance.html">Business Finance &amp; Banking Support</a>
+      <a href="business-setup.html">Business Setup</a>
+      <a href="payroll.html">Payroll Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="contactus.html">India Office</a>
+      <a href="contactus.html">UAE Desk</a>
+      <a href="contactus.html">UK Desk</a>
+      <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-social">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">X</a>
+      <a href="#">YouTube</a>
+    </div>
+    <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
+    <div style="display:flex;gap:20px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Terms of Use</a>
+      <a href="privacy.html">Disclaimer</a>
+    </div>
+  </div>
 </footer>
 
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const drawerClose = document.getElementById('drawerClose');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-
-  function openDrawer() {
-    mobileDrawer.classList.add('active');
-    mobileOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDrawer() {
-    mobileDrawer.classList.remove('active');
-    mobileOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  menuToggle.addEventListener('click', openDrawer);
-  drawerClose.addEventListener('click', closeDrawer);
-  mobileOverlay.addEventListener('click', closeDrawer);
-</script>
+<a href="https://wa.me/919738081962" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.676 4.782 1.854 6.762L2 30l7.47-1.832A13.936 13.936 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.61l-.422-.25-4.436 1.088 1.12-4.316-.277-.444A11.6 11.6 0 1 1 16 27.6zm6.34-8.68c-.347-.174-2.054-1.013-2.374-1.13-.32-.116-.552-.173-.784.174-.232.347-.9 1.13-1.102 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.718-1.03-.918-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.435-.029-.608-.087-.174-.784-1.89-1.074-2.59-.283-.68-.57-.587-.784-.597l-.667-.012c-.232 0-.608.087-.926.434-.318.347-1.218 1.19-1.218 2.9s1.247 3.364 1.42 3.597c.174.232 2.453 3.747 5.944 5.254.83.359 1.48.573 1.985.733.834.266 1.593.228 2.193.138.669-.1 2.054-.84 2.344-1.65.29-.812.29-1.508.203-1.65-.086-.145-.318-.232-.665-.406z"/>
+  </svg>
+</a>
 
 </body>
 </html>
