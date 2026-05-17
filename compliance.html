@@ -1,66 +1,455 @@
 <!DOCTYPE html>
-  <div class="container">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tax &amp; Compliance | Sanjay B C &amp; Co.</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="shared.css">
+  <style>
+    /* ── PAGE-SPECIFIC MICRO-LAYOUTS ONLY ── */
+    
+    /* Split Overview Card */
+    .intro-card {
+      background: var(--navy); 
+      border-radius: 12px; 
+      padding: 56px;
+      display: grid; 
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 64px; 
+      align-items: center;
+      margin-bottom: 16px; 
+      position: relative; 
+      overflow: hidden; 
+      border: 1px solid rgba(184,148,42,0.15);
+    }
+    .intro-card::after {
+      content: ''; 
+      position: absolute; 
+      right: -60px; 
+      top: -60px;
+      width: 260px; 
+      height: 260px; 
+      border: 1px solid rgba(184,148,42,.08); 
+      border-radius: 50%; 
+      pointer-events: none;
+    }
+    .intro-card h2 { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(28px, 3vw, 36px); 
+      font-weight: 700; 
+      color: #fff; 
+      line-height: 1.2; 
+      margin-bottom: 20px; 
+    }
+    .intro-card h2 em { 
+      color: var(--gold-lt); 
+      font-style: italic; 
+    }
+    .intro-card p { 
+      font-size: 15px; 
+      color: rgba(255,255,255,.65); 
+      line-height: 1.8; 
+    }
+    .intro-pillars { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px; 
+      position: relative; 
+      z-index: 2; 
+    }
+    .pillar {
+      display: flex; 
+      align-items: flex-start; 
+      gap: 16px;
+      background: rgba(255,255,255,.03); 
+      border: 1px solid rgba(184,148,42,.12);
+      border-radius: 8px; 
+      padding: 18px 20px; 
+      transition: all 0.2s;
+    }
+    .pillar:hover { 
+      background: rgba(255,255,255,0.05); 
+      border-color: var(--gold); 
+    }
+    .pillar-icon {
+      width: 40px; 
+      height: 40px; 
+      background: rgba(184,148,42,.15);
+      border-radius: 6px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      flex-shrink: 0;
+    }
+    .pillar-icon svg { 
+      width: 20px; 
+      height: 20px; 
+      stroke: var(--gold-lt); 
+      fill: none; 
+      stroke-width: 1.75; 
+    }
+    .pillar-text strong { 
+      display: block; 
+      font-size: 14.5px; 
+      font-weight: 600; 
+      color: rgba(255,255,255,.9); 
+      margin-bottom: 4px; 
+    }
+    .pillar-text span { 
+      font-size: 13px; 
+      color: rgba(255,255,255,.5); 
+      line-height: 1.5; 
+      display: block; 
+    }
 
-    <div class="intro-box">
-      <h2>Professional Tax & Regulatory Support</h2>
-      <p>
-        Managing taxation and regulatory compliance has become increasingly
-        complex for businesses operating in today’s environment. Our Tax &
-        Compliance services are designed to help businesses stay compliant,
-        reduce risks and maintain financial discipline while focusing on growth
-        and operations.
-      </p>
-    </div>
+    /* Core Capabilities Grid */
+    .services-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
+      gap: 24px; 
+    }
+    .svc-card {
+      background: var(--off-white); 
+      border: 1px solid var(--border);
+      border-radius: 10px; 
+      padding: 36px 32px; 
+      position: relative; 
+      overflow: hidden;
+      transition: transform .25s, box-shadow .25s, border-color .25s;
+    }
+    .svc-card::before { 
+      content: ''; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 4px; 
+      height: 0; 
+      background: var(--gold); 
+      transition: height .3s ease; 
+    }
+    .svc-card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: var(--shadow-md); 
+      border-color: var(--gold); 
+    }
+    .svc-card:hover::before { 
+      height: 100%; 
+    }
+    .svc-icon-wrap { 
+      width: 48px; 
+      height: 48px; 
+      background: var(--navy); 
+      border-radius: 8px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin-bottom: 22px; 
+    }
+    .svc-icon-wrap svg { 
+      width: 22px; 
+      height: 22px; 
+      stroke: var(--gold-lt); 
+      fill: none; 
+      stroke-width: 1.75; 
+    }
+    .svc-title { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 22px; 
+      font-weight: 700; 
+      color: var(--navy); 
+      margin-bottom: 18px; 
+      line-height: 1.2; 
+    }
+    .svc-list { 
+      list-style: none; 
+    }
+    .svc-list li {
+      font-size: 14px; 
+      color: var(--muted); 
+      padding: 10px 0; 
+      border-bottom: 1px solid rgba(184,148,42,.08);
+      display: flex; 
+      align-items: flex-start; 
+      gap: 12px; 
+      line-height: 1.5;
+    }
+    .svc-list li:last-child { 
+      border-bottom: none; 
+    }
+    .svc-list li::before { 
+      content: ''; 
+      width: 5px; 
+      height: 5px; 
+      background: var(--gold); 
+      border-radius: 50%; 
+      flex-shrink: 0; 
+      margin-top: 7px; 
+    }
 
-    <div class="service-grid">
+    /* Floating WhatsApp Button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background-color: #25D366;
+      color: #FFF;
+      border-radius: 50%;
+      text-align: center;
+      width: 56px;
+      height: 56px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: currentColor;
+    }
 
-      <div class="service-card">
-        <h3>Income Tax, GST & ROC</h3>
-        <ul>
-          <li>Income Tax Return Filing</li>
-          <li>GST Return Filing & Advisory</li>
-          <li>ROC Filings & Corporate Compliance</li>
-          <li>TDS Compliance & Reporting</li>
-          <li>Tax Registration Support</li>
-        </ul>
-      </div>
+    /* Media Adaptive Layout Breakdowns */
+    @media (max-width: 1160px) {
+      .services-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 1024px) {
+      .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+    }
+    @media (max-width: 768px) {
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
 
-      <div class="service-card">
-        <h3>Registration & Business Setup</h3>
-        <ul>
-          <li>LLP & Company Incorporation</li>
-          <li>GST Registration</li>
-          <li>MSME Registration</li>
-          <li>Startup Registration Support</li>
-          <li>Professional Tax Registrations</li>
-        </ul>
-      </div>
-
-      <div class="service-card">
-        <h3>Tax Planning & Structuring</h3>
-        <ul>
-          <li>Business Tax Structuring</li>
-          <li>Capital Gains Planning</li>
-          <li>GST Structuring Advisory</li>
-          <li>Income Optimization Strategies</li>
-          <li>Tax Planning Support</li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="why-box">
-      <h2>Why Businesses Choose Us</h2>
-      <ul>
-        <li>Practical and business-focused approach</li>
-        <li>Timely compliance management</li>
-        <li>Reduced risk of notices and penalties</li>
-        <li>Structured advisory and documentation</li>
-      </ul>
-    </div>
-
+<div class="topbar">
+  <span>Administrative Practice Profile — Dissemination Framework</span>
+  <div class="topbar-right">
+    <a href="mailto:office@sanjaybc.com">office@sanjaybc.com</a>
+    <a href="tel:+918000000000">+91 80 0000 0000</a>
   </div>
-</section>
+</div>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="logo-wrap">
+      <img src="logo1.png" alt="Sanjay B C & Co">
+    </a>
+
+    <nav class="nav-menu">
+      <a href="index.html">Home</a>
+
+      <div class="nav-item">
+        <a href="about.html">
+          About Us
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown">
+          <a href="about.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Firm Overview</div></a>
+          <a href="team.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Our Team</div></a>
+          <a href="industries.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Industries We Serve</div></a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="#" class="active-nav">
+          Services
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown">
+          <a href="compliance.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Tax &amp; Compliance</div></a>
+          <a href="virtual-cfo.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">CFO Advisory</div></a>
+          <a href="litigation.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Litigation &amp; Notices</div></a>
+          <a href="riskcontrol.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Risk &amp; Internal Controls</div></a>
+        </div>
+      </div>
+
+      <div class="nav-item">
+        <a href="resources.html">
+          Resources
+          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </a>
+        <div class="dropdown">
+          <a href="blog.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Blogs &amp; Articles</div></a>
+          <a href="downloads.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Downloads</div></a>
+          <a href="faqs.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">FAQs</div></a>
+        </div>
+      </div>
+
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html" class="nav-cta">Contact Us</a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
+      <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-overlay" id="mobileOverlay"></div>
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header">
+    <img src="logo1.png" alt="Sanjay B C & Co" style="height: 40px;">
+    <button class="drawer-close" id="drawerClose">
+      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+  <div class="drawer-links">
+    <a href="index.html">Home</a>
+    
+    <div class="drawer-heading">About Us</div>
+    <div class="drawer-sub-links">
+      <a href="about.html">Firm Overview</a>
+      <a href="team.html">Our Team</a>
+      <a href="industries.html">Industries We Serve</a>
+    </div>
+
+    <div class="drawer-heading">Services</div>
+    <div class="drawer-sub-links">
+      <a href="compliance.html" style="color: var(--gold); font-weight:600;">Tax &amp; Compliance</a>
+      <a href="virtual-cfo.html">CFO Advisory</a>
+      <a href="litigation.html">Litigation &amp; Notices</a>
+      <a href="riskcontrol.html">Risk &amp; Internal Controls</a>
+    </div>
+
+    <div class="drawer-heading">Resources</div>
+    <div class="drawer-sub-links">
+      <a href="blog.html">Blogs &amp; Articles</a>
+      <a href="downloads.html">Downloads</a>
+      <a href="faqs.html">FAQs</a>
+    </div>
+
+    <a href="insights.html" style="margin-top: 10px;">Insights</a>
+    <a href="careers.html">Careers</a>
+    <a href="contactus.html" class="nav-cta" style="margin-left:0; text-align:center; margin-top:16px;">Contact Us</a>
+  </div>
+</div>
+
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="#">Services</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Tax &amp; Compliance</span>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow"><span></span> Business Support Area</div>
+    <h1>Tax &amp; <br/><em>Compliance</em></h1>
+    <p class="hero-desc">
+      Comprehensive operational support tracking corporate fiscal obligations across modern Indian administrative direct tax modules and Goods and Services Tax (GST) ecosystems.
+    </p>
+  </div>
+  <div class="hero-ring"></div>
+</div>
+
+<div class="section">
+  <div class="section-inner">
+    <div class="intro-card">
+      <div>
+        <h2>Systemic Planning &amp;<br/><em>Routine Support</em></h2>
+        <p>
+          Corporate tax obligations demand thorough transaction processing, synchronized digital declarations, and proactive structural architecture to minimize commercial exposures and operational bottlenecks.
+        </p>
+      </div>
+      <div class="intro-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Direct Tax Management</strong>
+            <span>Calculation structures and clean processing lines across all corporate and advance income tax profiles.</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Indirect GST Portals</strong>
+            <span>Continuous tracking, transaction uploads, and automated input ledger management mechanisms.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">Core Capabilities</div>
+    <h2 class="section-title">Strategic Tax Support Frameworks</h2>
+    <div class="gold-rule"></div>
+    <div class="services-grid">
+
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <div class="svc-title">Tax &amp; Compliance Support</div>
+        <p style="font-size: 13px; color: var(--gold); font-weight: 600; text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">Direct Tax, GST &amp; Compliance Support</p>
+        <ul class="svc-list">
+          <li>Systemic curation, verification, and technical processing of corporate Income Tax returns and advance computations.</li>
+          <li>End-to-end operational handling of month-end GST documentation, e-way bills, and digital portal uploads.</li>
+          <li>Continuous checking of internal transaction records against GSTR-2B datasets to guarantee safe input credit absorption.</li>
+          <li>Routine TDS processing, transaction filing, and balancing updates for absolute corporate alignment.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="icai-note">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <div>
+        <strong>ICAI Compliance Note:</strong> In accordance with the ethical directives laid down by the Institute of Chartered Accountants of India (ICAI), this profile sheet is designed exclusively for factual informational dissemination regarding administrative processes, operational methodologies, and statutory structural requirements. It carries absolutely no public solicitation markers or client procurement intents.
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
+</footer>
+
+<a href="https://wa.me/918000000000" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 448 512">
+    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+  </svg>
+</a>
+
+<script>
+  const menuToggle = document.getElementById('menuToggle');
+  const drawerClose = document.getElementById('drawerClose');
+  const mobileDrawer = document.getElementById('mobileDrawer');
+  const mobileOverlay = document.getElementById('mobileOverlay');
+
+  function openDrawer() {
+    mobileDrawer.classList.add('active');
+    mobileOverlay.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    mobileDrawer.classList.remove('active');
+    mobileOverlay.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  menuToggle.addEventListener('click', openDrawer);
+  drawerClose.addEventListener('click', closeDrawer);
+  mobileOverlay.addEventListener('click', closeDrawer);
+</script>
 
 </body>
 </html>
