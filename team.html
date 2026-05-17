@@ -104,11 +104,11 @@ body {
   overflow: hidden;
   border: 1px solid rgba(13,27,46,0.1);
   border-top: 4px solid var(--gold);
-  padding-top: 36px;
+  padding-top: 36px; 
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: center; 
+  text-align: center; 
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -131,14 +131,14 @@ body {
 }
 
 .team-icon {
-  stroke: var(--gold);
+  stroke: var(--gold); 
 }
 
 .team-content {
   padding: 16px 26px 28px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 1; 
 }
 
 .team-content h3 {
@@ -146,7 +146,7 @@ body {
   font-size: 21px;
   font-weight: 600;
   color: var(--navy);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   line-height: 1.3;
 }
 
@@ -164,14 +164,14 @@ body {
   line-height: 1.7;
   font-size: 14px;
   margin-bottom: 24px;
-  flex-grow: 1;
+  flex-grow: 1; 
 }
 
 .team-meta {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  justify-content: center;
+  justify-content: center; 
   margin-top: auto;
 }
 
@@ -293,7 +293,7 @@ body {
             <div class="dd-row-sub">Our history, values &amp; professional approach</div>
           </div>
         </a>
-        <a href="team.html" class="dd-row">
+        <a href="team.html" class="active-nav dd-row">
           <div class="dd-row-bar"></div>
           <div class="dd-icon">
             <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
@@ -475,37 +475,44 @@ body {
 
 <section class="team-section">
   <div class="section-head">
-    <span>Leadership &amp; Expertise</span>
-    <h2>Meet Our Professionals</h2>
+    <span>Firm Composition</span>
+    <h2>Our Collective Capabilities</h2>
   </div>
 
   <div class="team-grid">
+    
     <div class="team-card">
       <div class="team-icon-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="team-icon"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="team-icon">
+          <path d="M12 22V8M5 12H19M19 6H5a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2zM17 22H7"/>
+        </svg>
       </div>
       <div class="team-content">
-        <h3>CA Sanjay B C</h3>
-        <div class="team-role">FOUNDER &amp; CHARTERED ACCOUNTANT</div>
-        <p>Specialist in taxation, GST litigation, business advisory, appeals, virtual CFO services and strategic financial consulting for Indian and overseas clients.</p>
+        <h3>Chartered Accountants &amp; Strategists</h3>
+        <div class="team-role">CORE LEADERSHIP &amp; LITIGATION PRACTICE</div>
+        <p>Led by experienced Chartered Accountants providing senior financial stewardship. This segment of our team drives strategic growth, provides virtual CFO oversight, and handles high-stakes GST litigation and appeals for both Indian and international clients.</p>
         <div class="team-meta">
           <span class="team-tag">Tax Litigation</span>
-          <span class="team-tag">GST Advisory</span>
           <span class="team-tag">Virtual CFO</span>
+          <span class="team-tag">Corporate Advisory</span>
         </div>
       </div>
     </div>
 
     <div class="team-card">
       <div class="team-icon-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="team-icon"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="team-icon">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
       </div>
       <div class="team-content">
-        <h3>Direct &amp; International Tax</h3>
-        <div class="team-role">ADVISORY &amp; STRUCTURING PRACTICE</div>
-        <p>Assisting businesses and professionals with domestic taxation, DTAA matters, international transactions and regulatory advisory support.</p>
+        <h3>Domain Specialists &amp; Tax Experts</h3>
+        <div class="team-role">DIRECT &amp; INTERNATIONAL TAX DESK</div>
+        <p>A dedicated advisory group focused entirely on complex fiscal landscapes. Our specialists actively manage cross-border transactions, ensure stringent compliance with DTAA treaties, and design optimized transfer pricing frameworks for corporate entities.</p>
         <div class="team-meta">
-          <span class="team-tag">DTAA</span>
+          <span class="team-tag">DTAA Advisory</span>
           <span class="team-tag">International Tax</span>
           <span class="team-tag">Transfer Pricing</span>
         </div>
@@ -514,19 +521,23 @@ body {
 
     <div class="team-card">
       <div class="team-icon-wrapper">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="team-icon"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c4 0 7-2 7-2s3 2 7 2a1 1 0 0 1 1 1v7z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="team-icon">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          <path d="m9 12 2 2 4-4"/>
+        </svg>
       </div>
       <div class="team-content">
-        <h3>Audit, Risk &amp; Compliance</h3>
-        <div class="team-role">CONTROLS &amp; PROCESS ADVISORY</div>
-        <p>Supporting organizations with internal controls, SOP implementation, audits, compliance reviews and operational process strengthening.</p>
+        <h3>Process Consultants &amp; Auditors</h3>
+        <div class="team-role">GOVERNANCE, RISK &amp; COMPLIANCE</div>
+        <p>Our operational risk team works directly with corporate clients to safeguard business assets. They specialize in evaluating internal controls, designing airtight Standard Operating Procedures (SOPs), and conducting thorough compliance reviews.</p>
         <div class="team-meta">
           <span class="team-tag">Internal Controls</span>
-          <span class="team-tag">Audit</span>
+          <span class="team-tag">Audit &amp; Assurance</span>
           <span class="team-tag">SOP Design</span>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
