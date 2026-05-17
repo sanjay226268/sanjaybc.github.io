@@ -3,321 +3,275 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tax Notices, Litigation & Representation | Sanjay B C & Co.</title>
+  <title>Tax Notices, Litigation &amp; Representation | Sanjay B C &amp; Co.</title>
+  
+  <link rel="stylesheet" href="shared.css" />
+  
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+  
   <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --navy:      #0B1B33;
-      --gold:      #B8942A;
-      --gold-lt:   #D4AF5C;
-      --gold-pale: rgba(184,148,42,.08);
-      --cream:     #F7F4EE;
-      --off-white: #FDFCF9;
-      --muted:     #6B7280;
-      --border:    rgba(184,148,42,.2);
-      --shadow-sm: 0 2px 16px rgba(11,27,51,.07);
-      --shadow-md: 0 8px 40px rgba(11,27,51,.12);
-    }
-
-    html { scroll-behavior: smooth; }
-    body { background: var(--cream); font-family: 'DM Sans', sans-serif; color: var(--navy); overflow-x: hidden; }
-
-    /* ── TOPBAR ─────────────────────────────────── */
-    .topbar {
-      background: var(--navy);
-      padding: 10px 64px;
-      display: flex; justify-content: space-between; align-items: center;
-      font-size: 12px; color: rgba(255,255,255,.5); letter-spacing: .04em;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .topbar a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .2s; }
-    .topbar a:hover { color: var(--gold-lt); }
-    .topbar-right { display: flex; gap: 28px; }
-
-    /* ── HEADER & NAVIGATION ─────────────────────── */
-    header {
-      background: var(--off-white);
-      border-bottom: 1px solid var(--border);
-      position: sticky; top: 0; z-index: 100;
-      box-shadow: var(--shadow-sm);
-    }
-    .header-inner {
-      max-width: 1280px; margin: 0 auto;
-      padding: 0 64px; height: 86px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .logo-wrap { display: flex; align-items: center; text-decoration: none; }
-    .logo-wrap img { height: 52px; width: auto; display: block; }
-
-    .nav-menu { display: flex; align-items: center; gap: 4px; }
-    .nav-menu > a, .nav-item > a {
-      text-decoration: none; color: var(--muted);
-      font-size: 13px; font-weight: 500; padding: 10px 14px;
-      border-radius: 5px; display: flex; align-items: center; gap: 6px;
-      transition: .2s; position: relative; font-family: 'DM Sans', sans-serif;
-    }
-    .nav-menu > a:hover, .nav-item > a:hover {
-      background: var(--gold-pale); color: var(--navy);
-    }
-    .active-nav { color: var(--navy) !important; font-weight: 600 !important; }
-    .active-nav::after {
-      content: ''; position: absolute; left: 14px; right: 14px; bottom: 4px;
-      height: 2px; background: var(--gold); border-radius: 2px;
-    }
-
-    /* Dropdown Engine */
-    .nav-item { position: relative; }
-    .chevron { width: 14px; height: 14px; transition: transform .2s; stroke-width: 2.5; fill: none; stroke: currentColor; }
-    .nav-item:hover .chevron { transform: rotate(180deg); }
-    .dropdown {
-      position: absolute; top: calc(100% + 10px); left: 50%; transform: translateX(-50%) translateY(8px);
-      min-width: 260px; background: #fff; border: 1px solid var(--border);
-      border-radius: 10px; padding: 10px; box-shadow: var(--shadow-md);
-      opacity: 0; visibility: hidden; transition: .22s ease; z-index: 100;
-    }
-    .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-    .dd-row { display: flex; align-items: center; gap: 12px; text-decoration: none; padding: 12px 14px; border-radius: 7px; transition: .2s; }
-    .dd-row:hover { background: var(--gold-pale); }
-    .dd-row-bar { width: 3px; align-self: stretch; background: var(--gold); border-radius: 10px; transition: transform 0.2s; }
-    .dd-row:hover .dd-row-bar { transform: scaleY(1.15); }
-    .dd-row-label { font-size: 13.5px; color: var(--navy); font-weight: 500; }
+    /* ── PAGE-SPECIFIC MICRO-LAYOUTS ONLY ── */
     
-    .nav-cta {
-      margin-left: 16px; background: var(--navy); color: #fff !important;
-      padding: 10px 22px !important; border-radius: 5px; font-size: 13px; font-weight: 600;
-      border: none; cursor: pointer; letter-spacing: .04em; transition: all .2s;
+    /* Deadline Limitation Banner */
+    .deadline-notice { 
+      background: #FFFDF9; 
+      border-left: 4px solid var(--gold); 
+      border-bottom: 1px solid var(--border); 
+      padding: 18px 64px; 
     }
-    .nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
-
-    /* Mobile Hamburger Trigger */
-    .menu-toggle {
-      display: none; background: none; border: none; cursor: pointer; padding: 4px;
+    .deadline-inner { 
+      max-width: 1280px; 
+      margin: 0 auto; 
+      display: flex; 
+      align-items: center; 
+      gap: 16px; 
     }
-    .menu-toggle svg { width: 24px; height: 24px; stroke: var(--navy); stroke-width: 2; fill: none; }
-
-    /* Mobile Navigation Drawer */
-    .mobile-drawer {
-      position: fixed; top: 0; right: -100%; width: 300px; height: 100vh;
-      background: var(--off-white); z-index: 1000; box-shadow: var(--shadow-md);
-      transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1); padding: 40px 24px;
-      display: flex; flex-direction: column; gap: 24px; overflow-y: auto;
+    .deadline-icon svg { 
+      width: 20px; 
+      height: 20px; 
+      stroke: var(--gold); 
+      stroke-width: 2; 
+      fill: none; 
+      flex-shrink: 0; 
+      display: block; 
     }
-    .mobile-drawer.active { right: 0; }
-    .drawer-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-    .drawer-close { background: none; border: none; cursor: pointer; }
-    .drawer-close svg { width: 24px; height: 24px; stroke: var(--navy); stroke-width: 2; }
-    .drawer-links { display: flex; flex-direction: column; gap: 8px; }
-    .drawer-links a { text-decoration: none; color: var(--navy); font-size: 15px; font-weight: 500; padding: 10px 12px; border-radius: 6px; }
-    .drawer-links a:hover { background: var(--gold-pale); }
-    .drawer-heading { font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); font-weight: 700; padding: 12px 12px 4px; }
-    .drawer-sub-links { display: flex; flex-direction: column; gap: 4px; padding-left: 12px; border-left: 1px solid var(--border); margin-left: 12px; }
-    .drawer-sub-links a { font-size: 13.5px; color: var(--muted); }
-    .mobile-overlay { position: fixed; inset: 0; background: rgba(11,27,51,0.4); opacity: 0; visibility: hidden; z-index: 999; transition: opacity 0.3s; }
-    .mobile-overlay.active { opacity: 1; visibility: visible; }
-
-    /* ── BREADCRUMB ─────────────────────────────── */
-    .breadcrumb-bar { background: var(--off-white); border-bottom: 1px solid var(--border); padding: 14px 64px; }
-    .breadcrumb { max-width: 1280px; margin: 0 auto; font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 8px; letter-spacing: .02em; }
-    .breadcrumb a { color: var(--gold); text-decoration: none; transition: color .2s; }
-    .breadcrumb a:hover { color: var(--gold-lt); text-decoration: underline; }
-    .breadcrumb-sep { color: rgba(107,114,128,.4); }
-
-    /* ── HERO ───────────────────────────────────── */
-    .hero { background: var(--navy); padding: 90px 64px 80px; position: relative; overflow: hidden; }
-    .hero::before {
-      content: ''; position: absolute; inset: 0;
-      background: repeating-linear-gradient(-55deg, rgba(255,255,255,.012) 0, rgba(255,255,255,.012) 1px, transparent 1px, transparent 44px);
-      pointer-events: none;
+    .deadline-text { 
+      font-size: 14px; 
+      color: var(--navy); 
+      line-height: 1.6; 
     }
-    .hero-inner { max-width: 1280px; margin: 0 auto; position: relative; }
-    .hero-eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
-      font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
-      color: var(--gold); border: 1px solid rgba(184,148,42,.3);
-      padding: 5px 14px; border-radius: 3px; margin-bottom: 24px; font-weight: 500;
+    .deadline-text strong { 
+      font-weight: 600; 
+      color: #9E1A1A; 
     }
-    .hero-eyebrow span { width: 18px; height: 1px; background: var(--gold); display: block; }
-    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(38px, 4.5vw, 56px); font-weight: 700; color: #fff; line-height: 1.12; margin-bottom: 24px; max-width: 780px; }
-    .hero h1 em { color: var(--gold-lt); font-style: italic; }
-    .hero-desc { font-size: 16px; color: rgba(255,255,255,.65); line-height: 1.8; max-width: 600px; margin-bottom: 38px; }
-    
-    .btn-primary {
-      background: var(--gold); color: var(--navy); padding: 14px 32px; border-radius: 5px;
-      font-size: 14px; font-weight: 600; border: none; cursor: pointer;
-      font-family: 'DM Sans', sans-serif; letter-spacing: .04em; transition: all .2s ease;
-      display: inline-flex; align-items: center; gap: 8px;
-    }
-    .btn-primary:hover { background: var(--gold-lt); transform: translateY(-2px); box-shadow: 0 4px 20px rgba(184,148,42,0.25); }
 
-    .hero-ring {
-      position: absolute; right: -40px; top: -60px; width: 360px; height: 360px;
-      border: 1px solid rgba(184,148,42,.10); border-radius: 50%; pointer-events: none;
-    }
-    .hero-ring::before { content: ''; position: absolute; inset: 40px; border: 1px solid rgba(184,148,42,.06); border-radius: 50%; }
-
-    /* ── DEADLINE NOTICE ────────────────────────── */
-    .deadline-notice { background: #FFFDF9; border-left: 4px solid var(--gold); border-bottom: 1px solid var(--border); padding: 18px 64px; }
-    .deadline-inner { max-width: 1280px; margin: 0 auto; display: flex; align-items: center; gap: 16px; }
-    .deadline-icon svg { width: 20px; height: 20px; stroke: var(--gold); stroke-width: 2; fill: none; flex-shrink: 0; display: block; }
-    .deadline-text { font-size: 14px; color: var(--navy); line-height: 1.6; }
-    .deadline-text strong { font-weight: 600; color: #9E1A1A; }
-
-    /* ── SECTION SCAFFOLDING ─────────────────────── */
-    .section { padding: 80px 64px; }
-    .section-inner { max-width: 1280px; margin: 0 auto; }
-    .section-alt { background: var(--off-white); border-top: 1px solid rgba(184,148,42,0.1); border-bottom: 1px solid rgba(184,148,42,0.1); }
-    .section-dark { background: var(--navy); }
-
-    .section-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
-    .section-label::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
-    .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3.5vw, 40px); font-weight: 700; color: var(--navy); margin-bottom: 14px; line-height: 1.2; }
-    .section-title.light { color: #fff; }
-    .gold-rule { width: 44px; height: 2px; background: var(--gold); margin-bottom: 48px; border-radius: 2px; }
-
-    /* ── INTRO CARD ──────────────────────────────── */
+    /* Split Overview Card */
     .intro-card {
-      background: var(--navy); border-radius: 12px; padding: 56px;
-      display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 64px; align-items: center;
-      margin-bottom: 16px; position: relative; overflow: hidden; border: 1px solid rgba(184,148,42,0.15);
+      background: var(--navy); 
+      border-radius: 12px; 
+      padding: 56px;
+      display: grid; 
+      grid-template-columns: 1.1fr 0.9fr; 
+      gap: 64px; 
+      align-items: center;
+      margin-bottom: 16px; 
+      position: relative; 
+      overflow: hidden; 
+      border: 1px solid rgba(184,148,42,0.15);
     }
     .intro-card::after {
-      content: ''; position: absolute; right: -60px; top: -60px;
-      width: 260px; height: 260px; border: 1px solid rgba(184,148,42,.08); border-radius: 50%; pointer-events: none;
+      content: ''; 
+      position: absolute; 
+      right: -60px; 
+      top: -60px;
+      width: 260px; 
+      height: 260px; 
+      border: 1px solid rgba(184,148,42,.08); 
+      border-radius: 50%; 
+      pointer-events: none;
     }
-    .intro-card h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(28px, 3vw, 36px); font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 20px; }
-    .intro-card h2 em { color: var(--gold-lt); font-style: italic; }
-    .intro-card p { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.8; }
-    .intro-pillars { display: flex; flex-direction: column; gap: 16px; position: relative; z-index: 2; }
+    .intro-card h2 { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: clamp(28px, 3vw, 36px); 
+      font-weight: 700; 
+      color: #fff; 
+      line-height: 1.2; 
+      margin-bottom: 20px; 
+    }
+    .intro-card h2 em { 
+      color: var(--gold-lt); 
+      font-style: italic; 
+    }
+    .intro-card p { 
+      font-size: 15px; 
+      color: rgba(255,255,255,.65); 
+      line-height: 1.8; 
+    }
+    .intro-pillars { 
+      display: flex; 
+      flex-direction: column; 
+      gap: 16px; 
+      position: relative; 
+      z-index: 2; 
+    }
     .pillar {
-      display: flex; align-items: flex-start; gap: 16px;
-      background: rgba(255,255,255,.03); border: 1px solid rgba(184,148,42,.12);
-      border-radius: 8px; padding: 18px 20px; transition: all 0.2s;
+      display: flex; 
+      align-items: flex-start; 
+      gap: 16px;
+      background: rgba(255,255,255,.03); 
+      border: 1px solid rgba(184,148,42,.12);
+      border-radius: 8px; 
+      padding: 18px 20px; 
+      transition: all 0.2s;
     }
-    .pillar:hover { background: rgba(255,255,255,0.05); border-color: var(--gold); }
+    .pillar:hover { 
+      background: rgba(255,255,255,0.05); 
+      border-color: var(--gold); 
+    }
     .pillar-icon {
-      width: 40px; height: 40px; background: rgba(184,148,42,.15);
-      border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+      width: 40px; 
+      height: 40px; 
+      background: rgba(184,148,42,.15);
+      border-radius: 6px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      flex-shrink: 0;
     }
-    .pillar-icon svg { width: 20px; height: 20px; stroke: var(--gold-lt); fill: none; stroke-width: 1.75; }
-    .pillar-text strong { display: block; font-size: 14.5px; font-weight: 600; color: rgba(255,255,255,.9); margin-bottom: 4px; }
-    .pillar-text span { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.5; display: block; }
+    .pillar-icon svg { 
+      width: 20px; 
+      height: 20px; 
+      stroke: var(--gold-lt); 
+      fill: none; 
+      stroke-width: 1.75; 
+    }
+    .pillar-text strong { 
+      display: block; 
+      font-size: 14.5px; 
+      font-weight: 600; 
+      color: rgba(255,255,255,.9); 
+      margin-bottom: 4px; 
+    }
+    .pillar-text span { 
+      font-size: 13px; 
+      color: rgba(255,255,255,.5); 
+      line-height: 1.5; 
+      display: block; 
+    }
 
-    /* ── NOTICE TYPES GRID ───────────────────────── */
+    /* Statutory Scope Matrix Pills */
     .notice-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
     }
     .notice-pill {
-      background: var(--off-white); border: 1px solid var(--border);
-      border-radius: 8px; padding: 18px 22px;
-      display: flex; align-items: center; gap: 14px; transition: all .25s ease;
+      background: var(--off-white); 
+      border: 1px solid var(--border);
+      border-radius: 8px; 
+      padding: 18px 22px;
+      display: flex; 
+      align-items: center; 
+      gap: 14px; 
+      transition: all .25s ease;
     }
-    .notice-pill:hover { border-color: var(--gold); background: #fff; transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-    .notice-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
-    .notice-pill span { font-size: 13.5px; font-weight: 500; color: var(--navy); line-height: 1.4; letter-spacing: -0.01em; }
+    .notice-pill:hover { 
+      border-color: var(--gold); 
+      background: #fff; 
+      transform: translateY(-2px); 
+      box-shadow: var(--shadow-sm); 
+    }
+    .notice-dot { 
+      width: 6px; 
+      height: 6px; 
+      background: var(--gold); 
+      border-radius: 50%; 
+      flex-shrink: 0; 
+    }
+    .notice-pill span { 
+      font-size: 13.5px; 
+      font-weight: 500; 
+      color: var(--navy); 
+      line-height: 1.4; 
+      letter-spacing: -0.01em; 
+    }
 
-    /* ── SERVICE CARDS ───────────────────────────── */
-    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); gap: 24px; }
+    /* Structural Deliverable Grid Columns */
+    .services-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
+      gap: 24px; 
+    }
     .svc-card {
-      background: var(--off-white); border: 1px solid var(--border);
-      border-radius: 10px; padding: 36px 32px; position: relative; overflow: hidden;
+      background: var(--off-white); 
+      border: 1px solid var(--border);
+      border-radius: 10px; 
+      padding: 36px 32px; 
+      position: relative; 
+      overflow: hidden;
       transition: transform .25s, box-shadow .25s, border-color .25s;
     }
-    .svc-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; background: var(--gold); transition: height .3s ease; }
-    .svc-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--gold); }
-    .svc-card:hover::before { height: 100%; }
-    .svc-icon-wrap { width: 48px; height: 48px; background: var(--navy); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 22px; }
-    .svc-icon-wrap svg { width: 22px; height: 22px; stroke: var(--gold-lt); fill: none; stroke-width: 1.75; }
-    .svc-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 18px; line-height: 1.2; }
-    .svc-list { list-style: none; }
+    .svc-card::before { 
+      content: ''; 
+      position: absolute; 
+      top: 0; 
+      left: 0; 
+      width: 4px; 
+      height: 0; 
+      background: var(--gold); 
+      transition: height .3s ease; 
+    }
+    .svc-card:hover { 
+      transform: translateY(-6px); 
+      box-shadow: var(--shadow-md); 
+      border-color: var(--gold); 
+    }
+    .svc-card:hover::before { 
+      height: 100%; 
+    }
+    .svc-icon-wrap { 
+      width: 48px; 
+      height: 48px; 
+      background: var(--navy); 
+      border-radius: 8px; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      margin-bottom: 22px; 
+    }
+    .svc-icon-wrap svg { 
+      width: 22px; 
+      height: 22px; 
+      stroke: var(--gold-lt); 
+      fill: none; 
+      stroke-width: 1.75; 
+    }
+    .svc-title { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 22px; 
+      font-weight: 700; 
+      color: var(--navy); 
+      margin-bottom: 18px; 
+      line-height: 1.2; 
+    }
+    .svc-list { 
+      list-style: none; 
+    }
     .svc-list li {
-      font-size: 14px; color: var(--muted); padding: 10px 0; border-bottom: 1px solid rgba(184,148,42,.08);
-      display: flex; align-items: flex-start; gap: 12px; line-height: 1.5;
+      font-size: 14px; 
+      color: var(--muted); 
+      padding: 10px 0; 
+      border-bottom: 1px solid rgba(184,148,42,.08);
+      display: flex; 
+      align-items: flex-start; 
+      gap: 12px; 
+      line-height: 1.5;
     }
-    .svc-list li:last-child { border-bottom: none; }
-    .svc-list li::before { content: ''; width: 5px; height: 5px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
-
-    /* ── WHY US ──────────────────────────────────── */
-    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .why-left h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(30px, 3.5vw, 38px); font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 16px; }
-    .why-left h2 em { color: var(--gold-lt); font-style: italic; }
-    .why-left p { font-size: 15.5px; color: rgba(255,255,255,.6); line-height: 1.8; margin-bottom: 36px; }
-
-    .firm-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .fact-item { background: rgba(255,255,255,.03); border: 1px solid rgba(184,148,42,.15); border-radius: 8px; padding: 20px; display: flex; align-items: flex-start; gap: 12px; }
-    .fact-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; margin-top: 6px; }
-    .fact-text { font-size: 13px; color: rgba(255,255,255,.55); line-height: 1.6; }
-    .fact-text strong { display: block; color: rgba(255,255,255,.9); font-size: 14px; font-weight: 600; margin-bottom: 4px; }
-
-    .why-right { display: flex; flex-direction: column; gap: 16px; }
-    .why-item {
-      background: rgba(255,255,255,.03); border: 1px solid rgba(184,148,42,.12);
-      border-radius: 8px; padding: 22px 24px; display: flex; align-items: flex-start; gap: 16px; transition: all .2s;
+    .svc-list li:last-child { 
+      border-bottom: none; 
     }
-    .why-item:hover { background: rgba(184,148,42,.07); border-color: rgba(184,148,42,.35); transform: translateX(4px); }
-    .why-check { width: 28px; height: 28px; background: rgba(184,148,42,.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .why-check svg { width: 14px; height: 14px; stroke: var(--gold-lt); fill: none; stroke-width: 2.5; }
-    .why-item-title { font-size: 15px; font-weight: 600; color: rgba(255,255,255,.92); margin-bottom: 4px; }
-    .why-item-desc { font-size: 13px; color: rgba(255,255,255,.5); line-height: 1.6; }
-
-    /* ── CONTACT CTA ─────────────────────────────── */
-    .cta-strip {
-      background: linear-gradient(125deg, var(--gold) 0%, #c8a040 55%, var(--gold-lt) 100%);
-      border-radius: 10px; padding: 52px; display: flex; align-items: center; justify-content: space-between; gap: 40px;
-      box-shadow: var(--shadow-md);
+    .svc-list li::before { 
+      content: ''; 
+      width: 5px; 
+      height: 5px; 
+      background: var(--gold); 
+      border-radius: 50%; 
+      flex-shrink: 0; 
+      margin-top: 7px; 
     }
-    .cta-text h3 { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 700; color: var(--navy); margin-bottom: 8px; line-height: 1.2; }
-    .cta-text p { font-size: 15px; color: rgba(11,27,51,.7); line-height: 1.6; }
-    .cta-actions { flex-shrink: 0; }
-    .cta-btn-dark {
-      background: var(--navy); color: #fff; padding: 14px 32px; border-radius: 5px;
-      font-size: 14px; font-weight: 600; border: none; cursor: pointer;
-      font-family: 'DM Sans', sans-serif; letter-spacing: .04em; white-space: nowrap; transition: all .2s;
-    }
-    .cta-btn-dark:hover { background: #132743; transform: translateY(-2px); box-shadow: 0 4px 20px rgba(11,27,51,0.25); }
 
-    /* ── ICAI NOTICE ─────────────────────────────── */
-    .icai-note {
-      background: var(--gold-pale); border: 1px solid rgba(184,148,42,.25); border-radius: 8px; padding: 18px 24px;
-      font-size: 13px; color: var(--muted); line-height: 1.7; margin-top: 32px; display: flex; gap: 14px; align-items: flex-start;
-    }
-    .icai-note svg { width: 18px; height: 18px; stroke: var(--gold); fill: none; stroke-width: 2; flex-shrink: 0; margin-top: 2px; }
-
-    /* ── FOOTER ──────────────────────────────────── */
-    footer {
-      background: var(--navy); border-top: 1px solid rgba(184,148,42,.18);
-      padding: 32px 64px; text-align: center; font-size: 13.5px; color: rgba(255,255,255,.4); letter-spacing: 0.02em;
-    }
-    footer strong { color: rgba(255,255,255,.7); font-weight: 500; }
-
-    /* ── RESPONSIVE ──────────────────────────────── */
+    /* Media Adaptive Layout Breakdowns */
     @media (max-width: 1160px) {
-      .nav-menu { display: none; }
-      .menu-toggle { display: block; }
       .services-grid { grid-template-columns: 1fr 1fr; }
     }
-
     @media (max-width: 1024px) {
-      .topbar, .breadcrumb-bar, .hero, .section, .deadline-notice, footer { padding-left: 32px; padding-right: 32px; }
-      .header-inner { padding: 0 32px; }
+      .deadline-notice { padding-left: 32px; padding-right: 32px; }
       .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
-      .why-grid { grid-template-columns: 1fr; gap: 48px; }
-      .cta-strip { flex-direction: column; text-align: center; padding: 40px; gap: 28px; }
-      .hero-ring { display: none; }
     }
-
     @media (max-width: 768px) {
-      .topbar { display: none; }
-      .header-inner { height: 76px; }
-      .logo-wrap img { height: 44px; }
-      .section { padding: 56px 24px; }
-      .topbar, .breadcrumb-bar, .hero, .deadline-notice, footer { padding-left: 24px; padding-right: 24px; }
-      .header-inner { padding: 0 24px; }
+      .deadline-notice { padding-left: 24px; padding-right: 24px; }
       .services-grid { grid-template-columns: 1fr; }
       .notice-grid { grid-template-columns: 1fr; }
-      .btn-primary, .cta-btn-dark { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -346,18 +300,9 @@
           <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="dropdown">
-          <a href="about.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Firm Overview</div>
-          </a>
-          <a href="team.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Our Team</div>
-          </a>
-          <a href="industries.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Industries We Serve</div>
-          </a>
+          <a href="about.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Firm Overview</div></a>
+          <a href="team.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Our Team</div></a>
+          <a href="industries.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Industries We Serve</div></a>
         </div>
       </div>
 
@@ -367,22 +312,10 @@
           <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="dropdown">
-          <a href="compliance.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Tax & Compliance</div>
-          </a>
-          <a href="virtual-cfo.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">CFO Advisory</div>
-          </a>
-          <a href="appeals.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Litigation & Notices</div>
-          </a>
-          <a href="riskcontrol.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Risk & Internal Controls</div>
-          </a>
+          <a href="compliance.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Tax &amp; Compliance</div></a>
+          <a href="virtual-cfo.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">CFO Advisory</div></a>
+          <a href="appeals.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Litigation &amp; Notices</div></a>
+          <a href="riskcontrol.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Risk &amp; Internal Controls</div></a>
         </div>
       </div>
 
@@ -392,18 +325,9 @@
           <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
         </a>
         <div class="dropdown">
-          <a href="blog.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Blogs & Articles</div>
-          </a>
-          <a href="downloads.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">Downloads</div>
-          </a>
-          <a href="faqs.html" class="dd-row">
-            <div class="dd-row-bar"></div>
-            <div class="dd-row-label">FAQs</div>
-          </a>
+          <a href="blog.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Blogs &amp; Articles</div></a>
+          <a href="downloads.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Downloads</div></a>
+          <a href="faqs.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">FAQs</div></a>
         </div>
       </div>
 
@@ -438,15 +362,15 @@
 
     <div class="drawer-heading">Services</div>
     <div class="drawer-sub-links">
-      <a href="compliance.html">Tax & Compliance</a>
+      <a href="compliance.html">Tax &amp; Compliance</a>
       <a href="virtual-cfo.html">CFO Advisory</a>
-      <a href="appeals.html" style="color: var(--gold); font-weight:600;">Litigation & Notices</a>
-      <a href="riskcontrol.html">Risk & Internal Controls</a>
+      <a href="appeals.html" style="color: var(--gold); font-weight:600;">Litigation &amp; Notices</a>
+      <a href="riskcontrol.html">Risk &amp; Internal Controls</a>
     </div>
 
     <div class="drawer-heading">Resources</div>
     <div class="drawer-sub-links">
-      <a href="blog.html">Blogs & Articles</a>
+      <a href="blog.html">Blogs &amp; Articles</a>
       <a href="downloads.html">Downloads</a>
       <a href="faqs.html">FAQs</a>
     </div>
@@ -475,9 +399,6 @@
       Advisory, technical documentation, and representation support across challenging Income Tax
       and GST proceedings — from initial department notice review through to resolution.
     </p>
-    <div class="hero-actions">
-      <button class="btn-primary">Initiate Case Review &rarr;</button>
-    </div>
   </div>
   <div class="hero-ring"></div>
 </div>
@@ -597,110 +518,19 @@
         </ul>
       </div>
 
-      <div class="svc-card">
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="3" y1="9" x2="21" y2="9"/></svg>
-        </div>
-        <div class="svc-title">Strategic Transaction Advisory</div>
-        <ul class="svc-list">
-          <li>Assessing vulnerabilities in high-value operations or cross-border assets</li>
-          <li>Structuring transfer pricing dispute handling and defense files</li>
-          <li>Filing targeted applications for rectifications under Section 154</li>
-          <li>Evaluating DTAA configurations for long-term tax preservation</li>
-        </ul>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<div class="section section-dark">
-  <div class="section-inner">
-    <div class="why-grid">
-      <div class="why-left">
-        <div class="section-label">Professional Standards</div>
-        <h2 class="section-title light">Engineered for <em>Resolution</em></h2>
-        <p>
-          We resolve complex tax disputes by substituting ad-hoc replies with rigorous statutory documentation, safeguarding corporate goodwill and operational liquidity.
-        </p>
-        <div class="firm-facts">
-          <div class="fact-item">
-            <div class="fact-dot"></div>
-            <div class="fact-text">
-              <strong>Procedural Rigor</strong>
-              Enforcing exact timelines to eliminate technical dynamic defaults.
-            </div>
-          </div>
-          <div class="fact-item">
-            <div class="fact-dot"></div>
-            <div class="fact-text">
-              <strong>Precedent-Driven Analysis</strong>
-              Backing every submission with authoritative tribunal and high-court verdicts.
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="why-right">
-        
-        <div class="why-item">
-          <div class="why-check">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Objective Dispute Appraisal</div>
-            <div class="why-item-desc">Providing transparent metrics on exposure values prior to proceeding with appeals.</div>
-          </div>
-        </div>
-
-        <div class="why-item">
-          <div class="why-check">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Airtight Document Auditing</div>
-            <div class="why-item-desc">Structuring evidence collections cleanly to optimize processing speed during assessments.</div>
-          </div>
-        </div>
-
-        <div class="why-item">
-          <div class="why-check">
-            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <div>
-            <div class="why-item-title">Clear Communications Framework</div>
-            <div class="why-item-desc">Translating opaque department notifications into direct, manageable action plans.</div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <div class="section-inner">
-    <div class="cta-strip">
-      <div class="cta-text">
-        <h3>Have you recently been served a departmental order or tax notification?</h3>
-        <p>Connect with our practice managers to evaluate the response parameters today.</p>
-      </div>
-      <div class="cta-actions">
-        <button class="cta-btn-dark">Consult Our Team</button>
-      </div>
     </div>
 
     <div class="icai-note">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <div>
-        <strong>ICAI Compliance Note:</strong> In accordance with the ethical directives laid out by the Institute of Chartered Accountants of India (ICAI), this profile sheet is designed exclusively for factual informational dissemination regarding administrative processes and carries absolutely no public solicitation markers.
+        <strong>ICAI Compliance Note:</strong> In accordance with the ethical directives laid down by the Institute of Chartered Accountants of India (ICAI), this profile sheet is designed exclusively for factual informational dissemination regarding administrative processes, operational methodologies, and statutory structural requirements. It carries absolutely no public solicitation markers or client procurement intents.
       </div>
     </div>
-
   </div>
 </div>
 
 <footer>
-  &copy; 2026 <strong>Sanjay B C & Co.</strong> Chartered Accountants. All Rights Reserved.
+  &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
 </footer>
 
 <script>
