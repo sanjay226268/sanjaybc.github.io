@@ -14,7 +14,7 @@
       background: #FFFDF9; 
       border-left: 4px solid var(--gold); 
       border-bottom: 1px solid var(--border); 
-      padding: 18px 64px; 
+      padding: 18px 24px;
     }
     .deadline-inner { 
       max-width: 1280px; 
@@ -68,11 +68,11 @@
       pointer-events: none;
     }
     .intro-card h2 { 
-      font-family: 'Cormorant Garamond', serif; 
+      font-family: 'Playfair Display', serif; 
       font-size: clamp(28px, 3vw, 36px); 
       font-weight: 700; 
       color: #fff; 
-      line-height: 1.2; 
+      line-height: 1.3; 
       margin-bottom: 20px; 
     }
     .intro-card h2 em { 
@@ -141,6 +141,7 @@
       display: grid; 
       grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 16px;
+      margin-top: 32px;
     }
     .notice-pill {
       background: var(--off-white); 
@@ -178,6 +179,7 @@
       display: grid; 
       grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
       gap: 24px; 
+      margin-top: 32px;
     }
     .svc-card {
       background: var(--off-white); 
@@ -224,7 +226,7 @@
       stroke-width: 1.75; 
     }
     .svc-title { 
-      font-family: 'Cormorant Garamond', serif; 
+      font-family: 'Playfair Display', serif; 
       font-size: 22px; 
       font-weight: 700; 
       color: var(--navy); 
@@ -233,6 +235,8 @@
     }
     .svc-list { 
       list-style: none; 
+      padding: 0;
+      margin: 0;
     }
     .svc-list li {
       font-size: 14px; 
@@ -289,11 +293,9 @@
       .services-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 1024px) {
-      .deadline-notice { padding-left: 32px; padding-right: 32px; }
       .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
     }
     @media (max-width: 768px) {
-      .deadline-notice { padding-left: 24px; padding-right: 24px; }
       .services-grid { grid-template-columns: 1fr; }
       .notice-grid { grid-template-columns: 1fr; }
     }
