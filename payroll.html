@@ -1,422 +1,633 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Payroll | Sanjay B C &amp; Co.</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="shared.css">
-    <style>
-        body {
-            background: var(--off-white);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Payroll Services | Sanjay B C & Co.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1a2340;
+      --gold:   #b8952a;
+      --gold-lt:#d4af5a;
+      --cream:  #faf8f4;
+      --mid:    #f3f0ea;
+      --text:   #2c2c2c;
+      --muted:  #6b6b6b;
+      --border: #ddd8cc;
+      --white:  #ffffff;
+      --serif:  'Cormorant Garamond', Georgia, serif;
+      --sans:   'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body  { font-family: var(--sans); color: var(--text); background: var(--white); font-size: 15px; line-height: 1.6; }
+
+    a { color: inherit; text-decoration: none; }
+
+    /* ─── UTILITY BAR ─── */
+    .util-bar {
+      background: var(--navy);
+      color: #aab2c8;
+      font-size: 12px;
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .util-bar .inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    }
+    .util-bar .left { display: flex; gap: 20px; }
+    .util-bar .right { display: flex; gap: 16px; }
+    .util-bar a { color: #aab2c8; transition: color .2s; }
+    .util-bar a:hover { color: var(--gold-lt); }
+    .social-icons { display: flex; gap: 12px; }
+    .social-icons a { font-size: 12px; }
+
+    /* ─── NAV ─── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    nav {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; gap: 32px;
+      height: 68px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+    .logo-wrap img { height: 42px; width: auto; }
+    .logo-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .logo-text strong { font-family: var(--serif); font-size: 17px; font-weight: 600; color: var(--navy); letter-spacing: .3px; }
+    .logo-text span { font-size: 10px; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; }
+
+    .nav-links { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+    .nav-links > li { list-style: none; position: relative; }
+    .nav-links > li > a {
+      display: flex; align-items: center; gap: 5px;
+      padding: 8px 14px; border-radius: 4px;
+      font-size: 13.5px; font-weight: 500; color: var(--navy);
+      transition: background .15s, color .15s;
+    }
+    .nav-links > li > a:hover, .nav-links > li > a.active { background: var(--mid); color: var(--gold); }
+    .nav-links .caret { font-size: 9px; opacity: .6; }
+
+    /* dropdown */
+    .dropdown { position: relative; }
+    .drop-menu {
+      display: none; position: absolute; top: calc(100% + 6px); left: 0;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; min-width: 240px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      overflow: hidden; z-index: 200;
+    }
+    .drop-menu li { list-style: none; }
+    .drop-menu li a {
+      display: block; padding: 10px 18px;
+      font-size: 13px; color: var(--text);
+      border-bottom: 1px solid var(--mid);
+      transition: background .15s, color .15s;
+    }
+    .drop-menu li:last-child a { border-bottom: none; }
+    .drop-menu li a:hover { background: var(--mid); color: var(--gold); }
+    .dropdown:hover .drop-menu { display: block; }
+
+    .nav-cta {
+      margin-left: 8px; padding: 9px 20px; border-radius: 4px;
+      background: var(--navy); color: var(--white) !important;
+      font-size: 13px; font-weight: 500; letter-spacing: .3px;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+    /* ─── BREADCRUMB ─── */
+    .breadcrumb {
+      background: var(--mid); border-bottom: 1px solid var(--border);
+      padding: 11px 0;
+    }
+    .breadcrumb .inner {
+      max-width: 1200px; margin: 0 auto; padding: 0 24px;
+      display: flex; align-items: center; gap: 8px;
+      font-size: 12.5px; color: var(--muted);
+    }
+    .breadcrumb a { color: var(--muted); transition: color .2s; }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb .sep { opacity: .45; }
+
+    /* ─── PAGE HERO ─── */
+    .page-hero {
+      background: var(--navy);
+      padding: 72px 24px 64px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(184,149,42,.18) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .page-hero .inner {
+      max-width: 1200px; margin: 0 auto;
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(184,149,42,.15); border: 1px solid rgba(184,149,42,.3);
+      color: var(--gold-lt); font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 3px; margin-bottom: 22px;
+    }
+    .page-hero h1 {
+      font-family: var(--serif); font-size: clamp(36px, 5vw, 58px);
+      font-weight: 500; color: var(--white);
+      line-height: 1.15; max-width: 680px; margin-bottom: 20px;
+    }
+    .page-hero h1 em { font-style: italic; color: var(--gold-lt); }
+    .page-hero p {
+      font-size: 15.5px; color: rgba(255,255,255,.72); max-width: 580px; line-height: 1.7;
+    }
+
+    /* ─── SECTION WRAPPER ─── */
+    .section { padding: 80px 24px; }
+    .section.alt { background: var(--mid); }
+    .section .inner { max-width: 1200px; margin: 0 auto; }
+
+    .section-label {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold); font-weight: 500; margin-bottom: 14px;
+    }
+    .section-label::before {
+      content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+    }
+    .section-title {
+      font-family: var(--serif); font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 500; color: var(--navy); line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-title em { font-style: italic; color: var(--gold); }
+    .section-desc { font-size: 15px; color: var(--muted); max-width: 640px; line-height: 1.75; }
+
+    /* ─── INTRO 3-COL HIGHLIGHTS ─── */
+    .highlight-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+      margin-top: 52px;
+    }
+    .highlight-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 8px; padding: 32px 28px;
+      position: relative; overflow: hidden;
+      transition: box-shadow .25s, transform .25s;
+    }
+    .highlight-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,.1); transform: translateY(-3px); }
+    .highlight-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: var(--gold);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform .3s;
+    }
+    .highlight-card:hover::after { transform: scaleX(1); }
+    .highlight-card .icon {
+      width: 48px; height: 48px; border-radius: 8px;
+      background: var(--mid); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; font-size: 22px;
+    }
+    .highlight-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; color: var(--navy); margin-bottom: 10px; }
+    .highlight-card p { font-size: 13.5px; color: var(--muted); line-height: 1.7; }
+
+    /* ─── CAPABILITIES ─── */
+    .cap-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px;
+      margin-top: 52px;
+    }
+    .cap-card {
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: 10px; overflow: hidden;
+      transition: box-shadow .25s;
+    }
+    .cap-card:hover { box-shadow: 0 10px 36px rgba(0,0,0,.1); }
+    .cap-card-head {
+      background: var(--navy); padding: 28px 32px;
+      display: flex; align-items: flex-start; gap: 16px;
+    }
+    .cap-card-head .num {
+      font-family: var(--serif); font-size: 36px; color: rgba(184,149,42,.5);
+      line-height: 1; flex-shrink: 0; padding-top: 4px;
+    }
+    .cap-card-head .titles { }
+    .cap-card-head h3 { font-family: var(--serif); font-size: 21px; color: var(--white); font-weight: 500; margin-bottom: 4px; }
+    .cap-card-head span { font-size: 11px; color: rgba(255,255,255,.5); letter-spacing: 1.5px; text-transform: uppercase; }
+    .cap-card-body { padding: 28px 32px; }
+    .cap-card-body ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cap-card-body ul li {
+      display: flex; gap: 10px; font-size: 13.5px; color: var(--text); line-height: 1.6;
+    }
+    .cap-card-body ul li::before {
+      content: '—'; color: var(--gold); flex-shrink: 0; margin-top: 2px;
+    }
+
+    /* ─── CTA STRIP ─── */
+    .cta-strip {
+      background: var(--navy); padding: 72px 24px; text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .cta-strip::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 120%, rgba(184,149,42,.25) 0%, transparent 60%);
+    }
+    .cta-strip .inner { max-width: 640px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-strip .tag {
+      font-size: 11px; letter-spacing: 2.5px; text-transform: uppercase;
+      color: var(--gold-lt); margin-bottom: 20px;
+    }
+    .cta-strip h2 {
+      font-family: var(--serif); font-size: clamp(26px, 3vw, 40px);
+      color: var(--white); font-weight: 500; margin-bottom: 14px; line-height: 1.25;
+    }
+    .cta-strip p { font-size: 15px; color: rgba(255,255,255,.65); margin-bottom: 36px; }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--white);
+      padding: 14px 32px; border-radius: 4px;
+      font-size: 14px; font-weight: 500; letter-spacing: .4px;
+      transition: background .2s, transform .2s;
+    }
+    .cta-btn:hover { background: var(--gold-lt); transform: translateY(-2px); }
+
+    /* ─── COMPLIANCE NOTE ─── */
+    .compliance-note {
+      background: #f7f5f0; border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 4px; padding: 20px 24px;
+      font-size: 12.5px; color: var(--muted); line-height: 1.7;
+      margin-top: 52px;
+    }
+    .compliance-note strong { color: var(--navy); }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.7);
+      padding: 64px 24px 0;
+    }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 52px; border-bottom: 1px solid rgba(255,255,255,.1);
+    }
+    .footer-logo { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo img { height: 38px; width: auto; filter: brightness(0) invert(1); opacity: .85; }
+    .footer-logo-text strong { font-family: var(--serif); font-size: 16px; color: var(--white); font-weight: 600; }
+    .footer-logo-text span { display: block; font-size: 10px; color: rgba(255,255,255,.45); letter-spacing: 1.5px; text-transform: uppercase; }
+    .footer-addr { font-size: 12.5px; line-height: 1.8; color: rgba(255,255,255,.5); }
+
+    .footer-col h4 {
+      font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+      color: rgba(255,255,255,.4); font-weight: 500; margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a { font-size: 13px; color: rgba(255,255,255,.65); transition: color .2s; }
+    .footer-col ul li a:hover { color: var(--gold-lt); }
+
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 20px 0; font-size: 12px; color: rgba(255,255,255,.35);
+    }
+    .footer-bottom-links { display: flex; gap: 20px; }
+    .footer-bottom-links a { color: rgba(255,255,255,.35); transition: color .2s; }
+    .footer-bottom-links a:hover { color: var(--gold-lt); }
+
+    .footer-social { display: flex; gap: 14px; margin-top: 20px; }
+    .footer-social a {
+      width: 34px; height: 34px; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px; color: rgba(255,255,255,.55);
+      transition: border-color .2s, color .2s;
+    }
+    .footer-social a:hover { border-color: var(--gold); color: var(--gold-lt); }
+
+    /* ─── WHATSAPP FLOAT ─── */
+    .wa-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25d366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.45);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,.6); }
+    .wa-float svg { width: 26px; height: 26px; fill: white; }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .highlight-grid { grid-template-columns: 1fr; }
+      .cap-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 36px; }
+      .nav-links .dropdown .drop-menu { min-width: 200px; }
+    }
+    @media (max-width: 640px) {
+      .util-bar .left { display: none; }
+      .nav-links { gap: 0; }
+      .nav-links > li > a { padding: 8px 10px; font-size: 12.5px; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 10px; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="breadcrumb-bar">
+  <!-- ══ UTILITY BAR ══ -->
+  <div class="util-bar">
+    <div class="inner">
+      <div class="left">
+        <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
+        <a href="https://sanjaybc.com/contactus.html">India Office</a>
+        <a href="https://sanjaybc.com/contactus.html">UAE Desk</a>
+        <a href="https://sanjaybc.com/contactus.html">UK Desk</a>
+      </div>
+      <div class="right social-icons">
+        <a href="#" aria-label="LinkedIn">in</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="Facebook">fb</a>
+        <a href="#" aria-label="X">𝕏</a>
+        <a href="#" aria-label="YouTube">yt</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ HEADER / NAV ══ -->
+  <header>
+    <nav>
+      <a href="https://sanjaybc.com/index.html" class="logo-wrap">
+        <img src="https://sanjaybc.com/logo1.png" alt="Sanjay B C & Co." />
+        <div class="logo-text">
+          <strong>Sanjay B C &amp; Co.</strong>
+          <span>Chartered Accountants</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="https://sanjaybc.com/index.html">Home</a></li>
+        <li class="dropdown">
+          <a href="#">About Us <span class="caret">▾</span></a>
+          <ul class="drop-menu">
+            <li><a href="https://sanjaybc.com/about.html">Firm Overview</a></li>
+            <li><a href="https://sanjaybc.com/team.html">Our Team</a></li>
+            <li><a href="https://sanjaybc.com/industries.html">Industries We Serve</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#" class="active">Services <span class="caret">▾</span></a>
+          <ul class="drop-menu">
+            <li><a href="https://sanjaybc.com/virtual-cfo.html">CFO Advisory</a></li>
+            <li><a href="https://sanjaybc.com/litigation.html">Litigation &amp; Notices</a></li>
+            <li><a href="https://sanjaybc.com/riskcontrol.html">Risk &amp; Internal Controls</a></li>
+            <li><a href="https://sanjaybc.com/auditing.html">Auditing &amp; Assurance</a></li>
+            <li><a href="https://sanjaybc.com/compliance.html">Tax &amp; Compliance</a></li>
+            <li><a href="https://sanjaybc.com/international-tax.html">International Tax</a></li>
+            <li><a href="https://sanjaybc.com/finance.html">Business Finance &amp; Banking</a></li>
+            <li><a href="https://sanjaybc.com/business-setup.html">Business Setup</a></li>
+            <li><a href="https://sanjaybc.com/payroll.html">Payroll Services</a></li>
+          </ul>
+        </li>
+        <li class="dropdown">
+          <a href="#">Resources <span class="caret">▾</span></a>
+          <ul class="drop-menu">
+            <li><a href="https://sanjaybc.com/blog.html">Blogs &amp; Articles</a></li>
+            <li><a href="https://sanjaybc.com/downloads.html">Downloads</a></li>
+            <li><a href="https://sanjaybc.com/faqs.html">FAQs</a></li>
+          </ul>
+        </li>
+        <li><a href="https://sanjaybc.com/insights.html">Insights</a></li>
+        <li><a href="https://sanjaybc.com/careers.html">Careers</a></li>
+        <li><a href="https://sanjaybc.com/book.html" class="nav-cta">Schedule a Meeting</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ══ BREADCRUMB ══ -->
   <div class="breadcrumb">
-    <a href="index.html">Home</a>
-    <span class="breadcrumb-sep">›</span>
-    <a href="#">Services</a>
-    <span class="breadcrumb-sep">›</span>
-    <span>Payroll Services</span>
-  </div>
-</div>
-
-<div class="page-hero">
-
-  <div class="hero-eyebrow">
-    Payroll Processing &amp; Workforce Compliance
+    <div class="inner">
+      <a href="https://sanjaybc.com/index.html">Home</a>
+      <span class="sep">›</span>
+      <a href="#">Services</a>
+      <span class="sep">›</span>
+      <span>Payroll Services</span>
+    </div>
   </div>
 
-  <h1>
-    Payroll
-    <em>Services</em>
-  </h1>
+  <!-- ══ PAGE HERO ══ -->
+  <section class="page-hero">
+    <div class="inner">
+      <div class="hero-tag">Payroll Processing &amp; Workforce Compliance</div>
+      <h1>Payroll <em>Services</em></h1>
+      <p>Integrated payroll administration and employee compliance support covering salary processing, statutory deductions, labour law coordination, and workforce reporting systems for modern organisations.</p>
+    </div>
+  </section>
 
-  <p class="hero-desc">
-    Integrated payroll administration and employee compliance support covering salary processing, statutory deductions, labour law coordination, and workforce reporting systems for modern organisations.
-  </p>
+  <!-- ══ INTRO / HIGHLIGHTS ══ -->
+  <section class="section">
+    <div class="inner">
+      <div class="section-label">Structured Payroll</div>
+      <h2 class="section-title">Structured Payroll &amp; <em>Compliance Management</em></h2>
+      <p class="section-desc">Payroll administration today extends beyond salary computation. Businesses require accurate employee records, statutory alignment, timely reporting, and confidential workforce systems that support operational continuity and regulatory discipline.</p>
 
-  <div class="gold-line"></div>
+      <div class="highlight-grid">
+        <div class="highlight-card">
+          <div class="icon">⚙️</div>
+          <h3>Salary Processing Systems</h3>
+          <p>End-to-end payroll computation structures with employee-wise salary breakdowns and deduction mechanisms.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="icon">📋</div>
+          <h3>Labour Law Compliance</h3>
+          <p>PF, ESI, Professional Tax, TDS, and employment-related statutory coordination across payroll cycles.</p>
+        </div>
+        <div class="highlight-card">
+          <div class="icon">📊</div>
+          <h3>Management Reporting</h3>
+          <p>Payroll summaries, cost analytics, employee compensation records, and workforce reporting frameworks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
+  <!-- ══ CORE CAPABILITIES ══ -->
+  <section class="section alt">
+    <div class="inner">
+      <div class="section-label">Core Capabilities</div>
+      <h2 class="section-title">End-to-End Payroll <em>Administration Frameworks</em></h2>
 
-<div class="section">
+      <div class="cap-grid">
 
-  <div class="section-inner">
+        <div class="cap-card">
+          <div class="cap-card-head">
+            <div class="num">01</div>
+            <div class="titles">
+              <h3>Payroll Processing</h3>
+              <span>Salary Administration &amp; Computation</span>
+            </div>
+          </div>
+          <div class="cap-card-body">
+            <ul>
+              <li>Monthly salary computation including earnings, reimbursements, incentives, bonuses, and statutory deductions.</li>
+              <li>Preparation of employee salary sheets, payslips, payroll registers, and bank transfer statements.</li>
+              <li>Leave encashment, full-and-final settlements, arrears processing, and payroll adjustments.</li>
+              <li>Structured payroll workflows aligned with HR and finance coordination requirements.</li>
+            </ul>
+          </div>
+        </div>
 
-    <div class="intro-card">
+        <div class="cap-card">
+          <div class="cap-card-head">
+            <div class="num">02</div>
+            <div class="titles">
+              <h3>PF, ESI &amp; Labour Compliance</h3>
+              <span>Statutory Employee Compliance</span>
+            </div>
+          </div>
+          <div class="cap-card-body">
+            <ul>
+              <li>PF and ESI registration support, monthly contribution workings, and return filing coordination.</li>
+              <li>Professional Tax compliance, labour registrations, and employee-related statutory documentation.</li>
+              <li>Payroll-linked TDS computations and employee tax deduction management.</li>
+              <li>Assistance in maintaining employee records and statutory registers under applicable labour laws.</li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="cap-card">
+          <div class="cap-card-head">
+            <div class="num">03</div>
+            <div class="titles">
+              <h3>Employee Tax &amp; Documentation</h3>
+              <span>Workforce Tax Administration</span>
+            </div>
+          </div>
+          <div class="cap-card-body">
+            <ul>
+              <li>Employee investment declarations, tax proofs verification, and annual tax projection workings.</li>
+              <li>Generation of Form 16, salary certificates, and payroll-related employee documentation.</li>
+              <li>Coordination support for employee reimbursement structures and tax-efficient salary configurations.</li>
+              <li>Payroll reconciliation support with accounting records and financial statements.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cap-card">
+          <div class="cap-card-head">
+            <div class="num">04</div>
+            <div class="titles">
+              <h3>Payroll MIS &amp; Reporting</h3>
+              <span>Analytics &amp; Workforce Reporting</span>
+            </div>
+          </div>
+          <div class="cap-card-body">
+            <ul>
+              <li>Department-wise payroll cost summaries and employee compensation analytics for management review.</li>
+              <li>Monthly payroll MIS reports supporting finance teams and operational decision-making.</li>
+              <li>Payroll data confidentiality frameworks and controlled employee information systems.</li>
+              <li>Scalable payroll structures designed for growing organisations and multi-location workforce environments.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ICAI Compliance Note -->
+      <div class="compliance-note">
+        <strong>ICAI Compliance Note:</strong> This webpage is intended solely for informational presentation of professional service areas and operational support capabilities. The contents herein do not constitute solicitation, assurance, or advertisement and are published in accordance with the ethical guidelines prescribed by the Institute of Chartered Accountants of India (ICAI).
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA STRIP ══ -->
+  <section class="cta-strip">
+    <div class="inner">
+      <div class="tag">Workforce Support</div>
+      <h2>Reliable Payroll Systems For Growing Organisations.</h2>
+      <p>Integrated payroll, compliance, and employee reporting solutions designed for operational efficiency.</p>
+      <a href="https://sanjaybc.com/book.html" class="cta-btn">Schedule a Meeting →</a>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-grid">
       <div>
-
-        <h2>
-          Structured Payroll &amp;<br>
-          <em>Compliance Management</em>
-        </h2>
-
-        <p>
-          Payroll administration today extends beyond salary computation. Businesses require accurate employee records, statutory alignment, timely reporting, and confidential workforce systems that support operational continuity and regulatory discipline.
-        </p>
-
+        <div class="footer-logo">
+          <img src="https://sanjaybc.com/logo1.png" alt="Sanjay B C & Co." />
+          <div class="footer-logo-text">
+            <strong>Sanjay B C &amp; Co.</strong>
+            <span>Chartered Accountants</span>
+          </div>
+        </div>
+        <p class="footer-addr">No.296, 1st Floor, S V Tower,<br />Opp. to Hotel Janatha, Wilsongarden,<br />Bangalore — 560 027, Karnataka, India</p>
+        <div class="footer-social">
+          <a href="#" aria-label="LinkedIn">in</a>
+          <a href="#" aria-label="Instagram">ig</a>
+          <a href="#" aria-label="Facebook">fb</a>
+          <a href="#" aria-label="X">𝕏</a>
+          <a href="#" aria-label="YouTube">yt</a>
+        </div>
       </div>
 
-      <div class="intro-pillars">
-
-        <div class="pillar">
-
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-              <circle cx="9" cy="7" r="4"/>
-              <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-              <path d="M16 3.13a4 4 0 010 7.75"/>
-            </svg>
-          </div>
-
-          <div class="pillar-text">
-            <strong>Salary Processing Systems</strong>
-            <span>
-              End-to-end payroll computation structures with employee-wise salary breakdowns and deduction mechanisms.
-            </span>
-          </div>
-
-        </div>
-
-        <div class="pillar">
-
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M9 12l2 2 4-4"/>
-              <path d="M21 12c0 4.97-4.03 9-9 9s-9-4.03-9-9 4.03-9 9-9 9 4.03 9 9z"/>
-            </svg>
-          </div>
-
-          <div class="pillar-text">
-            <strong>Labour Law Compliance</strong>
-            <span>
-              PF, ESI, Professional Tax, TDS, and employment-related statutory coordination across payroll cycles.
-            </span>
-          </div>
-
-        </div>
-
-        <div class="pillar">
-
-          <div class="pillar-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 20V10"/>
-              <path d="M18 20V4"/>
-              <path d="M6 20v-6"/>
-            </svg>
-          </div>
-
-          <div class="pillar-text">
-            <strong>Management Reporting</strong>
-            <span>
-              Payroll summaries, cost analytics, employee compensation records, and workforce reporting frameworks.
-            </span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-<div class="section section-alt">
-
-  <div class="section-inner">
-
-    <div class="section-label">
-      Core Capabilities
-    </div>
-
-    <h2 class="section-title">
-      End-to-End Payroll Administration Frameworks
-    </h2>
-
-    <div class="gold-rule"></div>
-
-    <div class="services-grid">
-
-      <div class="svc-card">
-
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24">
-            <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
-            <circle cx="9" cy="7" r="4"/>
-            <path d="M23 21v-2a4 4 0 00-3-3.87"/>
-            <path d="M16 3.13a4 4 0 010 7.75"/>
-          </svg>
-        </div>
-
-        <div class="svc-title">
-          Payroll Processing
-        </div>
-
-        <div class="svc-subtitle">
-          Salary Administration &amp; Computation
-        </div>
-
-        <ul class="svc-list">
-
-          <li>
-            Monthly salary computation including earnings, reimbursements, incentives, bonuses, and statutory deductions.
-          </li>
-
-          <li>
-            Preparation of employee salary sheets, payslips, payroll registers, and bank transfer statements.
-          </li>
-
-          <li>
-            Leave encashment, full-and-final settlements, arrears processing, and payroll adjustments.
-          </li>
-
-          <li>
-            Structured payroll workflows aligned with HR and finance coordination requirements.
-          </li>
-
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="https://sanjaybc.com/virtual-cfo.html">Business Growth &amp; CFO Advisory</a></li>
+          <li><a href="https://sanjaybc.com/litigation.html">Tax Notices &amp; Litigation</a></li>
+          <li><a href="https://sanjaybc.com/riskcontrol.html">Risk Control &amp; Business Systems</a></li>
+          <li><a href="https://sanjaybc.com/auditing.html">Audit &amp; Assurance</a></li>
+          <li><a href="https://sanjaybc.com/compliance.html">Tax &amp; Compliance</a></li>
+          <li><a href="https://sanjaybc.com/international-tax.html">International Taxation</a></li>
+          <li><a href="https://sanjaybc.com/finance.html">Business Finance &amp; Banking</a></li>
+          <li><a href="https://sanjaybc.com/business-setup.html">Business Setup</a></li>
+          <li><a href="https://sanjaybc.com/payroll.html">Payroll Services</a></li>
         </ul>
-
       </div>
 
-      <div class="svc-card">
-
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24">
-            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="8" y1="13" x2="16" y2="13"/>
-            <line x1="8" y1="17" x2="16" y2="17"/>
-          </svg>
-        </div>
-
-        <div class="svc-title">
-          PF, ESI &amp; Labour Compliance
-        </div>
-
-        <div class="svc-subtitle">
-          Statutory Employee Compliance
-        </div>
-
-        <ul class="svc-list">
-
-          <li>
-            PF and ESI registration support, monthly contribution workings, and return filing coordination.
-          </li>
-
-          <li>
-            Professional Tax compliance, labour registrations, and employee-related statutory documentation.
-          </li>
-
-          <li>
-            Payroll-linked TDS computations and employee tax deduction management.
-          </li>
-
-          <li>
-            Assistance in maintaining employee records and statutory registers under applicable labour laws.
-          </li>
-
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="https://sanjaybc.com/index.html">Home</a></li>
+          <li><a href="https://sanjaybc.com/about.html">About Us</a></li>
+          <li><a href="https://sanjaybc.com/index.html">Services</a></li>
+          <li><a href="https://sanjaybc.com/resources.html">Resources</a></li>
+          <li><a href="https://sanjaybc.com/insights.html">Insights</a></li>
+          <li><a href="https://sanjaybc.com/careers.html">Careers</a></li>
+          <li><a href="https://sanjaybc.com/contactus.html">Contact Us</a></li>
         </ul>
-
       </div>
 
-      <div class="svc-card">
-
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24">
-            <rect x="2" y="7" width="20" height="14" rx="2"/>
-            <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-          </svg>
-        </div>
-
-        <div class="svc-title">
-          Employee Tax &amp; Documentation
-        </div>
-
-        <div class="svc-subtitle">
-          Workforce Tax Administration
-        </div>
-
-        <ul class="svc-list">
-
-          <li>
-            Employee investment declarations, tax proofs verification, and annual tax projection workings.
-          </li>
-
-          <li>
-            Generation of Form 16, salary certificates, and payroll-related employee documentation.
-          </li>
-
-          <li>
-            Coordination support for employee reimbursement structures and tax-efficient salary configurations.
-          </li>
-
-          <li>
-            Payroll reconciliation support with accounting records and financial statements.
-          </li>
-
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="https://sanjaybc.com/contactus.html">India Office</a></li>
+          <li><a href="https://sanjaybc.com/contactus.html">UAE Desk</a></li>
+          <li><a href="https://sanjaybc.com/contactus.html">UK Desk</a></li>
+          <li><a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a></li>
         </ul>
-
       </div>
-
-      <div class="svc-card">
-
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24">
-            <path d="M12 20V10"/>
-            <path d="M18 20V4"/>
-            <path d="M6 20v-6"/>
-          </svg>
-        </div>
-
-        <div class="svc-title">
-          Payroll MIS &amp; Reporting
-        </div>
-
-        <div class="svc-subtitle">
-          Analytics &amp; Workforce Reporting
-        </div>
-
-        <ul class="svc-list">
-
-          <li>
-            Department-wise payroll cost summaries and employee compensation analytics for management review.
-          </li>
-
-          <li>
-            Monthly payroll MIS reports supporting finance teams and operational decision-making.
-          </li>
-
-          <li>
-            Payroll data confidentiality frameworks and controlled employee information systems.
-          </li>
-
-          <li>
-            Scalable payroll structures designed for growing organisations and multi-location workforce environments.
-          </li>
-
-        </ul>
-
-      </div>
-
     </div>
 
-    <div class="icai-note">
-
-      <svg viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="10"/>
-        <line x1="12" y1="16" x2="12" y2="12"/>
-        <line x1="12" y1="8" x2="12.01" y2="8"/>
-      </svg>
-
-      <div>
-        <strong>ICAI Compliance Note:</strong>
-        This webpage is intended solely for informational presentation of professional service areas and operational support capabilities. The contents herein do not constitute solicitation, assurance, or advertisement and are published in accordance with the ethical guidelines prescribed by the Institute of Chartered Accountants of India (ICAI).
+    <div class="footer-bottom">
+      <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
+      <div class="footer-bottom-links">
+        <a href="https://sanjaybc.com/privacy.html">Privacy Policy</a>
+        <a href="https://sanjaybc.com/privacy.html">Terms of Use</a>
+        <a href="https://sanjaybc.com/privacy.html">Disclaimer</a>
       </div>
-
     </div>
+  </footer>
 
-  </div>
-
-</div>
-
-<div class="consult-banner">
-
-  <div class="consult-text">
-
-    <div class="badge">
-      Workforce Support
-    </div>
-
-    <h3>
-      Reliable Payroll Systems For Growing Organisations.
-    </h3>
-
-    <p>
-      "Integrated payroll, compliance, and employee reporting solutions designed for operational efficiency."
-    </p>
-
-  </div>
-
-  <a href="book.html" target="_blank" class="consult-cta">
-    <svg viewBox="0 0 24 24">
-      <path d="M8 2v2M16 2v2M3 8h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"
-      stroke="white"
-      stroke-width="1.8"
-      fill="none"
-      stroke-linecap="round"/>
+  <!-- ══ WHATSAPP FLOAT ══ -->
+  <a href="https://wa.me/919738081962" class="wa-float" title="Chat on WhatsApp" target="_blank" rel="noopener">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 .4C7.4.4.4 7.4.4 16c0 2.8.7 5.4 2 7.7L.4 31.6l8.2-2c2.2 1.2 4.7 1.8 7.4 1.8 8.6 0 15.6-7 15.6-15.6S24.6.4 16 .4zm0 28.4c-2.5 0-4.8-.7-6.8-1.8l-.5-.3-5 1.3 1.3-4.8-.3-.5C3.5 20.8 2.8 18.5 2.8 16 2.8 8.7 8.7 2.8 16 2.8S29.2 8.7 29.2 16 23.3 28.8 16 28.8zM23 19.3c-.4-.2-2.3-1.1-2.7-1.3-.4-.1-.6-.2-.9.2s-1 1.3-1.2 1.5c-.2.2-.4.3-.8.1s-1.6-.6-3-1.9c-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.2.1-.4 0-.6-.1-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.7c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.4 3.7 5.9 5.2 3.4 1.5 3.4 1 4 .9.6 0 1.9-.8 2.1-1.5.3-.7.3-1.3.2-1.5-.1-.2-.3-.3-.6-.4z"/>
     </svg>
-    Schedule a Meeting →
   </a>
-
-</div>
-
-<footer>
-  <div class="footer-top">
-    <div>
-      <div class="footer-logo"><img src="logo1.png" alt="Sanjay B C &amp; Co."></div>
-      <p class="footer-desc">Sanjay B C &amp; Co., Chartered Accountants, No.296, 1st Floor, S V Tower, Opp. to Hotel Janatha, Wilsongarden, Bangalore - 560 027, Karnataka India</p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <a href="virtual-cfo.html">Business Growth &amp; CFO Advisory</a>
-      <a href="litigation.html">Tax Notices, Litigation &amp; Representation</a>
-      <a href="riskcontrol.html">Risk Control &amp; Business Systems</a>
-      <a href="auditing.html">Audit &amp; Assurance</a>
-      <a href="compliance.html">Tax &amp; Compliance</a>
-      <a href="international-tax.html">International Taxation</a>
-      <a href="finance.html">Business Finance &amp; Banking Support</a>
-      <a href="business-setup.html">Business Setup</a>
-      <a href="payroll.html">Payroll Services</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="index.html">Services</a>
-      <a href="resources.html">Resources</a>
-      <a href="insights.html">Insights</a>
-      <a href="careers.html">Careers</a>
-      <a href="contactus.html">Contact Us</a>
-    </div>
-    <div class="footer-col">
-      <h4>Contact</h4>
-      <a href="contactus.html">India Office</a>
-      <a href="contactus.html">UAE Desk</a>
-      <a href="contactus.html">UK Desk</a>
-      <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-social">
-      <a href="#">LinkedIn</a>
-      <a href="#">Instagram</a>
-      <a href="#">Facebook</a>
-      <a href="#">X</a>
-      <a href="#">YouTube</a>
-    </div>
-    <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
-    <div style="display:flex;gap:20px;">
-      <a href="privacy.html">Privacy Policy</a>
-      <a href="privacy.html">Terms of Use</a>
-      <a href="privacy.html">Disclaimer</a>
-    </div>
-  </div>
-</footer>
- 
-<a href="https://wa.me/919738081962" target="_blank" class="wa-float" title="Chat on WhatsApp">
-  <div class="wa-pulse"></div>
-  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.676 4.782 1.854 6.762L2 30l7.47-1.832A13.936 13.936 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.61l-.422-.25-4.436 1.088 1.12-4.316-.277-.444A11.6 11.6 0 1 1 16 27.6zm6.34-8.68c-.347-.174-2.054-1.013-2.374-1.13-.32-.116-.552-.173-.784.174-.232.347-.9 1.13-1.102 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.718-1.03-.918-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.435-.029-.608-.087-.174-.784-1.89-1.074-2.59-.283-.68-.57-.587-.784-.597l-.667-.012c-.232 0-.608.087-.926.434-.318.347-1.218 1.19-1.218 2.9s1.247 3.364 1.42 3.597c.174.232 2.453 3.747 5.944 5.254.83.359 1.48.573 1.985.733.834.266 1.593.228 2.193.138.669-.1 2.054-.84 2.344-1.65.29-.812.29-1.508.203-1.65-.086-.145-.318-.232-.665-.406z"/>
-  </svg>
-</a>
 
 </body>
 </html>
