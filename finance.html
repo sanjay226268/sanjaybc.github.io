@@ -1,82 +1,1321 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Business Finance & Banking Support | SanjayBC</title>
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Finance &amp; Banking Support | Sanjay B C &amp; Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* =============================================
+   FINANCE PAGE — SPECIFIC STYLES ONLY
+   (navbar, footer, topbar, whatsapp → shared.css)
+============================================= */
+
+body {
+  background: var(--off-white);
+}
+
+/* ── BREADCRUMB ── */
+.breadcrumb-bar {
+  background: var(--white);
+  border-bottom: 1px solid rgba(13,27,46,0.07);
+  padding: 12px 48px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb-sep { color: rgba(13,27,46,0.25); font-size: 14px; }
+.breadcrumb span:last-child { color: var(--gold); font-weight: 500; }
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 64px 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,146,42,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.page-hero h1 em {
+  color: var(--gold-light);
+  font-style: italic;
+  display: block;
+}
+
+.hero-desc {
+  font-size: 15.5px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.75;
+  max-width: 600px;
+  position: relative;
+}
+
+.gold-line {
+  width: 56px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-top: 28px;
+  position: relative;
+}
+
+/* ── HERO STATS STRIP ── */
+.hero-stats-strip {
+  background: rgba(255,255,255,0.04);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 28px 48px;
+  display: flex;
+  gap: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.hstat {
+  flex: 1;
+  border-right: 1px solid rgba(255,255,255,0.1);
+  padding: 0 32px 0 0;
+  margin-right: 32px;
+}
+
+.hstat:last-child {
+  border-right: none;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.hstat-num {
+  font-family: var(--serif);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--gold-light);
+  line-height: 1;
+}
+
+.hstat-label {
+  font-size: 12px;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.03em;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 64px 48px;
+}
+
+.section-alt {
+  background: var(--white);
+}
+
+.section-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 34px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-desc {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.75;
+  max-width: 680px;
+  margin-bottom: 40px;
+}
+
+.gold-rule {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+
+/* ── INTRO CARD (dark split) ── */
+.intro-card {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184,146,42,0.15);
+}
+
+.intro-card::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(184,146,42,0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.intro-card h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.intro-card h2 em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.intro-card > div > p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+}
+
+.intro-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(184,146,42,0.12);
+  border-radius: 8px;
+  padding: 18px 20px;
+  transition: all 0.2s;
+}
+
+.pillar:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--gold);
+}
+
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(184,146,42,0.15);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pillar-text strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 4px;
+}
+
+.pillar-text span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  display: block;
+}
+
+/* ── SERVICE CARDS GRID ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 24px;
+}
+
+.svc-card {
+  background: var(--off-white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-radius: 10px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.3s ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(13,27,46,0.1);
+  border-color: var(--gold);
+}
+
+.svc-card:hover::before { height: 100%; }
+
+.svc-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.svc-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc-title {
+  font-family: var(--serif);
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.svc-subtitle {
+  font-size: 12px;
+  color: var(--gold);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 18px;
+}
+
+.svc-list {
+  list-style: none;
+}
+
+.svc-list li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 9px 0;
+  border-bottom: 1px solid rgba(184,146,42,0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.6;
+}
+
+.svc-list li:last-child { border-bottom: none; }
+
+.svc-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* ── LOAN TYPES PILLS GRID ── */
+.loan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.loan-pill {
+  background: var(--white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-radius: 8px;
+  padding: 20px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  transition: all 0.25s ease;
+}
+
+.loan-pill:hover {
+  border-color: var(--gold);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(13,27,46,0.08);
+}
+
+.loan-pill-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(184,146,42,0.1);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.loan-pill-icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+.loan-pill-text strong {
+  display: block;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 3px;
+}
+
+.loan-pill-text span {
+  font-size: 12px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ── WHY US — TWO-COL ── */
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.why-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 24px;
+  background: var(--off-white);
+  border: 1px solid rgba(13,27,46,0.08);
+  border-radius: 10px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.why-item:hover {
+  box-shadow: 0 6px 20px rgba(13,27,46,0.07);
+  border-color: rgba(184,146,42,0.3);
+}
+
+.why-num {
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 36px;
+}
+
+.why-text h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+
+.why-text p {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* ── PROCESS STEPS ── */
+.process-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0;
+  position: relative;
+}
+
+.process-steps::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold), rgba(184,146,42,0.2));
+  z-index: 0;
+}
+
+.step {
+  text-align: center;
+  padding: 0 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.step-num {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: var(--navy);
+  border: 3px solid var(--gold);
+  color: var(--gold-light);
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+}
+
+.step h4 {
+  font-family: var(--serif);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 8px;
+}
+
+.step p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ── ICAI NOTE ── */
+.icai-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: var(--off-white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.icai-note svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.75;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.icai-note strong { color: var(--navy); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1024px) {
+  .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+  .why-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 900px) {
+  .section { padding: 48px 20px; }
+  .breadcrumb-bar { padding: 12px 20px; }
+  .page-hero { padding: 48px 20px 40px; }
+  .hero-stats-strip { padding: 24px 20px; flex-wrap: wrap; gap: 24px; }
+  .hstat { border-right: none; margin-right: 0; min-width: 40%; }
+  .process-steps::before { display: none; }
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .loan-grid { grid-template-columns: 1fr; }
+  .process-steps { grid-template-columns: 1fr 1fr; gap: 24px; }
+}
+
+@media (max-width: 500px) {
+  .process-steps { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
-<section class="hero-section">
-  <div class="container">
-    <h1>Business Finance & Banking Support</h1>
-    <p>
-      Structured financial and banking support for business funding,
-      growth and operational expansion.
+<!-- ═══════════════════════════════════
+     TOP BAR
+═══════════════════════════════════ -->
+<div class="topbar">
+  <span class="topbar-brand"> </span>
+  <div class="topbar-links">
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#" class="topbar-cta"> </a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     MAIN NAVBAR
+═══════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img
+      src="logo1.png"
+      alt="Sanjay B C & Co."
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    >
+    <div style="display:none; align-items:center; gap:10px;">
+      <div class="logo-initials">SBC</div>
+      <div>
+        <div class="logo-name">Sanjay B C &amp; Co.</div>
+        <div class="logo-tagline">Chartered Accountants</div>
+      </div>
+    </div>
+  </a>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+
+    <!-- ABOUT US DROPDOWN -->
+    <div class="nav-item">
+      <a href="#">
+        About Us
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Who We Are</div>
+        <a href="about.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Firm Overview</div>
+            <div class="dd-row-sub">Our history, values &amp; professional approach</div>
+          </div>
+        </a>
+        <a href="team.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Our Team</div>
+            <div class="dd-row-sub">Meet the professionals behind the firm</div>
+          </div>
+        </a>
+        <a href="industries.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Industries We Serve</div>
+            <div class="dd-row-sub">Sectors &amp; business types we specialise in</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- SERVICES DROPDOWN — active on this page -->
+    <div class="nav-item">
+      <a href="#" class="active-nav">
+        Services
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Core Practice Areas</div>
+        <a href="virtual-cfo.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Growth &amp; CFO Advisory</div>
+            <div class="dd-row-sub">Cash flow, MIS, budgeting &amp; strategic finance</div>
+          </div>
+        </a>
+        <a href="litigation.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax Notices, Litigation &amp; Representation</div>
+            <div class="dd-row-sub">Notices, assessments &amp; dispute handling</div>
+          </div>
+        </a>
+        <a href="riskcontrol.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Risk Control &amp; Business Systems</div>
+            <div class="dd-row-sub">Governance, SOPs &amp; process controls</div>
+          </div>
+        </a>
+        <a href="auditing.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Audit &amp; Assurance</div>
+            <div class="dd-row-sub">Statutory audit &amp; financial reporting</div>
+          </div>
+        </a>
+        <div class="dd-group-label">Business Support Services</div>
+        <a href="compliance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax &amp; Compliance</div>
+            <div class="dd-row-sub">Direct tax, GST &amp; compliance support</div>
+          </div>
+        </a>
+        <a href="international-tax.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">International Tax</div>
+            <div class="dd-row-sub">Cross-border taxation &amp; structuring</div>
+          </div>
+        </a>
+        <!-- CURRENT PAGE — highlighted -->
+        <a href="finance.html" class="dd-row active-nav">
+          <div class="dd-row-bar" style="background:var(--gold);"></div>
+          <div class="dd-icon" style="background:rgba(184,146,42,0.2);">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Finance &amp; Banking</div>
+            <div class="dd-row-sub">Funding, banking &amp; financial structuring</div>
+          </div>
+        </a>
+        <a href="business-setup.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Setup</div>
+            <div class="dd-row-sub">Entity formation &amp; regulatory registrations</div>
+          </div>
+        </a>
+        <a href="payroll.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Payroll Services</div>
+            <div class="dd-row-sub">Payroll processing &amp; labour compliance</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- RESOURCES DROPDOWN -->
+    <div class="nav-item">
+      <a href="#">
+        Resources
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Knowledge Centre</div>
+        <a href="blog.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Blogs &amp; Articles</div>
+            <div class="dd-row-sub">Expert views on tax, finance &amp; compliance</div>
+          </div>
+        </a>
+        <a href="downloads.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">Downloads</div>
+            <div class="dd-row-sub">Checklists, formats &amp; reference documents</div>
+          </div>
+        </a>
+        <a href="faqs.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg></div>
+          <div class="dd-text">
+            <div class="dd-row-label">FAQs</div>
+            <div class="dd-row-sub">Quick answers to common queries</div>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <a href="insights.html">Insights</a>
+    <a href="careers.html">Careers</a>
+    <a href="contactus.html">Contact Us</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════ -->
+<div class="breadcrumb-bar">
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <span class="breadcrumb-sep">›</span>
+    <a href="#">Services</a>
+    <span class="breadcrumb-sep">›</span>
+    <span>Business Finance &amp; Banking Support</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<div class="page-hero">
+  <div class="hero-eyebrow">Business Support Area</div>
+  <h1>Business Finance
+    <em>&amp; Banking Support</em>
+  </h1>
+  <p class="hero-desc">
+    Structured financial documentation, credit facilitation, CMA preparation and banking liaison support to help Indian businesses access the funding they need to grow, sustain and scale.
+  </p>
+  <div class="gold-line"></div>
+
+  <!-- STATS STRIP inside hero -->
+  <div class="hero-stats-strip" style="margin-top:36px; border-radius:8px; overflow:hidden;">
+    <div class="hstat">
+      <div class="hstat-num">₹5Cr+</div>
+      <div class="hstat-label">Loan proposals structured &amp; submitted</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">15+</div>
+      <div class="hstat-label">Banks &amp; NBFCs worked with across India</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">48hrs</div>
+      <div class="hstat-label">Average CMA data turnaround time</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">MSME</div>
+      <div class="hstat-label">Specialists in SME &amp; startup funding advisory</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     INTRO CARD
+═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-inner">
+    <div class="intro-card">
+      <div>
+        <h2>Finance Is the<br><em>Engine of Growth</em></h2>
+        <p>
+          Whether you're seeking your first working capital line, scaling with a term loan, or restructuring existing debt, getting the financial story right is everything. Banks don't just lend money — they lend it to businesses that can clearly demonstrate repayment capacity, strong cash flows and sound governance. We bridge that gap between your business reality and what bankers need to see.
+        </p>
+      </div>
+      <div class="intro-pillars">
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><path d="M12 12v4M10 14h4"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Credit-Ready Documentation</strong>
+            <span>Professionally structured CMA data, projections and financials that speak the banker's language.</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>End-to-End Loan Facilitation</strong>
+            <span>From initial assessment to bank submission, follow-up and sanction support.</span>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="pillar-text">
+            <strong>Government Scheme Navigation</strong>
+            <span>MSME schemes, CGTMSE cover, MUDRA and subsidy advisory for eligible businesses.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     LOAN TYPES WE SUPPORT
+═══════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">Funding Coverage</div>
+    <h2 class="section-title">Types of Finance We Help You Access</h2>
+    <p class="section-desc">
+      Every business has different funding needs. We assess your profile, match you to the right instrument and prepare the documentation to maximise your approval chances.
     </p>
+    <div class="loan-grid">
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>Working Capital (CC / OD)</strong>
+          <span>Cash credit and overdraft limits for day-to-day operational cash flow needs</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>Term Loans</strong>
+          <span>Long-term funding for capital expenditure, expansion and asset acquisition</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>MSME / SME Loans</strong>
+          <span>Priority sector lending with CGTMSE collateral-free cover for eligible businesses</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>MUDRA Loans</strong>
+          <span>Shishu, Kishore and Tarun categories under PM MUDRA Yojana for micro enterprises</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>Machinery &amp; Equipment Finance</strong>
+          <span>Asset-backed loans for plant, machinery, vehicles and technology upgrades</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>Project Finance</strong>
+          <span>Long-gestation capital structures for new business ventures and greenfield projects</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M20 7H4a2 2 0 00-2 2v6a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2zM1 10h22"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>Loan Against Property (LAP)</strong>
+          <span>Monetise business or personal property to unlock larger loan amounts at lower rates</span>
+        </div>
+      </div>
+      <div class="loan-pill">
+        <div class="loan-pill-icon">
+          <svg viewBox="0 0 24 24"><path d="M3 3h18v4H3zM3 10h18v4H3zM3 17h18v4H3z"/></svg>
+        </div>
+        <div class="loan-pill-text">
+          <strong>Debt Restructuring</strong>
+          <span>Reorganisation of existing credit facilities to reduce EMI burden and improve cash flow</span>
+        </div>
+      </div>
+    </div>
   </div>
-</section>
+</div>
 
-<section class="content-section">
-  <div class="container">
+<!-- ═══════════════════════════════════
+     CORE SERVICE CARDS
+═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Core Capabilities</div>
+    <h2 class="section-title">What We Do for Your Business</h2>
+    <div class="gold-rule"></div>
+    <div class="services-grid">
 
-    <div class="intro-box">
-      <h2>Financial & Banking Support for Growing Businesses</h2>
-      <p>
-        Access to structured funding and efficient banking support plays
-        a critical role in business growth and financial stability.
-        We assist businesses with financial documentation, CMA preparation,
-        project reports and banking support services.
-      </p>
-    </div>
-
-    <div class="service-grid">
-
-      <div class="service-card">
-        <h3>Bank Loan Assistance</h3>
-        <ul>
-          <li>Business Loan Support</li>
-          <li>Working Capital Assistance</li>
-          <li>Term Loan Documentation</li>
-          <li>Loan Proposal Structuring</li>
+      <!-- CARD 1 -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+        </div>
+        <div class="svc-title">Bank Loan Assistance</div>
+        <div class="svc-subtitle">End-to-End Loan Facilitation</div>
+        <ul class="svc-list">
+          <li>Assessment of funding eligibility based on financials, credit history and business vintage</li>
+          <li>Identification of appropriate lenders — PSU banks, private banks or NBFCs — for your profile</li>
+          <li>Preparation and compilation of complete loan application dossier</li>
+          <li>Working capital enhancement — CC / OD limit reviews and enhancements at renewal</li>
+          <li>Term loan structuring for capital expenditure with optimal repayment schedules</li>
+          <li>Liaison with bank relationship managers and credit officers through the sanction process</li>
+          <li>Post-sanction compliance — stock statements, quarterly returns, insurance and charge registration</li>
         </ul>
       </div>
 
-      <div class="service-card">
-        <h3>CMA & Project Reports</h3>
-        <ul>
-          <li>CMA Data Preparation</li>
-          <li>Project Financial Reports</li>
-          <li>Business Financial Projections</li>
-          <li>Ratio Analysis</li>
+      <!-- CARD 2 -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+        </div>
+        <div class="svc-title">CMA Data &amp; Project Reports</div>
+        <div class="svc-subtitle">Financial Documentation for Banks</div>
+        <ul class="svc-list">
+          <li>Preparation of Credit Monitoring Arrangement (CMA) data as per RBI / bank formats</li>
+          <li>Detailed project financial reports covering promoter background, market analysis and financials</li>
+          <li>5-year financial projections — P&amp;L, balance sheet and cash flow — with assumptions memo</li>
+          <li>DSCR (Debt Service Coverage Ratio) and break-even analysis to establish repayment capacity</li>
+          <li>Ratio analysis — current ratio, DSCR, TOL/TNW, RONW — presented in bank-ready formats</li>
+          <li>Techno-economic feasibility reports for new projects and greenfield ventures</li>
+          <li>Revision and resubmission support if initial appraisal raises queries</li>
         </ul>
       </div>
 
-      <div class="service-card">
-        <h3>Subsidy & Incentive Advisory</h3>
-        <ul>
-          <li>MSME Incentive Guidance</li>
-          <li>Subsidy Advisory Support</li>
-          <li>Government Scheme Advisory</li>
-          <li>Incentive Documentation Assistance</li>
+      <!-- CARD 3 -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="svc-title">Subsidy &amp; Government Scheme Advisory</div>
+        <div class="svc-subtitle">MSME Incentives &amp; Grants</div>
+        <ul class="svc-list">
+          <li>CGTMSE (Credit Guarantee Fund Trust for MSEs) — collateral-free cover up to ₹2 crore for eligible borrowers</li>
+          <li>MUDRA Yojana facilitation — Shishu (up to ₹50K), Kishore (up to ₹5L) and Tarun (up to ₹10L)</li>
+          <li>Udyam Registration and its impact on priority sector lending eligibility</li>
+          <li>State-specific MSME subsidy schemes — Karnataka Udyog Mitra, KSFC schemes and DIC subsidies</li>
+          <li>Technology Upgradation Fund Scheme (TUFS) for textile and manufacturing units</li>
+          <li>PLI (Production Linked Incentive) scheme eligibility assessment and application support</li>
+          <li>Interest subvention scheme advisory under various Central and State government programmes</li>
+        </ul>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        </div>
+        <div class="svc-title">Working Capital Optimisation</div>
+        <div class="svc-subtitle">Cash Flow &amp; Financial Efficiency</div>
+        <ul class="svc-list">
+          <li>Cash conversion cycle analysis — identifying bottlenecks in receivables, payables and inventory</li>
+          <li>Debtor and creditor management advisory to improve net working capital position</li>
+          <li>Stock statement preparation and submission as per bank drawing power requirements</li>
+          <li>Invoice discounting and bill discounting facility structuring with banks</li>
+          <li>Factoring and supply chain finance options for faster receivable monetisation</li>
+          <li>Monthly MIS reporting on working capital utilisation and limit adherence</li>
+        </ul>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="svc-title">Financial Documentation &amp; Structuring</div>
+        <div class="svc-subtitle">Compliance &amp; Loan File Management</div>
+        <ul class="svc-list">
+          <li>Compilation and attestation of financial statements for bank submission — CA certified as required</li>
+          <li>Net worth certificates for promoters and guarantors</li>
+          <li>Audited accounts preparation and alignment with bank formats</li>
+          <li>ITR and GST return compilation with banking reconciliation support</li>
+          <li>CIBIL / credit score review and advisory on improving borrower credit profile</li>
+          <li>Documentation checklist management to ensure zero-deficiency loan files</li>
+        </ul>
+      </div>
+
+      <!-- CARD 6 -->
+      <div class="svc-card">
+        <div class="svc-icon-wrap">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
+        </div>
+        <div class="svc-title">NPA Advisory &amp; Loan Restructuring</div>
+        <div class="svc-subtitle">Stressed Asset Management</div>
+        <ul class="svc-list">
+          <li>Early identification of signs of financial stress and pre-NPA advisory to prevent classification</li>
+          <li>One Time Settlement (OTS) negotiations and documentation support with lenders</li>
+          <li>ECLGS (Emergency Credit Line Guarantee Scheme) eligibility review and application support</li>
+          <li>Loan restructuring proposals under RBI guidelines — repayment rescheduling and moratorium structuring</li>
+          <li>Representation before bank committees and review meetings on behalf of borrowers</li>
         </ul>
       </div>
 
     </div>
-
-    <div class="why-box">
-      <h2>Why Businesses Choose Us</h2>
-      <ul>
-        <li>Structured financial documentation</li>
-        <li>Practical understanding of SME funding</li>
-        <li>Better financial presentation support</li>
-        <li>Advisory-focused business assistance</li>
-      </ul>
-    </div>
-
   </div>
-</section>
+</div>
+
+<!-- ═══════════════════════════════════
+     HOW WE WORK — PROCESS
+═══════════════════════════════════ -->
+<div class="section section-alt">
+  <div class="section-inner">
+    <div class="section-label">Our Process</div>
+    <h2 class="section-title">How We Get You Loan-Ready</h2>
+    <p class="section-desc">A structured, step-by-step approach to take your funding requirement from idea to sanction.</p>
+    <div class="process-steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4>Business Assessment</h4>
+        <p>We review your financials, credit profile, existing debt and funding requirement to map the right approach.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4>Lender Matching</h4>
+        <p>We identify the most suitable banks or NBFCs based on your sector, loan type, amount and repayment capacity.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4>Documentation</h4>
+        <p>CMA data, projections, project report and full loan file prepared in zero-deficiency, bank-ready format.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4>Submission &amp; Follow-Up</h4>
+        <p>We submit the application and track it through credit appraisal, query resolution and sanction stages.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <h4>Post-Sanction Compliance</h4>
+        <p>Ongoing support for stock statements, annual renewals, limit enhancements and regulatory reporting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     WHY CHOOSE US
+═══════════════════════════════════ -->
+<div class="section">
+  <div class="section-inner">
+    <div class="section-label">Why Choose Us</div>
+    <h2 class="section-title">What Sets Our Finance Advisory Apart</h2>
+    <div class="gold-rule"></div>
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-num">01</div>
+        <div class="why-text">
+          <h4>CA-Led Financial Storytelling</h4>
+          <p>Banks respond to numbers that are accurate, consistent and well-presented. As chartered accountants, we prepare financials that withstand scrutiny and build banker confidence.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">02</div>
+        <div class="why-text">
+          <h4>Deep SME &amp; MSME Understanding</h4>
+          <p>Most of our clients are small and medium businesses. We understand the documentation challenges, informal cash flows and sector-specific nuances that generic consultants miss.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">03</div>
+        <div class="why-text">
+          <h4>Bank-Aligned Documentation</h4>
+          <p>CMA data, project reports and projections prepared in formats actually used by PSU and private banks — not generic templates that get sent back with queries.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">04</div>
+        <div class="why-text">
+          <h4>Government Scheme Expertise</h4>
+          <p>We actively track MSME schemes, interest subventions and guarantee covers. Many businesses leave money on the table simply because they don't know what they're eligible for.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">05</div>
+        <div class="why-text">
+          <h4>Tax &amp; Finance Integration</h4>
+          <p>Because we also handle your tax returns and compliance, we can ensure your ITR filings and balance sheets are consistent and optimised for both tax efficiency and credit worthiness.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-num">06</div>
+        <div class="why-text">
+          <h4>No Broker Incentives</h4>
+          <p>We are a fee-based advisory firm. We don't earn commissions from banks or NBFCs, which means our lender recommendation is always based on what's best for your business.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ICAI NOTE -->
+    <div class="icai-note">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+      <div>
+        <strong>ICAI Compliance Note:</strong> In accordance with the ethical guidelines of the Institute of Chartered Accountants of India (ICAI), this page is intended solely for informational purposes regarding the professional services offered by the firm. It does not constitute solicitation, advertisement or a guarantee of loan approval outcomes. All funding facilitation is subject to the lending institution's own credit assessment and approval process.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     CONSULT BANNER
+═══════════════════════════════════ -->
+<div class="consult-banner">
+  <div class="consult-text">
+    <div class="badge">Get in Touch</div>
+    <h3>Ready to Get Your Business Loan-Ready?</h3>
+    <p>Talk to us about your funding requirement — we'll assess your profile and tell you exactly what's possible.</p>
+  </div>
+  <a href="book.html" target="_blank" class="consult-cta">
+    <svg viewBox="0 0 24 24"><path d="M8 2v2M16 2v2M3 8h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    Schedule a Meeting →
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><img src="logo1.png" alt="Sanjay B C &amp; Co."></div>
+      <p class="footer-desc">Sanjay B C &amp; Co., Chartered Accountants, No.296, 1st Floor, S V Tower, Opp. to Hotel Janatha, Wilsongarden, Bangalore - 560 027, Karnataka India</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="virtual-cfo.html">Business Growth &amp; CFO Advisory</a>
+      <a href="litigation.html">Tax Notices, Litigation &amp; Representation</a>
+      <a href="riskcontrol.html">Risk Control &amp; Business Systems</a>
+      <a href="auditing.html">Audit &amp; Assurance</a>
+      <a href="compliance.html">Tax &amp; Compliance</a>
+      <a href="international-tax.html">International Taxation</a>
+      <a href="finance.html">Business Finance &amp; Banking Support</a>
+      <a href="business-setup.html">Business Setup</a>
+      <a href="payroll.html">Payroll Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="contactus.html">India Office</a>
+      <a href="contactus.html">UAE Desk</a>
+      <a href="contactus.html">UK Desk</a>
+      <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-social">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">X</a>
+      <a href="#">YouTube</a>
+    </div>
+    <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
+    <div style="display:flex;gap:20px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Terms of Use</a>
+      <a href="privacy.html">Disclaimer</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════
+     WHATSAPP FLOAT
+═══════════════════════════════════ -->
+<a href="https://wa.me/919738081962" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.676 4.782 1.854 6.762L2 30l7.47-1.832A13.936 13.936 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.61l-.422-.25-4.436 1.088 1.12-4.316-.277-.444A11.6 11.6 0 1 1 16 27.6zm6.34-8.68c-.347-.174-2.054-1.013-2.374-1.13-.32-.116-.552-.173-.784.174-.232.347-.9 1.13-1.102 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.718-1.03-.918-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.435-.029-.608-.087-.174-.784-1.89-1.074-2.59-.283-.68-.57-.587-.784-.597l-.667-.012c-.232 0-.608.087-.926.434-.318.347-1.218 1.19-1.218 2.9s1.247 3.364 1.42 3.597c.174.232 2.453 3.747 5.944 5.254.83.359 1.48.573 1.985.733.834.266 1.593.228 2.193.138.669-.1 2.054-.84 2.344-1.65.29-.812.29-1.508.203-1.65-.086-.145-.318-.232-.665-.406z"/>
+  </svg>
+</a>
 
 </body>
 </html>
