@@ -1,410 +1,733 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>International Taxation &amp; Cross-Border Advisory | Sanjay B C &amp; Co.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="shared.css">
-  <style>
-    /* ── PAGE-SPECIFIC MICRO-LAYOUTS ONLY ── */
-    
-    /* Cross-Border Risk Banner */
-    .risk-notice { 
-      background: #FFFDF9; 
-      border-left: 4px solid var(--gold); 
-      border-bottom: 1px solid var(--border); 
-      padding: 18px 64px; 
-    }
-    .risk-inner { 
-      max-width: 1280px; 
-      margin: 0 auto; 
-      display: flex; 
-      align-items: center; 
-      gap: 16px; 
-    }
-    .risk-icon svg { 
-      width: 20px; 
-      height: 20px; 
-      stroke: var(--gold); 
-      stroke-width: 2; 
-      fill: none; 
-      flex-shrink: 0; 
-      display: block; 
-    }
-    .risk-text { 
-      font-size: 14px; 
-      color: var(--navy); 
-      line-height: 1.6; 
-    }
-    .risk-text strong { 
-      font-weight: 600; 
-      color: #9E1A1A; 
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>International Taxation &amp; Cross-Border Advisory | Sanjay B C &amp; Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+<style>
+/* =============================================
+   INTERNATIONAL TAX PAGE — SPECIFIC STYLES ONLY
+   (navbar, footer, topbar, whatsapp → shared.css)
+============================================= */
 
-    /* Split Overview Card */
-    .intro-card {
-      background: var(--navy); 
-      border-radius: 12px; 
-      padding: 56px;
-      display: grid; 
-      grid-template-columns: 1.1fr 0.9fr; 
-      gap: 64px; 
-      align-items: center;
-      margin-bottom: 16px; 
-      position: relative; 
-      overflow: hidden; 
-      border: 1px solid rgba(184,148,42,0.15);
-    }
-    .intro-card::after {
-      content: ''; 
-      position: absolute; 
-      right: -60px; 
-      top: -60px;
-      width: 260px; 
-      height: 260px; 
-      border: 1px solid rgba(184,148,42,.08); 
-      border-radius: 50%; 
-      pointer-events: none;
-    }
-    .intro-card h2 { 
-      font-family: 'Cormorant Garamond', serif; 
-      font-size: clamp(28px, 3vw, 36px); 
-      font-weight: 700; 
-      color: #fff; 
-      line-height: 1.2; 
-      margin-bottom: 20px; 
-    }
-    .intro-card h2 em { 
-      color: var(--gold-lt); 
-      font-style: italic; 
-    }
-    .intro-card p { 
-      font-size: 15px; 
-      color: rgba(255,255,255,.65); 
-      line-height: 1.8; 
-    }
-    .intro-pillars { 
-      display: flex; 
-      flex-direction: column; 
-      gap: 16px; 
-      position: relative; 
-      z-index: 2; 
-    }
-    .pillar {
-      display: flex; 
-      align-items: flex-start; 
-      gap: 16px;
-      background: rgba(255,255,255,.03); 
-      border: 1px solid rgba(184,148,42,.12);
-      border-radius: 8px; 
-      padding: 18px 20px; 
-      transition: all 0.2s;
-    }
-    .pillar:hover { 
-      background: rgba(255,255,255,0.05); 
-      border-color: var(--gold); 
-    }
-    .pillar-icon {
-      width: 40px; 
-      height: 40px; 
-      background: rgba(184,148,42,.15);
-      border-radius: 6px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      flex-shrink: 0;
-    }
-    .pillar-icon svg { 
-      width: 20px; 
-      height: 20px; 
-      stroke: var(--gold-lt); 
-      fill: none; 
-      stroke-width: 1.75; 
-    }
-    .pillar-text strong { 
-      display: block; 
-      font-size: 14.5px; 
-      font-weight: 600; 
-      color: rgba(255,255,255,.9); 
-      margin-bottom: 4px; 
-    }
-    .pillar-text span { 
-      font-size: 13px; 
-      color: rgba(255,255,255,.5); 
-      line-height: 1.5; 
-      display: block; 
-    }
+body {
+  background: var(--off-white);
+}
 
-    /* Statutory Scope Matrix Pills */
-    .framework-grid {
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 16px;
-    }
-    .framework-pill {
-      background: var(--off-white); 
-      border: 1px solid var(--border);
-      border-radius: 8px; 
-      padding: 18px 22px;
-      display: flex; 
-      align-items: center; 
-      gap: 14px; 
-      transition: all .25s ease;
-    }
-    .framework-pill:hover { 
-      border-color: var(--gold); 
-      background: #fff; 
-      transform: translateY(-2px); 
-      box-shadow: var(--shadow-sm); 
-    }
-    .framework-dot { 
-      width: 6px; 
-      height: 6px; 
-      background: var(--gold); 
-      border-radius: 50%; 
-      flex-shrink: 0; 
-    }
-    .framework-pill span { 
-      font-size: 13.5px; 
-      font-weight: 500; 
-      color: var(--navy); 
-      line-height: 1.4; 
-      letter-spacing: -0.01em; 
-    }
+/* ── BREADCRUMB ── */
+.breadcrumb-bar {
+  background: var(--white);
+  border-bottom: 1px solid rgba(13,27,46,0.07);
+  padding: 12px 48px;
+}
 
-    /* Structural Deliverable Grid Columns */
-    .services-grid { 
-      display: grid; 
-      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr)); 
-      gap: 24px; 
-    }
-    .svc-card {
-      background: var(--off-white); 
-      border: 1px solid var(--border);
-      border-radius: 10px; 
-      padding: 36px 32px; 
-      position: relative; 
-      overflow: hidden;
-      transition: transform .25s, box-shadow .25s, border-color .25s;
-    }
-    .svc-card::before { 
-      content: ''; 
-      position: absolute; 
-      top: 0; 
-      left: 0; 
-      width: 4px; 
-      height: 0; 
-      background: var(--gold); 
-      transition: height .3s ease; 
-    }
-    .svc-card:hover { 
-      transform: translateY(-6px); 
-      box-shadow: var(--shadow-md); 
-      border-color: var(--gold); 
-    }
-    .svc-card:hover::before { 
-      height: 100%; 
-    }
-    .svc-icon-wrap { 
-      width: 48px; 
-      height: 48px; 
-      background: var(--navy); 
-      border-radius: 8px; 
-      display: flex; 
-      align-items: center; 
-      justify-content: center; 
-      margin-bottom: 22px; 
-    }
-    .svc-icon-wrap svg { 
-      width: 22px; 
-      height: 22px; 
-      stroke: var(--gold-lt); 
-      fill: none; 
-      stroke-width: 1.75; 
-    }
-    .svc-title { 
-      font-family: 'Cormorant Garamond', serif; 
-      font-size: 22px; 
-      font-weight: 700; 
-      color: var(--navy); 
-      margin-bottom: 18px; 
-      line-height: 1.2; 
-    }
-    .svc-list { 
-      list-style: none; 
-    }
-    .svc-list li {
-      font-size: 14px; 
-      color: var(--muted); 
-      padding: 10px 0; 
-      border-bottom: 1px solid rgba(184,148,42,.08);
-      display: flex; 
-      align-items: flex-start; 
-      gap: 12px; 
-      line-height: 1.5;
-    }
-    .svc-list li:last-child { 
-      border-bottom: none; 
-    }
-    .svc-list li::before { 
-      content: ''; 
-      width: 5px; 
-      height: 5px; 
-      background: var(--gold); 
-      border-radius: 50%; 
-      flex-shrink: 0; 
-      margin-top: 7px; 
-    }
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: var(--text-muted);
+}
 
-    /* Fixed Floating WhatsApp Integration Placement */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background-color: #25D366;
-      color: #FFF;
-      border-radius: 50%;
-      text-align: center;
-      width: 56px;
-      height: 56px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: transform 0.3s ease;
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-    }
-    .whatsapp-float svg {
-      width: 30px;
-      height: 30px;
-      fill: currentColor;
-    }
+.breadcrumb a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
 
-    /* Media Adaptive Layout Breakdowns */
-    @media (max-width: 1160px) {
-      .services-grid { grid-template-columns: 1fr 1fr; }
-    }
-    @media (max-width: 1024px) {
-      .risk-notice { padding-left: 32px; padding-right: 32px; }
-      .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
-    }
-    @media (max-width: 768px) {
-      .risk-notice { padding-left: 24px; padding-right: 24px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .framework-grid { grid-template-columns: 1fr; }
-    }
-  </style>
+.breadcrumb a:hover { color: var(--gold); }
+
+.breadcrumb-sep {
+  color: rgba(13,27,46,0.25);
+  font-size: 14px;
+}
+
+.breadcrumb span:last-child {
+  color: var(--gold);
+  font-weight: 500;
+}
+
+/* ── PAGE HERO ── */
+.page-hero {
+  background: var(--navy);
+  color: var(--white);
+  padding: 64px 48px 52px;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(184,146,42,0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.hero-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.page-hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(38px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.page-hero h1 em {
+  color: var(--gold-light);
+  font-style: italic;
+  display: block;
+}
+
+.hero-desc {
+  font-size: 15.5px;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.75;
+  max-width: 600px;
+  position: relative;
+}
+
+.gold-line {
+  width: 56px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-top: 28px;
+  position: relative;
+}
+
+/* ── RISK NOTICE BANNER ── */
+.risk-notice {
+  background: #FFFDF9;
+  border-left: 4px solid var(--gold);
+  border-bottom: 1px solid rgba(13,27,46,0.08);
+  padding: 18px 48px;
+}
+
+.risk-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.risk-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  stroke-width: 2;
+  fill: none;
+  flex-shrink: 0;
+  display: block;
+}
+
+.risk-text {
+  font-size: 14px;
+  color: var(--navy);
+  line-height: 1.6;
+}
+
+.risk-text strong {
+  font-weight: 600;
+  color: #9E1A1A;
+}
+
+/* ── SECTIONS ── */
+.section {
+  padding: 64px 48px;
+}
+
+.section-alt {
+  background: var(--white);
+}
+
+.section-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3.5vw, 34px);
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.gold-rule {
+  width: 48px;
+  height: 3px;
+  background: var(--gold);
+  border-radius: 2px;
+  margin-bottom: 40px;
+}
+
+/* ── INTRO CARD (dark split) ── */
+.intro-card {
+  background: var(--navy);
+  border-radius: 12px;
+  padding: 56px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(184,146,42,0.15);
+}
+
+.intro-card::after {
+  content: '';
+  position: absolute;
+  right: -60px;
+  top: -60px;
+  width: 260px;
+  height: 260px;
+  border: 1px solid rgba(184,146,42,0.08);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.intro-card h2 {
+  font-family: var(--serif);
+  font-size: clamp(26px, 3vw, 34px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.intro-card h2 em {
+  color: var(--gold-light);
+  font-style: italic;
+}
+
+.intro-card > div > p {
+  font-size: 15px;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.8;
+}
+
+.intro-pillars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.pillar {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(184,146,42,0.12);
+  border-radius: 8px;
+  padding: 18px 20px;
+  transition: all 0.2s;
+}
+
+.pillar:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--gold);
+}
+
+.pillar-icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(184,146,42,0.15);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.pillar-icon svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.pillar-text strong {
+  display: block;
+  font-size: 14.5px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 4px;
+}
+
+.pillar-text span {
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+  display: block;
+}
+
+/* ── FRAMEWORK PILLS GRID ── */
+.framework-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.framework-pill {
+  background: var(--off-white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-radius: 8px;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: all 0.25s ease;
+}
+
+.framework-pill:hover {
+  border-color: var(--gold);
+  background: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(13,27,46,0.08);
+}
+
+.framework-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.framework-pill span {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: var(--navy);
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+
+/* ── SERVICE CARDS GRID ── */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 24px;
+}
+
+.svc-card {
+  background: var(--off-white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-radius: 10px;
+  padding: 36px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+}
+
+.svc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 0;
+  background: var(--gold);
+  transition: height 0.3s ease;
+}
+
+.svc-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(13,27,46,0.1);
+  border-color: var(--gold);
+}
+
+.svc-card:hover::before { height: 100%; }
+
+.svc-icon-wrap {
+  width: 48px;
+  height: 48px;
+  background: var(--navy);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+
+.svc-icon-wrap svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 1.75;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.svc-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 18px;
+  line-height: 1.2;
+}
+
+.svc-list {
+  list-style: none;
+}
+
+.svc-list li {
+  font-size: 14px;
+  color: var(--text-muted);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(184,146,42,0.08);
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  line-height: 1.6;
+}
+
+.svc-list li:last-child { border-bottom: none; }
+
+.svc-list li::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  background: var(--gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 8px;
+}
+
+/* ── ICAI NOTE ── */
+.icai-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 40px;
+  padding: 24px 28px;
+  background: var(--off-white);
+  border: 1px solid rgba(13,27,46,0.1);
+  border-left: 4px solid var(--gold);
+  border-radius: 0 8px 8px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
+.icai-note svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--gold);
+  fill: none;
+  stroke-width: 1.75;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.icai-note strong { color: var(--navy); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1160px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 1024px) {
+  .intro-card { grid-template-columns: 1fr; gap: 40px; padding: 40px; }
+  .risk-notice { padding-left: 32px; padding-right: 32px; }
+}
+
+@media (max-width: 900px) {
+  .section { padding: 48px 20px; }
+  .breadcrumb-bar { padding: 12px 20px; }
+  .page-hero { padding: 48px 20px 40px; }
+  .risk-notice { padding-left: 20px; padding-right: 20px; }
+}
+
+@media (max-width: 768px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .framework-grid { grid-template-columns: 1fr; }
+}
+</style>
 </head>
 <body>
 
+<!-- ═══════════════════════════════════
+     TOP BAR
+═══════════════════════════════════ -->
 <div class="topbar">
-  <span>Administrative Practice Profile — Dissemination Framework</span>
-  <div class="topbar-right">
-    <a href="mailto:office@sanjaybc.com">office@sanjaybc.com</a>
-    <a href="tel:+918000000000">+91 80 0000 0000</a>
+  <span class="topbar-brand"> </span>
+  <div class="topbar-links">
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a><span>|</span>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#"> </a>
+    <a href="#" class="topbar-cta"> </a>
   </div>
 </div>
 
-<header>
-  <div class="header-inner">
-    <a href="index.html" class="logo-wrap">
-      <img src="logo1.png" alt="Sanjay B C & Co">
-    </a>
-
-    <nav class="nav-menu">
-      <a href="index.html">Home</a>
-
-      <div class="nav-item">
-        <a href="about.html">
-          About Us
-          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown">
-          <a href="about.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Firm Overview</div></a>
-          <a href="team.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Our Team</div></a>
-          <a href="industries.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Industries We Serve</div></a>
-        </div>
+<!-- ═══════════════════════════════════
+     MAIN NAVBAR
+═══════════════════════════════════ -->
+<nav>
+  <a href="index.html" class="logo-wrap">
+    <img
+      src="logo1.png"
+      alt="Sanjay B C & Co."
+      onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+    >
+    <div style="display:none; align-items:center; gap:10px;">
+      <div class="logo-initials">SBC</div>
+      <div>
+        <div class="logo-name">Sanjay B C &amp; Co.</div>
+        <div class="logo-tagline">Chartered Accountants</div>
       </div>
+    </div>
+  </a>
 
-      <div class="nav-item">
-        <a href="#" class="active-nav">
-          Services
-          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown">
-          <a href="compliance.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Tax &amp; Compliance</div></a>
-          <a href="virtual-cfo.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">CFO Advisory</div></a>
-          <a href="litigation.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Litigation &amp; Notices</div></a>
-          <a href="riskcontrol.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Risk &amp; Internal Controls</div></a>
-        </div>
-      </div>
-
-      <div class="nav-item">
-        <a href="resources.html">
-          Resources
-          <svg class="chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-        </a>
-        <div class="dropdown">
-          <a href="blog.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Blogs &amp; Articles</div></a>
-          <a href="downloads.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">Downloads</div></a>
-          <a href="faqs.html" class="dd-row"><div class="dd-row-bar"></div><div class="dd-row-label">FAQs</div></a>
-        </div>
-      </div>
-
-      <a href="insights.html">Insights</a>
-      <a href="careers.html">Careers</a>
-      <a href="contactus.html" class="nav-cta">Contact Us</a>
-    </nav>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle Navigation">
-      <svg viewBox="0 0 24 24"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
-    </button>
-  </div>
-</header>
-
-<div class="mobile-overlay" id="mobileOverlay"></div>
-<div class="mobile-drawer" id="mobileDrawer">
-  <div class="drawer-header">
-    <img src="logo1.png" alt="Sanjay B C & Co" style="height: 40px;">
-    <button class="drawer-close" id="drawerClose">
-      <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-    </button>
-  </div>
-  <div class="drawer-links">
+  <div class="nav-links">
     <a href="index.html">Home</a>
-    
-    <div class="drawer-heading">About Us</div>
-    <div class="drawer-sub-links">
-      <a href="about.html">Firm Overview</a>
-      <a href="team.html">Our Team</a>
-      <a href="industries.html">Industries We Serve</a>
+
+    <!-- ABOUT US DROPDOWN -->
+    <div class="nav-item">
+      <a href="#">
+        About Us
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Who We Are</div>
+        <a href="about.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Firm Overview</div>
+            <div class="dd-row-sub">Our history, values &amp; professional approach</div>
+          </div>
+        </a>
+        <a href="team.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Our Team</div>
+            <div class="dd-row-sub">Meet the professionals behind the firm</div>
+          </div>
+        </a>
+        <a href="industries.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M2 20h20M4 20V10l8-6 8 6v10M10 20v-6h4v6"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Industries We Serve</div>
+            <div class="dd-row-sub">Sectors &amp; business types we specialise in</div>
+          </div>
+        </a>
+      </div>
     </div>
 
-    <div class="drawer-heading">Services</div>
-    <div class="drawer-sub-links">
-      <a href="compliance.html">Tax &amp; Compliance</a>
-      <a href="virtual-cfo.html">CFO Advisory</a>
-      <a href="litigation.html">Litigation &amp; Notices</a>
-      <a href="riskcontrol.html">Risk &amp; Internal Controls</a>
+    <!-- SERVICES DROPDOWN — active on this page -->
+    <div class="nav-item">
+      <a href="#" class="active-nav">
+        Services
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Core Practice Areas</div>
+        <a href="virtual-cfo.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 21V9"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Growth &amp; CFO Advisory</div>
+            <div class="dd-row-sub">Cash flow, MIS, budgeting &amp; strategic finance</div>
+          </div>
+        </a>
+        <a href="litigation.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax Notices, Litigation &amp; Representation</div>
+            <div class="dd-row-sub">Notices, assessments &amp; dispute handling</div>
+          </div>
+        </a>
+        <a href="riskcontrol.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Risk Control &amp; Business Systems</div>
+            <div class="dd-row-sub">Governance, SOPs &amp; process controls</div>
+          </div>
+        </a>
+        <a href="auditing.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Audit &amp; Assurance</div>
+            <div class="dd-row-sub">Statutory audit &amp; financial reporting</div>
+          </div>
+        </a>
+        <div class="dd-group-label">Business Support Services</div>
+        <a href="compliance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Tax &amp; Compliance</div>
+            <div class="dd-row-sub">Direct tax, GST &amp; compliance support</div>
+          </div>
+        </a>
+        <!-- CURRENT PAGE — highlighted -->
+        <a href="international-tax.html" class="dd-row active-nav">
+          <div class="dd-row-bar" style="background:var(--gold);"></div>
+          <div class="dd-icon" style="background:rgba(184,146,42,0.2);">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">International Tax</div>
+            <div class="dd-row-sub">Cross-border taxation &amp; structuring</div>
+          </div>
+        </a>
+        <a href="finance.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2M12 12v4M10 14h4"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Finance &amp; Banking</div>
+            <div class="dd-row-sub">Funding, banking &amp; financial structuring</div>
+          </div>
+        </a>
+        <a href="business-setup.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Business Setup</div>
+            <div class="dd-row-sub">Entity formation &amp; regulatory registrations</div>
+          </div>
+        </a>
+        <a href="payroll.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Payroll Services</div>
+            <div class="dd-row-sub">Payroll processing &amp; labour compliance</div>
+          </div>
+        </a>
+      </div>
     </div>
 
-    <div class="drawer-heading">Resources</div>
-    <div class="drawer-sub-links">
-      <a href="blog.html">Blogs &amp; Articles</a>
-      <a href="downloads.html">Downloads</a>
-      <a href="faqs.html">FAQs</a>
+    <!-- RESOURCES DROPDOWN -->
+    <div class="nav-item">
+      <a href="#">
+        Resources
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </a>
+      <div class="dropdown dropdown--wide">
+        <div class="dd-group-label">Knowledge Centre</div>
+        <a href="blog.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Blogs &amp; Articles</div>
+            <div class="dd-row-sub">Expert views on tax, finance &amp; compliance</div>
+          </div>
+        </a>
+        <a href="downloads.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">Downloads</div>
+            <div class="dd-row-sub">Checklists, formats &amp; reference documents</div>
+          </div>
+        </a>
+        <a href="faqs.html" class="dd-row">
+          <div class="dd-row-bar"></div>
+          <div class="dd-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 015.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
+          </div>
+          <div class="dd-text">
+            <div class="dd-row-label">FAQs</div>
+            <div class="dd-row-sub">Quick answers to common queries</div>
+          </div>
+        </a>
+      </div>
     </div>
 
-    <a href="insights.html" style="margin-top: 10px;">Insights</a>
+    <a href="insights.html">Insights</a>
     <a href="careers.html">Careers</a>
-    <a href="contactus.html" class="nav-cta" style="margin-left:0; text-align:center; margin-top:16px;">Contact Us</a>
+    <a href="contactus.html">Contact Us</a>
   </div>
-</div>
+</nav>
 
+<!-- ═══════════════════════════════════
+     BREADCRUMB
+═══════════════════════════════════ -->
 <div class="breadcrumb-bar">
   <div class="breadcrumb">
     <a href="index.html">Home</a>
@@ -415,18 +738,24 @@
   </div>
 </div>
 
-<div class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow"><span></span> Practice Area 05</div>
-    <h1>International Taxation<br/>&amp; <em>Cross-Border Services</em></h1>
-    <p class="hero-desc">
-      Strategic structuring, inbound/outbound investment planning, double tax mitigation (DTAA), 
-      and strict transfer pricing defense frameworks for global enterprises and non-residents.
-    </p>
-  </div>
-  <div class="hero-ring"></div>
+<!-- ═══════════════════════════════════
+     HERO
+═══════════════════════════════════ -->
+<div class="page-hero">
+  <div class="hero-eyebrow">Practice Area 05</div>
+  <h1>International Taxation
+    <em>&amp; Cross-Border Services</em>
+  </h1>
+  <p class="hero-desc">
+    Strategic structuring, inbound/outbound investment planning, double tax mitigation (DTAA),
+    and strict transfer pricing defense frameworks for global enterprises and non-residents.
+  </p>
+  <div class="gold-line"></div>
 </div>
 
+<!-- ═══════════════════════════════════
+     RISK NOTICE BANNER
+═══════════════════════════════════ -->
 <div class="risk-notice">
   <div class="risk-inner">
     <div class="risk-icon">
@@ -438,11 +767,14 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════
+     INTRO CARD SECTION
+═══════════════════════════════════ -->
 <div class="section">
   <div class="section-inner">
     <div class="intro-card">
       <div>
-        <h2>Navigating Global<br/><em>Taxation Realities</em></h2>
+        <h2>Navigating Global<br><em>Taxation Realities</em></h2>
         <p>
           Expanding operations globally or routing inbound capital requires navigating fluid, overlaying regulatory frameworks. We deliver multi-jurisdictional clarity through strict corporate tax architecting, transfer pricing reporting, and comprehensive foreign remittance structuring designed to preserve international asset values.
         </p>
@@ -462,7 +794,7 @@
             <svg viewBox="0 0 24 24"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/></svg>
           </div>
           <div class="pillar-text">
-            <strong>Arm’s Length Defense</strong>
+            <strong>Arm's Length Defense</strong>
             <span>Rigorous economic benchmarking analytics ensuring absolute legal alignment with Transfer Pricing rules.</span>
           </div>
         </div>
@@ -480,6 +812,9 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════
+     FRAMEWORK SCOPE
+═══════════════════════════════════ -->
 <div class="section section-alt">
   <div class="section-inner">
     <div class="section-label">Scope of Competency</div>
@@ -499,6 +834,9 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════
+     CORE CAPABILITIES
+═══════════════════════════════════ -->
 <div class="section">
   <div class="section-inner">
     <div class="section-label">Core Capabilities</div>
@@ -547,6 +885,7 @@
 
     </div>
 
+    <!-- ICAI NOTE -->
     <div class="icai-note">
       <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
       <div>
@@ -556,38 +895,86 @@
   </div>
 </div>
 
+<!-- ═══════════════════════════════════
+     CONSULT BANNER
+═══════════════════════════════════ -->
+<div class="consult-banner">
+  <div class="consult-text">
+    <div class="badge">Get in Touch</div>
+    <h3>Stay Compliant. Stay Growth Ready.</h3>
+    <p>"Integrated tax, finance and advisory solutions for modern businesses."</p>
+  </div>
+  <a href="book.html" target="_blank" class="consult-cta">
+    <svg viewBox="0 0 24 24"><path d="M8 2v2M16 2v2M3 8h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" stroke="white" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    Schedule a Meeting →
+  </a>
+</div>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+═══════════════════════════════════ -->
 <footer>
-  &copy; 2026 <strong>Sanjay B C &amp; Co.</strong> Chartered Accountants. All Rights Reserved.
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><img src="logo1.png" alt="Sanjay B C &amp; Co."></div>
+      <p class="footer-desc">Sanjay B C &amp; Co., Chartered Accountants, No.296, 1st Floor, S V Tower, Opp. to Hotel Janatha, Wilsongarden, Bangalore - 560 027, Karnataka India</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="virtual-cfo.html">Business Growth &amp; CFO Advisory</a>
+      <a href="litigation.html">Tax Notices, Litigation &amp; Representation</a>
+      <a href="riskcontrol.html">Risk Control &amp; Business Systems</a>
+      <a href="auditing.html">Audit &amp; Assurance</a>
+      <a href="compliance.html">Tax &amp; Compliance</a>
+      <a href="international-tax.html">International Taxation</a>
+      <a href="finance.html">Business Finance &amp; Banking Support</a>
+      <a href="business-setup.html">Business Setup</a>
+      <a href="payroll.html">Payroll Services</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="index.html">Services</a>
+      <a href="resources.html">Resources</a>
+      <a href="insights.html">Insights</a>
+      <a href="careers.html">Careers</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <a href="contactus.html">India Office</a>
+      <a href="contactus.html">UAE Desk</a>
+      <a href="contactus.html">UK Desk</a>
+      <a href="mailto:ca.sanjay@sanjaybc.com">ca.sanjay@sanjaybc.com</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-social">
+      <a href="#">LinkedIn</a>
+      <a href="#">Instagram</a>
+      <a href="#">Facebook</a>
+      <a href="#">X</a>
+      <a href="#">YouTube</a>
+    </div>
+    <span>© 2026 Sanjay B C &amp; Co., Chartered Accountants. All rights reserved.</span>
+    <div style="display:flex;gap:20px;">
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Terms of Use</a>
+      <a href="privacy.html">Disclaimer</a>
+    </div>
+  </div>
 </footer>
 
-<a href="https://wa.me/919738081962" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 448 512">
-    <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+<!-- ═══════════════════════════════════
+     WHATSAPP FLOAT
+═══════════════════════════════════ -->
+<a href="https://wa.me/919738081962" target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <div class="wa-pulse"></div>
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 2C8.268 2 2 8.268 2 16c0 2.47.676 4.782 1.854 6.762L2 30l7.47-1.832A13.936 13.936 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.56 11.56 0 0 1-5.89-1.61l-.422-.25-4.436 1.088 1.12-4.316-.277-.444A11.6 11.6 0 1 1 16 27.6zm6.34-8.68c-.347-.174-2.054-1.013-2.374-1.13-.32-.116-.552-.173-.784.174-.232.347-.9 1.13-1.102 1.362-.203.232-.405.26-.752.087-.347-.174-1.464-.54-2.788-1.718-1.03-.918-1.726-2.05-1.928-2.397-.203-.347-.022-.535.152-.707.157-.155.347-.405.52-.608.174-.203.232-.347.347-.578.116-.232.058-.435-.029-.608-.087-.174-.784-1.89-1.074-2.59-.283-.68-.57-.587-.784-.597l-.667-.012c-.232 0-.608.087-.926.434-.318.347-1.218 1.19-1.218 2.9s1.247 3.364 1.42 3.597c.174.232 2.453 3.747 5.944 5.254.83.359 1.48.573 1.985.733.834.266 1.593.228 2.193.138.669-.1 2.054-.84 2.344-1.65.29-.812.29-1.508.203-1.65-.086-.145-.318-.232-.665-.406z"/>
   </svg>
 </a>
-
-<script>
-  const menuToggle = document.getElementById('menuToggle');
-  const drawerClose = document.getElementById('drawerClose');
-  const mobileDrawer = document.getElementById('mobileDrawer');
-  const mobileOverlay = document.getElementById('mobileOverlay');
-
-  function openDrawer() {
-    mobileDrawer.classList.add('active');
-    mobileOverlay.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeDrawer() {
-    mobileDrawer.classList.remove('active');
-    mobileOverlay.classList.remove('active');
-    document.body.style.overflow = '';
-  }
-
-  menuToggle.addEventListener('click', openDrawer);
-  drawerClose.addEventListener('click', closeDrawer);
-  mobileOverlay.addEventListener('click', closeDrawer);
-</script>
 
 </body>
 </html>
